@@ -2,29 +2,29 @@
 
 // ============================================================================
 // systolic_array_engine_stream.sv  (PASTE-READY)
-// - AXI-Stream À¯»ç ready/valid ÀÔÃâ·Â
+// - AXI-Stream ï¿½ï¿½ï¿½ï¿½ ready/valid ï¿½ï¿½ï¿½ï¿½ï¿½
 // - IDLE -> RUN -> FLUSH -> DONE
-// - ÆÄ¶ó¹ÌÅÍ PIPE_LATENCY µ¿¾È µ¥ÀÌÅÍ Áö¿¬(=¿¬»ê Èä³»)
-// - i_size_param: ÃÑ "Àü¼Û ¿öµå ¼ö"·Î ÇØ¼® (DATA_WIDTH ±âÁØ)
+// - ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ PIPE_LATENCY ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(=ï¿½ï¿½ï¿½ï¿½ ï¿½ä³»)
+// - i_size_param: ï¿½ï¿½ "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½"ï¿½ï¿½ ï¿½Ø¼ï¿½ (DATA_WIDTH ï¿½ï¿½ï¿½ï¿½)
 // ============================================================================
 module systolic_array_engine #(
   parameter int DATA_WIDTH   = 32,
-  parameter int PIPE_LATENCY = 8   // ¿¬»ê ÆÄÀÌÇÁ¶óÀÎ Áö¿¬(»çÀÌÅ¬)
+  parameter int PIPE_LATENCY = 8   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Å¬)
 )(
   input  logic                  clk,
   input  logic                  rst_n,
 
-  // Control (·¹Áö½ºÅÍ¿¡¼­ µé¾î¿È)
-  input  logic                  i_start,        // ·¹º§ ÀÔ·Â ¡æ ³»ºÎ¿¡¼­ ÆÞ½ºÈ­
-  input  logic [31:0]           i_size_param,   // ÃÑ ¿öµå ¼ö
-  input  logic [31:0]           i_src_addr,     // ÇÊ¿ä½Ã »ç¿ë
-  input  logic [31:0]           i_wgt_addr,     // ÇÊ¿ä½Ã »ç¿ë
-  input  logic [31:0]           i_dst_addr,     // ÇÊ¿ä½Ã »ç¿ë
+  // Control (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+  input  logic                  i_start,        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½È­
+  input  logic [31:0]           i_size_param,   // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+  input  logic [31:0]           i_src_addr,     // ï¿½Ê¿ï¿½ï¿½ ï¿½ï¿½ï¿½
+  input  logic [31:0]           i_wgt_addr,     // ï¿½Ê¿ï¿½ï¿½ ï¿½ï¿½ï¿½
+  input  logic [31:0]           i_dst_addr,     // ï¿½Ê¿ï¿½ï¿½ ï¿½ï¿½ï¿½
 
   // Status
   output logic                  o_busy,
-  output logic                  o_done,         // 1Å¬·° ÆÞ½º
-  output logic                  o_error,        // ´Ü¼ø ·¡Ä¡(¿©±â¼± 0)
+  output logic                  o_done,         // 1Å¬ï¿½ï¿½ ï¿½Þ½ï¿½
+  output logic                  o_error,        // ï¿½Ü¼ï¿½ ï¿½ï¿½Ä¡(ï¿½ï¿½ï¿½â¼± 0)
 
   // Stream IN  (from dma_read)
   input  logic [DATA_WIDTH-1:0] s_tdata,
@@ -38,7 +38,7 @@ module systolic_array_engine #(
 );
 
   // ---------------------------
-  // 0) start ÆÞ½ºÈ­ + ¼ö¶ô Á¶°Ç
+  // 0) start ï¿½Þ½ï¿½È­ + ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
   // ---------------------------
   logic start_d, start_pulse;
   always_ff @(posedge clk) begin
@@ -57,30 +57,30 @@ module systolic_array_engine #(
   typedef enum logic [1:0] {IDLE, RUN, FLUSH, DONE} state_t;
   state_t st;
 
-  // ÃÑ ¿öµå ¼ö Ä«¿îÆ® (ÀÔ·Â ¼ö¶ô ±âÁØ)
+  // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½Æ® (ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
   logic [31:0] words_goal;     // i_size_param latch
-  logic [31:0] words_in_cnt;   // ¼ö½Å ¿Ï·á ¿öµå¼ö
-  logic [31:0] words_out_cnt;  // ¼Û½Å ¿Ï·á ¿öµå¼ö
+  logic [31:0] words_in_cnt;   // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+  logic [31:0] words_out_cnt;  // ï¿½Û½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
-  // ¿À·ù´Â ÀÏ´Ü »ç¿ë ¾ÈÇÔ
+  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
   assign o_error = 1'b0;
 
   // ---------------------------
-  // 2) °£´ÜÇÑ ÆÄÀÌÇÁ¶óÀÎ(¿¬»ê Èä³»)
-  //    - ±æÀÌ PIPE_LATENCYÀÎ ½¬ÇÁÆ® ·¹Áö½ºÅÍ
-  //    - À¯È¿ºñÆ®µµ °°Àº ±æÀÌ·Î µô·¹ÀÌ
+  // 2) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ä³»)
+  //    - ï¿½ï¿½ï¿½ï¿½ PIPE_LATENCYï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  //    - ï¿½ï¿½È¿ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   // ---------------------------
   logic [DATA_WIDTH-1:0] pipe_data   [0:PIPE_LATENCY-1];
   logic                  pipe_valid  [0:PIPE_LATENCY-1];
 
-  // ÀÔ·Â ¼ö¶ô Á¶°Ç: RUN »óÅÂ¿¡¼­¸¸ ¹Þ°í, ÃÑ ¸ñÇ¥·®º¸´Ù Àû°Ô ¹Þ´Â µ¿¾È
+  // ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: RUN ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ°ï¿½, ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½
   wire can_accept = (st==RUN) && (words_in_cnt < words_goal);
 
-  // s_tready: ¿ì¸®°¡ ¹ÞÀ» ¼ö ÀÖÀ» ¶§, ±×¸®°í ´ÙÀ½ ½ºÅ×ÀÌÁö°¡ ¹éÇÁ·¹¼Å ¾øÀÌ Èê¸± ¼ö ÀÖÀ» ¶§
-  // (¿©±â¼± ÆÄÀÌÇÁ¶óÀÎ Ã¹ ½ºÅ×ÀÌÁö°¡ Ç×»ó ¼ö¿ë °¡´ÉÇÏ´Ù°í °¡Á¤)
+  // s_tready: ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ê¸± ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+  // (ï¿½ï¿½ï¿½â¼± ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½)
   assign s_tready = can_accept;
 
-  // ÆÄÀÌÇÁ¶óÀÎ ½ÃÇÁÆ®
+  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
   integer i;
   always_ff @(posedge clk) begin
     if(!rst_n) begin
@@ -89,15 +89,15 @@ module systolic_array_engine #(
         pipe_valid[i] <= 1'b0;
       end
     end else begin
-      // stage0: »õ µ¥ÀÌÅÍ ¼ö¶ô
+      // stage0: ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
       if (s_tvalid && s_tready) begin
         pipe_data[0]  <= s_tdata;
         pipe_valid[0] <= 1'b1;
       end else begin
-        // ¼ö¶ô ¾È ÇÏ¸é stage0 valid´Â º°µµ À¯Áö ¾È ÇÔ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï¸ï¿½ stage0 validï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
         pipe_valid[0] <= 1'b0;
       end
-      // ³ª¸ÓÁö ´Ü°è ½ÃÇÁÆ®
+      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
       for (i=1; i<PIPE_LATENCY; i++) begin
         pipe_data[i]  <= pipe_data[i-1];
         pipe_valid[i] <= pipe_valid[i-1];
@@ -105,15 +105,14 @@ module systolic_array_engine #(
     end
   end
 
-  // ÆÄÀÌÇÁ¶óÀÎ ¸¶Áö¸·ÀÌ Ãâ·Â
+  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
   assign m_tdata  = pipe_data [PIPE_LATENCY-1];
   assign m_tvalid = pipe_valid[PIPE_LATENCY-1];
 
-  // ¼Û½Å ¼ö¶ô
+  // ï¿½Û½ï¿½ ï¿½ï¿½ï¿½
   wire send_fire = m_tvalid && m_tready;
 
-  // ---------------------------
-  // 3) Ä«¿îÅÍ/»óÅÂ Á¦¾î
+  // 3) Ä«ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
   // ---------------------------
   always_ff @(posedge clk) begin
     if(!rst_n) begin
@@ -124,7 +123,7 @@ module systolic_array_engine #(
       words_in_cnt <= 32'd0;
       words_out_cnt<= 32'd0;
     end else begin
-      o_done <= 1'b0; // ÆÞ½º
+      o_done <= 1'b0; // ï¿½Þ½ï¿½
 
       case (st)
         IDLE: begin
@@ -133,7 +132,7 @@ module systolic_array_engine #(
           words_out_cnt<= 32'd0;
 
           if (start_pulse) begin
-            // ¸ñÇ¥·® latch (0ÀÌ¸é ¹Ù·Î DONE Ã³¸® °¡´É)
+            // ï¿½ï¿½Ç¥ï¿½ï¿½ latch (0ï¿½Ì¸ï¿½ ï¿½Ù·ï¿½ DONE Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
             words_goal <= i_size_param;
             o_busy     <= (i_size_param != 0);
             st         <= (i_size_param == 0) ? DONE : RUN;
@@ -143,11 +142,11 @@ module systolic_array_engine #(
         RUN: begin
           o_busy <= 1'b1;
 
-          // ÀÔ·Â ¼ö¶ô ½Ã ÀÔ·Â Ä«¿îÆ® Áõ°¡
+          // ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½ Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
           if (s_tvalid && s_tready)
             words_in_cnt <= words_in_cnt + 1;
 
-          // ¸ðµç ÀÔ·ÂÀ» ´Ù ¹Þ¾ÒÀ¸¸é Ãâ·Â ÀÜ¿© ÇÃ·¯½Ã ´Ü°è·Î
+          // ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ü¿ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ï¿½
           if (words_in_cnt == words_goal)
             st <= FLUSH;
         end
@@ -155,18 +154,18 @@ module systolic_array_engine #(
         FLUSH: begin
           o_busy <= 1'b1;
 
-          // Ãâ·ÂÀÌ ³ª°¥ ¶§¸¸ Ãâ·Â Ä«¿îÆ® Áõ°¡
+          // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
           if (send_fire)
             words_out_cnt <= words_out_cnt + 1;
 
-          // ¸ñÇ¥·® ¸¸Å­ ÀüºÎ ³»º¸³ÂÀ¸¸é DONE
+          // ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DONE
           if (words_out_cnt == words_goal)
             st <= DONE;
         end
 
         DONE: begin
           o_busy <= 1'b0;
-          o_done <= 1'b1; // 1Å¬·° ÆÞ½º
+          o_done <= 1'b1; // 1Å¬ï¿½ï¿½ ï¿½Þ½ï¿½
           st     <= IDLE;
         end
 
