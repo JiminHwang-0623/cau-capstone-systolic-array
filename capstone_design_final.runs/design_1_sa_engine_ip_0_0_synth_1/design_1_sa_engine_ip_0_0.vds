@@ -1,0 +1,496 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Oct 10 16:19:51 2025
+# Process ID: 4476
+# Current directory: C:/Users/sudea/capstone_design_final/capstone_design_final.runs/design_1_sa_engine_ip_0_0_synth_1
+# Command line: vivado.exe -log design_1_sa_engine_ip_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_sa_engine_ip_0_0.tcl
+# Log file: C:/Users/sudea/capstone_design_final/capstone_design_final.runs/design_1_sa_engine_ip_0_0_synth_1/design_1_sa_engine_ip_0_0.vds
+# Journal file: C:/Users/sudea/capstone_design_final/capstone_design_final.runs/design_1_sa_engine_ip_0_0_synth_1\vivado.jou
+# Running On: BOOK-Q06N8541RB, OS: Windows, CPU Frequency: 3302 MHz, CPU Physical cores: 8, Host memory: 33834 MB
+#-----------------------------------------------------------
+source design_1_sa_engine_ip_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/sudea/capstone_design_final/sa_engine_ip_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
+Command: synth_design -top design_1_sa_engine_ip_0_0 -part xc7z020clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 26644
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_sa_engine_ip_0_0' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ip/design_1_sa_engine_ip_0_0/synth/design_1_sa_engine_ip_0_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v:4]
+INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0_S00_AXI' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-226] default block is never used [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v:265]
+INFO: [Synth 8-226] default block is never used [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v:400]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg15_reg was removed.  [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v:262]
+INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0_S00_AXI' (1#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sa_core_pipeline' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'dma_read' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/dma_read.sv:2]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/dma_read.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'dma_read' (2#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/dma_read.sv:2]
+WARNING: [Synth 8-689] width (1) of port connection 'M_AXI_ARUSER' does not match port width (2) of module 'dma_read' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:152]
+INFO: [Synth 8-6157] synthesizing module 'systolic_array_engine' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/systolic_array_engine.sv:10]
+INFO: [Synth 8-226] default block is never used [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/systolic_array_engine.sv:129]
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array_engine' (3#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/systolic_array_engine.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'dma_write' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/dma_write.sv:2]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/dma_write.sv:64]
+INFO: [Synth 8-6155] done synthesizing module 'dma_write' (4#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/dma_write.sv:2]
+WARNING: [Synth 8-689] width (1) of port connection 'M_AXI_AWUSER' does not match port width (2) of module 'dma_write' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:217]
+WARNING: [Synth 8-689] width (1) of port connection 'M_AXI_WUSER' does not match port width (2) of module 'dma_write' [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:223]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:248]
+INFO: [Synth 8-226] default block is never used [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:248]
+WARNING: [Synth 8-6014] Unused sequential element eng_start_pulse_reg was removed.  [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:173]
+INFO: [Synth 8-6155] done synthesizing module 'sa_core_pipeline' (5#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv:13]
+WARNING: [Synth 8-3848] Net m00_axi_txn_done in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v:60]
+WARNING: [Synth 8-3848] Net m00_axi_error in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0' (6#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_sa_engine_ip_0_0' (7#1) [c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ip/design_1_sa_engine_ip_0_0/synth/design_1_sa_engine_ip_0_0.v:58]
+WARNING: [Synth 8-7129] Port i_base_addr[31] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[30] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[29] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[28] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[27] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[26] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[25] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[24] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[23] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[22] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[21] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[20] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[19] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[18] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[17] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[16] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[15] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[14] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[13] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[12] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[11] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[10] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[9] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[8] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[7] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[6] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[5] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[4] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[3] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[2] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[1] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_base_addr[0] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[31] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[30] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[29] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[28] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[27] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[26] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[25] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[24] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[23] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[22] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[21] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[20] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[19] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[18] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[17] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[16] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[15] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[14] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[13] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[12] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[11] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[10] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[9] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[8] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[7] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[6] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[5] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[4] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[3] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[2] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[1] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_byte_len[0] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[31] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[30] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[29] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[28] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[27] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[26] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[25] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[24] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[23] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[22] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[21] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[20] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[19] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[18] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[17] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[16] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[15] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[14] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[13] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[12] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[11] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[10] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[9] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[8] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[7] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[6] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[5] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[4] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[3] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[2] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[1] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_data[0] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_AWREADY in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_WREADY in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[0] in module dma_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BRESP[1] in module dma_write is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1261.684 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1261.684 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'rs_reg' in module 'dma_read'
+INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'systolic_array_engine'
+INFO: [Synth 8-802] inferred FSM for state register 'ws_reg' in module 'dma_write'
+INFO: [Synth 8-802] inferred FSM for state register 'cs_reg' in module 'sa_core_pipeline'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  R_IDLE |                              001 |                               00
+                  R_BUSY |                              010 |                               01
+                  R_DONE |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rs_reg' using encoding 'one-hot' in module 'dma_read'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                     RUN |                               01 |                               01
+                   FLUSH |                               10 |                               10
+                    DONE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'st_reg' using encoding 'sequential' in module 'systolic_array_engine'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  W_IDLE |                              001 |                               00
+                  W_BUSY |                              010 |                               01
+                  W_DONE |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'ws_reg' using encoding 'one-hot' in module 'dma_write'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                               00 |                               00
+                  S_READ |                               01 |                               01
+                  S_COMP |                               10 |                               10
+                 S_WRITE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'cs_reg' using encoding 'sequential' in module 'sa_core_pipeline'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 29    
+	                6 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 36    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 15    
+	  16 Input   32 Bit        Muxes := 15    
+	   4 Input   32 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 6     
+	   3 Input    1 Bit        Muxes := 10    
+	   4 Input    1 Bit        Muxes := 12    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awid[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[31] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[30] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[29] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[28] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[27] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[26] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[25] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[24] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[23] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[22] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[21] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[20] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[19] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[18] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[17] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[16] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[15] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[14] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[13] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[12] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[11] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[10] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[9] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[8] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[7] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[6] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[5] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[4] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awaddr[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[7] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[6] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[5] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[4] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlen[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awsize[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awsize[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awsize[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awburst[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awburst[0] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awlock driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awcache[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awcache[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awcache[1] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awcache[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awprot[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awprot[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awprot[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awqos[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awqos[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awqos[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awqos[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awuser[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_awvalid driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[31] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[30] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[29] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[28] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[27] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[26] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[25] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[24] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[23] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[22] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[21] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[20] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[19] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[18] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[17] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[16] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[15] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[14] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[13] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[12] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[11] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[10] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[9] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[8] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[7] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[6] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[5] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[4] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wdata[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wstrb[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wstrb[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wstrb[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wstrb[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wlast driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wuser[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_wvalid driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_0 has port m00_axi_bready driven by constant 1
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1261.684 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    26|
+|2     |LUT1   |     2|
+|3     |LUT2   |    72|
+|4     |LUT3   |     4|
+|5     |LUT4   |    47|
+|6     |LUT5   |    42|
+|7     |LUT6   |   186|
+|8     |MUXF7  |    64|
+|9     |MUXF8  |    32|
+|10    |FDRE   |   656|
+|11    |FDSE   |     3|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 56 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1261.703 ; gain = 0.020
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1261.703 ; gain = 0.020
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1273.727 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 122 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1287.203 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 292372f5
+INFO: [Common 17-83] Releasing license: Synthesis
+148 Infos, 108 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1287.203 ; gain = 25.520
+INFO: [Common 17-1381] The checkpoint 'C:/Users/sudea/capstone_design_final/capstone_design_final.runs/design_1_sa_engine_ip_0_0_synth_1/design_1_sa_engine_ip_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_sa_engine_ip_0_0, cache-ID = 9be755e7ea8c2a66
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/sudea/capstone_design_final/capstone_design_final.runs/design_1_sa_engine_ip_0_0_synth_1/design_1_sa_engine_ip_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_sa_engine_ip_0_0_utilization_synth.rpt -pb design_1_sa_engine_ip_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 10 16:20:15 2025...

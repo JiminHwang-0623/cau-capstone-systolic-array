@@ -1,0 +1,25 @@
+verilog xil_defaultlib --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" \
+"../../../bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
+
+sv xil_defaultlib --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" \
+"../../../bd/design_1/ipshared/bd1d/hdl/dma_read.sv" \
+"../../../bd/design_1/ipshared/bd1d/hdl/dma_write.sv" \
+"../../../bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv" \
+"../../../bd/design_1/ipshared/bd1d/hdl/systolic_array_engine.sv" \
+
+verilog xil_defaultlib --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" \
+"../../../bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v" \
+"../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
+"../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
+"../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
+"../../../bd/design_1/ip/design_1_auto_us_0/sim/design_1_auto_us_0.v" \
+"../../../bd/design_1/ip/design_1_auto_ds_0/sim/design_1_auto_ds_0.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_1/sim/design_1_auto_pc_1.v" \
+"../../../bd/design_1/ip/design_1_s00_mmu_0/sim/design_1_s00_mmu_0.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_2/sim/design_1_auto_pc_2.v" \
+"../../../bd/design_1/sim/design_1.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
