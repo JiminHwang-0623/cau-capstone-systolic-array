@@ -215,28 +215,28 @@
 [현재 상태]
 Skeleton only (동작 불가)
          ↓
-[Phase 1] 기본 동작 구현 (2-3주)
+[Phase 1] 기본 동작 구현 
 - DMA Read/Write 완전 구현
 - End-to-end 데이터 전송 검증
          ↓
-[Phase 2] Systolic Array 구현 (2-3주)
+[Phase 2] Systolic Array 구현 
 - 4x4 또는 8x8 크기
 - Weight Stationary
 - 기능 검증
          ↓
-[Phase 3-1] DRAM 최적화 (1-2주)
+[Phase 3-1] DRAM 최적화 
 - Burst 크기 실험
 - 메모리 대역폭 측정
          ↓
-[Phase 3-2] 파이프라이닝 (1-2주)
+[Phase 3-2] 파이프라이닝 
 - Double buffering
 - Idle time 감소
          ↓
-[Phase 3-3] BRAM 캐싱 (1-2주)
+[Phase 3-3] BRAM 캐싱 
 - Tiling 구현
 - 가중치 재사용
          ↓
-[Phase 3-4] 구조 최적화 (2-3주)
+[Phase 3-4] 구조 최적화 
 - Array 크기 실험
 - 데이터플로우 비교
 ```
