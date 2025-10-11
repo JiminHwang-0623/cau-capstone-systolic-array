@@ -378,6 +378,7 @@ for (int i = 0; i < 16; i++) {
 - **Project**: Capstone Design (졸업작품)
 - **Board**: PYNQ-Z2 (Zynq-7000)
 - **Last Updated**: 2025-10-11
+- **Email**: sudeangi0623@cau.ac.kr
 
 ---
 
