@@ -105,12 +105,12 @@
 		output wire  m00_axi_rready
 	);
 	
-	// Internal Control Signals
+	// Internal Control Signals (Contest Code Compatible)
     wire              engine_start;
-    wire [31:0]       engine_src_addr;
-    wire [31:0]       engine_wgt_addr;
-    wire [31:0]       engine_dst_addr;
-    wire [31:0]       engine_size_param;
+    wire [31:0]       engine_read_base_addr;   // Contest: i_ctrl_reg1
+    wire [31:0]       engine_write_base_addr;  // Contest: i_ctrl_reg2
+    wire [31:0]       engine_num_trans_param;  // DMA transfer size
+    wire [31:0]       engine_max_blk_param;    // Block count
     wire              engine_done;
     wire              engine_busy;
     wire              engine_error;
@@ -142,10 +142,10 @@
 		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
 		.o_start(engine_start),
-        .o_src_addr(engine_src_addr),
-        .o_wgt_addr(engine_wgt_addr),
-        .o_dst_addr(engine_dst_addr),
-        .o_size_param(engine_size_param),
+        .o_read_base_addr(engine_read_base_addr),
+        .o_write_base_addr(engine_write_base_addr),
+        .o_num_trans_param(engine_num_trans_param),
+        .o_max_blk_param(engine_max_blk_param),
         .i_done(engine_done),
         .i_busy(engine_busy),
         .i_error(engine_error)
@@ -233,12 +233,12 @@
         .M_AXI_ACLK(m00_axi_aclk),
         .M_AXI_ARESETN(m00_axi_aresetn),
 
-        // Control
+        // Control (Contest Code Compatible)
         .i_start(engine_start),
-        .i_src_addr(engine_src_addr),
-        .i_wgt_addr(engine_wgt_addr),
-        .i_dst_addr(engine_dst_addr),
-        .i_size_param(engine_size_param),
+        .i_read_base_addr(engine_read_base_addr),
+        .i_write_base_addr(engine_write_base_addr),
+        .i_num_trans_param(engine_num_trans_param),
+        .i_max_blk_param(engine_max_blk_param),
 
         // Status
         .o_busy(engine_busy),

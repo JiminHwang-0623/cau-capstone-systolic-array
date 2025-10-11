@@ -6,7 +6,7 @@
 //		Write the final output feature map to DRAM by AXI4
 //
 // Ported for Capstone Design Project
-// Note: Functional port names kept identical to verified contest version
+// Last Updated: 2025-10-11 (by Jimin Hwang)
 //----------------------------------------------------------------+
 
 `timescale 1ns/1ps

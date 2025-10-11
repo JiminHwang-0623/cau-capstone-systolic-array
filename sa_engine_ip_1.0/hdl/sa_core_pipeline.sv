@@ -1,8 +1,7 @@
 // ============================================================================
-// sa_core_pipeline.sv (FINAL, SystemVerilog)
-//   - AXI-Full Master + AXI-Lite Control + Stream DMA + Systolic Engine
-//   - FSM: IDLE �� READ �� COMP(����) �� WRITE
-//   - Engine uses AXI-Stream-like interface (ready/valid)
+// sa_core_pipeline.sv (Contest Code Compatible)
+//   - AXI-Full Master + AXI-Lite Control + DMA + sa_core (Verified)
+// Last Updated: 2025-10-11 (by Jimin Hwang)
 // ============================================================================
 
 `timescale 1ns/1ps
@@ -18,19 +17,21 @@ module sa_core_pipeline #(
   parameter int C_M_AXI_ARUSER_WIDTH = 0,
   parameter int C_M_AXI_WUSER_WIDTH  = 0,
   parameter int C_M_AXI_RUSER_WIDTH  = 0,
-  parameter int C_M_AXI_BUSER_WIDTH  = 0
+  parameter int C_M_AXI_BUSER_WIDTH  = 0,
+  parameter int AXI_WIDTH_AD         = 32,
+  parameter int BIT_TRANS            = 8
 )(
   input  logic                       S_AXI_ACLK,
   input  logic                       S_AXI_ARESETN,
   input  logic                       M_AXI_ACLK,
   input  logic                       M_AXI_ARESETN,
 
-  // Control from AXI-Lite
+  // Control from AXI-Lite (Contest code compatible)
   input  logic                       i_start,
-  input  logic [31:0]                i_src_addr,
-  input  logic [31:0]                i_wgt_addr,
-  input  logic [31:0]                i_dst_addr,
-  input  logic [31:0]                i_size_param,
+  input  logic [31:0]                i_read_base_addr,   // Contest: i_ctrl_reg1
+  input  logic [31:0]                i_write_base_addr,  // Contest: i_ctrl_reg2
+  input  logic [31:0]                i_num_trans_param,  // DMA transfer size
+  input  logic [31:0]                i_max_blk_param,    // Block count
 
   // Status
   output logic                       o_busy,
@@ -87,241 +88,248 @@ module sa_core_pipeline #(
 );
 
   // ========================================================================
-  // Stream Signals: READ �� ENGINE �� WRITE
+  // Internal Signals (Contest Code Compatible)
   // ========================================================================
-  logic [C_M_AXI_DATA_WIDTH-1:0] rd_data;
-  logic                          rd_valid;
-  logic                          rd_ready;
-  logic [7:0]                    rd_data_cnt;  // 8-bit word counter (contest style)
+  parameter BUFF_DEPTH    = 256;
+  parameter BUFF_ADDR_W   = $clog2(BUFF_DEPTH);
+  localparam BIT_TRANS_LOCAL = BUFF_ADDR_W;
 
-  logic [C_M_AXI_DATA_WIDTH-1:0] eng_data_out;
-  logic                          eng_valid_out;
-  logic                          eng_ready_out;
+  //CSR
+  logic ap_start;
+  logic ap_ready;
+  logic ap_done;
+  logic interrupt;
 
-  logic rd_done;   // Read done (from dma_read)
-  logic wr_done, wr_err;   // Write done/error (from dma_write)
+  logic [31:0] dram_base_addr_rd;
+  logic [31:0] dram_base_addr_wr;
+  logic [31:0] reserved_register;
+
+  // Signals for dma ctrl
+  logic [1:0]  start_rd_wr;  // From sa_core
+  logic        done_core;    // From sa_core
+  logic [10:0] dma_cnt;      // From sa_core
+
+  // Signals for dma read  
+  logic                              ctrl_read;
+  logic                              read_done;
+  logic [AXI_WIDTH_AD-1:0]           read_addr;
+  logic [C_M_AXI_DATA_WIDTH-1:0]     read_data;
+  logic                              read_data_vld;
+  logic [BIT_TRANS_LOCAL-1:0]        read_data_cnt;
+
+  // Signals for dma write
+  logic                              ctrl_write_done;
+  logic                              ctrl_write;
+  logic                              write_done;
+  logic                              indata_req_wr;
+  logic [BIT_TRANS_LOCAL-1:0]        write_data_cnt;
+  logic [AXI_WIDTH_AD-1:0]           write_addr;
+  logic [C_M_AXI_DATA_WIDTH-1:0]     write_data;
+
+  // FIX ME
+  logic [BIT_TRANS_LOCAL-1:0] num_trans        = 16;           // BURST_LENGTH = 16
+  logic [15:0]                max_req_blk_idx  = 32/16;        // The number of blocks
   
-  // Byte to Word conversion: 8-bit (contest code style)
-  // BUFF_DEPTH = 256, BUFF_ADDR_W = 8, BIT_TRANS = 8
-  logic [7:0] num_trans;
-  assign num_trans = i_size_param[9:2];  // 8-bit word count (max 256)
+  //----------------------------------------------------------------
+  // Control signals
+  //----------------------------------------------------------------
+  always_comb begin
+      ap_done     = done_core;
+      ap_ready    = 1'b1;
+  end
+  assign o_done  = interrupt;
+  assign o_busy  = ap_start && !done_core;
+  assign o_error = 1'b0;
 
-  logic eng_busy, eng_done, eng_error;
+  always_ff @(posedge S_AXI_ACLK or negedge S_AXI_ARESETN) begin
+      if(~S_AXI_ARESETN) begin
+          ap_start <= 1'b0;
+      end
+      else begin 
+          if(!ap_start && i_start)
+              ap_start <= 1'b1;
+          else if (ap_done)
+              ap_start <= 1'b0;    
+      end 
+  end
 
-  // DMA Control signals (from axi_dma_ctrl)
-  logic [1:0]  dma_ctrl_start;      // 2'b10=Read, 2'b11=Write
-  logic        dma_ctrl_read;       // Read control pulse
-  logic        dma_ctrl_write;      // Write control pulse
-  logic [31:0] dma_read_addr;       // Block-wise read address
-  logic [31:0] dma_write_addr;      // Block-wise write address
-  logic [7:0]  dma_write_data_cnt;  // 8-bit write data counter
-  logic        dma_ctrl_write_done; // Write complete from ctrl
+  always_ff @(posedge S_AXI_ACLK or negedge S_AXI_ARESETN) begin
+      if(~S_AXI_ARESETN) begin
+          interrupt <= 1'b0;
+      end
+      else begin        
+          if(i_start)
+              interrupt <= 1'b0;         
+          else if (ap_done)
+              interrupt <= 1'b1;                   
+      end
+  end
 
-  // ========================================================================
-  // DMA CONTROL (Block-wise address management)
-  // ========================================================================
+  // Parse the control registers
+  always_ff @(posedge S_AXI_ACLK or negedge S_AXI_ARESETN) begin
+      if(~S_AXI_ARESETN) begin
+          dram_base_addr_rd <= 32'd0;
+          dram_base_addr_wr <= 32'd0;
+          reserved_register <= 32'd0; // unused 
+      end
+      else begin 
+          if(!ap_start && i_start) begin 
+              dram_base_addr_rd <= i_read_base_addr;  // Base Address for READ
+              dram_base_addr_wr <= i_write_base_addr; // Base Address for WRITE
+              reserved_register <= 32'd0; 
+          end 
+          else if (ap_done) begin 
+              dram_base_addr_rd <= 32'd0;
+              dram_base_addr_wr <= 32'd0;
+              reserved_register <= 32'd0; 
+          end 
+      end 
+  end
+  
+  //----------------------------------------------------------------
+  // DUTs
+  //----------------------------------------------------------------
+  // DMA Controller
   axi_dma_ctrl #(
-    .AXI_WIDTH_AD  (C_M_AXI_ADDR_WIDTH),
-    .BIT_TRANS     (8)                 // 8-bit (contest code style)
-  ) u_axi_dma_ctrl (
-    .clk                  (M_AXI_ACLK),
-    .rstn                 (M_AXI_ARESETN),
-    .i_start              (dma_ctrl_start),
-    .i_base_address_rd    (i_src_addr),
-    .i_base_address_wr    (i_dst_addr),
-    .i_num_trans          (num_trans),
-    .i_max_req_blk_idx    (16'd1),  // TODO: 나중에 레지스터로 변경
-    .row_cnt              (11'd0),  // Not used yet
-    // DMA Read control
-    .i_read_done          (rd_done),
-    .o_ctrl_read          (dma_ctrl_read),
-    .o_read_addr          (dma_read_addr),
-    // DMA Write control
-    .i_write_done         (wr_done),
-    .i_indata_req_wr      (eng_ready_out),  // Engine ready = indata request
-    .o_ctrl_write         (dma_ctrl_write),
-    .o_write_addr         (dma_write_addr),
-    .o_write_data_cnt     (dma_write_data_cnt),
-    .o_ctrl_write_done    (dma_ctrl_write_done)
+      .AXI_WIDTH_AD(AXI_WIDTH_AD),
+      .BIT_TRANS(BIT_TRANS_LOCAL)
+  ) u_dma_ctrl(
+      .clk              (M_AXI_ACLK          )
+     ,.rstn             (M_AXI_ARESETN       )
+     ,.i_start          (start_rd_wr         )
+     ,.i_base_address_rd(dram_base_addr_rd   )
+     ,.i_base_address_wr(dram_base_addr_wr   )
+     ,.i_num_trans      (num_trans           )
+     ,.i_max_req_blk_idx(max_req_blk_idx     )
+     ,.row_cnt          (dma_cnt             ) 
+     // DMA Read
+     ,.i_read_done      (read_done           )
+     ,.o_ctrl_read      (ctrl_read           )
+     ,.o_read_addr      (read_addr           )
+     // DMA Write
+     ,.i_indata_req_wr  (indata_req_wr       )
+     ,.i_write_done     (write_done          )
+     ,.o_ctrl_write     (ctrl_write          )
+     ,.o_write_addr     (write_addr          )
+     ,.o_write_data_cnt (write_data_cnt      )
+     ,.o_ctrl_write_done(ctrl_write_done     )
   );
 
-  // ========================================================================
-  // FSM
-  // ========================================================================
-  typedef enum logic [1:0] {S_IDLE, S_READ, S_COMP, S_WRITE} core_state_t;
-  core_state_t cs;
-
-  logic start_d, start_pulse;
-  always_ff @(posedge S_AXI_ACLK) begin
-    if(!S_AXI_ARESETN) begin
-      start_d <= 1'b0;
-      start_pulse <= 1'b0;
-    end else begin
-      start_pulse <= i_start & ~start_d;
-      start_d     <= i_start;
-    end
-  end
-
-  // ========================================================================
-  // DMA READ (Verified code from contest - axi_dma_rd)
-  // ========================================================================
+  // DMA read module
   dma_read #(
-    .AXI_WIDTH_ID   (C_M_AXI_ID_WIDTH),
-    .AXI_WIDTH_AD   (C_M_AXI_ADDR_WIDTH),
-    .AXI_WIDTH_DA   (C_M_AXI_DATA_WIDTH),
-    .BITS_TRANS     (8),               // 8-bit (contest code style)
-    .OUT_BITS_TRANS (18)               // Unused, but match contest definition
-  ) u_dma_read (
-    // Global signals (original naming)
-    .clk            (M_AXI_ACLK),
-    .rstn           (M_AXI_ARESETN),
-    
-    // Functional Ports (controlled by axi_dma_ctrl)
-    .start_dma      (dma_ctrl_read),      // From axi_dma_ctrl
-    .num_trans      (num_trans),          // 18-bit word count
-    .start_addr     (dma_read_addr),      // Block address from axi_dma_ctrl
-    .data_o         (rd_data),
-    .data_vld_o     (rd_valid),
-    .data_cnt_o     (rd_data_cnt),
-    .done_o         (rd_done),
-    
-    // AXI4 Master Read Interface
-    .M_AXI_ARID     (M_AXI_ARID),
-    .M_AXI_ARADDR   (M_AXI_ARADDR),
-    .M_AXI_ARLEN    (M_AXI_ARLEN),
-    .M_AXI_ARSIZE   (M_AXI_ARSIZE),
-    .M_AXI_ARBURST  (M_AXI_ARBURST),
-    .M_AXI_ARLOCK   (M_AXI_ARLOCK),
-    .M_AXI_ARCACHE  (M_AXI_ARCACHE),
-    .M_AXI_ARPROT   (M_AXI_ARPROT),
-    .M_AXI_ARQOS    (M_AXI_ARQOS),
-    .M_AXI_ARUSER   (M_AXI_ARUSER),
-    .M_AXI_ARVALID  (M_AXI_ARVALID),
-    .M_AXI_ARREADY  (M_AXI_ARREADY),
-    .M_AXI_RID      (M_AXI_RID),
-    .M_AXI_RDATA    (M_AXI_RDATA),
-    .M_AXI_RRESP    (M_AXI_RRESP),
-    .M_AXI_RLAST    (M_AXI_RLAST),
-    .M_AXI_RUSER    (M_AXI_RUSER),
-    .M_AXI_RVALID   (M_AXI_RVALID),
-    .M_AXI_RREADY   (M_AXI_RREADY)
+          .BITS_TRANS(BIT_TRANS_LOCAL),
+          .OUT_BITS_TRANS(18),            // Unused, match contest
+          .AXI_WIDTH_USER(1),             // Master ID
+          .AXI_WIDTH_ID(C_M_AXI_ID_WIDTH),
+          .AXI_WIDTH_AD(AXI_WIDTH_AD),    // address width
+          .AXI_WIDTH_DA(C_M_AXI_DATA_WIDTH),    // data width
+          .AXI_WIDTH_DS(C_M_AXI_DATA_WIDTH/8)   // data strobe width
+      )
+  u_dma_read(
+      //AXI Master Interface
+      //Read address channel
+      .M_AXI_ARVALID	(M_AXI_ARVALID	  ),
+      .M_AXI_ARREADY	(M_AXI_ARREADY	  ),
+      .M_AXI_ARADDR	(M_AXI_ARADDR	  ),
+      .M_AXI_ARID		(M_AXI_ARID		  ),
+      .M_AXI_ARLEN	(M_AXI_ARLEN	  ),
+      .M_AXI_ARSIZE	(M_AXI_ARSIZE	  ),
+      .M_AXI_ARBURST	(M_AXI_ARBURST	  ),
+      .M_AXI_ARLOCK	(M_AXI_ARLOCK	  ),
+      .M_AXI_ARCACHE	(M_AXI_ARCACHE	  ),
+      .M_AXI_ARPROT	(M_AXI_ARPROT	  ),
+      .M_AXI_ARQOS	(M_AXI_ARQOS	  ),
+      .M_AXI_ARUSER	(M_AXI_ARUSER	  ),
+   
+      //Read data channel
+      .M_AXI_RVALID	(M_AXI_RVALID	  ),
+      .M_AXI_RREADY	(M_AXI_RREADY	  ),
+      .M_AXI_RDATA	(M_AXI_RDATA	  ),
+      .M_AXI_RLAST	(M_AXI_RLAST	  ),
+      .M_AXI_RID		(M_AXI_RID		  ),
+      .M_AXI_RUSER	(M_AXI_RUSER	  ),
+      .M_AXI_RRESP	(M_AXI_RRESP	  ),
+       
+      //Functional Ports
+      .start_dma	(ctrl_read      ),
+      .num_trans	(num_trans      ), //Number of 128-bit words transferred
+      .start_addr	(read_addr      ), //iteration_num * 4 * 16 + read_address_d	
+      .data_o		(read_data      ),
+      .data_vld_o	(read_data_vld  ),
+      .data_cnt_o	(read_data_cnt  ),
+      .done_o		(read_done      ),
+
+      //Global signals
+      .clk        (M_AXI_ACLK      ),
+      .rstn       (M_AXI_ARESETN   )
   );
 
-  // ========================================================================
-  // ENGINE (streaming)
-  // ========================================================================
-  systolic_array_engine #(
-    .DATA_WIDTH  (C_M_AXI_DATA_WIDTH),
-    .PIPE_LATENCY(8)
-  ) u_engine (
-    .clk         (S_AXI_ACLK),
-    .rst_n       (S_AXI_ARESETN),
-    .i_start     (eng_start_pulse),
-    .i_size_param(i_size_param),
-    .i_src_addr  (i_src_addr),
-    .i_wgt_addr  (i_wgt_addr),
-    .i_dst_addr  (i_dst_addr),
-    .o_busy      (eng_busy),
-    .o_done      (eng_done),
-    .o_error     (eng_error),
-    .s_tdata     (rd_data),
-    .s_tvalid    (rd_valid),
-    .s_tready    (rd_ready),
-    .m_tdata     (eng_data_out),
-    .m_tvalid    (eng_valid_out),
-    .m_tready    (eng_ready_out)
-  );
-
-  // ========================================================================
-  // DMA WRITE (Verified code from contest - axi_dma_wr)
-  // ========================================================================
-  
+  // DMA write module
   dma_write #(
-    .AXI_WIDTH_ID   (C_M_AXI_ID_WIDTH),
-    .AXI_WIDTH_AD   (C_M_AXI_ADDR_WIDTH),
-    .AXI_WIDTH_DA   (C_M_AXI_DATA_WIDTH),
-    .BITS_TRANS     (8),               // 8-bit (contest code style)
-    .OUT_BITS_TRANS (8)                // Same as BITS_TRANS (contest code style)
-  ) u_dma_write (
-    // Global signals (original naming)
-    .clk            (M_AXI_ACLK),
-    .rstn           (M_AXI_ARESETN),
-    
-    // Functional Ports (controlled by axi_dma_ctrl)
-    .start_dma      (dma_ctrl_write),    // From axi_dma_ctrl
-    .num_trans      (num_trans),         // No slicing (contest code style)
-    .start_addr     (dma_write_addr),    // Block address from axi_dma_ctrl
-    .indata         (eng_data_out),
-    .indata_req_o   (eng_ready_out),     // Note: req becomes ready
-    .done_o         (wr_done),
-    .fail_check     (wr_err),            // fail_check mapped to error
-    .M_AXI_AWID    (M_AXI_AWID),
-    .M_AXI_AWADDR  (M_AXI_AWADDR),
-    .M_AXI_AWLEN   (M_AXI_AWLEN),
-    .M_AXI_AWSIZE  (M_AXI_AWSIZE),
-    .M_AXI_AWBURST (M_AXI_AWBURST),
-    .M_AXI_AWLOCK  (M_AXI_AWLOCK),
-    .M_AXI_AWCACHE (M_AXI_AWCACHE),
-    .M_AXI_AWPROT  (M_AXI_AWPROT),
-    .M_AXI_AWQOS   (M_AXI_AWQOS),
-    .M_AXI_AWUSER  (M_AXI_AWUSER),
-    .M_AXI_AWVALID (M_AXI_AWVALID),
-    .M_AXI_AWREADY (M_AXI_AWREADY),
-    .M_AXI_WDATA   (M_AXI_WDATA),
-    .M_AXI_WSTRB   (M_AXI_WSTRB),
-    .M_AXI_WLAST   (M_AXI_WLAST),
-    .M_AXI_WUSER   (M_AXI_WUSER),
-    .M_AXI_WVALID  (M_AXI_WVALID),
-    .M_AXI_WREADY  (M_AXI_WREADY),
-    .M_AXI_BID     (M_AXI_BID),
-    .M_AXI_BRESP   (M_AXI_BRESP),
-    .M_AXI_BUSER   (M_AXI_BUSER),
-    .M_AXI_BVALID  (M_AXI_BVALID),
-    .M_AXI_BREADY  (M_AXI_BREADY)
+          .BITS_TRANS(BIT_TRANS_LOCAL),
+          .OUT_BITS_TRANS(BIT_TRANS_LOCAL),    
+          .AXI_WIDTH_USER(1),           // Master ID
+          .AXI_WIDTH_ID(C_M_AXI_ID_WIDTH),
+          .AXI_WIDTH_AD(AXI_WIDTH_AD),  // address width
+          .AXI_WIDTH_DA(C_M_AXI_DATA_WIDTH),  // data width
+          .AXI_WIDTH_DS(C_M_AXI_DATA_WIDTH/8) // data strobe width
+      )
+  u_dma_write(
+      .M_AWID		(M_AXI_AWID		),
+      .M_AWADDR	(M_AXI_AWADDR	),
+      .M_AWLEN	(M_AXI_AWLEN	),
+      .M_AWSIZE	(M_AXI_AWSIZE	),
+      .M_AWBURST	(M_AXI_AWBURST	),
+      .M_AWLOCK	(M_AXI_AWLOCK	),
+      .M_AWCACHE	(M_AXI_AWCACHE	),
+      .M_AWPROT	(M_AXI_AWPROT	),
+      .M_AWQOS	(M_AXI_AWQOS	),
+      .M_AWVALID	(M_AXI_AWVALID	),
+      .M_AWREADY	(M_AXI_AWREADY	),
+      .M_AWUSER   (M_AXI_AWUSER   ),
+      //Write data channel
+      .M_WID		(                ), // Not used in AXI4
+      .M_WDATA	(M_AXI_WDATA	),
+      .M_WSTRB	(M_AXI_WSTRB	),
+      .M_WLAST	(M_AXI_WLAST	),
+      .M_WVALID	(M_AXI_WVALID	),
+      .M_WREADY	(M_AXI_WREADY	),
+      .M_WUSER    (M_AXI_WUSER    ),
+      .M_BUSER    (M_AXI_BUSER    ),    
+      //Write response channel
+      .M_BID		(M_AXI_BID		),
+      .M_BRESP	(M_AXI_BRESP	),
+      .M_BVALID	(M_AXI_BVALID	),
+      .M_BREADY	(M_AXI_BREADY	),
+      //Read address channel
+      //User interface
+      .start_dma	(ctrl_write     ),
+      .num_trans	(num_trans      ), //Number of words transferred
+      .start_addr	(write_addr     ),
+      .indata		(write_data     ),
+      .indata_req_o(indata_req_wr ),
+      .done_o		(write_done     ), //Blk transfer done
+      .fail_check (               ),
+      //User signals
+      .clk        (M_AXI_ACLK     ),
+      .rstn       (M_AXI_ARESETN  )
   );
 
-  // ========================================================================
-  // FSM (READ �� COMP �� WRITE)
-  // ========================================================================
-  always_ff @(posedge S_AXI_ACLK) begin
-    if(!S_AXI_ARESETN) begin
-      cs <= S_IDLE;
-      o_busy <= 1'b0; o_done <= 1'b0; o_error <= 1'b0;
-      dma_ctrl_start <= 2'b00;
-    end else begin
-      dma_ctrl_start <= 2'b00;  // Default: no DMA operation
-      o_done         <= 1'b0;
-      o_error        <= wr_err | eng_error;
+  // core module (Contest verified)
+  sa_core u_sa_core (
+      .clk            (M_AXI_ACLK),
+      .rstn           (M_AXI_ARESETN),
 
-      unique case (cs)
-        S_IDLE: begin
-          o_busy <= 1'b0;
-          if (start_pulse) begin
-            o_busy <= 1'b1;
-            dma_ctrl_start <= 2'b10;  // Start READ via axi_dma_ctrl
-            cs <= S_READ;
-          end
-        end
-        S_READ: begin
-          // Wait for block read to complete
-          // axi_dma_ctrl handles address calculation
-          if (rd_done) cs <= S_COMP;
-        end
-        S_COMP: begin
-          // Computation done in engine, start write
-          dma_ctrl_start <= 2'b11;  // Start WRITE via axi_dma_ctrl
-          cs <= S_WRITE;
-        end
-        S_WRITE: begin
-          // Wait for block write to complete
-          if (dma_ctrl_write_done && eng_done) begin
-            o_busy <= 1'b0;
-            o_done <= 1'b1;
-            cs <= S_IDLE;
-          end
-        end
-        default: cs <= S_IDLE;
-      endcase
-    end
-  end
+      .start          (ap_start),
+
+      .read_data_vld  (read_data_vld),
+      .DATA_IN        (read_data),
+
+      .start_rd_wr    (start_rd_wr),
+      .dma_cnt        (dma_cnt),
+      .DATA_OUT       (write_data),
+
+      .done           (done_core)
+  );
+
 endmodule

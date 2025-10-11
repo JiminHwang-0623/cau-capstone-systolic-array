@@ -8,6 +8,7 @@
 // Original: Contest verified code
 // Ported for Capstone Design Project
 // Note: Control logic only, no AXI interface
+// Last Updated: 2025-10-11 (by Jimin Hwang)
 //----------------------------------------------------------------+
 
 `timescale 1ns/1ps

@@ -14,18 +14,18 @@ module sa_engine_ip_v1_0_S00_AXI #
 )
 (
     // Users to add ports here
-    // <<<< START: 포트 추가 >>>>
-    // 제어 신호 출력 (To Engine)
+    // <<<< START: Port Addition >>>>
+    // Control signals output (To Engine)
     output wire o_start,
-    output wire [31:0] o_src_addr,
-    output wire [31:0] o_wgt_addr,
-    output wire [31:0] o_dst_addr,
-    output wire [31:0] o_size_param,
-    // 상태 신호 입력 (From Engine)
+    output wire [31:0] o_read_base_addr,   // slv_reg1 (Contest code i_ctrl_reg1)
+    output wire [31:0] o_write_base_addr,  // slv_reg2 (Contest code i_ctrl_reg2)
+    output wire [31:0] o_num_trans_param,  // slv_reg3 (DMA transfer size)
+    output wire [31:0] o_max_blk_param,    // slv_reg4 (Block count)
+    // Status signals input (From Engine)
     input wire i_done,
     input wire i_busy,
     input wire i_error,
-    // <<<< END: 포트 추가 >>>>
+    // <<<< END: Port Addition >>>>
 
     // User ports ends
     // Do not modify the ports beyond this line
@@ -139,30 +139,30 @@ module sa_engine_ip_v1_0_S00_AXI #
     integer byte_index;
     reg aw_en;
 
-    // <<<< START: 상태 레지스터 추가 >>>>
+    // <<<< START: 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쌩곤옙 >>>>
     reg [C_S_AXI_DATA_WIDTH-1:0] status_reg;
-    // <<<< END: 상태 레지스터 추가 >>>>
+    // <<<< END: 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쌩곤옙 >>>>
 
-    // <<<< START: 추가된 로직 >>>>
-    // 1. 제어 레지스터(slv_reg) 값을 엔진으로 나가는 출력 포트에 연결
-    assign o_start      = slv_reg0[0];  // 0번 레지스터 0번 비트 = 시작 신호
-    // assign o_soft_reset = slv_reg0[1]; // 필요시 리셋 신호도 추가 가능
-    assign o_src_addr   = slv_reg1;     // 1번 레지스터 = 소스 주소
-    assign o_wgt_addr   = slv_reg2;     // 2번 레지스터 = 가중치 주소
-    assign o_dst_addr   = slv_reg3;     // 3번 레지스터 = 목적지 주소
-    assign o_size_param = slv_reg4;     // 4번 레지스터 = 연산 크기 파라미터
+    // <<<< START: Register Assignment >>>>
+    // 1. Map control registers to output ports (Contest code compatible)
+    assign o_start           = slv_reg0[0];  // Reg0[0] = start signal
+    // assign o_soft_reset   = slv_reg0[1];  // Optional: soft reset
+    assign o_read_base_addr  = slv_reg1;     // Reg1 = Read base address (i_ctrl_reg1)
+    assign o_write_base_addr = slv_reg2;     // Reg2 = Write base address (i_ctrl_reg2)
+    assign o_num_trans_param = slv_reg3;     // Reg3 = DMA transfer word count
+    assign o_max_blk_param   = slv_reg4;     // Reg4 = Max block index
 
-    // 2. 엔진의 상태(done, busy)를 읽기 전용 상태 레지스터(status_reg)에 반영
+    // 2. Capture engine status to read-only status register
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
             status_reg <= 32'h0;
         end else begin
-            status_reg[0] <= i_done;   // 0번 비트 = 완료
-            status_reg[1] <= i_busy;   // 1번 비트 = 동작 중
-            status_reg[2] <= i_error;  // 2번 비트 = 에러
+            status_reg[0] <= i_done;   // Bit[0] = done
+            status_reg[1] <= i_busy;   // Bit[1] = busy
+            status_reg[2] <= i_error;  // Bit[2] = error
         end
     end
-    // <<<< END: 추가된 로직 >>>>
+    // <<<< END: Register Assignment >>>>
 
     // I/O Connections assignments
     assign S_AXI_AWREADY = axi_awready;
