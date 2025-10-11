@@ -1,7 +1,7 @@
 // ============================================================================
 // sa_core_pipeline.sv (FINAL, SystemVerilog)
 //   - AXI-Full Master + AXI-Lite Control + Stream DMA + Systolic Engine
-//   - FSM: IDLE ¡æ READ ¡æ COMP(¿£Áø) ¡æ WRITE
+//   - FSM: IDLE â†’ READ â†’ COMP(ê³„ì‚°) â†’ WRITE
 //   - Engine uses AXI-Stream-like interface (ready/valid)
 // ============================================================================
 
@@ -18,7 +18,13 @@ module sa_core_pipeline #(
   parameter int C_M_AXI_ARUSER_WIDTH = 0,
   parameter int C_M_AXI_WUSER_WIDTH  = 0,
   parameter int C_M_AXI_RUSER_WIDTH  = 0,
-  parameter int C_M_AXI_BUSER_WIDTH  = 0
+  parameter int C_M_AXI_BUSER_WIDTH  = 0,
+  
+  // DMA Controller parameters (from sa_engine_top)
+  parameter int BUFF_DEPTH    = 256,
+  parameter int BUFF_ADDR_W   = $clog2(BUFF_DEPTH),
+  parameter int BIT_TRANS     = BUFF_ADDR_W,
+  parameter int OUT_BITS_TRANS = 18
 )(
   input  logic                       S_AXI_ACLK,
   input  logic                       S_AXI_ARESETN,
@@ -87,59 +93,136 @@ module sa_core_pipeline #(
 );
 
   // ========================================================================
-  // Stream Signals: READ ¡æ ENGINE ¡æ WRITE
+  // Control and Status Registers (same as sa_engine_top)
   // ========================================================================
-  logic [C_M_AXI_DATA_WIDTH-1:0] rd_data;
-  logic                          rd_valid;
-  logic                          rd_ready;
+  logic ap_start, ap_ready, ap_done, interrupt;
+  logic [31:0] dram_base_addr_rd, dram_base_addr_wr, reserved_register;
+  
+  // Fixed parameters (same as sa_engine_top)
+  logic [BIT_TRANS-1:0]   num_trans = 16;           // BURST_LENGTH = 16
+  logic [15:0]            max_req_blk_idx = 32/16;  // The number of blocks
+  
+  // Control signal generation (same as sa_engine_top)
+  always_ff @(posedge S_AXI_ACLK, negedge S_AXI_ARESETN) begin
+    if(~S_AXI_ARESETN) begin
+      ap_start <= 1'b0;
+    end else begin 
+      if(!ap_start && i_start)
+        ap_start <= 1'b1;
+      else if (ap_done)
+        ap_start <= 1'b0;    
+    end 
+  end
 
-  logic [C_M_AXI_DATA_WIDTH-1:0] eng_data_out;
-  logic                          eng_valid_out;
-  logic                          eng_ready_out;
-
-  logic rd_busy, rd_done, rd_err;
-  logic wr_busy, wr_done, wr_err;
-
-  logic eng_busy, eng_done, eng_error;
-
-  logic rd_start_pulse, wr_start_pulse, eng_start_pulse;
-
-  // ========================================================================
-  // FSM
-  // ========================================================================
-  typedef enum logic [1:0] {S_IDLE, S_READ, S_COMP, S_WRITE} core_state_t;
-  core_state_t cs;
-
-  logic start_d, start_pulse;
-  always_ff @(posedge S_AXI_ACLK) begin
-    if(!S_AXI_ARESETN) begin
-      start_d <= 1'b0;
-      start_pulse <= 1'b0;
-    end else begin
-      start_pulse <= i_start & ~start_d;
-      start_d     <= i_start;
+  always_ff @(posedge S_AXI_ACLK, negedge S_AXI_ARESETN) begin
+    if(~S_AXI_ARESETN) begin
+      interrupt <= 1'b0;
+    end else begin        
+      if(i_start)
+        interrupt <= 1'b0;         
+      else if (ap_done)
+        interrupt <= 1'b1;                   
     end
   end
 
+  // Parse the control registers (same as sa_engine_top)
+  always_ff @(posedge S_AXI_ACLK, negedge S_AXI_ARESETN) begin
+    if(~S_AXI_ARESETN) begin
+      dram_base_addr_rd <= '0;
+      dram_base_addr_wr <= '0;
+      reserved_register <= '0;
+    end else begin 
+      if(!ap_start && i_start) begin 
+        dram_base_addr_rd <= i_src_addr;    // Base Address for READ
+        dram_base_addr_wr <= i_dst_addr;    // Base Address for WRITE  
+        reserved_register <= i_size_param;  // reserved
+      end else if (ap_done) begin 
+        dram_base_addr_rd <= '0;
+        dram_base_addr_wr <= '0;
+        reserved_register <= '0; 
+      end 
+    end 
+  end
+
+  // Status outputs
+  assign o_busy  = ap_start;
+  assign o_done  = interrupt;
+  assign o_error = 1'b0;  // Error handling can be added later
+
   // ========================================================================
-  // DMA READ
+  // DMA Controller signals (same as sa_engine_top)
+  // ========================================================================
+  logic [1:0] start_rd_wr;
+  logic [10:0] dma_cnt;
+  logic done;
+
+  // DMA Read signals
+  logic ctrl_read;
+  logic read_done;
+  logic [C_M_AXI_ADDR_WIDTH-1:0] read_addr;
+  logic [C_M_AXI_DATA_WIDTH-1:0] read_data;
+  logic read_data_vld;
+  logic [BIT_TRANS-1:0] read_data_cnt;
+
+  // DMA Write signals
+  logic ctrl_write_done;
+  logic ctrl_write;
+  logic write_done;
+  logic indata_req_wr;
+  logic [BIT_TRANS-1:0] write_data_cnt;
+  logic [C_M_AXI_ADDR_WIDTH-1:0] write_addr;
+  logic [C_M_AXI_DATA_WIDTH-1:0] write_data;
+
+  // ========================================================================
+  // DMA Controller (same as sa_engine_top)
+  // ========================================================================
+  axi_dma_ctrl #(
+    .BIT_TRANS(BIT_TRANS)
+  ) u_dma_ctrl (
+    .clk                (S_AXI_ACLK),
+    .rstn               (S_AXI_ARESETN),
+    .i_start            (start_rd_wr),
+    .i_base_address_rd  (dram_base_addr_rd),
+    .i_base_address_wr  (dram_base_addr_wr),
+    .i_num_trans        (num_trans),
+    .i_max_req_blk_idx  (max_req_blk_idx),
+    .row_cnt            (dma_cnt),
+    // DMA Read
+    .i_read_done        (read_done),
+    .o_ctrl_read        (ctrl_read),
+    .o_read_addr        (read_addr),
+    // DMA Write
+    .i_indata_req_wr    (indata_req_wr),
+    .i_write_done       (write_done),
+    .o_ctrl_write       (ctrl_write),
+    .o_write_addr       (write_addr),
+    .o_write_data_cnt   (write_data_cnt),
+    .o_ctrl_write_done  (ctrl_write_done)
+  );
+
+  // ========================================================================
+  // DMA READ (updated for AXI4)
   // ========================================================================
   dma_read #(
-    .C_M_AXI_ID_WIDTH    (C_M_AXI_ID_WIDTH),
-    .C_M_AXI_ADDR_WIDTH  (C_M_AXI_ADDR_WIDTH),
-    .C_M_AXI_DATA_WIDTH  (C_M_AXI_DATA_WIDTH)
+    .C_M_AXI_ID_WIDTH     (C_M_AXI_ID_WIDTH),
+    .C_M_AXI_ADDR_WIDTH   (C_M_AXI_ADDR_WIDTH),
+    .C_M_AXI_DATA_WIDTH   (C_M_AXI_DATA_WIDTH),
+    .C_M_AXI_ARUSER_WIDTH (C_M_AXI_ARUSER_WIDTH),
+    .C_M_AXI_RUSER_WIDTH  (C_M_AXI_RUSER_WIDTH),
+    .BITS_TRANS           (BIT_TRANS),
+    .OUT_BITS_TRANS       (OUT_BITS_TRANS)
   ) u_dma_read (
     .ACLK        (M_AXI_ACLK),
     .ARESETN     (M_AXI_ARESETN),
-    .i_start     (rd_start_pulse),
-    .i_base_addr (i_src_addr),
-    .i_byte_len  (i_size_param),
-    .o_busy      (rd_busy),
-    .o_done      (rd_done),
-    .o_error     (rd_err),
-    .o_data      (rd_data),
-    .o_valid     (rd_valid),
-    .i_ready     (rd_ready),
+    .i_start     (ctrl_read),
+    .i_base_addr (read_addr),
+    .i_byte_len  ({num_trans, 2'b00}),  // Convert words to bytes
+    .o_busy      (/* unused */),
+    .o_done      (read_done),
+    .o_error     (/* unused */),
+    .o_data      (read_data),
+    .o_valid     (read_data_vld),
+    .i_ready     (1'b1),               // Always ready
     .M_AXI_ARID    (M_AXI_ARID),
     .M_AXI_ARADDR  (M_AXI_ARADDR),
     .M_AXI_ARLEN   (M_AXI_ARLEN),
@@ -162,49 +245,46 @@ module sa_core_pipeline #(
   );
 
   // ========================================================================
-  // ENGINE (streaming)
+  // SYSTOLIC ARRAY ENGINE (same interface as sa_engine_top)
   // ========================================================================
-  systolic_array_engine #(
-    .DATA_WIDTH  (C_M_AXI_DATA_WIDTH),
-    .PIPE_LATENCY(8)
-  ) u_engine (
-    .clk         (S_AXI_ACLK),
-    .rst_n       (S_AXI_ARESETN),
-    .i_start     (eng_start_pulse),
-    .i_size_param(i_size_param),
-    .i_src_addr  (i_src_addr),
-    .i_wgt_addr  (i_wgt_addr),
-    .i_dst_addr  (i_dst_addr),
-    .o_busy      (eng_busy),
-    .o_done      (eng_done),
-    .o_error     (eng_error),
-    .s_tdata     (rd_data),
-    .s_tvalid    (rd_valid),
-    .s_tready    (rd_ready),
-    .m_tdata     (eng_data_out),
-    .m_tvalid    (eng_valid_out),
-    .m_tready    (eng_ready_out)
+  systolic_array_engine_top u_sa_engine (
+    .clk            (S_AXI_ACLK),
+    .rstn           (S_AXI_ARESETN),
+    .start          (ap_start),
+    .read_data_vld  (read_data_vld),
+    .DATA_IN        (read_data),
+    .start_rd_wr    (start_rd_wr),
+    .dma_cnt        (dma_cnt),
+    .DATA_OUT       (write_data),
+    .done           (done)
   );
+  
+  assign ap_done = done;  // Connect engine done to ap_done
 
   // ========================================================================
-  // DMA WRITE
+  // DMA WRITE (updated for AXI4)
   // ========================================================================
   dma_write #(
-    .C_M_AXI_ID_WIDTH    (C_M_AXI_ID_WIDTH),
-    .C_M_AXI_ADDR_WIDTH  (C_M_AXI_ADDR_WIDTH),
-    .C_M_AXI_DATA_WIDTH  (C_M_AXI_DATA_WIDTH)
+    .C_M_AXI_ID_WIDTH     (C_M_AXI_ID_WIDTH),
+    .C_M_AXI_ADDR_WIDTH   (C_M_AXI_ADDR_WIDTH),
+    .C_M_AXI_DATA_WIDTH   (C_M_AXI_DATA_WIDTH),
+    .C_M_AXI_AWUSER_WIDTH (C_M_AXI_AWUSER_WIDTH),
+    .C_M_AXI_WUSER_WIDTH  (C_M_AXI_WUSER_WIDTH),
+    .C_M_AXI_BUSER_WIDTH  (C_M_AXI_BUSER_WIDTH),
+    .BITS_TRANS           (BIT_TRANS),
+    .OUT_BITS_TRANS       (BIT_TRANS)
   ) u_dma_write (
     .ACLK        (M_AXI_ACLK),
     .ARESETN     (M_AXI_ARESETN),
-    .i_start     (wr_start_pulse),
-    .i_base_addr (i_dst_addr),
-    .i_byte_len  (i_size_param),
-    .o_busy      (wr_busy),
-    .o_done      (wr_done),
-    .o_error     (wr_err),
-    .i_data      (eng_data_out),
-    .i_valid     (eng_valid_out),
-    .o_ready     (eng_ready_out),
+    .i_start     (ctrl_write),
+    .i_base_addr (write_addr),
+    .i_byte_len  ({num_trans, 2'b00}),  // Convert words to bytes
+    .o_busy      (/* unused */),
+    .o_done      (write_done),
+    .o_error     (/* unused */),
+    .i_data      (write_data),
+    .i_valid     (indata_req_wr),        // Use request as valid signal
+    .o_ready     (/* unused */),         // Original didn't use ready
     .M_AXI_AWID    (M_AXI_AWID),
     .M_AXI_AWADDR  (M_AXI_AWADDR),
     .M_AXI_AWLEN   (M_AXI_AWLEN),
@@ -230,47 +310,4 @@ module sa_core_pipeline #(
     .M_AXI_BREADY  (M_AXI_BREADY)
   );
 
-  // ========================================================================
-  // FSM (READ ¡æ COMP ¡æ WRITE)
-  // ========================================================================
-  always_ff @(posedge S_AXI_ACLK) begin
-    if(!S_AXI_ARESETN) begin
-      cs <= S_IDLE;
-      o_busy <= 1'b0; o_done <= 1'b0; o_error <= 1'b0;
-      rd_start_pulse <= 1'b0; wr_start_pulse <= 1'b0; eng_start_pulse <= 1'b0;
-    end else begin
-      rd_start_pulse <= 1'b0;
-      wr_start_pulse <= 1'b0;
-      eng_start_pulse<= 1'b0;
-      o_done         <= 1'b0;
-      o_error        <= rd_err | wr_err | eng_error;
-
-      unique case (cs)
-        S_IDLE: begin
-          o_busy <= 1'b0;
-          if (start_pulse) begin
-            o_busy <= 1'b1;
-            rd_start_pulse  <= 1'b1;
-            eng_start_pulse <= 1'b1;
-            cs <= S_READ;
-          end
-        end
-        S_READ: begin
-          if (rd_done) cs <= S_COMP;
-        end
-        S_COMP: begin
-          wr_start_pulse <= 1'b1;
-          cs <= S_WRITE;
-        end
-        S_WRITE: begin
-          if (wr_done && eng_done) begin
-            o_busy <= 1'b0;
-            o_done <= 1'b1;
-            cs <= S_IDLE;
-          end
-        end
-        default: cs <= S_IDLE;
-      endcase
-    end
-  end
 endmodule

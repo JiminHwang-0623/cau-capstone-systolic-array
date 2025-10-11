@@ -1,177 +1,410 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
-// ============================================================================
-// systolic_array_engine_stream.sv  (PASTE-READY)
-// - AXI-Stream ���� ready/valid �����
-// - IDLE -> RUN -> FLUSH -> DONE
-// - �Ķ���� PIPE_LATENCY ���� ������ ����(=���� �䳻)
-// - i_size_param: �� "���� ���� ��"�� �ؼ� (DATA_WIDTH ����)
-// ============================================================================
-module systolic_array_engine #(
-  parameter int DATA_WIDTH   = 32,
-  parameter int PIPE_LATENCY = 8   // ���� ���������� ����(����Ŭ)
-)(
-  input  logic                  clk,
-  input  logic                  rst_n,
 
-  // Control (�������Ϳ��� ����)
-  input  logic                  i_start,        // ���� �Է� �� ���ο��� �޽�ȭ
-  input  logic [31:0]           i_size_param,   // �� ���� ��
-  input  logic [31:0]           i_src_addr,     // �ʿ�� ���
-  input  logic [31:0]           i_wgt_addr,     // �ʿ�� ���
-  input  logic [31:0]           i_dst_addr,     // �ʿ�� ���
+// Encapsulate the wires for reduced AXI GPIO blocks needed
 
-  // Status
-  output logic                  o_busy,
-  output logic                  o_done,         // 1Ŭ�� �޽�
-  output logic                  o_error,        // �ܼ� ��ġ(���⼱ 0)
+module systolic_array_engine_top(
+    clk,
+    rstn,
 
-  // Stream IN  (from dma_read)
-  input  logic [DATA_WIDTH-1:0] s_tdata,
-  input  logic                  s_tvalid,
-  output logic                  s_tready,
+    start,
 
-  // Stream OUT (to dma_write)
-  output logic [DATA_WIDTH-1:0] m_tdata,
-  output logic                  m_tvalid,
-  input  logic                  m_tready
+    read_data_vld,
+    DATA_IN,
+
+    start_rd_wr,
+    dma_cnt,
+    DATA_OUT,
+
+    done
 );
 
-  // ---------------------------
-  // 0) start �޽�ȭ + ���� ����
-  // ---------------------------
-  logic start_d, start_pulse;
-  always_ff @(posedge clk) begin
-    if(!rst_n) begin
-      start_d     <= 1'b0;
-      start_pulse <= 1'b0;
+////////////////////////////////////////////////////////
+//////////////////// In/Out ports //////////////////////
+////////////////////////////////////////////////////////
+
+input wire clk;
+input wire rstn;
+
+input wire start;
+
+input wire read_data_vld;
+input wire [31:0] DATA_IN;
+
+output reg [1:0] start_rd_wr;
+output reg [5:0] dma_cnt;
+output reg [31:0] DATA_OUT;
+
+output reg done;
+
+////////////////////////////////////////////////////////
+/////////////////// local parameters ///////////////////
+////////////////////////////////////////////////////////
+
+// For systolic array
+localparam WRITE_DELAY   = 64;
+localparam LOAD_DELAY    = 32;
+localparam OUT_DELAY     = 64;
+localparam MATRIX_SIZE   = 16;
+
+
+// State encoding
+localparam S_IDLE           = 4'b0000,       //  EN = 0, WRITE = 0, LOAD = 0
+           S_DATA_LOAD      = 4'b0001,       //  EN = 0, WRITE = 0, LOAD = 0
+           S_WRITE_A        = 4'b0010,       //  EN = 1, WRITE = 1, LOAD = 0
+           S_WRITE_B        = 4'b0011,       //  EN = 1, WRITE = 1, LOAD = 0
+           S_LOAD           = 4'b0100,       //  EN = 1, WRITE = 0, LOAD = 1
+           S_INTERRUPT_BUF  = 4'b0101,       //  BUFFER STATE FOR INTERRUPT
+           S_MATMUL         = 4'b0110,       //  EN = 1, WRITE = 0, LOAD = 0
+           S_STORE          = 4'b0111,       //  EN = 1, WRITE = 1, LOAD = 1     TODO    19 bits output store
+           S_OUT            = 4'b1000;       //  EN = 0, WRITE = 0, LOAD = 0     TODO
+
+
+// constants for scaling
+localparam integer MAX_A   = 4;
+localparam integer MAX_B   = 4;
+localparam integer MAX_OUT = 59;
+localparam integer C       = 20;  // right-shift bits
+localparam integer D = 127 * MAX_OUT;             // denominator
+localparam integer N = MAX_A * MAX_B * (1 << C);  // numerator (2^C == 1<<C)
+localparam integer B = (N + (D >> 1)) / D;        // round(N/D)
+
+
+////////////////////////////////////////////////////////
+///////////////// reg, wire instances //////////////////
+////////////////////////////////////////////////////////
+
+// FSM
+reg [3:0] c_state, n_state;
+reg [2:0] IDX;          // 0~7 : col index
+reg [3:0] REG_SELECT;   // 0~7 : Matrix A, 8~15 : Matrix B
+reg [7:0] sa_input_data;
+
+reg [6:0] iter_cnt_A;
+reg [6:0] iter_cnt_B;
+reg [6:0] iter_cnt_S;
+reg [6:0] iter_cnt_A_d;
+reg [6:0] iter_cnt_B_d;
+reg [6:0] iter_cnt_S_d;
+
+reg en;
+reg write_en;
+reg load_en;
+reg [10:0] matrix_base_addr;
+
+wire WRITE_STATE = (c_state == S_WRITE_A) || (c_state == S_WRITE_B) ? 1 : 0 ;
+wire [6:0] iter_cnt =   (c_state == S_WRITE_A) ? iter_cnt_A :
+                        (c_state == S_WRITE_B) ? iter_cnt_B :
+                        (c_state == S_STORE)   ? iter_cnt_S : 0 ;
+
+// DPRAM INPUT
+wire dpram_in_enb;
+wire [10:0] dpram_in_addra, dpram_in_addrb;
+wire [31:0] dpram_in_dob;
+
+assign dpram_in_addra = (c_state == S_DATA_LOAD) ? dma_cnt : 0 ;
+
+assign dpram_in_enb = (WRITE_STATE) ? 1 : 0 ;
+assign dpram_in_addrb = (WRITE_STATE) ? (matrix_base_addr + iter_cnt[5:2]) : 0 ;
+
+
+// DPRAM OUTPUT
+reg  [10:0] dpram_out_addra;
+wire [10:0] dpram_out_addrb;
+reg  [31:0] output_data_buffer;
+wire [31:0] dpram_out_dob;
+
+wire dpram_out_ena, dpram_out_enb;
+
+// assign dpram_out_addra = (c_state == S_STORE) ? iter_cnt[5:2] : 0 ;
+assign dpram_out_ena = (c_state == S_STORE) ? 1 : 0;
+
+assign dpram_out_enb = (c_state == S_OUT) ? 1 : 0;
+assign dpram_out_addrb = (c_state == S_OUT) ? dma_cnt : 0 ;
+
+wire INTERRUPT_PIN;
+
+// check data delay for output
+wire en_output;
+assign en_output = (c_state == S_STORE) ? 1 : 0;
+
+// for scaling
+wire signed [63:0] prod     = $signed(sa_out) * $signed(B);
+wire signed [63:0] bias_pos = (C == 0)      ? 64'sd0 : (64'sd1 << (C-1));
+wire signed [63:0] bias_neg = (C == 0)      ? 64'sd0 : ((64'sd1 << (C-1)) - 64'sd1);
+wire signed [63:0] biased   = (prod >= 0)   ? (prod + bias_pos) : (prod + bias_neg);
+wire signed [63:0] scaled64 = (C == 0)      ? biased : (biased >>> C);
+wire signed [18:0] sa_out;   // 19-bit accumulator output
+
+// reg  signed [7:0]  data_out;
+
+////////////////////////////////////////////////////////
+/////////////////// Dpram instance /////////////////////
+////////////////////////////////////////////////////////
+
+    dpram_wrapper #(
+    .DW(32),
+    .AW(11),        // Address bitwidth
+    .DEPTH(1280)
+    ) dpram_in (
+        .clk        (clk),
+        .ena        (1),
+        .addra      (dpram_in_addra),     // cnt signal
+        .wea        (read_data_vld),
+        .dia        (DATA_IN),
+        .enb        (dpram_in_enb),     
+        .addrb      (dpram_in_addrb),     // cnt signal
+        .dob        (dpram_in_dob)
+    );
+
+    dpram_wrapper #(
+    .DW(32),
+    .AW(11),        // Address bitwidth
+    .DEPTH(1280)
+    ) dpram_out (
+        .clk        (clk),
+        .ena        (1),
+        .addra      (dpram_out_addra),     // cnt signal
+        .wea        (dpram_out_ena),     
+        .dia        ({13'b0, sa_out}),            // 19-bit output -> 32-bit input
+        .enb        (dpram_out_enb),
+        .addrb      (dpram_out_addrb),     // cnt signal
+        .dob        (buff_out)
+    );
+
+wire signed [31:0] buff_out;
+
+always @(posedge clk) begin
+    DATA_OUT <= buff_out;
+end
+
+////////////////////////////////////////////////////////
+////////////////// Signal Processing ///////////////////
+////////////////////////////////////////////////////////
+
+integer i;
+
+// FSM : state transition
+always @(*) begin
+    n_state = c_state;
+    case (c_state)
+        S_IDLE: begin
+            if (start) begin
+                n_state = S_DATA_LOAD;
+                start_rd_wr <= 2'b10;
+            end
+        end
+        S_DATA_LOAD: begin
+            if (dma_cnt == LOAD_DELAY)
+                n_state = S_WRITE_A;
+        end
+        S_WRITE_A: begin
+            if (iter_cnt_A == WRITE_DELAY)
+                n_state = S_WRITE_B;
+        end
+        S_WRITE_B: begin
+            if (iter_cnt_B == WRITE_DELAY)
+                n_state = S_LOAD;
+        end
+        S_LOAD: begin
+            if (INTERRUPT_PIN)
+                n_state = S_INTERRUPT_BUF;
+        end
+        S_INTERRUPT_BUF: begin
+            n_state = S_MATMUL;
+        end
+        S_MATMUL: begin
+            if (INTERRUPT_PIN)
+                n_state = S_STORE;
+        end
+        S_STORE: begin
+            if (iter_cnt_S == WRITE_DELAY) begin
+                n_state = S_OUT;
+                start_rd_wr <= 2'b11;
+            end
+        end
+        S_OUT: begin
+            if (dma_cnt == OUT_DELAY-1)
+                n_state = S_IDLE;
+        end
+        default: n_state = S_IDLE;
+    endcase
+end
+
+// FSM : logic behavior
+always @(posedge clk or negedge rstn) begin
+    if (!rstn) begin
+        c_state <= S_IDLE;
     end else begin
-      start_pulse <= i_start & ~start_d; // rising edge
-      start_d     <= i_start;
+
+        c_state <= n_state;
+        
+        case (c_state)
+            S_IDLE: begin
+                start_rd_wr <= 2'b00;
+                dma_cnt     <= 0;
+                iter_cnt_A    <= 0;
+                iter_cnt_B    <= 0;
+                iter_cnt_S    <= 0;
+                iter_cnt_A_d      <= 0;
+                iter_cnt_B_d      <= 0;
+
+                IDX                 <= 0;   // column index
+                REG_SELECT          <= 0;   // row index
+
+                sa_input_data       <= 0;
+
+                output_data_buffer  <= 0;
+
+                en          <= 0;
+                write_en    <= 0;
+                load_en     <= 0;
+                done        <= 0;
+                matrix_base_addr <= 0;
+            end
+            S_DATA_LOAD: begin
+                start_rd_wr <= 2'b00;
+
+                if (read_data_vld) begin
+                    dma_cnt <= dma_cnt + 1;
+                end
+
+                if (dma_cnt == LOAD_DELAY) begin
+                    dma_cnt     <= 0;
+                    en          <= 1;
+                    write_en    <= 1;
+                    load_en     <= 0;
+                end
+            end
+            S_WRITE_A: begin
+                start_rd_wr         <= 2'b00;
+                iter_cnt_A          <= iter_cnt_A + 1;
+                iter_cnt_A_d        <= iter_cnt_A;
+
+                IDX                 <= iter_cnt_A_d[2:0];           // col
+                REG_SELECT          <= {1'b0,iter_cnt_A_d[5:3]};    // row
+                sa_input_data       <= dpram_in_dob[8*iter_cnt_A_d[1:0]+:8];
+
+                if (iter_cnt_A == WRITE_DELAY) begin
+                    iter_cnt_A      <= 0;
+                    en              <= 1;
+                    write_en        <= 1;
+                    load_en         <= 0;
+                    matrix_base_addr<= MATRIX_SIZE;
+                end
+            end
+            S_WRITE_B: begin
+                start_rd_wr         <= 2'b00;
+                iter_cnt_B          <= iter_cnt_B + 1;
+                iter_cnt_B_d        <= iter_cnt_B;
+
+                IDX                 <= iter_cnt_B_d[5:3];           // Transpose -> row
+                REG_SELECT          <= {1'b1, iter_cnt_B_d[2:0]};   // Transpose -> col
+                sa_input_data       <= dpram_in_dob[8*iter_cnt_B_d[1:0]+:8];
+
+                // if (iter_cnt_B == WRITE_DELAY) begin
+                //     iter_cnt_B      <= 0;
+                //     en              <= 1;
+                //     write_en        <= 0;
+                //     load_en         <= 1;
+                //     matrix_base_addr <= 0;
+                // end
+            end
+            S_LOAD: begin
+                start_rd_wr <= 2'b00;
+               
+                iter_cnt_B      <= 0;
+                en              <= 1;
+                write_en        <= 0;
+                load_en         <= 1;
+                matrix_base_addr <= 0;
+
+                if (INTERRUPT_PIN) begin
+                    en          <= 1;
+                    write_en    <= 0;
+                    load_en     <= 0;
+                end
+            end
+            S_MATMUL: begin
+                start_rd_wr <= 2'b00;
+
+                if (INTERRUPT_PIN) begin
+                    en          <= 1;
+                    write_en    <= 1;
+                    load_en     <= 1;
+                end
+            end
+            S_STORE: begin
+                start_rd_wr <= 2'b00;
+                
+                if (OUTPUT_EN) begin
+                    iter_cnt_S    <= iter_cnt_S + 1;
+                    dpram_out_addra <= iter_cnt_S;
+                end
+
+                IDX                 <= iter_cnt_S[2:0];           // col
+                REG_SELECT          <= {1'b0,iter_cnt_S[5:3]};    // row
+
+                if (iter_cnt_S == WRITE_DELAY) begin
+                    iter_cnt_S  <= 0;
+                    en          <= 0;
+                    write_en    <= 0;
+                    load_en     <= 0;
+                end
+            end
+            S_OUT: begin
+                start_rd_wr <= 2'b00;
+                dma_cnt     <= dma_cnt+1;
+
+                if (dma_cnt == OUT_DELAY-1) begin
+                    dma_cnt     <= 0;
+                    done        <= 1;
+                end
+            end
+    
+            default: n_state = S_IDLE;
+        endcase
     end
-  end
+end
 
-  // ---------------------------
-  // 1) FSM
-  // ---------------------------
-  typedef enum logic [1:0] {IDLE, RUN, FLUSH, DONE} state_t;
-  state_t st;
+// // INT8 saturation
+// function signed [7:0] sat_int8;
+//     input signed [63:0] x;
+//     begin
+//         if      (x >  127) sat_int8 = 8'sd127;
+//         else if (x < -128) sat_int8 = -8'sd128;
+//         else               sat_int8 = x[7:0];
+//     end
+// endfunction
 
-  // �� ���� �� ī��Ʈ (�Է� ���� ����)
-  logic [31:0] words_goal;     // i_size_param latch
-  logic [31:0] words_in_cnt;   // ���� �Ϸ� �����
-  logic [31:0] words_out_cnt;  // �۽� �Ϸ� �����
+// always @(*) begin
+//     if (en_output)
+//         data_out = sat_int8(scaled64);
+//     else
+//         data_out = 8'sd0;
+// end
 
-  // ������ �ϴ� ��� ����
-  assign o_error = 1'b0;
+////////////////////////////////////////////////////////
+//////////////////// Core Instance /////////////////////
+////////////////////////////////////////////////////////
 
-  // ---------------------------
-  // 2) ������ ����������(���� �䳻)
-  //    - ���� PIPE_LATENCY�� ����Ʈ ��������
-  //    - ��ȿ��Ʈ�� ���� ���̷� ������
-  // ---------------------------
-  logic [DATA_WIDTH-1:0] pipe_data   [0:PIPE_LATENCY-1];
-  logic                  pipe_valid  [0:PIPE_LATENCY-1];
+    FSM systolic_core(
+        .rst        (rstn), 
+        .clk        (clk),
+        .en         (en), 
+        .write      (write_en), 
+        .load       (load_en),
+        .data_in    (sa_input_data),
+        .idx        (IDX),              // col
+        .reg_select (REG_SELECT),       // row
+        .OUTPUT_EN  (OUTPUT_EN),
+        .data_out   (sa_out),
 
-  // �Է� ���� ����: RUN ���¿����� �ް�, �� ��ǥ������ ���� �޴� ����
-  wire can_accept = (st==RUN) && (words_in_cnt < words_goal);
-
-  // s_tready: �츮�� ���� �� ���� ��, �׸��� ���� ���������� �������� ���� �긱 �� ���� ��
-  // (���⼱ ���������� ù ���������� �׻� ���� �����ϴٰ� ����)
-  assign s_tready = can_accept;
-
-  // ���������� ����Ʈ
-  integer i;
-  always_ff @(posedge clk) begin
-    if(!rst_n) begin
-      for (i=0; i<PIPE_LATENCY; i++) begin
-        pipe_data[i]  <= '0;
-        pipe_valid[i] <= 1'b0;
-      end
-    end else begin
-      // stage0: �� ������ ����
-      if (s_tvalid && s_tready) begin
-        pipe_data[0]  <= s_tdata;
-        pipe_valid[0] <= 1'b1;
-      end else begin
-        // ���� �� �ϸ� stage0 valid�� ���� ���� �� ��
-        pipe_valid[0] <= 1'b0;
-      end
-      // ������ �ܰ� ����Ʈ
-      for (i=1; i<PIPE_LATENCY; i++) begin
-        pipe_data[i]  <= pipe_data[i-1];
-        pipe_valid[i] <= pipe_valid[i-1];
-      end
-    end
-  end
-
-  // ���������� �������� ���
-  assign m_tdata  = pipe_data [PIPE_LATENCY-1];
-  assign m_tvalid = pipe_valid[PIPE_LATENCY-1];
-
-  // �۽� ���
-  wire send_fire = m_tvalid && m_tready;
-
-  // 3) ī����/���� ����
-  // ---------------------------
-  always_ff @(posedge clk) begin
-    if(!rst_n) begin
-      st           <= IDLE;
-      o_busy       <= 1'b0;
-      o_done       <= 1'b0;
-      words_goal   <= 32'd0;
-      words_in_cnt <= 32'd0;
-      words_out_cnt<= 32'd0;
-    end else begin
-      o_done <= 1'b0; // �޽�
-
-      case (st)
-        IDLE: begin
-          o_busy       <= 1'b0;
-          words_in_cnt <= 32'd0;
-          words_out_cnt<= 32'd0;
-
-          if (start_pulse) begin
-            // ��ǥ�� latch (0�̸� �ٷ� DONE ó�� ����)
-            words_goal <= i_size_param;
-            o_busy     <= (i_size_param != 0);
-            st         <= (i_size_param == 0) ? DONE : RUN;
-          end
-        end
-
-        RUN: begin
-          o_busy <= 1'b1;
-
-          // �Է� ���� �� �Է� ī��Ʈ ����
-          if (s_tvalid && s_tready)
-            words_in_cnt <= words_in_cnt + 1;
-
-          // ��� �Է��� �� �޾����� ��� �ܿ� �÷��� �ܰ��
-          if (words_in_cnt == words_goal)
-            st <= FLUSH;
-        end
-
-        FLUSH: begin
-          o_busy <= 1'b1;
-
-          // ����� ���� ���� ��� ī��Ʈ ����
-          if (send_fire)
-            words_out_cnt <= words_out_cnt + 1;
-
-          // ��ǥ�� ��ŭ ���� ���������� DONE
-          if (words_out_cnt == words_goal)
-            st <= DONE;
-        end
-
-        DONE: begin
-          o_busy <= 1'b0;
-          o_done <= 1'b1; // 1Ŭ�� �޽�
-          st     <= IDLE;
-        end
-
-        default: st <= IDLE;
-      endcase
-    end
-  end
+        .int_to_ps  (INTERRUPT_PIN)
+        // .read_led   (), 
+        // .write_led  (), 
+        // .load_led   (), 
+        // .matmul_led ()
+    );
 
 endmodule
