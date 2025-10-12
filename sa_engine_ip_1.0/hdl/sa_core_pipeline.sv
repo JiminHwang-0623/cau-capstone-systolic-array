@@ -1,7 +1,7 @@
 // ============================================================================
 // sa_core_pipeline.sv (FINAL, SystemVerilog)
 //   - AXI-Full Master + AXI-Lite Control + Stream DMA + Systolic Engine
-//   - FSM: IDLE ¡æ READ ¡æ COMP(¿£Áø) ¡æ WRITE
+//   - FSM: IDLE -> PRIME -> STEADY -> DRAIN
 //   - Engine uses AXI-Stream-like interface (ready/valid)
 // ============================================================================
 
@@ -18,7 +18,9 @@ module sa_core_pipeline #(
   parameter int C_M_AXI_ARUSER_WIDTH = 0,
   parameter int C_M_AXI_WUSER_WIDTH  = 0,
   parameter int C_M_AXI_RUSER_WIDTH  = 0,
-  parameter int C_M_AXI_BUSER_WIDTH  = 0
+  parameter int C_M_AXI_BUSER_WIDTH  = 0,
+  
+  parameter int unsigned P_TILES_TOTAL = 1
 )(
   input  logic                       S_AXI_ACLK,
   input  logic                       S_AXI_ARESETN,
@@ -87,7 +89,7 @@ module sa_core_pipeline #(
 );
 
   // ========================================================================
-  // Stream Signals: READ ¡æ ENGINE ¡æ WRITE
+  // Stream Signals: READ -> ENGINE -> WRITE
   // ========================================================================
   logic [C_M_AXI_DATA_WIDTH-1:0] rd_data;
   logic                          rd_valid;
@@ -104,10 +106,17 @@ module sa_core_pipeline #(
 
   logic rd_start_pulse, wr_start_pulse, eng_start_pulse;
 
+  logic in_fire, out_fire;
+
+  assign in_fire = rd_valid & rd_ready;
+  assign out_fire = eng_valid_out & eng_ready_out;
+
+  logic seen_in_first, seen_out_first;
+
   // ========================================================================
   // FSM
   // ========================================================================
-  typedef enum logic [1:0] {S_IDLE, S_READ, S_COMP, S_WRITE} core_state_t;
+  typedef enum logic [1:0] {S_IDLE, S_PRIME, S_STEADY, S_DRAIN} core_state_t;
   core_state_t cs;
 
   logic start_d, start_pulse;
@@ -120,6 +129,41 @@ module sa_core_pipeline #(
       start_d     <= i_start;
     end
   end
+
+  // ========================================================================
+  // DOUBLE BUFFER / TILING
+  // ========================================================================
+  logic buf_sel;
+  logic [15:0] tile_idx;
+  logic [15:0] tiles_total;
+  logic [31:0] tile_len_words;
+
+  logic [31:0] in_words_cnt, out_words_cnt;
+  logic in_tile_done, out_tile_done;
+  logic tile_start_pulse;
+  logic last_tile_issued;
+
+  assign tiles_total = P_TILES_TOTAL;
+  assign tile_len_words = i_size_param;
+  assign last_tile_issued = (tile_idx == tiles_total-1);
+
+  always_ff @(posedge S_AXI_ACLK) begin
+    if (!S_AXI_ARESETN) in_words_cnt <= '0;
+    else if (cs==S_IDLE || tile_start_pulse) in_words_cnt <= '0;
+    else if (in_fire) in_words_cnt <= in_words_cnt + 1'b1;
+  end
+  
+  assign in_tile_done = (in_words_cnt == tile_len_words);
+
+  always_ff @(posedge S_AXI_ACLK) begin
+    if (!S_AXI_ARESETN) out_words_cnt <= '0;
+    else if (cs==S_IDLE || tile_start_pulse) out_words_cnt <= '0;
+    else if (out_fire) out_words_cnt <= out_words_cnt + 1'b1;
+  end
+
+  assign out_tile_done = (out_words_cnt == tile_len_words);
+  
+  assign tile_start_pulse = (cs==S_STEADY) && in_tile_done && out_tile_done;
 
   // ========================================================================
   // DMA READ
@@ -231,45 +275,76 @@ module sa_core_pipeline #(
   );
 
   // ========================================================================
-  // FSM (READ ¡æ COMP ¡æ WRITE)
+  // FSM (PRIME â†’ STEADY â†’ DRAIN)
   // ========================================================================
   always_ff @(posedge S_AXI_ACLK) begin
     if(!S_AXI_ARESETN) begin
       cs <= S_IDLE;
       o_busy <= 1'b0; o_done <= 1'b0; o_error <= 1'b0;
       rd_start_pulse <= 1'b0; wr_start_pulse <= 1'b0; eng_start_pulse <= 1'b0;
+      seen_in_first <= 1'b0; seen_out_first <= 1'b0;
+      buf_sel  <= 1'b0;
+      tile_idx <= '0;
     end else begin
       rd_start_pulse <= 1'b0;
       wr_start_pulse <= 1'b0;
       eng_start_pulse<= 1'b0;
       o_done         <= 1'b0;
       o_error        <= rd_err | wr_err | eng_error;
+      if (cs==S_IDLE && start_pulse) begin
+        buf_sel  <= 1'b0;
+        tile_idx <= '0;
+      end
+      if (tile_start_pulse && cs==S_STEADY) begin
+        buf_sel  <= ~buf_sel;
+        tile_idx <= tile_idx + 1'b1;
+      end
 
       unique case (cs)
+        
         S_IDLE: begin
           o_busy <= 1'b0;
+          seen_in_first <= 1'b0;
+          seen_out_first <= 1'b0;
           if (start_pulse) begin
             o_busy <= 1'b1;
             rd_start_pulse  <= 1'b1;
             eng_start_pulse <= 1'b1;
-            cs <= S_READ;
+            cs <= S_PRIME;
           end
         end
-        S_READ: begin
-          if (rd_done) cs <= S_COMP;
+        
+        S_PRIME: begin
+          if (in_fire) seen_in_first <= 1'b1;
+          // í˜„ìž¬: validë§Œìœ¼ë¡œ WRITE ì‹œìž‘ (ìŠ¤í…/ë™ì¼ í´ëŸ­ ê°€ì •)
+          // ì´í›„(P1): CDC ë„ìž… í›„ out_fire(= eng_valid_out & eng_ready_out)ë¡œ ë³€ê²½ ì˜ˆì •
+          if(!seen_out_first && eng_valid_out) begin
+            seen_out_first <= 1'b1;
+            wr_start_pulse <= 1'b1;
+          end
+          if (seen_in_first) cs <= S_STEADY;
         end
-        S_COMP: begin
-          wr_start_pulse <= 1'b1;
-          cs <= S_WRITE;
+
+        S_STEADY: begin
+          if (tile_start_pulse) begin
+            if (!last_tile_issued) rd_start_pulse <= 1'b1;
+            eng_start_pulse <= 1'b1;
+          end
+          if (last_tile_issued && out_tile_done) begin
+            cs <= S_DRAIN;
+          end
         end
-        S_WRITE: begin
+
+        S_DRAIN: begin
           if (wr_done && eng_done) begin
             o_busy <= 1'b0;
             o_done <= 1'b1;
             cs <= S_IDLE;
           end
         end
+
         default: cs <= S_IDLE;
+
       endcase
     end
   end
