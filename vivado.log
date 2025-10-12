@@ -76,3 +76,5 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/se-dong Jang/Á¾ÇÕ¼³°
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
 open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:12 . Memory (MB): peak = 1589.504 ; gain = 0.000
 update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 11 03:32:17 2025...
