@@ -114,14 +114,14 @@
 
 #### FSM 상태:
 1. `S_IDLE`: 대기 상태
-2. `S_DATA_LOAD`: DRAM에서 데이터 로드 (32 cycles)
-3. `S_WRITE_A`: 행렬 A를 내부 레지스터에 쓰기 (64 cycles)
-4. `S_WRITE_B`: 행렬 B를 내부 레지스터에 쓰기 (64 cycles)
-5. `S_LOAD`: Systolic Array 로드 (9 cycles)
+2. `S_DATA_LOAD`: DRAM에서 데이터 로드 (? cycles)
+3. `S_WRITE_A`: 행렬 A를 내부 레지스터에 쓰기 (? cycles)
+4. `S_WRITE_B`: 행렬 B를 내부 레지스터에 쓰기 (? cycles)
+5. `S_LOAD`: Systolic Array 로드 (? cycles)
 6. `S_INTERRUPT_BUF`: 버퍼 상태
-7. `S_MATMUL`: 행렬 곱셈 실행 (24 cycles)
-8. `S_STORE`: 결과 저장 (64 cycles)
-9. `S_OUT`: DRAM에 결과 쓰기 (16 cycles)
+7. `S_MATMUL`: 행렬 곱셈 실행 (? cycles)
+8. `S_STORE`: 결과 저장 (? cycles)
+9. `S_OUT`: DRAM에 결과 쓰기 (? cycles)
 
 #### Systolic Array 구조:
 ```
@@ -378,6 +378,7 @@ for (int i = 0; i < 16; i++) {
 - **Project**: Capstone Design (졸업작품)
 - **Board**: PYNQ-Z2 (Zynq-7000)
 - **Last Updated**: 2025-10-11
+- **Email**: sudeangi0623@cau.ac.kr
 
 ---
 

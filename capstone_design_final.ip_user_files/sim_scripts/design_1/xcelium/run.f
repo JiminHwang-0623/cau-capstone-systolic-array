@@ -62,25 +62,25 @@
   "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_0/sim/design_1_rst_ps7_0_100M_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ipshared/dbc4/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/design_1/ipshared/dbc4/src/FSM.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/RF.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/SystolicArray.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/X_REG.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/axi_dma_ctrl.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/controller.sv" \
-  "../../../bd/design_1/ipshared/dbc4/hdl/dma_read.sv" \
-  "../../../bd/design_1/ipshared/dbc4/hdl/dma_write.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/dpram_wrapper.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/hPE.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/sa_core.sv" \
-  "../../../bd/design_1/ipshared/dbc4/hdl/sa_core_pipeline.sv" \
-  "../../../bd/design_1/ipshared/dbc4/src/tile8x8.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/FSM.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/RF.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/SystolicArray.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/X_REG.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/axi_dma_ctrl.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/controller.sv" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/dma_read.sv" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/dma_write.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/dpram_wrapper.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/hPE.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/sa_core.sv" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/sa_core_pipeline.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/tile8x8.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ipshared/dbc4/hdl/sa_engine_ip_v1_0.v" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/sa_engine_ip_v1_0.v" \
   "../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
