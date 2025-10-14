@@ -19,9 +19,13 @@ module dma_write #(
     parameter AXI_WIDTH_ID   = 4,              // ID width in bits
     parameter AXI_WIDTH_AD   = 32,             // address width
     parameter AXI_WIDTH_DA   = 32,             // data width
-    parameter AXI_WIDTH_DS   = (AXI_WIDTH_DA/8) // data strobe width
+    parameter AXI_WIDTH_DS   = (AXI_WIDTH_DA/8),// data strobe width
+    // AXI4 User signal widths (for compatibility with M00_AXI)
+    parameter AXI_WIDTH_AWUSER = 0,            // Write address user signal width
+    parameter AXI_WIDTH_WUSER  = 0,            // Write data user signal width
+    parameter AXI_WIDTH_BUSER  = 0             // Write response user signal width
 )(
-    //AXI Master Interface
+    //AXI Master Interface - AXI4 Compatible
     //Write address channel
     output logic                     M_AXI_AWVALID,   // address/control valid handshake
     input  logic                     M_AXI_AWREADY,
@@ -30,11 +34,11 @@ module dma_write #(
     output logic [7:0]               M_AXI_AWLEN,     // Transfer length
     output logic [2:0]               M_AXI_AWSIZE,    // Transfer width
     output logic [1:0]               M_AXI_AWBURST,   // Burst type
-    output logic [1:0]               M_AXI_AWLOCK,    // Atomic access information
+    output logic                     M_AXI_AWLOCK,    // Atomic access (AXI4: 1-bit)
     output logic [3:0]               M_AXI_AWCACHE,   // Cachable/bufferable infor
     output logic [2:0]               M_AXI_AWPROT,    // Protection info
     output logic [3:0]               M_AXI_AWQOS,
-    output logic [3:0]               M_AXI_AWUSER,
+    output logic [AXI_WIDTH_AWUSER-1:0] M_AXI_AWUSER, // User defined (parameterized)
                            
     //Write data channel       
     output logic                     M_AXI_WVALID,    // Write data valid
@@ -42,15 +46,15 @@ module dma_write #(
     output logic [AXI_WIDTH_DA-1:0]  M_AXI_WDATA,     // Write Data bus
     output logic [AXI_WIDTH_DS-1:0]  M_AXI_WSTRB,     // Write Data byte lane strobes
     output logic                     M_AXI_WLAST,     // Last beat of a burst transfer
-    output logic [AXI_WIDTH_ID-1:0]  M_AXI_WID,       // Write ID
-    output logic [3:0]               M_AXI_WUSER,
+    // Note: M_AXI_WID removed - deprecated in AXI4
+    output logic [AXI_WIDTH_WUSER-1:0] M_AXI_WUSER,   // User defined (parameterized)
 
     //Write response channel
     input  logic                     M_AXI_BVALID,    // Response info valid
     output logic                     M_AXI_BREADY,    // Response info ready (to slave)
     input  logic [1:0]               M_AXI_BRESP,     // Buffered write response
     input  logic [AXI_WIDTH_ID-1:0]  M_AXI_BID,       // buffered response ID
-    input  logic                     M_AXI_BUSER,
+    input  logic [AXI_WIDTH_BUSER-1:0] M_AXI_BUSER,   // User defined (parameterized)
 
     //Functional Ports (original naming from axi_dma_wr)
     input  logic                       start_dma,
@@ -88,7 +92,7 @@ module dma_write #(
    localparam LOG_BURST_SIZE = $clog2(FIXED_BURST_SIZE);
 
 //---------------------------------------------------------------------
-// Internal signals 
+// Internal signals - AXI4 Compatible
 //---------------------------------------------------------------------
   logic [AXI_WIDTH_AD-1:0] ext_awaddr;
   logic [7:0]              ext_awlen;
@@ -105,15 +109,16 @@ module dma_write #(
   logic                    ext_bvalid;
   logic                    ext_bready;
 
+   // AXI4 signal assignments
    assign M_AXI_AWID = DEFAULT_ID;
-   assign M_AXI_WID = DEFAULT_ID;
+   // Note: M_AXI_WID removed - deprecated in AXI4
    assign M_AXI_AWBURST = 2'b01;  //Increase mode
-   assign M_AXI_AWLOCK = 2'b00;
+   assign M_AXI_AWLOCK = 1'b0;    // AXI4: single bit, normal access
    assign M_AXI_AWCACHE = 4'b0000;
    assign M_AXI_AWPROT = 3'b000;
    assign M_AXI_AWQOS = 4'b1111;
-   assign M_AXI_AWUSER = 4'b0000;
-   assign M_AXI_WUSER = 4'b0000;
+   assign M_AXI_AWUSER = 'b0;     // Parameterized width
+   assign M_AXI_WUSER = 'b0;      // Parameterized width
 
    assign  M_AXI_AWVALID = ext_awvalid;
    assign  M_AXI_AWADDR  = ext_awaddr;

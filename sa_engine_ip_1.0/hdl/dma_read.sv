@@ -19,9 +19,12 @@ module dma_read #(
     parameter AXI_WIDTH_ID   = 4,               // ID width in bits
     parameter AXI_WIDTH_AD   = 32,              // address width
     parameter AXI_WIDTH_DA   = 32,              // data width
-    parameter AXI_WIDTH_DS   = (AXI_WIDTH_DA/8) // data strobe width
+    parameter AXI_WIDTH_DS   = (AXI_WIDTH_DA/8),// data strobe width
+    // AXI4 User signal widths (for compatibility with M00_AXI)
+    parameter AXI_WIDTH_ARUSER = 0,             // Read address user signal width
+    parameter AXI_WIDTH_RUSER  = 0              // Read data user signal width
 )(
-    //AXI Master Interface
+    //AXI Master Interface - AXI4 Compatible
     //Read address channel
     output logic                      M_AXI_ARVALID,    // address/control valid handshake
     input  logic                      M_AXI_ARREADY,    // Read addr ready
@@ -30,11 +33,11 @@ module dma_read #(
     output logic [7:0]                M_AXI_ARLEN,      // Transfer length
     output logic [2:0]                M_AXI_ARSIZE,     // Transfer width
     output logic [1:0]                M_AXI_ARBURST,    // Burst type
-    output logic [1:0]                M_AXI_ARLOCK,     // Atomic access information
+    output logic                      M_AXI_ARLOCK,     // Atomic access (AXI4: 1-bit)
     output logic [3:0]                M_AXI_ARCACHE,    // Cachable/bufferable infor
     output logic [2:0]                M_AXI_ARPROT,     // Protection info
     output logic [3:0]                M_AXI_ARQOS,      // Quality of Service
-    output logic [3:0]                M_AXI_ARUSER,     // User defined signal
+    output logic [AXI_WIDTH_ARUSER-1:0] M_AXI_ARUSER,  // User defined signal (parameterized)
  
     //Read data channel
     input  logic                      M_AXI_RVALID,     // Read data valid 
@@ -42,7 +45,7 @@ module dma_read #(
     input  logic [AXI_WIDTH_DA-1:0]   M_AXI_RDATA,      // Read data bus
     input  logic                      M_AXI_RLAST,      // Last beat of a burst transfer
     input  logic [AXI_WIDTH_ID-1:0]   M_AXI_RID,        // Read ID
-    input  logic [3:0]                M_AXI_RUSER,      // User defined signal
+    input  logic [AXI_WIDTH_RUSER-1:0] M_AXI_RUSER,     // User defined signal (parameterized)
     input  logic [1:0]                M_AXI_RRESP,      // Read response
      
     //Functional Ports (original naming from axi_dma_rd)
@@ -63,14 +66,14 @@ module dma_read #(
     localparam  LOG_BURST_SIZE = $clog2(FIXED_BURST_SIZE);
 
 //------------------------------------------------------------------------------
-// Internal Signals 
+// Internal Signals - AXI4 Compatible
 //------------------------------------------------------------------------------
     assign M_AXI_ARID = 3'd0;           // Read addr ID
-    assign M_AXI_ARLOCK = 2'd0;         // Atomic access information
+    assign M_AXI_ARLOCK = 1'b0;         // Atomic access (AXI4: single bit, normal access)
     assign M_AXI_ARCACHE = 4'd0;        // Cachable/bufferable infor
     assign M_AXI_ARPROT = 3'd0;         // Protection info
     assign M_AXI_ARQOS = 4'b1111;       // Highest priority
-    assign M_AXI_ARUSER = 4'd0;         // User defined signal
+    assign M_AXI_ARUSER = 'b0;          // User defined signal (parameterized width)
         
     logic [AXI_WIDTH_AD-1:0]  ext_araddr;
     logic [AXI_WIDTH_AD-1:0]  ext_arlen;

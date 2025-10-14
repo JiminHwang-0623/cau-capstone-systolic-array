@@ -223,7 +223,10 @@ module sa_core_pipeline #(
           .AXI_WIDTH_ID(C_M_AXI_ID_WIDTH),
           .AXI_WIDTH_AD(AXI_WIDTH_AD),    // address width
           .AXI_WIDTH_DA(C_M_AXI_DATA_WIDTH),    // data width
-          .AXI_WIDTH_DS(C_M_AXI_DATA_WIDTH/8)   // data strobe width
+          .AXI_WIDTH_DS(C_M_AXI_DATA_WIDTH/8),  // data strobe width
+          // AXI4 User signal widths
+          .AXI_WIDTH_ARUSER(C_M_AXI_ARUSER_WIDTH),
+          .AXI_WIDTH_RUSER(C_M_AXI_RUSER_WIDTH)
       )
   u_dma_read(
       //AXI Master Interface
@@ -272,35 +275,39 @@ module sa_core_pipeline #(
           .AXI_WIDTH_ID(C_M_AXI_ID_WIDTH),
           .AXI_WIDTH_AD(AXI_WIDTH_AD),  // address width
           .AXI_WIDTH_DA(C_M_AXI_DATA_WIDTH),  // data width
-          .AXI_WIDTH_DS(C_M_AXI_DATA_WIDTH/8) // data strobe width
+          .AXI_WIDTH_DS(C_M_AXI_DATA_WIDTH/8),// data strobe width
+          // AXI4 User signal widths
+          .AXI_WIDTH_AWUSER(C_M_AXI_AWUSER_WIDTH),
+          .AXI_WIDTH_WUSER(C_M_AXI_WUSER_WIDTH),
+          .AXI_WIDTH_BUSER(C_M_AXI_BUSER_WIDTH)
       )
   u_dma_write(
-      .M_AWID		(M_AXI_AWID		),
-      .M_AWADDR	(M_AXI_AWADDR	),
-      .M_AWLEN	(M_AXI_AWLEN	),
-      .M_AWSIZE	(M_AXI_AWSIZE	),
-      .M_AWBURST	(M_AXI_AWBURST	),
-      .M_AWLOCK	(M_AXI_AWLOCK	),
-      .M_AWCACHE	(M_AXI_AWCACHE	),
-      .M_AWPROT	(M_AXI_AWPROT	),
-      .M_AWQOS	(M_AXI_AWQOS	),
-      .M_AWVALID	(M_AXI_AWVALID	),
-      .M_AWREADY	(M_AXI_AWREADY	),
-      .M_AWUSER   (M_AXI_AWUSER   ),
-      //Write data channel
-      .M_WID		(                ), // Not used in AXI4
-      .M_WDATA	(M_AXI_WDATA	),
-      .M_WSTRB	(M_AXI_WSTRB	),
-      .M_WLAST	(M_AXI_WLAST	),
-      .M_WVALID	(M_AXI_WVALID	),
-      .M_WREADY	(M_AXI_WREADY	),
-      .M_WUSER    (M_AXI_WUSER    ),
-      .M_BUSER    (M_AXI_BUSER    ),    
-      //Write response channel
-      .M_BID		(M_AXI_BID		),
-      .M_BRESP	(M_AXI_BRESP	),
-      .M_BVALID	(M_AXI_BVALID	),
-      .M_BREADY	(M_AXI_BREADY	),
+      // Write address channel
+      .M_AXI_AWID		(M_AXI_AWID		),
+      .M_AXI_AWADDR	    (M_AXI_AWADDR	),
+      .M_AXI_AWLEN	    (M_AXI_AWLEN	),
+      .M_AXI_AWSIZE	    (M_AXI_AWSIZE	),
+      .M_AXI_AWBURST	(M_AXI_AWBURST	),
+      .M_AXI_AWLOCK	    (M_AXI_AWLOCK	),
+      .M_AXI_AWCACHE	(M_AXI_AWCACHE	),
+      .M_AXI_AWPROT	    (M_AXI_AWPROT	),
+      .M_AXI_AWQOS	    (M_AXI_AWQOS	),
+      .M_AXI_AWVALID	(M_AXI_AWVALID	),
+      .M_AXI_AWREADY	(M_AXI_AWREADY	),
+      .M_AXI_AWUSER     (M_AXI_AWUSER   ),
+      // Write data channel (Note: M_AXI_WID removed - deprecated in AXI4)
+      .M_AXI_WDATA	    (M_AXI_WDATA	),
+      .M_AXI_WSTRB	    (M_AXI_WSTRB	),
+      .M_AXI_WLAST	    (M_AXI_WLAST	),
+      .M_AXI_WVALID	    (M_AXI_WVALID	),
+      .M_AXI_WREADY	    (M_AXI_WREADY	),
+      .M_AXI_WUSER      (M_AXI_WUSER    ),
+      // Write response channel
+      .M_AXI_BID		(M_AXI_BID		),
+      .M_AXI_BRESP	    (M_AXI_BRESP	),
+      .M_AXI_BVALID	    (M_AXI_BVALID	),
+      .M_AXI_BREADY	    (M_AXI_BREADY	),
+      .M_AXI_BUSER      (M_AXI_BUSER    ),
       //Read address channel
       //User interface
       .start_dma	(ctrl_write     ),
