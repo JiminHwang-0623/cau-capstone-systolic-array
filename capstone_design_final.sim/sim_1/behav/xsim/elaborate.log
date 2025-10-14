@@ -1,0 +1,37 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_engine_tb_behav xil_defaultlib.sa_engine_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:59]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:70]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:81]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:92]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:103]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:114]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:125]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:129]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:130]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:131]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:132]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:134]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:135]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv:136]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:80]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:83]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:86]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:89]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:92]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:95]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:98]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:108]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:111]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:114]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:117]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:120]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:123]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:126]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
