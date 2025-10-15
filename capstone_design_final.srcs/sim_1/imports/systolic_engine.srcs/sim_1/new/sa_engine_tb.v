@@ -147,7 +147,7 @@ u_ext_mem_input (
 reg [31:0] i_0;
 reg [31:0] i_1;
 reg [31:0] i_2;
-	
+/*	
 sa_engine_top #(
     .AXI_WIDTH_AD(A),
     .AXI_WIDTH_ID(4),
@@ -217,6 +217,102 @@ u_sa_engine_top
     
     .network_done(network_done),
     .network_done_led(network_done_led)
+);
+*/
+
+// Start pulse generation
+wire start_pulse;
+reg start_d;
+always @(posedge clk) begin
+    if(!rstn) begin
+        start_d <= 1'b0;
+    end else begin
+        start_d <= i_0[0];
+    end
+end
+assign start_pulse = i_0[0] & ~start_d;
+
+// Status signals
+wire o_busy, o_done, o_error;
+wire network_done;
+assign network_done = o_done;
+
+sa_core_pipeline #(
+    .C_M_AXI_ID_WIDTH     (I),
+    .C_M_AXI_ADDR_WIDTH   (A),
+    .C_M_AXI_DATA_WIDTH   (D),
+    .C_M_AXI_AWUSER_WIDTH (0),
+    .C_M_AXI_ARUSER_WIDTH (0),
+    .C_M_AXI_WUSER_WIDTH  (0),
+    .C_M_AXI_RUSER_WIDTH  (0),
+    .C_M_AXI_BUSER_WIDTH  (0)
+) u_sa_core_pipeline (
+    // Clock and Reset
+    .S_AXI_ACLK      (clk),
+    .S_AXI_ARESETN   (rstn),
+    .M_AXI_ACLK      (clk),
+    .M_AXI_ARESETN   (rstn),
+
+    // Control Interface
+    .i_start         (start_pulse),
+    .i_src_addr      (i_1),           // Read address
+    .i_wgt_addr      (32'h0),         // Weight address (not used)
+    .i_dst_addr      (i_2),           // Write address
+    .i_size_param    (32'h40),        // Size parameter
+
+    // Status
+    .o_busy          (o_busy),
+    .o_done          (o_done),
+    .o_error         (o_error),
+
+    // AXI4-Full Master Write
+    .M_AXI_AWID      (M_AWID),
+    .M_AXI_AWADDR    (M_AWADDR),
+    .M_AXI_AWLEN     (M_AWLEN),
+    .M_AXI_AWSIZE    (M_AWSIZE),
+    .M_AXI_AWBURST   (M_AWBURST),
+    .M_AXI_AWLOCK    (M_AWLOCK),
+    .M_AXI_AWCACHE   (M_AWCACHE),
+    .M_AXI_AWPROT    (M_AWPROT),
+    .M_AXI_AWQOS     (M_AWQOS),
+    .M_AXI_AWUSER    (),              // unconnected (width=0)
+    .M_AXI_AWVALID   (M_AWVALID),
+    .M_AXI_AWREADY   (M_AWREADY),
+
+    .M_AXI_WDATA     (M_WDATA),
+    .M_AXI_WSTRB     (M_WSTRB),
+    .M_AXI_WLAST     (M_WLAST),
+    .M_AXI_WUSER     (),              // unconnected (width=0)
+    .M_AXI_WVALID    (M_WVALID),
+    .M_AXI_WREADY    (M_WREADY),
+
+    .M_AXI_BID       (M_BID),
+    .M_AXI_BRESP     (M_BRESP),
+    .M_AXI_BUSER     (),              // unconnected (width=0)
+    .M_AXI_BVALID    (M_BVALID),
+    .M_AXI_BREADY    (M_BREADY),
+
+    // AXI4-Full Master Read
+    .M_AXI_ARID      (M_ARID),
+    .M_AXI_ARADDR    (M_ARADDR),
+    .M_AXI_ARLEN     (M_ARLEN),
+    .M_AXI_ARSIZE    (M_ARSIZE),
+    .M_AXI_ARBURST   (M_ARBURST),
+    .M_AXI_ARLOCK    (M_ARLOCK),
+    .M_AXI_ARCACHE   (M_ARCACHE),
+    .M_AXI_ARPROT    (M_ARPROT),
+    .M_AXI_ARQOS     (M_ARQOS),
+    .M_AXI_ARUSER    (),              // unconnected (width=0)
+    .M_AXI_ARVALID   (M_ARVALID),
+    .M_AXI_ARREADY   (M_ARREADY),
+
+    .M_AXI_RID       (M_RID),
+    .M_AXI_RDATA     (M_RDATA),
+    .M_AXI_RRESP     (M_RRESP),
+    .M_AXI_RLAST     (M_RLAST),
+    .M_AXI_RUSER     (),              // unconnected (width=0)
+    .M_AXI_RVALID    (M_RVALID),
+    .M_AXI_RREADY    (M_RREADY)
 );
 
 
