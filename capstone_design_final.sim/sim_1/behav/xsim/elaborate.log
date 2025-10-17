@@ -34,4 +34,46 @@ WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 fo
 WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:123]
 WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/RF.sv:126]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/axi_sram_if.v" Line 12. Module axi_sram_if(D=32,M=4,MEM_ADDRW=23,MEM_DW=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/axi_slave_if_sync.v" Line 12. Module axi_slave_if_sync(L=8,D=32,M=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=16,W_SLOT=4,W_DATA=49) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=256,W_SLOT=8,W_DATA=41) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=16,W_SLOT=4,W_DATA=49) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=256,W_SLOT=8,W_DATA=39) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sram_ctrl.v" Line 11. Module sram_ctrl(L=8,D=32,M=4,W_MEM=16,W_ADDR=23) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sram.v" Line 10. Module sram(FILE_NAME="matrix_A_B.hex",SIZE=8388608,WL_ADDR=23,WL_DATA=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/axi_sram_if.v" Line 12. Module axi_sram_if(D=32,M=4,MEM_ADDRW=23,MEM_DW=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/axi_slave_if_sync.v" Line 12. Module axi_slave_if_sync(L=8,D=32,M=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=16,W_SLOT=4,W_DATA=49) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=256,W_SLOT=8,W_DATA=41) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=16,W_SLOT=4,W_DATA=49) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" Line 12. Module sync_reg_fifo(N_SLOT=256,W_SLOT=8,W_DATA=39) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sram_ctrl.v" Line 11. Module sram_ctrl(L=8,D=32,M=4,W_MEM=16,W_ADDR=23) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sram.v" Line 10. Module sram(FILE_NAME="matrix_A_B.hex",SIZE=8388608,WL_ADDR=23,WL_DATA=16) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.sync_reg_fifo(N_SLOT=16,W_SLOT=4...
+Compiling module xil_defaultlib.sync_reg_fifo(N_SLOT=256,W_SLOT=...
+Compiling module xil_defaultlib.sync_reg_fifo(N_SLOT=256,W_SLOT=...
+Compiling module xil_defaultlib.axi_slave_if_sync(L=8,D=32,M=4)
+Compiling module xil_defaultlib.sram_ctrl(L=8,D=32,M=4,W_MEM=16,...
+Compiling module xil_defaultlib.axi_sram_if(D=32,M=4,MEM_ADDRW=2...
+Compiling module xil_defaultlib.sram(FILE_NAME="matrix_A_B.hex",...
+Compiling module xil_defaultlib.axi_dma_ctrl(BIT_TRANS=8)
+Compiling module xil_defaultlib.dma_read(BITS_TRANS=8,OUT_BITS_T...
+Compiling module xil_defaultlib.dma_write(BITS_TRANS=8,OUT_BITS_...
+Compiling module xil_defaultlib.dpram_wrapper(DW=32,AW=11,DEPTH=...
+Compiling module xil_defaultlib.hPE
+Compiling module xil_defaultlib.tile8x8
+Compiling module xil_defaultlib.X_REG
+Compiling module xil_defaultlib.RF
+Compiling module xil_defaultlib.SystolicArray
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.FSM
+Compiling module xil_defaultlib.sa_core_default
+Compiling module xil_defaultlib.sa_core_pipeline(C_M_AXI_ID_WIDT...
+Compiling module xil_defaultlib.sa_engine_top(AXI_WIDTH_DS=4,MEM...
+Compiling module xil_defaultlib.sa_engine_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot sa_engine_tb_behav

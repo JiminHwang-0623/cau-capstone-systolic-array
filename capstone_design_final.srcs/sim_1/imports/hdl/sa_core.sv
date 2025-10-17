@@ -112,7 +112,7 @@ logic [31:0] dpram_out_dob;
 
 logic dpram_out_ena, dpram_out_enb;
 
-assign dpram_out_ena = ((c_state == S_STORE) && (iter_cnt[1:0] == 2'b11));
+assign dpram_out_ena = (c_state == S_STORE);
 
 assign dpram_out_enb = (c_state == S_OUT);
 assign dpram_out_addrb = (c_state == S_OUT) ? dma_cnt : 11'd0;
@@ -130,8 +130,10 @@ logic signed [63:0] bias_neg;
 logic signed [63:0] biased;
 logic signed [63:0] scaled64;
 logic signed [18:0] sa_out;   // 19-bit accumulator output
-logic signed [7:0]  data_out;
+// logic signed [7:0]  data_out;
 logic OUTPUT_EN;
+
+logic signed [31:0] buff_out;
 
 assign prod     = $signed(sa_out) * $signed(B);
 assign bias_pos = (C == 0) ? 64'sd0 : (64'sd1 << (C-1));
@@ -167,11 +169,15 @@ dpram_wrapper #(
     .ena        (1'b1),
     .addra      (dpram_out_addra),     // cnt signal
     .wea        (dpram_out_ena),     
-    .dia        (output_data_buffer),     
+    .dia        ({13'b0, sa_out}),     
     .enb        (dpram_out_enb),
     .addrb      (dpram_out_addrb),     // cnt signal
-    .dob        (DATA_OUT)
+    .dob        (buff_out)
 );
+
+always_ff @(posedge clk) begin
+    DATA_OUT <= buff_out;
+end
 
 ////////////////////////////////////////////////////////
 ////////////////// Signal Processing ///////////////////
@@ -184,6 +190,7 @@ always_comb begin
         S_IDLE: begin
             if (start) begin
                 n_state = S_DATA_LOAD;
+                start_rd_wr <= 2'b10;
             end
         end
         S_DATA_LOAD: begin
@@ -212,6 +219,7 @@ always_comb begin
         S_STORE: begin
             if (iter_cnt_S == WRITE_DELAY) begin
                 n_state = S_OUT;
+                start_rd_wr <= 2'b11;
             end
         end
         S_OUT: begin
@@ -246,6 +254,7 @@ always_ff @(posedge clk or negedge rstn) begin
         load_en     <= 1'b0;
         done        <= 1'b0;
         matrix_base_addr <= 11'd0;
+
     end else begin
 
         c_state <= n_state;
@@ -340,6 +349,9 @@ always_ff @(posedge clk or negedge rstn) begin
                     load_en     <= 1'b0;
                 end
             end
+            S_INTERRUPT_BUF: begin
+
+            end
             S_MATMUL: begin
                 start_rd_wr <= 2'b00;
 
@@ -354,10 +366,7 @@ always_ff @(posedge clk or negedge rstn) begin
                 
                 if (OUTPUT_EN) begin
                     iter_cnt_S    <= iter_cnt_S + 1;
-                    output_data_buffer[iter_cnt_S[1:0]*8 +: 8]  <= data_out;
-                    if (iter_cnt_S[1:0] == 2'b11) begin
-                        dpram_out_addra                         <= {5'd0, iter_cnt_S[5:2]};
-                    end
+                    dpram_out_addra <= iter_cnt_S;
                 end
 
                 IDX                 <= iter_cnt_S[2:0];           // col
@@ -368,7 +377,6 @@ always_ff @(posedge clk or negedge rstn) begin
                     en          <= 1'b0;
                     write_en    <= 1'b0;
                     load_en     <= 1'b0;
-                    start_rd_wr <= 2'b11;
                 end
             end
             S_OUT: begin
@@ -387,18 +395,18 @@ always_ff @(posedge clk or negedge rstn) begin
 end
 
 // INT8 saturation
-function automatic logic signed [7:0] sat_int8(input logic signed [63:0] x);
-    if      (x >  127) return 8'sd127;
-    else if (x < -128) return -8'sd128;
-    else               return x[7:0];
-endfunction
+// function automatic logic signed [7:0] sat_int8(input logic signed [63:0] x);
+//     if      (x >  127) return 8'sd127;
+//     else if (x < -128) return -8'sd128;
+//     else               return x[7:0];
+// endfunction
 
-always_comb begin
-    if (en_output)
-        data_out = sat_int8(scaled64);
-    else
-        data_out = 8'sd0;
-end
+// always_comb begin
+//     if (en_output)
+//         data_out = sat_int8(scaled64);
+//     else
+//         data_out = 8'sd0;
+// end
 
 ////////////////////////////////////////////////////////
 //////////////////// Core Instance /////////////////////

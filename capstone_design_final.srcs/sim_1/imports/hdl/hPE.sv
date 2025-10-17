@@ -30,9 +30,9 @@ module hPE(
             B_data <= B;
         end
         
-        if (!EN && RST) begin
-            ACC <= 0;
-        end
+        // if (!EN && RST) begin
+        //     ACC <= 0;
+        // end
     end
     
     assign A_out = A_data;

@@ -67,13 +67,21 @@ logic [AXI_WIDTH_AD-1:0] write_addr;
 logic [BIT_TRANS-1:0] write_data_cnt;
 logic [15:0] req_blk_idx_wr;
 
-logic [BIT_TRANS-1:0] num_trans      = i_num_trans;
-logic [15:0] max_req_blk_idx         = i_max_req_blk_idx;
-logic [31:0] dram_base_addr_rd       = i_base_address_rd;
-logic [31:0] dram_base_addr_wr       = i_base_address_wr;
-logic read_done                      = i_read_done;
-logic write_done                     = i_write_done;
-logic indata_req_wr                  = i_indata_req_wr;
+logic [BIT_TRANS-1:0] num_trans;
+logic [15:0] max_req_blk_idx;
+logic [31:0] dram_base_addr_rd;
+logic [31:0] dram_base_addr_wr;
+logic read_done;
+logic write_done;
+logic indata_req_wr;
+
+assign num_trans = i_num_trans;
+assign max_req_blk_idx = i_max_req_blk_idx;
+assign dram_base_addr_rd = i_base_address_rd;
+assign dram_base_addr_wr = i_base_address_wr;
+assign read_done = i_read_done;
+assign write_done = i_write_done;
+assign indata_req_wr = i_indata_req_wr;
 
 assign o_write_data_cnt     = write_data_cnt;
 assign o_ctrl_write         = ctrl_write;
