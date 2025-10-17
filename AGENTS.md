@@ -1,26 +1,18 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `sa_engine_ip_1.0/hdl` houses synthesizable SystemVerilog (pipeline, DMA, systolic array); mirror copies under `src` for simulation include.
-- `sa_engine_ip_1.0/example_designs/bfm_design` provides TCL + testbench to exercise AXI interfaces; `debug_hw_design` contains board bring-up scripts.
-- Generated Vivado artifacts live under `capstone_design_final.srcs` (block design) and `capstone_design_final.runs` (synthesis/implementation logs); avoid editing by hand.
+The IP source lives in `sa_engine_ip_1.0/hdl`, with simulation mirrors under `sa_engine_ip_1.0/src`; keep both copies in sync when touching pipeline, DMA, or systolic array RTL. Drive AXI-based bring-up through `sa_engine_ip_1.0/example_designs/bfm_design`, while hardware validation scripts sit in `sa_engine_ip_1.0/example_designs/debug_hw_design`. Treat everything under `capstone_design_final.srcs` and `capstone_design_final.runs` as generated Vivado artifacts—inspect outputs there, but never hand-edit.
 
 ## Build, Test, and Development Commands
-- `vivado capstone_design_final.xpr` opens the full project in the GUI; use for block-design edits or IP packaging.
-- `vivado -mode batch -source sa_engine_ip_1.0/example_designs/bfm_design/design.tcl` regenerates the simulation project and launches behavioral xsim; rerun after HDL changes.
-- `vivado -mode batch -source sa_engine_ip_1.0/example_designs/debug_hw_design/design.tcl` builds the hardware test harness used on PYNQ-Z2; review generated bitstream in `capstone_design_final.runs`.
+- `vivado capstone_design_final.xpr` — launch the full project GUI for block design edits or IP repackaging.
+- `vivado -mode batch -source sa_engine_ip_1.0/example_designs/bfm_design/design.tcl` — regenerate the behavioral xsim project and run the AXI BFM regression.
+- `vivado -mode batch -source sa_engine_ip_1.0/example_designs/debug_hw_design/design.tcl` — rebuild the PYNQ-Z2 hardware harness and emit the latest bitstream.
 
 ## Coding Style & Naming Conventions
-- Modules, files, and internal signals follow `lower_snake_case` (e.g., `sa_core_pipeline`); keep parameter constants `UPPER_SNAKE_CASE`.
-- Indent SystemVerilog with two spaces, align port lists, and group interface signals by AXI channel; prefer `logic` + `always_ff/always_comb`.
-- Document non-obvious FSMs with header banners similar to existing comment blocks; update `component.xml` metadata when public ports change.
+Use SystemVerilog `logic` with `always_ff`/`always_comb`, two-space indentation, and aligned port lists. Name modules, files, and internal signals in `lower_snake_case`; reserve parameters for `UPPER_SNAKE_CASE`. Group AXI ports by channel and refresh `component.xml` metadata whenever public interfaces change.
 
 ## Testing Guidelines
-- Primary regression is the SystemVerilog testbench `sa_engine_ip_v1_0_tb.sv`; run through the BFM design flow above.
-- Add focused module tests under `sa_engine_ip_1.0/example_designs` and keep filenames `<module>_tb.sv`.
-- Target 100% functional coverage on DMA and systolic datapath handshake states; capture waveforms in `capstone_design_final.sim/sim_1/behav` and attach key screenshots to reviews.
+Primary verification runs through `sa_engine_ip_v1_0_tb.sv`; invoke it via the BFM batch flow above and review generated waveforms in `capstone_design_final.sim/sim_1/behav`. Add focused module benches under `sa_engine_ip_1.0/example_designs` using the `<module>_tb.sv` naming pattern. Target full functional coverage on DMA bursts and systolic datapath handshakes before requesting hardware time.
 
 ## Commit & Pull Request Guidelines
-- Commit titles should be ≤72 chars, present-tense imperatives (e.g., `Fix DMA burst alignment`); elaborate in the body when touching timing-critical logic.
-- Reference related Vivado run IDs or Jira issues (`JIRA-123`) in the body; include `Co-authored-by:` trailers for joint debugging sessions.
-- Pull requests must summarize verification evidence (xsim log link, waveform captures) and note any register map or driver changes; request hardware validation from the board owner before merge.
+Write commits in ≤72-character, present-tense imperatives (e.g., `Fix DMA burst alignment`), elaborating in the body on timing-critical changes and referencing Vivado run IDs or Jira tickets. Pull requests must summarize verification evidence (xsim logs, waveform captures), call out register map or driver deltas, and tag the board owner for hardware validation before merge.

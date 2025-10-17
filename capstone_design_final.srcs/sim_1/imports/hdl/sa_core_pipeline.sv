@@ -332,6 +332,11 @@ module sa_core_pipeline #(
       .read_data_vld  (read_data_vld),
       .DATA_IN        (read_data),
 
+      // DMA handshake signals
+      .rd_done        (read_done),
+      .wr_pull        (indata_req_wr),
+      .wr_done        (write_done),
+
       .start_rd_wr    (start_rd_wr),
       .dma_cnt        (dma_cnt),
       .DATA_OUT       (write_data),

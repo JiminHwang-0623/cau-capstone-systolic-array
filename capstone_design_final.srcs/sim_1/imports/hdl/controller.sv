@@ -1,15 +1,18 @@
 `timescale 1ns / 1ps
 module controller(
-    input RST,
-    input CLK,
-    input EN,                       // EN only for controller --> disable when changing inputs before load or read!
-    input WRITE,                    // WRITE TO INT_MEM
-    input [2:0] IDX,                // index of the element
-    input [3:0] REG_SELECT,         // which register
-    input LOAD,                     // Load to REGISTER FILE
-    input [7:0] DATA_IN,
-    output DATA_OUTPUT_EN,       // Enable output
-    output [18:0] DATA_OUT
+    input  logic        RST,
+    input  logic        CLK,
+    input  logic        EN,             // EN only for controller --> disable when changing inputs before load or read!
+    input  logic        WRITE,          // WRITE TO INT_MEM
+    input  logic [2:0]  IDX,            // index of the element
+    input  logic [3:0]  REG_SELECT,     // which register
+    input  logic        LOAD,           // Load to REGISTER FILE
+    input  logic [7:0]  DATA_IN,
+    output logic        DATA_OUTPUT_EN, // Enable output
+    output logic [18:0] DATA_OUT,
+    output logic        load_done_o, // when the last write operation for Matrix B is done (from dpram to controller)
+    output logic        pipe_load_done_o, // when the last write operation for Matrix A is done (from controller to internal systolic array buffers)
+    output logic        mat_a_load_done_o // when the last write operation for Matrix A is done (from dpram to controller)
 );
     ///////////////////////////////////////////////////////////
 
@@ -83,8 +86,20 @@ module controller(
     reg SA_WRITE = 0;
     reg OUTPUT_EN = 0;
 
+    logic load_done_pulse;
+    assign load_done_o = load_done_pulse;
+
+    logic pipe_load_done_pulse;
+    assign pipe_load_done_o = pipe_load_done_pulse;
+
+    logic mat_a_load_done_pulse;
+    assign mat_a_load_done_o = mat_a_load_done_pulse;
 
     always@(posedge CLK) begin
+        load_done_pulse <= 1'b0;
+        pipe_load_done_pulse <= 1'b0;
+        mat_a_load_done_pulse <= 1'b0;
+
         if(EN) begin
             // Always connect results register!
             if(LOAD) begin
@@ -112,6 +127,10 @@ module controller(
                     DATA_14 <= MAT_B6[IDX_COUNTER];
                     DATA_15 <= MAT_B7[IDX_COUNTER];
                     
+                    if (IDX_COUNTER == 7) begin
+                        pipe_load_done_pulse <= 1'b1;
+                    end
+
                     IDX_COUNTER <= IDX_COUNTER + 1;
                     IDX_IN_BUFFER <= IDX_COUNTER;                    
                 end
@@ -144,6 +163,16 @@ module controller(
                     SA_WRITE <= 0;
                     SA_EN <= 0;
                     OUTPUT_EN <= 0;
+
+                    // Detect the last write for Matrix A
+                    if (REG_SELECT == 4'h7 && IDX == 3'h7) begin
+                        mat_a_load_done_pulse <= 1'b1;
+                    end
+
+                    // Detect the last write operation for the load sequence (Matrix B)
+                    if (REG_SELECT == 4'hF && IDX == 3'h7) begin
+                        load_done_pulse <= 1'b1;
+                    end
 
                     case (REG_SELECT)
                         4'd0 : MAT_A0[IDX] <= DATA_IN;

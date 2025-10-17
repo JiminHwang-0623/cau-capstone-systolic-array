@@ -7,7 +7,7 @@
 //
 // Original: ChipTop.v (Contest verified code)
 // Ported for Capstone Design Project
-// Last Updated: 2025-10-11 (by Jimin Hwang)
+// Last Updated: 2025-10-17 (by Jimin Hwang)
 //----------------------------------------------------------------+
 
 `timescale 1ns/1ps
@@ -18,8 +18,13 @@ module sa_core (
 
     input  logic        start,
 
-    input  logic        read_data_vld,
+    input  logic        read_data_vld, // from dma_read, it says that the read is valid (RVALID&RREADY)
     input  logic [31:0] DATA_IN,
+
+    // DMA handshake signals
+    input  logic        rd_done, // from dma_read, it says that the read is done
+    input  logic        wr_pull, // from dma_write, it says that the write is ready to pull the next word from the internal buffer
+    input  logic        wr_done, // from dma_write, it says that the write is done
 
     output logic [1:0]  start_rd_wr,
     output logic [10:0] dma_cnt,
@@ -34,8 +39,6 @@ module sa_core (
 
 // For systolic array
 localparam WRITE_DELAY   = 64;
-localparam LOAD_DELAY    = 32;
-localparam OUT_DELAY     = 16;
 localparam MATRIX_SIZE   = 16;
 
 
@@ -93,6 +96,8 @@ assign iter_cnt = (c_state == S_WRITE_A) ? iter_cnt_A :
                   (c_state == S_WRITE_B) ? iter_cnt_B :
                   (c_state == S_STORE)   ? iter_cnt_S : 7'd0;
 
+logic load_done_from_fsm;
+logic mat_a_load_done_from_fsm;
 
 // DPRAM INPUT
 logic        dpram_in_enb;
@@ -140,6 +145,7 @@ assign bias_pos = (C == 0) ? 64'sd0 : (64'sd1 << (C-1));
 assign bias_neg = (C == 0) ? 64'sd0 : ((64'sd1 << (C-1)) - 64'sd1);
 assign biased   = (prod >= 0) ? (prod + bias_pos) : (prod + bias_neg);
 assign scaled64 = (C == 0) ? biased : (biased >>> C);
+
 
 ////////////////////////////////////////////////////////
 /////////////////// Dpram instance /////////////////////
@@ -190,19 +196,18 @@ always_comb begin
         S_IDLE: begin
             if (start) begin
                 n_state = S_DATA_LOAD;
-                start_rd_wr <= 2'b10;
             end
         end
         S_DATA_LOAD: begin
-            if (dma_cnt == LOAD_DELAY)
+            if (rd_done)
                 n_state = S_WRITE_A;
         end
         S_WRITE_A: begin
-            if (iter_cnt_A == WRITE_DELAY)
+            if (mat_a_load_done_from_fsm)
                 n_state = S_WRITE_B;
         end
         S_WRITE_B: begin
-            if (iter_cnt_B == WRITE_DELAY)
+            if (load_done_from_fsm)
                 n_state = S_LOAD;
         end
         S_LOAD: begin
@@ -219,11 +224,10 @@ always_comb begin
         S_STORE: begin
             if (iter_cnt_S == WRITE_DELAY) begin
                 n_state = S_OUT;
-                start_rd_wr <= 2'b11;
             end
         end
         S_OUT: begin
-            if (dma_cnt == OUT_DELAY-1)
+            if (wr_done)
                 n_state = S_IDLE;
         end
         default: n_state = S_IDLE;
@@ -293,7 +297,7 @@ always_ff @(posedge clk or negedge rstn) begin
                     dma_cnt <= dma_cnt + 1;
                 end
 
-                if (dma_cnt == LOAD_DELAY) begin
+                if (rd_done) begin
                     dma_cnt     <= 11'd0;
                     en          <= 1'b1;
                     write_en    <= 1'b1;
@@ -309,7 +313,7 @@ always_ff @(posedge clk or negedge rstn) begin
                 REG_SELECT          <= {1'b0,iter_cnt_A_d[5:3]};    // row
                 sa_input_data       <= dpram_in_dob[iter_cnt_A_d[1:0]*8 +: 8];
 
-                if (iter_cnt_A == WRITE_DELAY) begin
+                if (mat_a_load_done_from_fsm) begin
                     iter_cnt_A      <= 7'd0;
                     en              <= 1'b1;
                     write_en        <= 1'b1;
@@ -377,13 +381,16 @@ always_ff @(posedge clk or negedge rstn) begin
                     en          <= 1'b0;
                     write_en    <= 1'b0;
                     load_en     <= 1'b0;
+                    start_rd_wr <= 2'b11;
                 end
             end
             S_OUT: begin
                 start_rd_wr <= 2'b00;
-                dma_cnt     <= dma_cnt+1;
+                if (wr_pull) begin
+                    dma_cnt     <= dma_cnt+1;
+                end
 
-                if (dma_cnt == OUT_DELAY-1) begin
+                if (wr_done) begin
                     dma_cnt     <= 11'd0;
                     done        <= 1'b1;
                 end
@@ -424,7 +431,10 @@ FSM systolic_core(
     .OUTPUT_EN  (OUTPUT_EN),
     .data_out   (sa_out),
 
-    .int_to_ps  (INTERRUPT_PIN)
+    .int_to_ps  (INTERRUPT_PIN),
+    .load_done_o(load_done_from_fsm),
+    .pipe_load_done_o(controller_pipe_load_done),
+    .mat_a_load_done_o(mat_a_load_done_from_fsm)
     // .read_led   (), 
     // .write_led  (), 
     // .load_led   (), 

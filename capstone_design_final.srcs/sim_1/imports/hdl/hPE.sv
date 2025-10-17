@@ -24,15 +24,16 @@ module hPE(
    
     
     always@(posedge CLK) begin
-        if(EN) begin
+        if(!RST) begin
+            ACC <= 0;
+            A_data <= 0;
+            B_data <= 0;
+        end
+        else if(EN) begin
             ACC <= ACC + (A_data * B_data);
             A_data <= A;
             B_data <= B;
         end
-        
-        // if (!EN && RST) begin
-        //     ACC <= 0;
-        // end
     end
     
     assign A_out = A_data;
