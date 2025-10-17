@@ -16,19 +16,6 @@
 -makelib xcelium_lib/xpm \
   "C:/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/design_1/ipshared/bd1d/hdl/dma_read.sv" \
-  "../../../bd/design_1/ipshared/bd1d/hdl/dma_write.sv" \
-  "../../../bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv" \
-  "../../../bd/design_1/ipshared/bd1d/hdl/systolic_array_engine.sv" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v" \
-  "../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
--endlib
 -makelib xcelium_lib/axi_infrastructure_v1_1_0 \
   "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
 -endlib
@@ -73,6 +60,28 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_0/sim/design_1_rst_ps7_0_100M_0.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ipshared/bfe2/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib -sv \
+  "../../../bd/design_1/ipshared/bfe2/src/FSM.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/RF.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/SystolicArray.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/X_REG.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/axi_dma_ctrl.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/controller.sv" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/dma_read.sv" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/dma_write.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/dpram_wrapper.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/hPE.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/sa_core.sv" \
+  "../../../bd/design_1/ipshared/bfe2/hdl/sa_core_pipeline.sv" \
+  "../../../bd/design_1/ipshared/bfe2/src/tile8x8.sv" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ipshared/bfe2/hdl/sa_engine_ip_v1_0.v" \
+  "../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
   "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
