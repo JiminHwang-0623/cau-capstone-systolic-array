@@ -75,3 +75,12 @@
 ```tcl
 launch_simulation
 run all
+
+###🔜 Next Step (Day 3)
+
+- Burst 크기 변화 실험
+  - ARLEN/AWLEN 값을 4, 8, 16, 32로 변경
+  - 각 케이스별 baseline.csv 기록
+
+- Throughput 향상 비교 그래프 작성
+  - (예정) Python or Excel로 자동 그래프화
