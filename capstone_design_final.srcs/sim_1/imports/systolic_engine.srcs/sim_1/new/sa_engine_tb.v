@@ -60,11 +60,15 @@ wire              M_RLAST;      // Last beat of a burst transfer
 wire              M_RVALID;     // Read data valid 
 wire              M_RREADY;     // Read data ready (to Slave)
 
+wire network_done;
+wire network_done_led;
+
 // Memory ports for input (activation)
 wire [MEM_ADDRW-1:0]   mem_addr;
 wire                   mem_we;
 wire [MEM_DW-1:0]      mem_di;
 wire [MEM_DW-1:0]      mem_do;
+
 
 //--------------------------------------------------------------------
 //AXI Slave External Memory: Input
@@ -252,5 +256,92 @@ initial begin
          @(posedge clk) $stop;
 end
 
+// ===== Verilog-2001 safe baseline monitor (ints only) =====
+integer fd;
+reg started, finished;
+integer cyc, start_cyc, done_cyc;
+integer rd_bursts, wr_bursts, rd_beats, wr_beats;
+integer rd_bytes,  wr_bytes;
+reg printed_once;
+
+// 전역 초기화
+initial begin
+  started = 1'b0;  finished = 1'b0;
+  cyc = 0; start_cyc = 0; done_cyc = 0;
+  rd_bursts = 0; wr_bursts = 0; rd_beats = 0; wr_beats = 0;
+  rd_bytes = 0; wr_bytes = 0;
+  printed_once = 1'b0;
+end
+
+// 사이클 카운터
+always @(posedge clk or negedge rstn) begin
+  if (!rstn) cyc <= 0;
+  else        cyc <= cyc + 1;
+end
+
+// 카운트 & 타임스탬프
+always @(posedge clk or negedge rstn) begin
+  if (!rstn) begin
+    started   <= 1'b0; finished <= 1'b0;
+    start_cyc <= 0;    done_cyc  <= 0;
+    rd_bursts <= 0;    wr_bursts <= 0;
+    rd_beats  <= 0;    wr_beats  <= 0;
+  end else begin
+    // 시작: 첫 Read 주소 핸드셰이크 시점
+    if (!started && (M_ARVALID && M_ARREADY)) begin
+      started   <= 1'b1;
+      start_cyc <= cyc;
+    end
+    // 종료: network_done
+    if (!finished && network_done) begin
+      finished <= 1'b1;
+      done_cyc <= cyc;
+    end
+
+    // 핸드셰이크 카운트
+    if (M_ARVALID && M_ARREADY) rd_bursts <= rd_bursts + 1;
+    if (M_AWVALID && M_AWREADY) wr_bursts <= wr_bursts + 1;
+    if (M_RVALID  && M_RREADY ) rd_beats  <= rd_beats  + 1;
+    if (M_WVALID  && M_WREADY ) wr_beats  <= wr_beats  + 1;
+  end
+end
+
+// 첫 burst 정렬 정보 한번만 출력(옵션)
+always @(posedge clk or negedge rstn) begin
+  if (!rstn) printed_once <= 1'b0;
+  else if (!printed_once && (M_ARVALID && M_ARREADY)) begin
+    $display("ARADDR LSB[6:0]=0x%0h  ARLEN=%0d", M_ARADDR[6:0], M_ARLEN);
+    printed_once <= 1'b1;
+  end
+end
+
+// 완료 시 콘솔 + CSV 출력 (정수만)
+initial begin
+  fd = $fopen("baseline.csv", "w");
+  $fdisplay(fd, "metric,value");
+  wait(finished);
+
+  rd_bytes = rd_beats * (D/8);
+  wr_bytes = wr_beats * (D/8);
+
+  $display("\n=== Day2 Baseline (.v safe) ===");
+  $display("cycles(total)    = %0d", (done_cyc - start_cyc));
+  $display("read : bursts=%0d beats=%0d bytes=%0d",
+            rd_bursts, rd_beats, rd_bytes);
+  $display("write: bursts=%0d beats=%0d bytes=%0d",
+            wr_bursts, wr_beats, wr_bytes);
+
+  $fdisplay(fd, "cycles,%0d", (done_cyc - start_cyc));
+  $fdisplay(fd, "rd_bursts,%0d", rd_bursts);
+  $fdisplay(fd, "wr_bursts,%0d", wr_bursts);
+  $fdisplay(fd, "rd_beats,%0d",  rd_beats);
+  $fdisplay(fd, "wr_beats,%0d",  wr_beats);
+  $fdisplay(fd, "rd_bytes,%0d",  rd_bytes);
+  $fdisplay(fd, "wr_bytes,%0d",  wr_bytes);
+  $fclose(fd);
+
+  $stop; // 한 번 찍고 멈춤
+end
+// ==========================================================
 
 endmodule

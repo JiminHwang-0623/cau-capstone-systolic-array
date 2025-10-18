@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat Oct 18 02:33:03 2025
+# Process ID: 35236
+# Current directory: C:/Users/jaebum324/Desktop/종합설계/Project/cau-capstone-systolic-array
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent35880 C:\Users\jaebum324\Desktop\종합설계\Project\cau-capstone-systolic-array\capstone_design_final.xpr
+# Log file: C:/Users/jaebum324/Desktop/종합설계/Project/cau-capstone-systolic-array/vivado.log
+# Journal file: C:/Users/jaebum324/Desktop/종합설계/Project/cau-capstone-systolic-array\vivado.jou
+# Running On: DESKTOP-KDQSPRN, OS: Windows, CPU Frequency: 2189 MHz, CPU Physical cores: 12, Host memory: 16718 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/jaebum324/Desktop/종합설계/Project/cau-capstone-systolic-array/capstone_design_final.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/jaebum324/Desktop/종합설계/Project/cau-capstone-systolic-array/capstone_design_final.srcs/sources_1/bd/design_1/design_1.bd}

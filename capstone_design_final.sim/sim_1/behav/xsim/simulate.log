@@ -1,5 +1,10 @@
 Time resolution is 1 ps
 Initializing memory 'SimmemSync_rp0_wp0_cp1'..
 Loading memory 'SimmemSync_rp0_wp0_cp1' from file: matrix_A_B.hex
-network_done received!
-$stop called at time : 14600 ns : File "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 252
+ARADDR LSB[6:0]=0x0  ARLEN=15
+
+=== Day2 Baseline (.v safe) ===
+cycles(total)    = 315
+read : bursts=2 beats=32 bytes=128
+write: bursts=1 beats=16 bytes=64
+$stop called at time : 4250 ns : File "C:/Users/jaebum324/Desktop/종합설계/Project/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 343

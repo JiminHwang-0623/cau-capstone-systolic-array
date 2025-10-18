@@ -1,0 +1,8 @@
+metric,value
+cycles,315
+rd_bursts,2
+wr_bursts,1
+rd_beats,32
+wr_beats,16
+rd_bytes,128
+wr_bytes,64
