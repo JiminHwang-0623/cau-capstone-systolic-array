@@ -12,9 +12,9 @@ module FSM(
     output logic        OUTPUT_EN,      // Enable output
     output logic [18:0] data_out,
     output logic        int_to_ps,      // use to interrupt the CPU after changing state (edge trigger)
-    output logic        load_done_o,
+    output logic        B_load_done_o,
     output logic        pipe_load_done_o,
-    output logic        mat_a_load_done_o
+    output logic        A_load_done_o
 );
     
     reg [4:0] matmul_counter;  
@@ -76,9 +76,9 @@ module FSM(
         .DATA_IN(data_in),
         .DATA_OUTPUT_EN(OUTPUT_EN),
         .DATA_OUT(data_out),
-        .load_done_o(load_done_o),
+        .load_done_o(B_load_done_o),
         .pipe_load_done_o(controller_pipe_load_done),
-        .mat_a_load_done_o(mat_a_load_done_o)
+        .mat_a_load_done_o(A_load_done_o)
     );
     
     // Interrupt
