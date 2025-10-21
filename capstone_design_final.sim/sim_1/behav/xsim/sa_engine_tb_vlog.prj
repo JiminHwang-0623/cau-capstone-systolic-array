@@ -1,0 +1,32 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/axi_slave_if_sync.v" \
+"../../../../capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/axi_sram_if.v" \
+"../../../../capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sram.v" \
+"../../../../capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sram_ctrl.v" \
+"../../../../capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sources_1/new/sync_reg_fifo.v" \
+
+sv xil_defaultlib  --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/FSM.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/RF.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/SystolicArray.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/X_REG.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/axi_dma_ctrl.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/controller.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/dma_read.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/dma_write.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/dpram_wrapper.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/hPE.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/sa_engine_top.sv" \
+"../../../../capstone_design_final.srcs/sim_1/imports/hdl/tile8x8.sv" \
+
+verilog xil_defaultlib  --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

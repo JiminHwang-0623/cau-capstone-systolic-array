@@ -3,10 +3,10 @@ vlib activehdl
 
 vlib activehdl/xilinx_vip
 vlib activehdl/xpm
-vlib activehdl/xil_defaultlib
 vlib activehdl/axi_infrastructure_v1_1_0
 vlib activehdl/axi_vip_v1_1_11
 vlib activehdl/processing_system7_vip_v1_0_13
+vlib activehdl/xil_defaultlib
 vlib activehdl/generic_baseblocks_v2_1_0
 vlib activehdl/axi_register_slice_v2_1_25
 vlib activehdl/fifo_generator_v13_2_6
@@ -22,10 +22,10 @@ vlib activehdl/axi_mmu_v2_1_23
 
 vmap xilinx_vip activehdl/xilinx_vip
 vmap xpm activehdl/xpm
-vmap xil_defaultlib activehdl/xil_defaultlib
 vmap axi_infrastructure_v1_1_0 activehdl/axi_infrastructure_v1_1_0
 vmap axi_vip_v1_1_11 activehdl/axi_vip_v1_1_11
 vmap processing_system7_vip_v1_0_13 activehdl/processing_system7_vip_v1_0_13
+vmap xil_defaultlib activehdl/xil_defaultlib
 vmap generic_baseblocks_v2_1_0 activehdl/generic_baseblocks_v2_1_0
 vmap axi_register_slice_v2_1_25 activehdl/axi_register_slice_v2_1_25
 vmap fifo_generator_v13_2_6 activehdl/fifo_generator_v13_2_6
@@ -56,19 +56,6 @@ vlog -work xpm  -sv2k12 "+incdir+../../../../capstone_design_final.gen/sources_1
 
 vcom -work xpm -93 \
 "C:/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_VCOMP.vhd" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
-
-vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../bd/design_1/ipshared/bd1d/hdl/dma_read.sv" \
-"../../../bd/design_1/ipshared/bd1d/hdl/dma_write.sv" \
-"../../../bd/design_1/ipshared/bd1d/hdl/sa_core_pipeline.sv" \
-"../../../bd/design_1/ipshared/bd1d/hdl/systolic_array_engine.sv" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
-"../../../bd/design_1/ipshared/bd1d/hdl/sa_engine_ip_v1_0.v" \
-"../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
 
 vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
@@ -114,6 +101,28 @@ vcom -work proc_sys_reset_v5_0_13 -93 \
 
 vcom -work xil_defaultlib -93 \
 "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_0/sim/design_1_rst_ps7_0_100M_0.vhd" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/design_1/ipshared/bfe2/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
+
+vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/design_1/ipshared/bfe2/src/FSM.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/RF.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/SystolicArray.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/X_REG.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/axi_dma_ctrl.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/controller.sv" \
+"../../../bd/design_1/ipshared/bfe2/hdl/dma_read.sv" \
+"../../../bd/design_1/ipshared/bfe2/hdl/dma_write.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/dpram_wrapper.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/hPE.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/sa_core.sv" \
+"../../../bd/design_1/ipshared/bfe2/hdl/sa_core_pipeline.sv" \
+"../../../bd/design_1/ipshared/bfe2/src/tile8x8.sv" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../bd/design_1/ipshared/bfe2/hdl/sa_engine_ip_v1_0.v" \
+"../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
 
 vlog -work axi_protocol_converter_v2_1_25  -v2k5 "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/3007/hdl" "+incdir+C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
 "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
