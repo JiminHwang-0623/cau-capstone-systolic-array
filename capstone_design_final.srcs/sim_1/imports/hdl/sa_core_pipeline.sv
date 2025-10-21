@@ -108,6 +108,15 @@ module sa_core_pipeline #(
   logic [1:0]  start_rd_wr;  // From sa_core
   logic        done_core;    // From sa_core
   logic [10:0] dma_cnt;      // From sa_core
+  
+  logic prefetch_req;
+  logic prefetch_done;
+  logic compute_req;
+  logic compute_done;
+  
+  assign compute_req = ap_start;
+  assign compute_done = done_core;
+  assign prefetch_req = (start_rd_wr == 2'b10);
 
   // Signals for dma read  
   logic                              ctrl_read;
@@ -204,6 +213,8 @@ module sa_core_pipeline #(
      ,.row_cnt          (dma_cnt             ) 
      // DMA Read
      ,.i_read_done      (read_done           )
+     ,.i_prefetch_req   (prefetch_req        )
+     ,.o_prefetch_done  (prefetch_done       )
      ,.o_ctrl_read      (ctrl_read           )
      ,.o_read_addr      (read_addr           )
      // DMA Write

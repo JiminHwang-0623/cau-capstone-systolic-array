@@ -112,3 +112,21 @@ Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // Tcl Message: open_project {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.xpr} 
 // Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/Users/sudea/capstone_design_final' since last save. 
 // Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: open_project: Time (s): cpu = 00:00:34 ; elapsed = 00:00:20 . Memory (MB): peak = 1228.504 ; gain = 0.000 
+// Project name: capstone_design_final; location: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array; part: xc7z020clg400-1
+dismissDialog("Open Project"); // bA
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// Tcl Message: update_compile_order -fileset sim_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 3); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 4); // D
+// [GUI Memory]: 146 MB (+8676kb) [00:00:41]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, sa_engine_tb (sa_engine_tb.v)]", 6); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, sa_engine_tb (sa_engine_tb.v)]", 6); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, sa_engine_tb (sa_engine_tb.v)]", 6); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, sa_engine_tb (sa_engine_tb.v), u_sa_engine_top : sa_engine_top (sa_engine_top.sv)]", 9); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, sa_engine_tb (sa_engine_tb.v)]", 6); // D
+// [GUI Memory]: 157 MB (+3862kb) [00:02:46]

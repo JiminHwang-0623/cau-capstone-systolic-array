@@ -20,6 +20,7 @@ module axi_dma_ctrl #(
 input  logic                  clk, 
 input  logic                  rstn,
 input  logic [1:0]            i_start,
+input  logic                  i_prefetch_req,
 input  logic [31:0]           i_base_address_rd,
 input  logic [31:0]           i_base_address_wr,
 input  logic [BIT_TRANS-1:0]  i_num_trans,
@@ -36,7 +37,8 @@ input  logic                  i_indata_req_wr,
 output logic                  o_ctrl_write,
 output logic [31:0]           o_write_addr,
 output logic [BIT_TRANS-1:0]  o_write_data_cnt,
-output logic                  o_ctrl_write_done   
+output logic                  o_ctrl_write_done,
+output logic                  o_prefetch_done
 );
 
 // Internal Signals
@@ -110,7 +112,7 @@ always_comb begin
     nstate_rd = cstate_rd;
     case(cstate_rd)
         ST_IDLE: begin
-            if(i_start == 2'b10) 
+            if(i_prefetch_req) 
                 nstate_rd = ST_DMA;
             else
                 nstate_rd = ST_IDLE;
@@ -121,7 +123,7 @@ always_comb begin
         end
         ST_DMA_WAIT: begin
             ctrl_read_wait = 1;
-            if(read_done) begin 
+            if(i_read_done) begin 
                 if (req_blk_idx_rd == max_req_blk_idx - 1)
                     nstate_rd = ST_DMA_DONE;
                 else                 
