@@ -1,5 +1,24 @@
 # Systolic Array Engine IP (sa_engine_ip_v1_0)
 
+## 25.10.22 작업 내용
+
+### sa_core 개선 (파라미터화/주소/엔디안/assertion)
+- 모듈 파라미터 도입: `SIDE`, `ELEM_BITS`, `BYTES_PER_WORD`, `LITTLE_ENDIAN`
+  -> 상위에서 오버라이드 가능하도록 헤더 파라미터화 (더 top 모듈에서 파라미터만 바꾸면 내부 변경 가능하도록!)
+- 유도 상수로 매직 넘버 제거: `ELEMS_PER_MATRIX`, `ELEMS_PER_WORD`, `WORDS_PER_MATRIX`, `A_BASE_WORD`, `B_BASE_WORD`, `STORE_WORDS`, `ITER_W`
+  -> `MATRIX_SIZE=16`, `WRITE_DELAY=64` 의존 제거
+- 주소/바이트 인덱싱 일반화
+  -> `word_idx = k / ELEMS_PER_WORD`, `byte_lane = LITTLE_ENDIAN ? (k % ELEMS_PER_WORD) : (ELEMS_PER_WORD-1 - (k % ELEMS_PER_WORD))` (우리는 그냥 little endian 만 사용 예정정)
+  -> A/B 모두 선형 주소, B는 transpose 매핑을 레지스터 배치에서 처리
+- 2D 인덱싱 도입
+  -> `row = k / SIDE`, `col = k % SIDE` 의미 변수로 `REG_SELECT/IDX` 구성 (가독성↑)
+- 출력 DPRAM WE 가드
+  -> `OUTPUT_EN`일 때만 `dpram_out_wea=1` (불필요 재기록 방지)
+- 시뮬 전용 assertion 추가 (translate_off)
+  -> `dma_cnt`/`iter_cnt_*` 범위, A/B 단계별 입력 주소 범위, 입력/출력 WE 프로토콜 위반 즉시 에러
+- 주의: 현재 `IDX[2:0]`, `REG_SELECT[3:0]` 포트 폭은 유지(SIDE=8 전제). 확장 시 포트 폭 변경 필요 (이건 더 고민해보기)
+
+---
 ## 25.10.21 작업 내용
 
 ### sa_core baseline 수정

@@ -10,7 +10,13 @@
 
 `timescale 1ns / 1ps
 
-module sa_core (
+module sa_core #(
+    // External-overridable base parameters
+    parameter int SIDE           = 8,  // tile dimension (rows/cols)
+    parameter int ELEM_BITS      = 8,  // element bit-width (e.g., INT8)
+    parameter int BYTES_PER_WORD = 4,  // DPRAM word size in bytes (32-bit)
+    parameter bit LITTLE_ENDIAN  = 1   // 1: little-endian, 0: big-endian byte order in DPRAM words
+) (
     input logic clk,
     input logic rstn,
 
@@ -35,9 +41,18 @@ module sa_core (
   /////////////////// local parameters ///////////////////
   ////////////////////////////////////////////////////////
 
-  // For systolic array
-  localparam WRITE_DELAY = 64;
-  localparam MATRIX_SIZE = 16;
+  // For systolic array (parameterized sizes)
+  // Derived constants from base parameters
+  localparam int BYTES_PER_ELEM   = (ELEM_BITS/8);
+  localparam int ELEMS_PER_MATRIX = (SIDE*SIDE);
+  localparam int ELEMS_PER_WORD   = (BYTES_PER_WORD/BYTES_PER_ELEM);
+  localparam int WORDS_PER_MATRIX = (ELEMS_PER_MATRIX / ELEMS_PER_WORD);
+  localparam int A_BASE_WORD      = 0;
+  localparam int B_BASE_WORD      = (A_BASE_WORD + WORDS_PER_MATRIX);
+  // Each output element is stored as one 32-bit word
+  localparam int STORE_WORDS      = ELEMS_PER_MATRIX;
+  localparam int ITER_W           = $clog2(ELEMS_PER_MATRIX+1);
+  localparam int LANE_W           = (ELEMS_PER_WORD > 1) ? $clog2(ELEMS_PER_WORD) : 1;
 
 
   // State encoding
@@ -74,12 +89,18 @@ module sa_core (
   logic [ 3:0] REG_SELECT;  // 0~7 : Matrix A, 8~15 : Matrix B
   logic [ 7:0] sa_input_data;
 
-  logic [ 6:0] iter_cnt_A;
-  logic [ 6:0] iter_cnt_B;
-  logic [ 6:0] iter_cnt_S;
-  logic [ 6:0] iter_cnt_A_d;
-  logic [ 6:0] iter_cnt_B_d;
-  logic [ 6:0] iter_cnt_S_d;
+  logic [ ITER_W-1:0] iter_cnt_A;
+  logic [ ITER_W-1:0] iter_cnt_B;
+  logic [ ITER_W-1:0] iter_cnt_S;
+  logic [ ITER_W-1:0] iter_cnt_A_d;
+  logic [ ITER_W-1:0] iter_cnt_B_d;
+  logic [ ITER_W-1:0] iter_cnt_S_d;
+
+  // 2D indexing helpers
+  logic [ITER_W-1:0] rowA, colA;
+  logic [ITER_W-1:0] rowB, colB;
+  logic [LANE_W-1:0] laneA_raw, laneB_raw;
+  logic [LANE_W-1:0] laneA_eff, laneB_eff;
 
   logic        en;
   logic        write_en;
@@ -89,10 +110,10 @@ module sa_core (
   logic        WRITE_STATE;
   assign WRITE_STATE = (c_state == S_WRITE_A) || (c_state == S_WRITE_B);
 
-  logic [6:0] iter_cnt;
+  logic [ITER_W-1:0] iter_cnt;
   assign iter_cnt = (c_state == S_WRITE_A) ? iter_cnt_A :
                   (c_state == S_WRITE_B) ? iter_cnt_B :
-                  (c_state == S_STORE)   ? iter_cnt_S : 7'd0;
+                  (c_state == S_STORE)   ? iter_cnt_S : '0;
 
   logic B_load_done;
   logic A_load_done;
@@ -101,10 +122,28 @@ module sa_core (
   logic dpram_in_enb;
   logic [10:0] dpram_in_addra, dpram_in_addrb;
   logic [31:0] dpram_in_dob;
+  // Shared word index for A/B loads (k / ELEMS_PER_WORD)
+  logic [10:0] dpram_word_idx;
 
   assign dpram_in_addra = (c_state == S_DATA_LOAD) ? dma_cnt : 11'd0;
   assign dpram_in_enb   = WRITE_STATE;
-  assign dpram_in_addrb = WRITE_STATE ? (matrix_base_addr + {5'd0, iter_cnt[5:2]}) : 11'd0;
+  assign dpram_word_idx = iter_cnt / ELEMS_PER_WORD;
+  assign dpram_in_addrb = WRITE_STATE ? (matrix_base_addr + dpram_word_idx) : 11'd0;
+
+  // 2D indexing and endian-aware lanes
+  always_comb begin
+    // A-side 2D indices
+    rowA = iter_cnt_A_d / SIDE;
+    colA = iter_cnt_A_d % SIDE;
+    laneA_raw = iter_cnt_A_d % ELEMS_PER_WORD;
+    laneA_eff = LITTLE_ENDIAN ? laneA_raw : (ELEMS_PER_WORD-1) - laneA_raw;
+
+    // B-side 2D indices
+    rowB = iter_cnt_B_d / SIDE;
+    colB = iter_cnt_B_d % SIDE;
+    laneB_raw = iter_cnt_B_d % ELEMS_PER_WORD;
+    laneB_eff = LITTLE_ENDIAN ? laneB_raw : (ELEMS_PER_WORD-1) - laneB_raw;
+  end
 
 
   // DPRAM OUTPUT
@@ -113,9 +152,11 @@ module sa_core (
   logic [31:0] output_data_buffer;
   logic [31:0] dpram_out_dob;
 
-  logic dpram_out_ena, dpram_out_enb;
+  logic dpram_out_enb;
+  logic dpram_in_wea;
+  logic dpram_out_wea;
 
-  assign dpram_out_ena   = (c_state == S_STORE);
+  assign dpram_in_wea = (c_state == S_DATA_LOAD) && read_data_vld;
 
   assign dpram_out_enb   = (c_state == S_OUT);
   assign dpram_out_addrb = (c_state == S_OUT) ? dma_cnt : 11'd0;
@@ -159,7 +200,7 @@ module sa_core (
       .clk  (clk),
       .ena  (1'b1),
       .addra(dpram_in_addra),  // cnt signal
-      .wea  (read_data_vld),
+      .wea  (dpram_in_wea),
       .dia  (DATA_IN),
       .enb  (dpram_in_enb),
       .addrb(dpram_in_addrb),  // cnt signal
@@ -174,7 +215,7 @@ module sa_core (
       .clk  (clk),
       .ena  (1'b1),
       .addra(dpram_out_addra),  // cnt signal
-      .wea  (dpram_out_ena),
+      .wea  (dpram_out_wea),
       .dia  ({13'b0, sa_out}),
       .enb  (dpram_out_enb),
       .addrb(dpram_out_addrb),  // cnt signal
@@ -184,6 +225,51 @@ module sa_core (
   always_ff @(posedge clk) begin
     DATA_OUT <= buff_out;
   end
+
+  ////////////////////////////////////////////////////////
+  /////////////////// SystemVerilog Assertions (SVA, for simulation) ///////////////////
+  ////////////////////////////////////////////////////////
+  // synthesis translate_off
+  // Range checks
+  assert property (@(posedge clk) disable iff(!rstn)
+    (c_state == S_DATA_LOAD) |-> (dma_cnt < (2*WORDS_PER_MATRIX))
+  ) else $error("dma_cnt overflow during S_DATA_LOAD");
+
+  assert property (@(posedge clk) disable iff(!rstn)
+    (c_state == S_WRITE_A) |-> (iter_cnt_A < ELEMS_PER_MATRIX)
+  ) else $error("iter_cnt_A overflow");
+
+  assert property (@(posedge clk) disable iff(!rstn)
+    (c_state == S_WRITE_B) |-> (iter_cnt_B < ELEMS_PER_MATRIX)
+  ) else $error("iter_cnt_B overflow");
+
+  assert property (@(posedge clk) disable iff(!rstn)
+    (c_state == S_STORE) |-> (iter_cnt_S <= STORE_WORDS)
+  ) else $error("iter_cnt_S overflow");
+
+  // Address range by phase
+  assert property (@(posedge clk) disable iff(!rstn)
+    (c_state == S_WRITE_A) |-> (dpram_in_addrb >= A_BASE_WORD && dpram_in_addrb < (A_BASE_WORD + WORDS_PER_MATRIX))
+  ) else $error("dpram_in_addrb out of A range");
+
+  assert property (@(posedge clk) disable iff(!rstn)
+    (c_state == S_WRITE_B) |-> (dpram_in_addrb >= B_BASE_WORD && dpram_in_addrb < (B_BASE_WORD + WORDS_PER_MATRIX))
+  ) else $error("dpram_in_addrb out of B range");
+
+  // Protocol checks
+  assert property (@(posedge clk) disable iff(!rstn)
+    dpram_in_wea |-> (c_state == S_DATA_LOAD)
+  ) else $error("dpram_in_wea asserted outside S_DATA_LOAD");
+
+  assert property (@(posedge clk) disable iff(!rstn)
+    dpram_out_wea |-> (c_state == S_STORE && OUTPUT_EN)
+  ) else $error("dpram_out_wea protocol violation");
+
+  // Optional: guard SIDE against fixed port widths (IDX[2:0], REG_SELECT[3:0])
+  initial begin
+    if (SIDE > 8) $warning("SIDE(%0d) exceeds fixed port width; update IDX/REG_SELECT widths.", SIDE);
+  end
+  // synthesis translate_on
 
   ////////////////////////////////////////////////////////
   ////////////////// Signal Processing ///////////////////
@@ -234,11 +320,11 @@ module sa_core (
       c_state            <= S_IDLE;
       start_rd_wr        <= 2'b00;
       dma_cnt            <= 11'd0;
-      iter_cnt_A         <= 7'd0;
-      iter_cnt_B         <= 7'd0;
-      iter_cnt_S         <= 7'd0;
-      iter_cnt_A_d       <= 7'd0;
-      iter_cnt_B_d       <= 7'd0;
+      iter_cnt_A         <= '0;
+      iter_cnt_B         <= '0;
+      iter_cnt_S         <= '0;
+      iter_cnt_A_d       <= '0;
+      iter_cnt_B_d       <= '0;
 
       IDX                <= 3'd0;
       REG_SELECT         <= 4'd0;
@@ -261,11 +347,11 @@ module sa_core (
         S_IDLE: begin
           start_rd_wr        <= 2'b00;
           dma_cnt            <= 11'd0;
-          iter_cnt_A         <= 7'd0;
-          iter_cnt_B         <= 7'd0;
-          iter_cnt_S         <= 7'd0;
-          iter_cnt_A_d       <= 7'd0;
-          iter_cnt_B_d       <= 7'd0;
+          iter_cnt_A         <= '0;
+          iter_cnt_B         <= '0;
+          iter_cnt_S         <= '0;
+          iter_cnt_A_d       <= '0;
+          iter_cnt_B_d       <= '0;
 
           IDX                <= 3'd0;
           REG_SELECT         <= 4'd0;
@@ -303,16 +389,18 @@ module sa_core (
           iter_cnt_A    <= iter_cnt_A + 1;
           iter_cnt_A_d  <= iter_cnt_A;
 
-          IDX           <= iter_cnt_A_d[2:0];  // col
-          REG_SELECT    <= {1'b0, iter_cnt_A_d[5:3]};  // row
-          sa_input_data <= dpram_in_dob[iter_cnt_A_d[1:0]*8+:8];
+          // 2D mapping for A: REG_SELECT(row), IDX(col)
+          IDX           <= colA[2:0];
+          REG_SELECT    <= {1'b0, rowA[2:0]};
+          // endian-aware byte lane for A
+          sa_input_data <= dpram_in_dob[laneA_eff*ELEM_BITS +: ELEM_BITS];
 
           if (A_load_done) begin
-            iter_cnt_A       <= 7'd0;
+            iter_cnt_A       <= '0;
             en               <= 1'b1;
             write_en         <= 1'b1;
             load_en          <= 1'b0;
-            matrix_base_addr <= MATRIX_SIZE;
+            matrix_base_addr <= B_BASE_WORD;
           end
         end
         S_WRITE_B: begin
@@ -320,18 +408,20 @@ module sa_core (
           iter_cnt_B    <= iter_cnt_B + 1;
           iter_cnt_B_d  <= iter_cnt_B;
 
-          IDX           <= iter_cnt_B_d[5:3];  // Transpose -> row
-          REG_SELECT    <= {1'b1, iter_cnt_B_d[2:0]};  // Transpose -> col
-          sa_input_data <= dpram_in_dob[iter_cnt_B_d[1:0]*8+:8];
+          // 2D mapping for B (transpose): REG_SELECT(col), IDX(row)
+          IDX           <= rowB[2:0];
+          REG_SELECT    <= {1'b1, colB[2:0]};
+          // endian-aware byte lane for B
+          sa_input_data <= dpram_in_dob[laneB_eff*ELEM_BITS +: ELEM_BITS];
         end
         S_LOAD: begin
           start_rd_wr      <= 2'b00;
 
-          iter_cnt_B       <= 7'd0;
+          iter_cnt_B       <= '0;
           en               <= 1'b1;
           write_en         <= 1'b0;
           load_en          <= 1'b1;
-          matrix_base_addr <= 11'd0;
+          matrix_base_addr <= A_BASE_WORD;
 
           if (register_load_done) begin
             en       <= 1'b1;
@@ -357,13 +447,17 @@ module sa_core (
           if (OUTPUT_EN) begin
             iter_cnt_S    <= iter_cnt_S + 1;
             dpram_out_addra <= iter_cnt_S;
+            dpram_out_wea <= 1'b1;
+          end
+          else begin
+            dpram_out_wea <= 1'b0;
           end
 
           IDX        <= iter_cnt_S[2:0];  // col
           REG_SELECT <= {1'b0, iter_cnt_S[5:3]};  // row
 
-          if (iter_cnt_S == WRITE_DELAY) begin
-            iter_cnt_S  <= 7'd0;
+          if (iter_cnt_S == STORE_WORDS) begin
+            iter_cnt_S  <= '0;
             en          <= 1'b0;
             write_en    <= 1'b0;
             load_en     <= 1'b0;
