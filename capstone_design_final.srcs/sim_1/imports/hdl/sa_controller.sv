@@ -20,7 +20,7 @@ module sa_controller (
     output logic DATA_OUTPUT_EN,  // Enable output
     output logic [18:0] DATA_OUT,
     output logic        B_load_done_o, // when the last write operation for Matrix B is done (from dpram to controller)
-    output logic        regsiter_load_done_o,  // when the last write operation for registers is done (from MAT registers to X_REG)
+    output logic        register_load_done_o,  // when the last write operation for registers is done (from MAT registers to X_REG)
     output logic        A_load_done_o, // when the last write operation for Matrix A is done (from dpram to controller)
     output logic        matmul_done_o // when the matmul is done
 );
@@ -109,15 +109,24 @@ module sa_controller (
   logic matmul_done_pulse;
   assign matmul_done_o = matmul_done_pulse;
 
+  // Lock further writes after completion to avoid overwriting banks
+  logic a_locked;
+  logic b_locked;
+
   always_ff @(posedge CLK) begin
     if (!RST) begin
       B_load_done_pulse <= 1'b0;
       A_load_done_pulse <= 1'b0;
       register_load_done_pulse <= 1'b0;
-      matmul_done_pulse <= 1'b0;
+      a_locked <= 1'b0;
+      b_locked <= 1'b0;
     end else begin
 
       if (EN) begin
+        // default pulses low (one-cycle pulses)
+        B_load_done_pulse <= 1'b0;
+        A_load_done_pulse <= 1'b0;
+        register_load_done_pulse <= 1'b0;
         // Always connect results register!
         if (LOAD) begin
           // Load to registers (constant addresses)
@@ -156,6 +165,9 @@ module sa_controller (
 
             IDX_COUNTER   <= IDX_COUNTER + 1;
             IDX_IN_BUFFER <= IDX_COUNTER;
+            // clear write locks when entering LOAD-read path
+            a_locked <= 1'b0;
+            b_locked <= 1'b0;
           end  // LOAD && WRITE == READ!
           else if (WRITE) begin
             SA_EN <= 0;
@@ -185,31 +197,33 @@ module sa_controller (
 
             // Detect the last write for Matrix A
             if (REG_SELECT == 4'h7 && IDX == 3'h7) begin
-              A_load_done_pulse <= 1'b1;
+              A_load_done_pulse <= 1'b1; // pulse
+              a_locked <= 1'b1;          // lock A banks against further writes
             end
 
             // Detect the last write operation for the load sequence (Matrix B)
             if (REG_SELECT == 4'hF && IDX == 3'h7) begin
-              B_load_done_pulse <= 1'b1;
+              B_load_done_pulse <= 1'b1; // pulse
+              b_locked <= 1'b1;          // lock B banks against further writes
             end
 
             case (REG_SELECT)
-              4'd0: MAT_A0[IDX] <= DATA_IN;
-              4'd1: MAT_A1[IDX] <= DATA_IN;
-              4'd2: MAT_A2[IDX] <= DATA_IN;
-              4'd3: MAT_A3[IDX] <= DATA_IN;
-              4'd4: MAT_A4[IDX] <= DATA_IN;
-              4'd5: MAT_A5[IDX] <= DATA_IN;
-              4'd6: MAT_A6[IDX] <= DATA_IN;
-              4'd7: MAT_A7[IDX] <= DATA_IN;
-              4'd8: MAT_B0[IDX] <= DATA_IN;
-              4'd9: MAT_B1[IDX] <= DATA_IN;
-              4'hA: MAT_B2[IDX] <= DATA_IN;
-              4'hB: MAT_B3[IDX] <= DATA_IN;
-              4'hC: MAT_B4[IDX] <= DATA_IN;
-              4'hD: MAT_B5[IDX] <= DATA_IN;
-              4'hE: MAT_B6[IDX] <= DATA_IN;
-              4'hF: MAT_B7[IDX] <= DATA_IN;
+              4'd0: if (!a_locked) MAT_A0[IDX] <= DATA_IN;
+              4'd1: if (!a_locked) MAT_A1[IDX] <= DATA_IN;
+              4'd2: if (!a_locked) MAT_A2[IDX] <= DATA_IN;
+              4'd3: if (!a_locked) MAT_A3[IDX] <= DATA_IN;
+              4'd4: if (!a_locked) MAT_A4[IDX] <= DATA_IN;
+              4'd5: if (!a_locked) MAT_A5[IDX] <= DATA_IN;
+              4'd6: if (!a_locked) MAT_A6[IDX] <= DATA_IN;
+              4'd7: if (!a_locked) MAT_A7[IDX] <= DATA_IN;
+              4'd8: if (!b_locked) MAT_B0[IDX] <= DATA_IN;
+              4'd9: if (!b_locked) MAT_B1[IDX] <= DATA_IN;
+              4'hA: if (!b_locked) MAT_B2[IDX] <= DATA_IN;
+              4'hB: if (!b_locked) MAT_B3[IDX] <= DATA_IN;
+              4'hC: if (!b_locked) MAT_B4[IDX] <= DATA_IN;
+              4'hD: if (!b_locked) MAT_B5[IDX] <= DATA_IN;
+              4'hE: if (!b_locked) MAT_B6[IDX] <= DATA_IN;
+              4'hF: if (!b_locked) MAT_B7[IDX] <= DATA_IN;
             endcase
           end  // DO MATMUL IF NOT LOADING AND WRITING (IE IDLE!)
           else if (!WRITE) begin

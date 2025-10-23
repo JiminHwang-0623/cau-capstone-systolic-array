@@ -1,5 +1,37 @@
 Time resolution is 1 ps
 Initializing memory 'SimmemSync_rp0_wp0_cp1'..
 Loading memory 'SimmemSync_rp0_wp0_cp1' from file: matrix_A_B.hex
+
+Time: 2530 ns Started: 2530 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:251
+Error: dpram_in_addrb out of A range
+Time: 2530 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 253
+
+Time: 2540 ns Started: 2540 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:251
+Error: dpram_in_addrb out of A range
+Time: 2540 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 253
+
+Time: 2550 ns Started: 2550 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:238
+Error: iter_cnt_A overflow
+Time: 2550 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 240
+
+Time: 2550 ns Started: 2550 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:251
+Error: dpram_in_addrb out of A range
+Time: 2550 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 253
+
+Time: 3200 ns Started: 3200 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
+Error: dpram_in_addrb out of B range
+Time: 3200 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
+
+Time: 3210 ns Started: 3210 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
+Error: dpram_in_addrb out of B range
+Time: 3210 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
+
+Time: 3220 ns Started: 3220 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:242
+Error: iter_cnt_B overflow
+Time: 3220 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 244
+
+Time: 3220 ns Started: 3220 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
+Error: dpram_in_addrb out of B range
+Time: 3220 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
 network_done received!
-$stop called at time : 14600 ns : File "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 252
+$finish called at time : 4740 ns : File "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 252

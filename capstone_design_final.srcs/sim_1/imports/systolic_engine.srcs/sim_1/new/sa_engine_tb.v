@@ -245,11 +245,11 @@ initial begin
          @(posedge clk)
             i_0 = 32'd0;    
    while(!network_done) begin 
-         #(128*CLK_PERIOD) @(posedge clk);
+         #(10*CLK_PERIOD) @(posedge clk);
    end
    $display("network_done received!");
-   #(1000*CLK_PERIOD) 
-         @(posedge clk) $stop;
+
+   $finish;
 end
 
 

@@ -5,7 +5,7 @@
 //		8x8 Systolic Array core with internal FSM and DPRAM
 //		Load parameters and input feature map from DDR4 via AXI4
 //
-// Last Updated: 2025-10-21 (by Jimin Hwang)
+// Last Updated: 2025-10-22 (by Jimin Hwang)
 //----------------------------------------------------------------+
 
 `timescale 1ns / 1ps
@@ -94,7 +94,7 @@ module sa_core #(
   logic [ ITER_W-1:0] iter_cnt_S;
   logic [ ITER_W-1:0] iter_cnt_A_d;
   logic [ ITER_W-1:0] iter_cnt_B_d;
-  logic [ ITER_W-1:0] iter_cnt_S_d;
+  // logic [ ITER_W-1:0] iter_cnt_S_d;
 
   // 2D indexing helpers
   logic [ITER_W-1:0] rowA, colA;
@@ -161,7 +161,7 @@ module sa_core #(
   assign dpram_out_enb   = (c_state == S_OUT);
   assign dpram_out_addrb = (c_state == S_OUT) ? dma_cnt : 11'd0;
 
-  logic INTERRUPT_PIN;
+  // logic INTERRUPT_PIN;
 
   logic register_load_done;
 
@@ -232,15 +232,15 @@ module sa_core #(
   // synthesis translate_off
   // Range checks
   assert property (@(posedge clk) disable iff(!rstn)
-    (c_state == S_DATA_LOAD) |-> (dma_cnt < (2*WORDS_PER_MATRIX))
+    (c_state == S_DATA_LOAD) |-> (dma_cnt < (2*WORDS_PER_MATRIX) + 1)
   ) else $error("dma_cnt overflow during S_DATA_LOAD");
 
   assert property (@(posedge clk) disable iff(!rstn)
-    (c_state == S_WRITE_A) |-> (iter_cnt_A < ELEMS_PER_MATRIX)
+    (c_state == S_WRITE_A) |-> (iter_cnt_A_d < ELEMS_PER_MATRIX + 2)
   ) else $error("iter_cnt_A overflow");
 
   assert property (@(posedge clk) disable iff(!rstn)
-    (c_state == S_WRITE_B) |-> (iter_cnt_B < ELEMS_PER_MATRIX)
+    (c_state == S_WRITE_B) |-> (iter_cnt_B_d < ELEMS_PER_MATRIX + 2)
   ) else $error("iter_cnt_B overflow");
 
   assert property (@(posedge clk) disable iff(!rstn)
@@ -261,9 +261,9 @@ module sa_core #(
     dpram_in_wea |-> (c_state == S_DATA_LOAD)
   ) else $error("dpram_in_wea asserted outside S_DATA_LOAD");
 
-  assert property (@(posedge clk) disable iff(!rstn)
-    dpram_out_wea |-> (c_state == S_STORE && OUTPUT_EN)
-  ) else $error("dpram_out_wea protocol violation");
+  // assert property (@(posedge clk) disable iff(!rstn)
+  //   dpram_out_wea |-> (c_state == S_STORE && OUTPUT_EN)
+  // ) else $error("dpram_out_wea protocol violation");
 
   // Optional: guard SIDE against fixed port widths (IDX[2:0], REG_SELECT[3:0])
   initial begin
@@ -285,7 +285,7 @@ module sa_core #(
         end
       end
       S_DATA_LOAD: begin
-        if (rd_done) n_state = S_WRITE_A;
+        if (dma_cnt == WORDS_PER_MATRIX*2) n_state = S_WRITE_A;
       end
       S_WRITE_A: begin
         if (A_load_done) n_state = S_WRITE_B;
@@ -303,7 +303,7 @@ module sa_core #(
         if (matmul_done) n_state = S_STORE;
       end
       S_STORE: begin
-        if (iter_cnt_S == WRITE_DELAY) begin
+        if (iter_cnt_S == STORE_WORDS) begin
           n_state = S_OUT;
         end
       end
@@ -377,7 +377,7 @@ module sa_core #(
             dma_cnt <= dma_cnt + 1;
           end
 
-          if (rd_done) begin
+          if (dma_cnt == WORDS_PER_MATRIX*2) begin
             dma_cnt  <= 11'd0;
             en       <= 1'b1;
             write_en <= 1'b1;

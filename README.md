@@ -1,5 +1,14 @@
 # Systolic Array Engine IP (sa_engine_ip_v1_0)
 
+## 25.10.23 작업 내용
+
+### Vivado Simulation
+- 사실 오늘 너무 하기 싫어서 그냥 30분 정도만 작업함.
+- elaborate 및 simulation 검증했고, matmul 도 잘 하는 것 확인함.
+- 단, 현재 S_OUT state 에서 16개의 데이터만 빼고 끝내고 있음.
+-> 근데 이건 기존 baseline 도 원래 그랬어서 수정할 예정
+-> 그리고 이 simulation 돌릴 때마다 txt 파일로 DMA Write 되는 것들 쓰게 코드 짤 예정
+
 ## 25.10.22 작업 내용
 
 ### sa_core 개선 (파라미터화/주소/엔디안/assertion)

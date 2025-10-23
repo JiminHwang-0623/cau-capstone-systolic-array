@@ -57,7 +57,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="pynq-z2"/>
-    <Option Name="WTXSimLaunchSim" Val="15"/>
+    <Option Name="WTXSimLaunchSim" Val="24"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -87,8 +87,37 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/sa_PE_wrapper.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/sa_RF.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/sa_unit.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/sa_controller.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -96,11 +125,11 @@
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_sa_engine_ip_0_0/design_1_sa_engine_ip_0_0.xci">
           <Proxy FileSetName="design_1_sa_engine_ip_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xci">
-          <Proxy FileSetName="design_1_rst_ps7_0_100M_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xci">
           <Proxy FileSetName="design_1_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xci">
+          <Proxy FileSetName="design_1_rst_ps7_0_100M_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_xbar_0/design_1_xbar_0.xci">
           <Proxy FileSetName="design_1_xbar_0"/>
@@ -108,6 +137,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="sa_controller"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -164,33 +194,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/imports/hdl/FSM.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/FSM.sv"/>
-          <Attr Name="ImportTime" Val="1760191699"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/imports/hdl/RF.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/RF.sv"/>
-          <Attr Name="ImportTime" Val="1760191708"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/imports/hdl/SystolicArray.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/SystolicArray.sv"/>
-          <Attr Name="ImportTime" Val="1760191752"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sim_1/imports/hdl/X_REG.sv">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/X_REG.sv"/>
@@ -204,15 +207,6 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv"/>
           <Attr Name="ImportTime" Val="1760189026"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/imports/hdl/controller.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/controller.sv"/>
-          <Attr Name="ImportTime" Val="1760191684"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -281,19 +275,50 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/imports/hdl/tile8x8.sv">
+      <File Path="$PSRCDIR/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/tile8x8.sv"/>
-          <Attr Name="ImportTime" Val="1760191754"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/systolic_engine/systolic_engine.srcs/sim_1/new/sa_engine_tb.v"/>
+          <Attr Name="ImportTime" Val="1760094416"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v">
+      <File Path="$PSRCDIR/sim_1/imports/hdl/RF.sv">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/systolic_engine/systolic_engine.srcs/sim_1/new/sa_engine_tb.v"/>
-          <Attr Name="ImportTime" Val="1760094416"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/RF.sv"/>
+          <Attr Name="ImportTime" Val="1760191708"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/SystolicArray.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/SystolicArray.sv"/>
+          <Attr Name="ImportTime" Val="1760191752"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/controller.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/controller.sv"/>
+          <Attr Name="ImportTime" Val="1760191684"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/hdl/tile8x8.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/sa_engine_ip_1.0/hdl/tile8x8.sv"/>
+          <Attr Name="ImportTime" Val="1760191754"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -381,7 +406,9 @@
   <Runs Version="1" Minor="15">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
@@ -430,7 +457,9 @@
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
