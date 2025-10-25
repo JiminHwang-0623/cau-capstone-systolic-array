@@ -1,68 +1,66 @@
 `timescale 1ns / 1ps
 
 module FSM(
-    input rst,
-    input clk,
-    input en,
-    input write,
-    input load,
-    input [7:0] data_in,
-    input [2:0] idx,            // col
-    input [3:0] reg_select,     // row
-    output OUTPUT_EN,           // Enable output
-    output [18:0] data_out,
-    output int_to_ps           // use to interrupt the CPU after changing state (edge trigger)
-    // output read_led,
-    // output write_led,
-    // output load_led,
-    // output matmul_led
+    input  logic        rst,
+    input  logic        clk,
+    input  logic        en,
+    input  logic        write,
+    input  logic        load,
+    input  logic [7:0]  data_in,
+    input  logic [2:0]  idx,            // col
+    input  logic [3:0]  reg_select,     // row
+    output logic        OUTPUT_EN,      // Enable output
+    output logic [18:0] data_out,
+    output logic        int_to_ps,      // use to interrupt the CPU after changing state (edge trigger)
+    output logic        B_load_done_o,
+    output logic        pipe_load_done_o,
+    output logic        A_load_done_o
 );
     
-    reg en;
-    reg [3:0] load_counter;
     reg [4:0] matmul_counter;  
     reg interrupt = 0;
     localparam MAX_MM_CYCLES = 24;
-    localparam MAX_LOAD_CYCLES = 9;
     
-    
-    always@(posedge clk) begin
-        // loading
-        if(load && !write) begin
-            matmul_counter <= 0;    
-            if(load_counter < MAX_LOAD_CYCLES) begin
-                load_counter <= load_counter + 1;
-                interrupt <= 0;
-            end
-            else begin
-                interrupt <= 1;
-            end
-        end 
-        
-        // Writing to memory
-        else if (!load && write) begin
-            interrupt <= 0;
-            load_counter <= 0;
-            matmul_counter <= 0;
-        end
-        
-        // doing matmul
-        else if (!load && !write) begin
-            load_counter <= 0;
-            if (matmul_counter < MAX_MM_CYCLES) begin
-                matmul_counter <= matmul_counter + 1;
-                interrupt <= 0;
-            end
-            else begin
-                interrupt <= 1;
-            end
-        end
+    logic controller_pipe_load_done;
 
-        // reading or else...
-        else begin
-            load_counter <= 0;
+    always@(posedge clk) begin
+        if (!rst) begin
             matmul_counter <= 0;
             interrupt <= 0;
+        end else begin
+            // loading
+            if(load && !write) begin
+                matmul_counter <= 0;
+                // Generate interrupt based on the actual event from the controller
+                if (controller_pipe_load_done) begin
+                    interrupt <= 1;
+                end else begin
+                    interrupt <= 0;
+                end
+            end 
+            
+            // Writing to memory
+            else if (!load && write) begin
+                interrupt <= 0;
+                matmul_counter <= 0;
+            end
+            
+            // doing matmul
+            else if (!load && !write) begin
+                if (matmul_counter < MAX_MM_CYCLES) begin
+                    matmul_counter <= matmul_counter + 1;
+                    interrupt <= 0;
+                end
+                else begin
+                    interrupt <= 1;
+                end
+            end
+
+            // reading or else...
+            else begin
+                matmul_counter <= 0;
+                interrupt <= 0;
+            end
         end
     end
     
@@ -77,17 +75,13 @@ module FSM(
         .LOAD(load),
         .DATA_IN(data_in),
         .DATA_OUTPUT_EN(OUTPUT_EN),
-        .DATA_OUT(data_out)
+        .DATA_OUT(data_out),
+        .load_done_o(B_load_done_o),
+        .pipe_load_done_o(controller_pipe_load_done),
+        .mat_a_load_done_o(A_load_done_o)
     );
     
     // Interrupt
     assign int_to_ps = interrupt;
     
-    // Status LEDs
-    // assign read_led = (load && write);
-    // assign write_led = (!load && write);
-    // assign load_led = (load && !write);
-    // assign matmul_led = (!load && !write);
-    
 endmodule
-
