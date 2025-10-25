@@ -1,5 +1,12 @@
 # Systolic Array Engine IP (sa_engine_ip_v1_0)
 
+## 25.10.24 작업 내용
+우선 25.10.23 작업한 baseline 을 Synthesis, Implementation, Generate Bitstream 까지 해봄.
+(물론 코드 변경 사항 IP에 반영까지 함)
+그런데 전혀 문제가 되지 않았음. 심지어 하드웨어 자원 1% 사용했다고 보고된거 같음 ㅋㅋ. (확실X)
+우선 Dataflow 관련 논문들 좀 보고 내 연구에 어떻게 적용하면 좋을까 고민중.
+(25.10.25) Row-Stationary Dataflow를 처음으로 제안한 Eyeriss 논문 정독중 (60%완료)
+
 ## 25.10.23 작업 내용
 
 ### Vivado Simulation
