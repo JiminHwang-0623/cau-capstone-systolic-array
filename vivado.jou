@@ -2,10 +2,17 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+<<<<<<< HEAD
 # Start of session at: Tue Oct 28 13:16:11 2025
 # Process ID: 7116
 # Current directory: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array
 # Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11268 C:\Users\se-dong Jang\종합설계\cau-capstone-systolic-array\capstone_design_final.xpr
+=======
+# Start of session at: Tue Oct 21 23:44:08 2025
+# Process ID: 2644
+# Current directory: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12312 C:\Users\se-dong Jang\종합설계\cau-capstone-systolic-array\capstone_design_final.xpr
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 # Log file: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/vivado.log
 # Journal file: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array\vivado.jou
 # Running On: DESKTOP-OJ3LTBR, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 16890 MB
@@ -13,6 +20,7 @@
 start_gui
 open_project {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.xpr}
 update_compile_order -fileset sources_1
+<<<<<<< HEAD
 launch_simulation
 open_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
 source sa_engine_tb.tcl
@@ -35,3 +43,6 @@ add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/tile_current_idx}}
 relaunch_sim
 save_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
 close_sim
+=======
+update_compile_order -fileset sim_1
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df

@@ -32,6 +32,7 @@ DMA Read FSM의 **시작 트리거를 prefetch 요청 신호로 교체**하는 �
   assign prefetch_req  = (start_rd_wr == 2'b10);
   // prefetch_done은 컨트롤러에서 올라오는 완료 신호와 맵핑
   // assign prefetch_done = read_done; // 또는 u_dma_ctrl.o_prefetch_done
+<<<<<<< HEAD
 
 # 🧩 Step 2 — 주소 더블링(Address Double-Buffering) + buf_idx 토글
 
@@ -159,3 +160,5 @@ assign read_addr = base_addr_current + {req_blk_idx_rd, 6'b0};
 - 2타일 기준으로 Step 2의 주소 전환 및 토글 동작이 정상 확인되었다.  
 - 다음 단계(Step 3)에서 다중 프리패치(`base_addr_next` = 0x100, 0x180 …) 로직이 추가될 예정이며,  
   이를 통해 연산–전송 오버랩이 구현된다.
+=======
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df

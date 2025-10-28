@@ -60,16 +60,22 @@ wire              M_RLAST;      // Last beat of a burst transfer
 wire              M_RVALID;     // Read data valid 
 wire              M_RREADY;     // Read data ready (to Slave)
 
+<<<<<<< HEAD
 wire network_done;
 wire network_done_led;
 
+=======
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 // Memory ports for input (activation)
 wire [MEM_ADDRW-1:0]   mem_addr;
 wire                   mem_we;
 wire [MEM_DW-1:0]      mem_di;
 wire [MEM_DW-1:0]      mem_do;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 //--------------------------------------------------------------------
 //AXI Slave External Memory: Input
 //--------------------------------------------------------------------
@@ -256,6 +262,7 @@ initial begin
          @(posedge clk) $stop;
 end
 
+<<<<<<< HEAD
 // ===== Verilog-2001 safe baseline monitor (ints only) =====
 integer fd;
 reg started, finished;
@@ -343,5 +350,7 @@ initial begin
   $stop; // ÇÑ ¹ø Âï°í ¸ØÃã
 end
 // ==========================================================
+=======
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 
 endmodule

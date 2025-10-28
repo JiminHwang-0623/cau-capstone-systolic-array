@@ -92,6 +92,7 @@ assign o_read_addr          = read_addr;
 assign o_write_addr         = write_addr;
 assign o_ctrl_write_done    = ctrl_write_done;
 
+<<<<<<< HEAD
 assign o_prefetch_done      = i_read_done;
 
 logic buf_idx;
@@ -123,6 +124,8 @@ always_ff @(posedge clk or negedge rstn) begin
     end
 end
 
+=======
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 //----------------------------------------------------------------
 // FSM for DMA Read
 //----------------------------------------------------------------
@@ -187,7 +190,11 @@ always_ff @(posedge clk or negedge rstn) begin
     end
 end
 
+<<<<<<< HEAD
 assign read_addr = base_addr_current + {req_blk_idx_rd, 6'b0};
+=======
+assign read_addr = dram_base_addr_rd + {req_blk_idx_rd, 6'b0};
+>>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 // + {row_cnt*80, 6'b0}; 
 
 //----------------------------------------------------------------
