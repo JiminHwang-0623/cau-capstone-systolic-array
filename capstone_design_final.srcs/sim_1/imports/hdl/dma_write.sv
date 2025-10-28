@@ -73,7 +73,7 @@ module dma_write #(
 //---------------------------------------------------------------------
 // parameter definitions 
 //---------------------------------------------------------------------
-   localparam FIXED_BURST_SIZE = 256;  //It can be ~256
+   localparam FIXED_BURST_SIZE = 16;  //It can be ~256
    localparam DEFAULT_ID = 0;
    //AXI data width: number of bytes
    localparam  SIZE_1B     = 3'b000;

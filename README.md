@@ -1,86 +1,89 @@
-# DRAM Access Optimization – Day 1~2 Log
+# 🧩 Day 3 — AXI DMA Burst Length 효율 비교 실험
 
-본 문서는 **systolic array DRAM 접근 최적화 실험**의 초기 단계 (Day 1~2) 과정을 정리한 것입니다.  
-시뮬레이션 환경을 구축하고, 기준선 성능을 측정하여 이후 최적화(버스트, 정렬, 캐싱 등)의 비교 지표로 활용합니다.
+## 📘 개요
+**실험 목적:**  
+AXI DMA에서 `ARLEN` / `AWLEN` (즉, Burst Length)을 변경했을 때 전송 효율이 어떻게 변하는지를 비교한다.  
+즉, **Burst 길이가 커질수록 Address 오버헤드가 얼마나 줄고, 전체 사이클이 얼마나 감소하는지를 분석**한다.
 
----
+이 실험에서는 DMA 내부 파라미터:
 
-## 🧩 Day 1 — Simulation 환경 세팅
+```systemverilog
+// dma_read.sv / dma_write.sv
+localparam FIXED_BURST_SIZE = <value>;
+값을 변경하여 여러 Burst 길이에서 시뮬레이션을 수행했다.
 
-### 🎯 목표
-- `sa_engine_ip` 의 **M_AXI 마스터 포트**가 실제로 DDR(AXI Slave 모델)과 통신하는지 확인
-- Read / Write 트랜잭션과 FSM 완료(`network_done`) 동작 검증
+⚙️ 실험 환경 및 구성
+항목	내용
+수정 파일	dma_read.sv, dma_write.sv
+변경 파라미터	FIXED_BURST_SIZE
+Testbench	sa_engine_tb.v
+측정 지표	cycles, rd_bursts, wr_bursts, rd_beats, wr_beats, rd_bytes, wr_bytes
+시뮬레이션 도구	Vivado XSIM (IP Packager 미사용, 코드 직접 수정 방식)
+출력 결과 파일	BRUST_SIZE_4.csv, BRUST_SIZE_8.csv, BRUST_SIZE_16.csv, BRUST_SIZE_32.csv, BRUST_SIZE_64.csv, BRUST_SIZE_128.csv, BRUST_SIZE_256.csv
 
-### ⚙️ 환경 구성
-| 항목 | 내용 |
-|------|------|
-| Tool | Vivado 2023.1 |
-| Board | PYNQ-Z2 (시뮬레이션 전용, 실제 보드 없음) |
-| Top | `sa_engine_tb` |
-| Simulation | XSIM (Behavioral Simulation) |
-| Clock | 100 MHz (`CLK_PERIOD = 10ns`) |
+🔧 Burst Length 설정
+케이스	FIXED_BURST_SIZE	ARLEN/AWLEN	실제 Burst 길이
+1	4	3	4 beats
+2	8	7	8 beats
+3	16	15	16 beats
+4	32	31	32 beats
+5	64	63	64 beats
+6	128	127	128 beats
+7	256	255	256 beats
 
-### ✅ Block Design 구성
-- **processing_system7_0** : Zynq PS, 내부 DDR 포함  
-- **sa_engine_ip_0** : Custom IP, AXI-Lite + AXI Master 인터페이스  
-- **axi_mem_intercon** : M_AXI ↔ DDR 연결  
-- 별도의 AXI DMA IP 없음 (커스텀 DMA 로직 내장형 구조)
+ARLEN/AWLEN = FIXED_BURST_SIZE − 1
+즉, FIXED_BURST_SIZE가 256이면 실제 ARLEN/AWLEN은 255가 된다.
 
-### 🧪 수행 내용
-1. Vivado에서 시뮬레이션 실행  
-2. 파형 관찰:
-   - `M_ARVALID / M_ARREADY` → Read handshake
-   - `M_AWVALID / M_AWREADY` → Write handshake
-   - `M_WVALID / M_WREADY / M_BVALID / M_BREADY` → Write 완료
-3. `network_done == 1` 확인 → FSM 정상 종료
+📊 시뮬레이션 결과
+Burst Length	Cycles
+4	351
+8	327
+16	315
+32	315
+64	315
+128	315
+256	315
 
-### 🖼️ 주요 파형 캡처
-- Read 경로: `ARVALID/ARREADY` 및 `RVALID/RREADY` 핸드셰이크 발생  
-- Write 경로: `AWVALID/AWREADY`, `WVALID/WREADY`, `BVALID/BREADY` 순서 정상  
-- `network_done` 플래그 1로 상승 (성공)
+✅ 결과 해석:
+Burst Length를 4 → 8 → 16으로 늘리면 Cycles가 감소하지만,
+16 이상에서는 변화가 거의 없고 효율이 포화됨.
 
-### 🎉 결과
-| 구분 | 결과 |
-|------|------|
-| Read 트랜잭션 | 정상 |
-| Write 트랜잭션 | 정상 |
-| FSM 완료 신호 | 정상 (`network_done=1`) |
-| 시뮬레이션 오류 | 없음 |
+📈 그래프: Cycles vs Burst Length
 
-→ **Day 1 목표 달성: DRAM ↔ DMA(커스텀) ↔ 연산기 간 연결 확인 완료**
+4 → 8 → 16: 주소 오버헤드 감소로 성능 향상
 
----
+≥16: 메모리 인터커넥트 대역폭 포화 → 사이클 변화 없음
 
-## 📊 Day 2 — Baseline 성능 측정
+🧠 결과 분석
+구분	분석 내용
+효율 증가 구간	4 → 8 → 16 구간에서 Address Phase 오버헤드 감소로 Cycles 급감
+포화 구간	16 이상에서는 DMA 내부 및 메모리 대역폭이 한계에 도달해 Cycles 변화 없음
+최적 효율점	FIXED_BURST_SIZE = 16
+256과의 차이	거의 없음 (버스트 효율 포화)
+AXI 동작 검증	ARLEN/AWLEN이 FIXED_BURST_SIZE − 1로 정상 출력됨
+4KB 경계 조건	4~128 범위에서는 문제 없음, 256 이상 시 주소 정렬 주의 필요
 
-### 🎯 목표
-- 시뮬레이션에서 DRAM 접근의 **기준선 성능(Throughput, Burst 수, Cycle)** 측정  
-- 향후 최적화 비교용 지표 확보
+⚙️ 추가 실험: 64, 128, 256
+64 / 128에서도 사이클은 315로 동일 → 효율 완전 포화
 
-### 🧰 수정 사항
-- `sa_engine_tb.v` 하단에 **Performance Monitor 블록** 추가  
-  - Read / Write burst 및 beat 카운트  
-  - 시작~종료까지의 cycle 수 계산  
-  - 결과를 `baseline.csv`로 저장
+Address phase가 전체 지연에 미치는 영향이 거의 사라졌음을 의미
 
-### 📈 측정 항목
-| 항목 | 설명 |
-|------|------|
-| cycles | 전체 수행 사이클 수 (`network_done`까지) |
-| rd_bursts / wr_bursts | Read / Write burst 횟수 |
-| rd_beats / wr_beats | Read / Write 데이터 beat 수 |
-| rd_bytes / wr_bytes | 실제 전송 바이트 수 (D/8 × beats) |
+즉, 16 beat 이상에서는 DMA 병목이 버스트 길이가 아닌 메모리 대역폭에 있음
 
-### 🧪 실행 방법
-```tcl
-launch_simulation
-run all
+🏁 결론
+항목	결론
+최적화된 값	✅ FIXED_BURST_SIZE = 16
+효율 향상 구간	4 → 8 → 16
+포화 구간	16 이상
+성능 향상 원인	Address Phase 오버헤드 감소
+포화 원인	Memory/Bus Throughput 제한
+권장 설정	16 또는 32 (안정성과 성능의 균형)
 
-###🔜 Next Step (Day 3)
+⚠️ 주의사항
+AXI4 버스트는 256 beat가 최대이며, 4KB 경계를 넘으면 안 됨.
 
-- Burst 크기 변화 실험
-  - ARLEN/AWLEN 값을 4, 8, 16, 32로 변경
-  - 각 케이스별 baseline.csv 기록
+너무 긴 버스트(≥128)는 다른 마스터와 공유 시 버스 점유 시간이 길어질 수 있음.
 
-- Throughput 향상 비교 그래프 작성
-  - (예정) Python or Excel로 자동 그래프화
+테스트 시 DMA read/write의 FIXED_BURST_SIZE를 동일하게 설정해야 함.
+
+시뮬레이션 후 캐시(xsim.dir, .Xil)를 꼭 초기화할 것.

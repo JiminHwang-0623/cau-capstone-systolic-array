@@ -62,7 +62,7 @@ module dma_read #(
     input  logic                      rstn
 );
 
-    localparam  FIXED_BURST_SIZE = 256; //Change if you want, 256 is possible, but it can be dangerous
+    localparam  FIXED_BURST_SIZE = 16; //Change if you want, 256 is possible, but it can be dangerous
     localparam  LOG_BURST_SIZE = $clog2(FIXED_BURST_SIZE);
 
 //------------------------------------------------------------------------------
