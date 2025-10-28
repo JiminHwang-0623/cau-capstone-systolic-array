@@ -1,0 +1,94 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Oct 24 01:43:26 2025
+# Process ID: 10320
+# Current directory: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2064 C:\Users\se-dong Jang\종합설계\cau-capstone-systolic-array\capstone_design_final.xpr
+# Log file: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/vivado.log
+# Journal file: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array\vivado.jou
+# Running On: DESKTOP-OJ3LTBR, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 16890 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.xpr}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+# sim_1에 들어간 모든 파일의 절대경로와 컴파일 순서
+report_compile_order -fileset sim_1
+# 경로 변수
+set SRC_DIR {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl}
+set simfs   [get_filesets sim_1]
+# 1) 기존 TB(다른 경로 사본) 제거
+remove_files [get_files -of_objects $simfs *systolic_engine.srcs*/sim_1/new/sa_engine_tb.v]
+# 2) 원하는 TB를 imports/hdl에서 추가 (파일이 없다면 먼저 복사해 두세요)
+add_files   -fileset sim_1 [list [file normalize [file join $SRC_DIR sa_engine_tb.v]]]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+# 경로 변수
+set SRC_DIR {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl}
+set simfs   [get_filesets sim_1]
+# 1) 기존 TB(다른 경로 사본) 제거
+remove_files [get_files -of_objects $simfs *systolic_engine.srcs*/sim_1/new/sa_engine_tb.v]
+# 2) 원하는 TB를 imports/hdl에서 추가 (파일이 없다면 먼저 복사해 두세요)
+add_files   -fileset sim_1 [list [file normalize [file join $SRC_DIR sa_engine_tb.v]]]
+set_property top sa_engine_tb $simfs
+# 3) 파일타입 보정
+foreach f [get_files -of_objects $simfs *.sv] { set_property file_type {SystemVerilog} $f }
+foreach f [get_files -of_objects $simfs *.v ] { set_property file_type {Verilog}        $f }
+update_compile_order -fileset sim_1
+# 시뮬 스냅샷/로그 폴더 강제 삭제
+file delete -force {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.sim/sim_1/behav/xsim}
+update_compile_order -fileset sim_1
+report_compile_order  -fileset sim_1   ;# 여기서 TB 경로가 반드시 imports/hdl로 찍혀야 함
+reset_simulation  -simset sim_1
+launch_simulation -simset sim_1 -mode behavioral
+open_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
+source sa_engine_tb.tcl
+# sim_1에 들어간 모든 파일의 절대경로와 컴파일 순서
+report_compile_order -fileset sim_1
+# sim_1이 쓰는 TB 파일 경로 얻고, 그 안에서 고유 토큰(예: prefetch_req) 검색
+set tbfile [lindex [get_files -of_objects [get_filesets sim_1] *sa_engine_tb*.v] 0]
+puts "TBFILE = $tbfile"
+set f [open $tbfile r]; set txt [read $f]; close $f
+if {[string match *prefetch_req* $txt]} { puts "OK: TB 안에 prefetch_req 토큰 존재" } else { puts "NOTE: TB에 해당 토큰 없음" }
+get_scopes -r sim:/**/*dma*
+get_scopes -r sim:/**/*ctrl*
+close_sim
+launch_simulation
+open_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
+source sa_engine_tb.tcl
+# sim_1이 쓰는 실제 파일 경로
+set core   [lindex [get_files -of_objects [get_filesets sim_1] *sa_core_pipeline.sv] 0]
+set ctrl   [lindex [get_files -of_objects [get_filesets sim_1] *axi_dma_ctrl.sv] 0]
+puts "CORE = $core"; puts "CTRL = $ctrl"
+# 파일 내용을 읽어 토큰 검색
+proc has {path token} {
+  set f [open $path r]; set txt [read $f]; close $f
+  expr {[string match *$token* $txt]}
+}
+puts "CORE has prefetch_req?   [has $core prefetch_req]"
+puts "CORE has compute_req?    [has $core compute_req]"
+puts "CTRL has i_prefetch_req? [has $ctrl i_prefetch_req]"
+puts "CTRL has o_prefetch_done?[has $ctrl o_prefetch_done]"
+# 파이프라인 스코프
+set pipes [get_scopes -quiet -r sim:/**/sa_core_pipeline*]
+foreach p $pipes {
+  puts "\n-- children under $p --"
+  get_scopes -quiet $p/*
+  get_scopes -quiet $p/*/*
+  get_scopes -quiet -r  $p/**/*dma*
+  get_scopes -quiet -r  $p/**/*ctrl*
+}
+# 잡힌 스코프에서 'prefetch/read/start' 비슷한 핀을 시도
+set cand [get_scopes -quiet -r sim:/**/*dma*]
+foreach s $cand {
+  foreach pin {i_prefetch_req o_prefetch_done i_start o_ctrl_read o_read_addr i_read_done} {
+    set obj [get_objects -quiet $s/$pin]
+    if {[llength $obj]} {
+      if {$pin eq "o_read_addr"} { add_wave -radix hex $obj } else { add_wave -radix binary $obj }
+    }
+  }
+}
+run 20 us
+close_sim

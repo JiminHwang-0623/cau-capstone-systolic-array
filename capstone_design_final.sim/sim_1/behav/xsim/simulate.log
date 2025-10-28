@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+Initializing memory 'SimmemSync_rp0_wp0_cp1'..
+Loading memory 'SimmemSync_rp0_wp0_cp1' from file: matrix_A_B.hex
+ARADDR LSB[6:0]=0x0  ARLEN=15
