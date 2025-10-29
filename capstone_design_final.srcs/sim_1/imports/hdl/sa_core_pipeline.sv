@@ -112,11 +112,8 @@ module sa_core_pipeline #(
   logic prefetch_req;
   logic prefetch_done;
   logic compute_req;
-  logic compute_done;
-  
-  assign compute_req = ap_start;
-  assign compute_done = done_core;
-  assign prefetch_req = (start_rd_wr == 2'b10);
+    
+  wire compute_done = done_core;
 
   // Signals for dma read  
   logic                              ctrl_read;
@@ -193,6 +190,65 @@ module sa_core_pipeline #(
               reserved_register <= 32'd0; 
           end 
       end 
+  end
+  
+  typedef enum logic [1:0] {SCH_WARMUP, SCH_STEADY, SCH_DRAIN} sch_e;
+  sch_e current_state, next_state;
+  
+  logic prefetch_inflight;
+  
+  logic [15:0] tile_current_index;
+  parameter int unsigned NUM_TILES_TOTAL = 8; // 일단 총 타일 수를 파라미터로(나중에 포트로 전환)
+  wire [15:0] num_tiles_total = NUM_TILES_TOTAL;
+  
+  wire has_next_tile = (tile_current_index < (num_tiles_total - 16'd1));
+  
+  always_ff @(posedge M_AXI_ACLK or negedge M_AXI_ARESETN) begin
+    if (!M_AXI_ARESETN) begin
+        current_state      <= SCH_WARMUP;
+        prefetch_inflight  <= 1'b0;
+        tile_current_index <= 16'b0;
+    end else begin
+        current_state <= next_state;
+        
+        if (prefetch_req)  prefetch_inflight <= 1'b1;
+        if (prefetch_done) prefetch_inflight <= 1'b0;
+        
+        if (prefetch_done) tile_current_index <= tile_current_index + 16'd1;
+    end
+  end 
+  
+  always_comb begin
+    next_state = current_state;
+    
+    prefetch_req = 1'b0;
+    compute_req  = 1'b0;
+    
+    unique case (current_state)
+        SCH_WARMUP : begin
+            if (has_next_tile && !prefetch_inflight) begin
+                prefetch_req = 1'b1;
+            end
+            
+            if (prefetch_done) begin
+                compute_req = 1'b1;
+                if (has_next_tile && !prefetch_inflight)
+                    prefetch_req = 1'b1;
+                next_state = (num_tiles_total == 16'd1) ? SCH_DRAIN : SCH_STEADY;
+            end
+        end
+        
+        SCH_STEADY : begin
+            if (has_next_tile && !prefetch_inflight)
+                prefetch_req = 1'b1;
+                    
+            if (tile_current_index == (num_tiles_total - 16'd1))
+                next_state = SCH_DRAIN;
+        end
+        
+        SCH_DRAIN : begin
+        end
+    endcase
   end
   
   //----------------------------------------------------------------
@@ -338,7 +394,7 @@ module sa_core_pipeline #(
       .clk            (M_AXI_ACLK),
       .rstn           (M_AXI_ARESETN),
 
-      .start          (ap_start),
+      .start          (compute_req),
 
       .read_data_vld  (read_data_vld),
       .DATA_IN        (read_data),

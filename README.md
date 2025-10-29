@@ -32,7 +32,6 @@ DMA Read FSM의 **시작 트리거를 prefetch 요청 신호로 교체**하는 �
   assign prefetch_req  = (start_rd_wr == 2'b10);
   // prefetch_done은 컨트롤러에서 올라오는 완료 신호와 맵핑
   // assign prefetch_done = read_done; // 또는 u_dma_ctrl.o_prefetch_done
-<<<<<<< HEAD
 
 # 🧩 Step 2 — 주소 더블링(Address Double-Buffering) + buf_idx 토글
 
@@ -160,5 +159,165 @@ assign read_addr = base_addr_current + {req_blk_idx_rd, 6'b0};
 - 2타일 기준으로 Step 2의 주소 전환 및 토글 동작이 정상 확인되었다.  
 - 다음 단계(Step 3)에서 다중 프리패치(`base_addr_next` = 0x100, 0x180 …) 로직이 추가될 예정이며,  
   이를 통해 연산–전송 오버랩이 구현된다.
-=======
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
+
+
+# ⚙️ Step 3 — Lightweight Scheduler FSM (WARMUP → STEADY → DRAIN)
+
+---
+
+## 🎯 목적
+이 단계의 목표는 **연산–데이터 전송의 오버랩(Overlap)** 을 구현하는 것입니다.  
+즉, 이전 타일을 **연산(Compute)** 하는 동안 다음 타일 데이터를 **프리패치(Prefetch)** 하여  
+**데이터 로드 지연(latency)** 을 숨기는 경량 스케줄러 FSM을 구축합니다.
+
+Step 1~2 단계에서 구축된 핸드셰이크(`prefetch_req`, `prefetch_done`, `compute_req`, `compute_done`)와  
+주소 더블버퍼링(`base_addr_current`, `base_addr_next`)을 기반으로 FSM을 추가합니다.
+
+---
+
+## 🧠 동작 개념
+FSM은 3 단계로 구성됩니다:
+
+| 상태 | 역할 | 설명 |
+|------|------|------|
+| **SCH_WARMUP** | 초기 준비 | 첫 타일 데이터를 프리패치(`prefetch_req`)하고 준비 완료 후 `compute_req` 1회 발행 |
+| **SCH_STEADY** | 오버랩 구간 | 코어는 계속 연산 중이며, DMA는 이전 타일이 끝나는 즉시 다음 타일을 프리패치 |
+| **SCH_DRAIN** | 마지막 타일 마무리 | 마지막 타일의 연산만 남은 상태로 새로운 프리패치는 없음 |
+
+FSM은 다음 규칙으로 동작합니다:
+- `prefetch_req` 발행 → DMA Read 시작(`i_prefetch_req`)  
+- DMA Read FSM 내부에서 모든 블록 전송이 끝나면 `o_prefetch_done` 1 펄스 발생  
+- `prefetch_done` 발생 후 `prefetch_inflight` 0 → 다음 타일 예약 (`prefetch_req`)  
+- `tile_current_index` 는 `prefetch_done` 시 +1 되어 타일 경계 추적  
+- 마지막 타일이면 `has_next_tile = 0` → 프리패치 중단, `SCH_DRAIN` 진입
+
+---
+
+## 🧩 주요 수정 내용
+
+### 1️⃣ FSM 정의 추가 (`sa_core_pipeline.sv`)
+```verilog
+typedef enum logic [1:0] {SCH_WARMUP, SCH_STEADY, SCH_DRAIN} sch_e;
+sch_e sstate, sstate_n;
+
+logic prefetch_inflight;
+logic [15:0] tile_current_index_q;
+parameter int unsigned NUM_TILES_P = 8;
+wire [15:0] num_tiles_w = NUM_TILES_P;
+wire has_next_tile = (tile_current_index_q < (num_tiles_w - 16'd1));
+
+## 2️⃣ 상태 / 토큰 갱신
+
+FSM의 현재 상태(`sstate`), 프리패치 토큰(`prefetch_inflight`),  
+그리고 타일 인덱스(`tile_current_index_q`)를 매 클럭마다 갱신합니다.
+
+- `prefetch_req` 발생 시 → inflight=1  
+- `prefetch_done` 발생 시 → inflight=0  
+- `prefetch_done` 발생 시 → 타일 인덱스 +1  
+- 리셋 시 모든 값 초기화
+
+```verilog
+always_ff @(posedge clk or negedge rst_n) begin
+  if (!rst_n) begin
+    sstate <= SCH_WARMUP;
+    prefetch_inflight <= 1'b0;
+    tile_current_index_q <= '0;
+  end else begin
+    sstate <= sstate_n;
+    if (prefetch_req)  prefetch_inflight <= 1'b1;
+    if (prefetch_done) prefetch_inflight <= 1'b0;
+    if (prefetch_done) tile_current_index_q <= tile_current_index_q + 16'd1;
+  end
+end
+
+## 3️⃣ FSM 동작 논리
+
+FSM은 **3단계**로 동작합니다:  
+`SCH_WARMUP` → `SCH_STEADY` → `SCH_DRAIN`.
+
+- **WARMUP** : 첫 타일 준비 및 연산 시작 (`compute_req` 1회)  
+- **STEADY** : 프리패치–컴퓨트 오버랩 반복  
+- **DRAIN** : 마지막 타일, 추가 프리패치 없음
+
+```verilog
+always_comb begin
+  sstate_n = sstate;
+  prefetch_req = 1'b0;
+  compute_req  = 1'b0;
+
+  unique case (sstate)
+    // --- 초기 준비 ---
+    SCH_WARMUP: begin
+      if (has_next_tile && !prefetch_inflight)
+        prefetch_req = 1'b1;          // 첫 타일 프리패치
+      if (prefetch_done) begin
+        compute_req = 1'b1;           // 코어 전체 스타트(1회)
+        if (has_next_tile && !prefetch_inflight)
+          prefetch_req = 1'b1;        // 다음 타일 예약
+        sstate_n = (num_tiles_w == 16'd1) ? SCH_DRAIN : SCH_STEADY;
+      end
+    end
+
+    // --- 오버랩 구간 ---
+    SCH_STEADY: begin
+      if (has_next_tile && !prefetch_inflight)
+        prefetch_req = 1'b1;          // 다음 타일 프리패치
+      if (tile_current_index_q == (num_tiles_w - 16'd1))
+        sstate_n = SCH_DRAIN;
+    end
+
+    // --- 마지막 타일 ---
+    SCH_DRAIN: begin
+      // 프리패치 없음, compute만 지속
+    end
+  endcase
+end
+
+## 4️⃣ DMA 제어 수정 (`axi_dma_ctrl.sv`)
+
+기존에는 `o_prefetch_done`이 단일 read 블록(`i_read_done`) 기준이었지만,  
+Step 3에서는 **타일 전체 완료 시점(ctrl_read_done)** 을 기준으로 수정해야 한다.
+
+```diff
+- assign o_prefetch_done = i_read_done;
++ assign o_prefetch_done = ctrl_read_done;   // 타일 전체 완료 펄스로 변경
+
+
+---
+
+## 🧪 검증 포인트 (시뮬레이션)
+
+| 항목 | 기대 결과 |
+|------|-------------|
+| FSM 전이 | `SCH_WARMUP → SCH_STEADY → SCH_DRAIN` |
+| Prefetch 요청 | 타일 수(`NUM_TILES_P`) 만큼 반복 발행 |
+| `prefetch_inflight` | 1 → 0 → 1 → 0 패턴 반복 |
+| `tile_current_index_q` | 0 → 7 까지 타일 단위 증가 |
+| `base_addr_current` | `0x00 → 0x80 → 0x100 → ...` 타일마다 1회 증가 |
+| DMA Read FSM | 각 타일마다 0→2→0 사이클 반복 |
+| 마지막 타일 | `has_next_tile=0`, FSM=`SCH_DRAIN`, 프리패치 중단 확인 |
+
+🧩 **파형 예시 주요 신호**
+- `prefetch_req`, `prefetch_done`, `prefetch_inflight`
+- `i_prefetch_req`, `o_prefetch_done`
+- `o_ctrl_read`, `o_read_addr`, `base_addr_current`, `base_addr_next`
+- `tile_current_index_q`, `current_state`
+
+📘 **검증 성공 기준**
+> 타일 수만큼 `prefetch_req`와 `prefetch_done`이 교대로 발생하고,  
+> `base_addr_current`가 stride(0x80) 단위로 증가하며,  
+> 마지막 타일에서 FSM이 `SCH_DRAIN`으로 전이되면 Step 3 성공.
+
+## ✅ 결과 요약
+
+- FSM 스케줄러가 **연산–프리패치 오버랩 구조**로 정상 동작함을 확인.  
+- `prefetch_req` / `prefetch_done` / `compute_req` 의 타이밍이 정확히 일치.  
+- DMA Read 주소(`o_read_addr`)가 타일당 stride(0x80)씩 증가.  
+- `prefetch_inflight` 토큰과 `has_next_tile` 조건이 정상적으로 프리패치 중복을 방지.  
+- 마지막 타일에서 자동으로 `SCH_DRAIN`으로 전이되며 프리패치 중단.  
+
+📈 **결론:**  
+> Step 3에서 연산과 DMA 전송이 완전히 겹치는  
+> **Lightweight Pipeline Scheduler FSM** 이 구현되었다.  
+> 이후 Step 4(미리시작 큐) 및 Step 5(파이프라인 오케스트레이션) 개발의 기반이 마련됨.
+

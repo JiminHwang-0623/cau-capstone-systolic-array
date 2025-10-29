@@ -1,4 +1,6 @@
 Time resolution is 1 ps
 Initializing memory 'SimmemSync_rp0_wp0_cp1'..
 Loading memory 'SimmemSync_rp0_wp0_cp1' from file: matrix_A_B.hex
+WARNING: 0ns : none of the conditions were true for unique case from File:C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:227
+WARNING: 0ns : none of the conditions were true for unique case from File:C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:227
 ARADDR LSB[6:0]=0x0  ARLEN=15

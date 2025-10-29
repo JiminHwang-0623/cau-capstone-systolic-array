@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="725.500 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,354.501 ns"></ZoomEndTime>
-      <Cursor1Time time="2,083.000 ns"></Cursor1Time>
+      <ZoomStartTime time="530.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,485.001 ns"></ZoomEndTime>
+      <Cursor1Time time="6,390.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="321"></NameColumnWidth>
-      <ValueColumnWidth column_width="155"></ValueColumnWidth>
+      <NameColumnWidth column_width="250"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="522" />
+   <WVObjectSize size="526" />
    <wvobject fp_name="/sa_engine_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -2752,21 +2752,33 @@
       <obj_property name="ElementShortName">ap_start</obj_property>
       <obj_property name="ObjectShortName">ap_start</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/compute_req" type="logic">
-      <obj_property name="ElementShortName">compute_req</obj_property>
-      <obj_property name="ObjectShortName">compute_req</obj_property>
-   </wvobject>
    <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/done_core" type="logic">
       <obj_property name="ElementShortName">done_core</obj_property>
       <obj_property name="ObjectShortName">done_core</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/compute_done" type="logic">
-      <obj_property name="ElementShortName">compute_done</obj_property>
-      <obj_property name="ObjectShortName">compute_done</obj_property>
-   </wvobject>
    <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/start_rd_wr" type="array">
       <obj_property name="ElementShortName">start_rd_wr[1:0]</obj_property>
       <obj_property name="ObjectShortName">start_rd_wr[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_start" type="array">
+      <obj_property name="ElementShortName">i_start[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_start[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_read_done" type="logic">
+      <obj_property name="ElementShortName">i_read_done</obj_property>
+      <obj_property name="ObjectShortName">i_read_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/req_blk_idx_rd" type="array">
+      <obj_property name="ElementShortName">req_blk_idx_rd[15:0]</obj_property>
+      <obj_property name="ObjectShortName">req_blk_idx_rd[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/max_req_blk_idx" type="array">
+      <obj_property name="ElementShortName">max_req_blk_idx[15:0]</obj_property>
+      <obj_property name="ObjectShortName">max_req_blk_idx[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/tile_current_idx" type="array">
+      <obj_property name="ElementShortName">tile_current_idx[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tile_current_idx[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/prefetch_req" type="logic">
       <obj_property name="ElementShortName">prefetch_req</obj_property>
@@ -2776,25 +2788,33 @@
       <obj_property name="ElementShortName">prefetch_done</obj_property>
       <obj_property name="ObjectShortName">prefetch_done</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/o_prefetch_done" type="logic">
-      <obj_property name="ElementShortName">o_prefetch_done</obj_property>
-      <obj_property name="ObjectShortName">o_prefetch_done</obj_property>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/compute_req" type="logic">
+      <obj_property name="ElementShortName">compute_req</obj_property>
+      <obj_property name="ObjectShortName">compute_req</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_start" type="array">
-      <obj_property name="ElementShortName">i_start[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_start[1:0]</obj_property>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/compute_done" type="logic">
+      <obj_property name="ElementShortName">compute_done</obj_property>
+      <obj_property name="ObjectShortName">compute_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/prefetch_inflight" type="logic">
+      <obj_property name="ElementShortName">prefetch_inflight</obj_property>
+      <obj_property name="ObjectShortName">prefetch_inflight</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/tile_current_index" type="array">
+      <obj_property name="ElementShortName">tile_current_index[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tile_current_index[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_prefetch_req" type="logic">
       <obj_property name="ElementShortName">i_prefetch_req</obj_property>
       <obj_property name="ObjectShortName">i_prefetch_req</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_read_done" type="logic">
-      <obj_property name="ElementShortName">i_read_done</obj_property>
-      <obj_property name="ObjectShortName">i_read_done</obj_property>
-   </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/cstate_rd" type="array">
-      <obj_property name="ElementShortName">cstate_rd[2:0]</obj_property>
-      <obj_property name="ObjectShortName">cstate_rd[2:0]</obj_property>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/o_prefetch_done" type="logic">
+      <obj_property name="ElementShortName">o_prefetch_done</obj_property>
+      <obj_property name="ObjectShortName">o_prefetch_done</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/o_ctrl_read" type="logic">
       <obj_property name="ElementShortName">o_ctrl_read</obj_property>
@@ -2804,13 +2824,9 @@
       <obj_property name="ElementShortName">o_read_addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_read_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/req_blk_idx_rd" type="array">
-      <obj_property name="ElementShortName">req_blk_idx_rd[15:0]</obj_property>
-      <obj_property name="ObjectShortName">req_blk_idx_rd[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/max_req_blk_idx" type="array">
-      <obj_property name="ElementShortName">max_req_blk_idx[15:0]</obj_property>
-      <obj_property name="ObjectShortName">max_req_blk_idx[15:0]</obj_property>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/cstate_rd" type="array">
+      <obj_property name="ElementShortName">cstate_rd[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cstate_rd[2:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/base_addr_current" type="array">
       <obj_property name="ElementShortName">base_addr_current[31:0]</obj_property>
@@ -2824,8 +2840,8 @@
       <obj_property name="ElementShortName">buf_idx</obj_property>
       <obj_property name="ObjectShortName">buf_idx</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/tile_current_idx" type="array">
-      <obj_property name="ElementShortName">tile_current_idx[15:0]</obj_property>
-      <obj_property name="ObjectShortName">tile_current_idx[15:0]</obj_property>
+   <wvobject fp_name="/sa_engine_tb/u_sa_engine_top/u_core/has_next_tile" type="logic">
+      <obj_property name="ElementShortName">has_next_tile</obj_property>
+      <obj_property name="ObjectShortName">has_next_tile</obj_property>
    </wvobject>
 </wave_config>

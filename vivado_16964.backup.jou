@@ -2,10 +2,10 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Oct 29 16:28:35 2025
-# Process ID: 6460
+# Start of session at: Tue Oct 28 16:53:53 2025
+# Process ID: 16964
 # Current directory: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15112 C:\Users\se-dong Jang\종합설계\cau-capstone-systolic-array\capstone_design_final.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12180 C:\Users\se-dong Jang\종합설계\cau-capstone-systolic-array\capstone_design_final.xpr
 # Log file: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/vivado.log
 # Journal file: C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array\vivado.jou
 # Running On: DESKTOP-OJ3LTBR, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 16890 MB
@@ -13,27 +13,14 @@
 start_gui
 open_project {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/capstone_design_final.xpr}
 update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
 launch_simulation
 open_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
 source sa_engine_tb.tcl
-current_wave_config {sa_engine_tb_behav.wcfg}
-add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/prefetch_inflight}} 
-current_wave_config {sa_engine_tb_behav.wcfg}
-add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/current_state}} 
-current_wave_config {sa_engine_tb_behav.wcfg}
-add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/tile_current_index}} 
 relaunch_sim
-current_wave_config {sa_engine_tb_behav.wcfg}
-add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/has_next_tile}} 
-relaunch_sim
-relaunch_sim
-relaunch_sim
-restart; run 2ms
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-save_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {C:/Users/se-dong Jang/종합설계/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
+source sa_engine_tb.tcl
 close_sim

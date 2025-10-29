@@ -92,7 +92,7 @@ assign o_read_addr          = read_addr;
 assign o_write_addr         = write_addr;
 assign o_ctrl_write_done    = ctrl_write_done;
 
-assign o_prefetch_done      = i_read_done;
+assign o_prefetch_done      = ctrl_read_done;
 
 logic buf_idx;
 logic [31:0] base_addr_current;
