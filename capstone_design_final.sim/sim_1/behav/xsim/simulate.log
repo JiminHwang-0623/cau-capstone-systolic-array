@@ -1,9 +1,4 @@
 Time resolution is 1 ps
 Initializing memory 'SimmemSync_rp0_wp0_cp1'..
 Loading memory 'SimmemSync_rp0_wp0_cp1' from file: matrix_A_B.hex
-<<<<<<< HEAD
 ARADDR LSB[6:0]=0x0  ARLEN=15
-=======
-network_done received!
-$stop called at time : 14600 ns : File "C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 252
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df

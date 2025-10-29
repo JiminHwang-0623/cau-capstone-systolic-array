@@ -57,11 +57,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="pynq-z2"/>
-<<<<<<< HEAD
-    <Option Name="WTXSimLaunchSim" Val="34"/>
-=======
-    <Option Name="WTXSimLaunchSim" Val="15"/>
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
+    <Option Name="WTXSimLaunchSim" Val="38"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -100,12 +96,6 @@
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xci">
           <Proxy FileSetName="design_1_processing_system7_0_0"/>
         </CompFileExtendedInfo>
-<<<<<<< HEAD
-=======
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_xbar_0/design_1_xbar_0.xci">
-          <Proxy FileSetName="design_1_xbar_0"/>
-        </CompFileExtendedInfo>
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xci">
           <Proxy FileSetName="design_1_rst_ps7_0_100M_0"/>
         </CompFileExtendedInfo>
@@ -234,15 +224,8 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-<<<<<<< HEAD
       <File Path="$PSRCDIR/sim_1/imports/hdl/sa_engine_tb.v">
         <FileInfo>
-=======
-      <File Path="$PSRCDIR/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Downloads/systolic_engine/systolic_engine.srcs/sim_1/new/sa_engine_tb.v"/>
-          <Attr Name="ImportTime" Val="1760094416"/>
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -334,11 +317,6 @@
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="sa_engine_tb"/>
-<<<<<<< HEAD
-=======
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SelectedSimModel" Val="rtl"/>

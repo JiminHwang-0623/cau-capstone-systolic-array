@@ -427,7 +427,6 @@ module sa_core (
   //     // .matmul_led ()
   // );
 
-<<<<<<< HEAD
   // sa_controller u_sa_controller (
   //    .RST(rstn),
   //    .CLK(clk),
@@ -444,24 +443,6 @@ module sa_core (
   //    .A_load_done_o(A_load_done),
   //    .matmul_done_o(matmul_done)
   // );
-=======
-  sa_controller u_sa_controller (
-      .RST(rstn),
-      .CLK(clk),
-      .EN(en),
-      .WRITE(write_en),
-      .IDX(IDX),
-      .REG_SELECT(REG_SELECT),
-      .LOAD(load_en),
-      .DATA_IN(sa_input_data),
-      .DATA_OUTPUT_EN(OUTPUT_EN),
-      .DATA_OUT(sa_out),
-      .B_load_done_o(B_load_done),
-      .register_load_done_o(register_load_done),
-      .A_load_done_o(A_load_done),
-      .matmul_done_o(matmul_done)
-  );
->>>>>>> 5a1be21c592a9e5cddb782db4e28fd23eae160df
 
 endmodule
 
