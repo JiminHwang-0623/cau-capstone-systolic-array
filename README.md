@@ -72,6 +72,7 @@ logic [31:0] base_addr_current;         // 현재 타일 base 주소
 logic [31:0] base_addr_next;            // 다음 타일 base 주소(예측)
 logic [15:0] tile_current_index;        // 현재 타일 인덱스
 wire [31:0]  tile_stride_rd = {max_req_blk_idx, 6'b0}; // 블록 수 * 64B
+```
 
 #### ② 단일 always 블록에서 리셋/예측/롤오버 통합
 ```verilog
@@ -97,6 +98,7 @@ always_ff @(posedge clk or negedge rstn) begin
     end
   end
 end
+```
 
 #### ③ Read 주소 생성부 치환
 
@@ -110,6 +112,7 @@ assign read_addr = dram_base_addr_rd + {req_blk_idx_rd, 6'b0};
 
 // 변경 코드 (Step 2 적용)
 assign read_addr = base_addr_current + {req_blk_idx_rd, 6'b0};
+```
 
 ## 🧠 동작 개념 요약
 
@@ -205,6 +208,7 @@ logic [15:0] tile_current_index_q;
 parameter int unsigned NUM_TILES_P = 8;
 wire [15:0] num_tiles_w = NUM_TILES_P;
 wire has_next_tile = (tile_current_index_q < (num_tiles_w - 16'd1));
+```
 
 ## 2️⃣ 상태 / 토큰 갱신
 
@@ -229,6 +233,7 @@ always_ff @(posedge clk or negedge rst_n) begin
     if (prefetch_done) tile_current_index_q <= tile_current_index_q + 16'd1;
   end
 end
+```
 
 ## 3️⃣ FSM 동작 논리
 
@@ -272,6 +277,7 @@ always_comb begin
     end
   endcase
 end
+```
 
 ## 4️⃣ DMA 제어 수정 (`axi_dma_ctrl.sv`)
 
@@ -320,4 +326,3 @@ Step 3에서는 **타일 전체 완료 시점(ctrl_read_done)** 을 기준으로
 > Step 3에서 연산과 DMA 전송이 완전히 겹치는  
 > **Lightweight Pipeline Scheduler FSM** 이 구현되었다.  
 > 이후 Step 4(미리시작 큐) 및 Step 5(파이프라인 오케스트레이션) 개발의 기반이 마련됨.
-
