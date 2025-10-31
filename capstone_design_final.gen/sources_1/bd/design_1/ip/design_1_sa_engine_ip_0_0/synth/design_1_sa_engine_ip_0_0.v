@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:sa_engine_ip:1.0
-// IP Revision: 10
+// IP Revision: 11
 
 (* X_CORE_INFO = "sa_engine_ip_v1_0,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "design_1_sa_engine_ip_0_0,sa_engine_ip_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "design_1_sa_engine_ip_0_0,sa_engine_ip_v1_0,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=sa_engine_ip,x_ipVersion=1.0,x_ipCoreRevision=10,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_M00_AXI_TARGET_SLAVE_BASE_ADDR=0x40000000,C_M00_AXI_BURST_LEN=16,C_M00_AXI_ID_WIDTH=1,C_M00_AXI_ADDR_WIDTH=32,C_M00_AXI_DATA_WIDTH=32,C_M00_AXI_AWUSER_WIDTH=1,C_M00_AXI_ARUSER_WIDTH=1,C_M00_AXI_WUSER_WIDTH=1,C_M00_AXI_RUSER_WIDTH=1,C_M00_AXI_BUSER_WIDTH=1,C_S00_AXI_DATA_WIDTH=32,C_S00_A\
+(* CORE_GENERATION_INFO = "design_1_sa_engine_ip_0_0,sa_engine_ip_v1_0,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=sa_engine_ip,x_ipVersion=1.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_M00_AXI_TARGET_SLAVE_BASE_ADDR=0x40000000,C_M00_AXI_BURST_LEN=16,C_M00_AXI_ID_WIDTH=1,C_M00_AXI_ADDR_WIDTH=32,C_M00_AXI_DATA_WIDTH=32,C_M00_AXI_AWUSER_WIDTH=1,C_M00_AXI_ARUSER_WIDTH=1,C_M00_AXI_WUSER_WIDTH=1,C_M00_AXI_RUSER_WIDTH=1,C_M00_AXI_BUSER_WIDTH=1,C_S00_AXI_DATA_WIDTH=32,C_S00_A\
 XI_ADDR_WIDTH=6}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_sa_engine_ip_0_0 (

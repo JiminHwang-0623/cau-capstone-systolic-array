@@ -6,7 +6,7 @@
 <Project Version="7" Minor="56" Path="c:/users/sudea/capstone_design_final/capstone_design_final.tmp/sa_engine_ip_v1_0_project/sa_engine_ip_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="87d81d7763264755b470e771635e6f2a"/>
+    <Option Name="Id" Val="9ee565bbd48c4dbaa5d791ea02cdfa22"/>
     <Option Name="Part" Val="xc7z020clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -95,14 +95,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/X_REG.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/X_REG.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/axi_dma_ctrl.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv">
         <FileInfo>
           <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -126,7 +127,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/dpram_wrapper.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/dpram_wrapper.sv">
         <FileInfo>
           <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -134,36 +135,41 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/hPE.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/hPE.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/sa_PE_wrapper.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/sa_PE_wrapper.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/sa_RF.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/sa_RF.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/sa_controller.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/sa_controller.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/sa_core.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/sa_core.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -177,8 +183,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/sa_unit.sv">
+      <File Path="$PPRDIR/../../../../../Users/sudea/capstone_design_final/sa_engine_ip_1.0/hdl/sa_unit.sv">
         <FileInfo>
+          <Attr Name="Library" Val=""/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

@@ -89,7 +89,7 @@ set_property ip_output_repo c:/Users/sudea/capstone_design_final/capstone_design
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+read_verilog -library xil_defaultlib C:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
 add_files C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/sudea/capstone_design_final/capstone_design_final.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_ooc.xdc]
@@ -120,6 +120,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/sudea/capstone_design_final/capstone_design_final.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
