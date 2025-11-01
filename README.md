@@ -287,7 +287,7 @@ Step 3에서는 **타일 전체 완료 시점(ctrl_read_done)** 을 기준으로
 ```diff
 - assign o_prefetch_done = i_read_done;
 + assign o_prefetch_done = ctrl_read_done;   // 타일 전체 완료 펄스로 변경
-
+```
 
 ---
 
@@ -326,3 +326,94 @@ Step 3에서는 **타일 전체 완료 시점(ctrl_read_done)** 을 기준으로
 > Step 3에서 연산과 DMA 전송이 완전히 겹치는  
 > **Lightweight Pipeline Scheduler FSM** 이 구현되었다.  
 > 이후 Step 4(미리시작 큐) 및 Step 5(파이프라인 오케스트레이션) 개발의 기반이 마련됨.
+
+# 🧩 Step 4 — DMA Read 1-Entry Prefetch Queue (Pending Mechanism)
+
+---
+
+## 🎯 목적
+Step 3에서 DMA Read FSM은 정상적인 타일 단위 동작을 수행하지만,  
+프리패치(`prefetch_req`)가 FSM 활성 중(`rd_active = 1`)에 겹치는 **경계 공백 상황**이 생길 수 있다.
+
+Step 4의 목표는 DMA가 아직 바쁜 상태에서도 새로운 프리패치 요청을 놓치지 않도록,  
+**1-entry pending 큐 (`rd_pending`)** 를 두어 요청을 임시 저장하고 IDLE 또는 DONE 진입 직후 즉시 집행하도록 하는 것이다.
+
+> ✅ 즉, DMA Read의 타이밍 여유를 조금 줄여도 프리패치 누락이 발생하지 않도록 하는 안전장치 역할이다.
+
+---
+
+## ⚙️ 수정 내용 (`axi_dma_ctrl.sv`)
+
+| 항목 | 설명 |
+|------|------|
+| `rd_pending` 신호 추가 | 바쁠 때(`rd_active = 1`) 들어온 `i_prefetch_req` 1회 저장 |
+| `rd_active` 신호 추가 | FSM 이 IDLE이 아닐 때 1 (디버그 용도) |
+| FSM 전이 보강 | `ST_IDLE`: `(i_prefetch_req || rd_pending)` 이면 착수<br>`ST_DMA_DONE`: `rd_pending` 있으면 바로 재시작 |
+| 외부 I/F | 추가 포트 없음 (`i_prefetch_req`/`o_prefetch_done` 그대로 사용) |
+
+핵심 동작 요약:
+```verilog
+// pending queue logic
+if (i_prefetch_req && rd_active)
+  rd_pending <= 1'b1;
+if ((cstate_rd == ST_IDLE && i_prefetch_req) ||
+    (cstate_rd == ST_DMA_DONE && rd_pending))
+  rd_pending <= 1'b0;
+
+// FSM 전이
+ST_IDLE: if (i_prefetch_req || rd_pending) nstate_rd = ST_DMA;
+ST_DMA_DONE: nstate_rd = (rd_pending) ? ST_DMA : ST_IDLE;
+```
+
+## 🧠 동작 개념
+
+| 시점 | 동작 |
+|------|------|
+| DMA 활성 중 (`rd_active = 1`) | 새로운 `prefetch_req` 발생 시 `rd_pending = 1` 로 저장 |
+| DMA 완료 (`ST_DMA_DONE`) → IDLE 복귀 | `rd_pending = 1`이면 바로 다음 클럭에 재착수 (`ST_DMA`) |
+| IDLE 상태에서 요청 발생 | 기존과 동일하게 즉시 착수 (`ctrl_read = 1`) |
+| Reset 또는 Drain 진입 | `rd_pending <= 0` 으로 초기화 |
+
+📘 **요약**  
+> Step 4의 pending 큐는 DMA가 바쁠 때 들어온 요청을 1회 저장했다가,  
+> IDLE 또는 DONE으로 전환되자마자 즉시 집행함으로써 **요청 누락을 방지**하고  
+> DMA Read의 **경계 공백을 최소화**한다.
+
+## ✅ 시뮬레이션 관찰 포인트
+
+| 신호 | 기대 동작 |
+|------|------------|
+| `rd_pending` | 기본 상황에서는 0 유지 (스케줄러가 안전하게 타이밍 보장) |
+| `i_prefetch_req && rd_active` 발생 시 | `rd_pending = 1` → 다음 착수 시 0으로 소진 |
+| `ST_DMA_DONE → ST_DMA` 전이 | `rd_pending`이 있을 때 gap 없이 재착수 |
+| `o_ctrl_read` | 이전과 동일한 주소/버스트 시퀀스(0x80 stride) 유지 |
+| `o_prefetch_done` | 타일 단위 완료 펄스 그대로 유지 |
+
+🧩 **관찰 팁**  
+> 파형에서 `rd_pending`이 거의 0이라면 정상이며,  
+> DMA와 스케줄러가 완벽히 동기화된 상태임을 의미한다.
+
+## 🔎 현재 검증 상황
+
+- 스케줄러가 `prefetch_req`를 항상 DMA IDLE 타이밍에 내보내므로  
+  `rd_pending`은 활성화되지 않음.  
+- 이는 **정상 동작이며**, Step 4의 큐 가드가 실제로는 필요 없는 상태임을 의미한다.  
+- 즉, `rd_pending`은 **비상용 안전장치**로만 존재하며,  
+  향후 스케줄링이 더 촘촘하거나 비동기적일 때 효과가 나타난다.  
+
+📘 **요약**  
+> 현재 파형은 DMA와 스케줄러의 타이밍 정합이 완벽히 이루어진 상태이며,  
+> Step 4는 안정성을 강화하는 구조적 여유 확보 단계로 기능한다.
+
+## 📈 결과 요약
+
+- DMA Read FSM에 **1-entry pending 큐**가 추가되어,  
+  프리패치 요청이 DMA 활성 중일 때도 손실 없이 처리 가능.  
+- Step 4는 실질적인 성능 향상보다는 **경계 안정성 강화 및 요청 누락 방지** 목적.  
+- 시뮬레이션 결과, 기존 동작에 영향 없이 안정적으로 통합 완료됨.  
+- 향후 더 타이트한 파이프라이닝이나 AXI 트래픽 혼잡 상황에서도  
+  안정적 DMA Read 오버랩이 유지될 것으로 예상됨.  
+
+✅ **결론**  
+> Step 4 완료 — DMA Read 경계 공백 보호용 pending 메커니즘이 정상 추가되었으며,  
+> 기존 기능과 타이밍은 그대로 유지됨.

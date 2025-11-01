@@ -60,6 +60,9 @@ logic ctrl_read_done;
 logic [AXI_WIDTH_AD-1:0] read_addr;
 logic [15:0] req_blk_idx_rd;
 
+logic rd_pending;
+wire  rd_active = (cstate_rd != ST_IDLE);
+
 // dma write
 logic ctrl_write;
 logic ctrl_write_wait;
@@ -123,6 +126,18 @@ always_ff @(posedge clk or negedge rstn) begin
     end
 end
 
+always_ff @(posedge clk or negedge rstn) begin
+    if (!rstn) begin
+        rd_pending <= 1'b0;
+    end else begin
+        if (i_prefetch_req && rd_active)
+            rd_pending <= 1'b1;
+            
+        if ((cstate_rd == ST_IDLE && i_prefetch_req) || (cstate_rd == ST_DMA_DONE && rd_pending))
+            rd_pending <= 1'b0;
+    end
+end
+
 //----------------------------------------------------------------
 // FSM for DMA Read
 //----------------------------------------------------------------
@@ -143,31 +158,31 @@ always_comb begin
     nstate_rd = cstate_rd;
     case(cstate_rd)
         ST_IDLE: begin
-            if(i_prefetch_req) 
+            if(i_prefetch_req || rd_pending) 
                 nstate_rd = ST_DMA;
             else
                 nstate_rd = ST_IDLE;
         end
         ST_DMA: begin
+            ctrl_read = 1'b1;
             nstate_rd = ST_DMA_WAIT;
-            ctrl_read = 1;
         end
         ST_DMA_WAIT: begin
-            ctrl_read_wait = 1;
+            ctrl_read_wait = 1'b1;
             if(i_read_done) begin 
-                if (req_blk_idx_rd == max_req_blk_idx - 1)
+                if (req_blk_idx_rd == max_req_blk_idx - 16'd1)
                     nstate_rd = ST_DMA_DONE;
                 else                 
                     nstate_rd = ST_DMA_SYNC;
             end 
         end 
         ST_DMA_SYNC: begin 
-            ctrl_read_sync = 1;
+            ctrl_read_sync = 1'b1;
             nstate_rd = ST_DMA;         
         end 
         ST_DMA_DONE: begin
-            ctrl_read_done = 1;
-            nstate_rd = ST_IDLE;
+            ctrl_read_done = 1'b1;
+            nstate_rd = (rd_pending) ? ST_DMA : ST_IDLE;
         end
         default: nstate_rd = ST_IDLE;
     endcase 
