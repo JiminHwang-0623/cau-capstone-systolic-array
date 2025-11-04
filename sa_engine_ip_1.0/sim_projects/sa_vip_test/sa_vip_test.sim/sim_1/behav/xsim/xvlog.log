@@ -1,29 +1,3 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_engine_ip_v1_0_S00_AXI.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_S00_AXI
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/X_REG.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module X_REG
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/axi_dma_ctrl.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module axi_dma_ctrl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/dma_read.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module dma_read
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/dma_write.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module dma_write
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/dpram_wrapper.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module dpram_wrapper
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/hPE.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hPE
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_PE_wrapper.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_PE_wrapper
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_RF.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_RF
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_controller.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_controller
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_core.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_core
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_core_pipeline.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_core_pipeline
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_unit.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sa_unit
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_engine_ip_v1_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0/sim/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.v" into library xil_defaultlib

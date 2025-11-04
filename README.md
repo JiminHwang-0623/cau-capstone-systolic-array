@@ -1,480 +1,456 @@
-# Systolic Array Engine IP (sa_engine_ip_v1_0)
+# 🎯 Systolic Array Matrix Multiplication IP 검증 계획
 
-## 25.10.24 작업 내용
-우선 25.10.23 작업한 baseline 을 Synthesis, Implementation, Generate Bitstream 까지 해봄.
-(물론 코드 변경 사항 IP에 반영까지 함)
-그런데 전혀 문제가 되지 않았음. 심지어 하드웨어 자원 1% 사용했다고 보고된거 같음 ㅋㅋ. (확실X)
-우선 Dataflow 관련 논문들 좀 보고 내 연구에 어떻게 적용하면 좋을까 고민중.
-(25.10.25) Row-Stationary Dataflow를 처음으로 제안한 Eyeriss 논문 정독중 (60%완료)
-
-## 25.10.23 작업 내용
-
-### Vivado Simulation
-- 사실 오늘 너무 하기 싫어서 그냥 30분 정도만 작업함.
-- elaborate 및 simulation 검증했고, matmul 도 잘 하는 것 확인함.
-- 단, 현재 S_OUT state 에서 16개의 데이터만 빼고 끝내고 있음.
--> 근데 이건 기존 baseline 도 원래 그랬어서 수정할 예정
--> 그리고 이 simulation 돌릴 때마다 txt 파일로 DMA Write 되는 것들 쓰게 코드 짤 예정
-
-## 25.10.22 작업 내용
-
-### sa_core 개선 (파라미터화/주소/엔디안/assertion)
-- 모듈 파라미터 도입: `SIDE`, `ELEM_BITS`, `BYTES_PER_WORD`, `LITTLE_ENDIAN`
-  -> 상위에서 오버라이드 가능하도록 헤더 파라미터화 (더 top 모듈에서 파라미터만 바꾸면 내부 변경 가능하도록!)
-- 유도 상수로 매직 넘버 제거: `ELEMS_PER_MATRIX`, `ELEMS_PER_WORD`, `WORDS_PER_MATRIX`, `A_BASE_WORD`, `B_BASE_WORD`, `STORE_WORDS`, `ITER_W`
-  -> `MATRIX_SIZE=16`, `WRITE_DELAY=64` 의존 제거
-- 주소/바이트 인덱싱 일반화
-  -> `word_idx = k / ELEMS_PER_WORD`, `byte_lane = LITTLE_ENDIAN ? (k % ELEMS_PER_WORD) : (ELEMS_PER_WORD-1 - (k % ELEMS_PER_WORD))` (우리는 그냥 little endian 만 사용 예정정)
-  -> A/B 모두 선형 주소, B는 transpose 매핑을 레지스터 배치에서 처리
-- 2D 인덱싱 도입
-  -> `row = k / SIDE`, `col = k % SIDE` 의미 변수로 `REG_SELECT/IDX` 구성 (가독성↑)
-- 출력 DPRAM WE 가드
-  -> `OUTPUT_EN`일 때만 `dpram_out_wea=1` (불필요 재기록 방지)
-- 시뮬 전용 assertion 추가 (translate_off)
-  -> `dma_cnt`/`iter_cnt_*` 범위, A/B 단계별 입력 주소 범위, 입력/출력 WE 프로토콜 위반 즉시 에러
-- 주의: 현재 `IDX[2:0]`, `REG_SELECT[3:0]` 포트 폭은 유지(SIDE=8 전제). 확장 시 포트 폭 변경 필요 (이건 더 고민해보기)
-
----
-## 25.10.21 작업 내용
-
-### sa_core baseline 수정
-- **sa_core**
-- **sa_controller** (이전 이름 controller)
-- **sa_unit** (이전 이름 SystolicArray)
-- **sa_PE_wrapper** (이전 이름 tile8x8)
-- **sa_RF** (이전 이름 RF)
-- **hPE**
-- **X_REG**
-
-### 주요 변경 사항
-1. `sa_unit` 의 FSM 중에서 counter 기반으로 state 가 넘어가는 것 수정
--> 엄밀히 내부 모듈의 신호를 받고 넘어가는 것으로 변경함.
--> 그러나 아직 `S_STORE` state 는 수정 못함. (dpram 접근 주소 로직 변경하면서 수정할 예정)
-2. `FSM.sv` 모듈 제거
--> `sa_unit` 에서 counter 기반으로 내부의 상태를 판단하는 로직밖에 없어서 제거함.
--> 곧바로 `sa_controller` 와 연결되도록 함.
-3. `hPE` 로직 많이 수정
--> `A` 와 `B` 의 유효한 데이터가 8번 들어와야 누적값이 유효하다고 판단하는 로직 추가
--> 이 신호를 통해 matmul 연산을 완료했다고 `sa_controller` 가 판단할 수 있음.
-
-### 이번 주 계획
-1. `sa_core` dpram 2개 주소 접근 로직 수정
-2. Weight stationary 및 Dataflow 관련 논문 search (Tiling 컨셉)
-3. 변경된 baseline의 functionality를 검증하는 testbench 작성 및 시뮬레이션
+> **Last Updated**: 2025-11-04  
+> **Target Board**: PYNQ-Z2 (Zynq-7000)  
+> **Protocol**: AXI4-Lite (Control) + AXI4-Full (Memory)
 
 ---
 
-## 📋 프로젝트 개요 (여기서부터는 GPT가 작성. 참고만... (변경 사항 최신화X))
+## 📋 목차
 
-**PYNQ-Z2 보드용 8x8 Systolic Array 가속기**
-
-본 IP는 Zynq-7000 SoC (ARM Cortex-A9 + FPGA)에서 INT8 행렬 곱셈 연산을 하드웨어 가속하기 위한 AXI4 기반 커스텀 IP입니다. 딥러닝 추론 가속을 목표로 하며, 대회에서 검증된 코드를 기반으로 작성되었습니다.
-
-### 주요 특징
-- **8x8 Systolic Array** 구조 (64개 PE, MAC 연산)
-- **INT8 quantization** 지원 (입력/가중치/출력)
-- **AXI4-Full Master** 인터페이스 (DDR 메모리 직접 접근)
-- **AXI4-Lite Slave** 인터페이스 (제어 레지스터)
-- **내부 DPRAM 2개** (입력/출력 버퍼, 각 1280x32-bit)
-- **Weight Stationary** 데이터플로우
-- **Block-wise DMA** 전송 (버스트 전송 최적화)
+1. [프로젝트 개요](#1-프로젝트-개요)
+2. [현재 설계 구조](#2-현재-설계-구조)
+3. [파일 구조](#3-파일-구조)
+4. [Testbench 전략](#4-testbench-전략)
+5. [검증 항목](#5-검증-항목)
+6. [앞으로 해야 할 작업들](#6-앞으로-해야-할-작업들)
 
 ---
 
-## 🏗️ 시스템 아키텍처
+## 1. 프로젝트 개요
 
+### 1.1 설계 목표
+- **8x8 Systolic Array 기반 Matrix Multiplication IP**
+- 연산은 **unsigned int8** 대상! (signed X)
+- **INT8 정밀도** (입력), **INT32 출력** (누적 결과)
+- **Custom DMA Controller** (AXI4-Full Master)
+- **AXI4-Lite Slave Interface** (레지스터 제어)
+
+### 1.2 핵심 기능
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     sa_engine_ip_v1_0 (Top)                     │
-│                                                                 │
-│  ┌───────────────┐           ┌──────────────────────────────┐  │
-│  │  S00_AXI      │           │   sa_core_pipeline           │  │
-│  │  (AXI-Lite    │  Control  │   (Main Engine Wrapper)      │  │
-│  │   Slave)      ├──────────►│                              │  │
-│  │               │           │  ┌────────────────────────┐  │  │
-│  │ Register Map: │           │  │  axi_dma_ctrl          │  │  │
-│  │ - slv_reg0    │           │  │  (Block Addr Mgmt)     │  │  │
-│  │ - slv_reg1    │           │  └──────┬─────────────────┘  │  │
-│  │ - slv_reg2    │           │         │                    │  │
-│  │ - slv_reg3    │           │  ┌──────▼──────┐  ┌─────────▼┐│ │
-│  │ - slv_reg4    │           │  │  dma_read   │  │ dma_write││ │
-│  │ - status_reg  │           │  │  (AXI Read) │  │(AXI Write││ │
-│  └───────────────┘           │  └──────┬──────┘  └─────▲────┘│ │
-│                              │         │               │      │ │
-│                              │    ┌────▼───────────────┴───┐  │ │
-│                              │    │      sa_core            │  │ │
-│                              │    │  (Verified 8x8 Core)    │  │ │
-│                              │    │                         │  │ │
-│                              │    │  ┌──────────────────┐   │  │ │
-│                              │    │  │ DPRAM_IN (1280x32│   │  │ │
-│                              │    │  │ Input Buffer)    │   │  │ │
-│                              │    │  └──────────────────┘   │  │ │
-│                              │    │  ┌──────────────────┐   │  │ │
-│                              │    │  │ FSM Controller   │   │  │ │
-│                              │    │  │ (9-state FSM)    │   │  │ │
-│                              │    │  └──────────────────┘   │  │ │
-│                              │    │  ┌──────────────────┐   │  │ │
-│                              │    │  │ Systolic Array   │   │  │ │
-│                              │    │  │ 8x8 (64 PEs)     │   │  │ │
-│                              │    │  └──────────────────┘   │  │ │
-│                              │    │  ┌──────────────────┐   │  │ │
-│                              │    │  │ DPRAM_OUT(1280x32│   │  │ │
-│                              │    │  │ Output Buffer)   │   │  │ │
-│                              │    │  └──────────────────┘   │  │ │
-│                              │    └─────────────────────────┘  │ │
-│                              └──────────────┬──────────────────┘ │
-│                                             │                    │
-│                                    M00_AXI (AXI4-Full Master)    │
-└─────────────────────────────────────┬───────────────────────────┘
-                                      │
-                                      ▼
-                              ┌──────────────┐
-                              │  DDR Memory  │
-                              │  (PS DRAM)   │
-                              └──────────────┘
+Input:  Matrix A (8x8 INT8), Matrix B (8x8 INT8)
+Output: Matrix C (8x8 INT32) = A × B
+
+Memory Layout:
+- Input:  DRAM[read_base_addr + 0x00 ~ 0x7F]  (128 bytes)
+- Output: DRAM[write_base_addr + 0x00 ~ 0xFF] (256 bytes) -> 현재는 0x3F까지만 써지고 있음
+```
+
+### 1.3 동작 흐름
+```
+1. PS (ARM) writes control registers via S00_AXI
+   ├─ 0x00: Start/Status
+   ├─ 0x04: Read Base Address
+   ├─ 0x08: Write Base Address
+   └─ 0x0C: Reserved
+
+2. DMA Read: DRAM → Internal DPRAM
+   - Burst length: 16 beats
+   - Transfer: Matrix A + B (128 bytes) -> 한 줄에 2byte, 64줄 (matrix_A_B.hex 사용 중)
+
+3. Systolic Array Computation
+   - FSM: S_IDLE → S_DATA_LOAD → S_WRITE_A → S_WRITE_B 
+         → S_LOAD → S_MATMUL → S_STORE → S_OUT
+
+4. DMA Write: Internal DPRAM → DRAM
+   - Burst length: 16 beats
+   - Transfer: Matrix C (256 bytes) -> 한 줄에 4byte (INT32라서) -> 64줄
+
+5. Interrupt/Done signal to PS
 ```
 
 ---
 
-## 📦 모듈 설명
+## 2. 현재 설계 구조
 
-### 1. **sa_engine_ip_v1_0** (Top Module)
-- S00_AXI와 sa_core_pipeline을 연결하는 최상위 래퍼
-- 제어 신호와 상태 신호를 중계
+### 2.1 계층 구조
 
-### 2. **sa_engine_ip_v1_0_S00_AXI** (Control Interface)
-- AXI4-Lite Slave 인터페이스
-- 16개의 32-bit 제어 레지스터 제공
-- PS(ARM)에서 제어 명령 전달 및 상태 읽기
-
-### 3. **sa_core_pipeline** (Main Engine Wrapper)
-- AXI4-Full Master 인터페이스 구현
-- DMA 컨트롤러 및 sa_core 통합
-- 대회 검증 코드 구조 그대로 사용
-
-### 4. **axi_dma_ctrl** (DMA Controller)
-- 블록 단위 주소 계산 및 관리
-- Read/Write FSM으로 DMA 흐름 제어
-- Burst 전송 최적화
-
-### 5. **dma_read** (AXI Read Master)
-- AXI4 Read 채널 구현
-- DDR에서 데이터 읽기 (버스트 전송)
-- 256 beat 버스트 지원
-
-### 6. **dma_write** (AXI Write Master)
-- AXI4 Write 채널 구현
-- 연산 결과를 DDR에 쓰기
-- Write response 처리
-
-### 7. **sa_core** (Verified 8x8 Systolic Array Core)
-**대회 검증 완료 모듈 (ChipTop.v 기반)**
-
-#### 내부 구조:
-- **DPRAM_IN**: 1280x32-bit (입력 행렬 A, B 저장)
-- **DPRAM_OUT**: 1280x32-bit (결과 행렬 C 저장)
-- **FSM Controller**: 9-state FSM으로 전체 흐름 제어
-- **Systolic Array 8x8**: 64개 PE로 병렬 MAC 연산
-
-#### FSM 상태:
-1. `S_IDLE`: 대기 상태
-2. `S_DATA_LOAD`: DRAM에서 데이터 로드 (? cycles)
-3. `S_WRITE_A`: 행렬 A를 내부 레지스터에 쓰기 (? cycles)
-4. `S_WRITE_B`: 행렬 B를 내부 레지스터에 쓰기 (? cycles)
-5. `S_LOAD`: Systolic Array 로드 (? cycles)
-6. `S_INTERRUPT_BUF`: 버퍼 상태
-7. `S_MATMUL`: 행렬 곱셈 실행 (? cycles)
-8. `S_STORE`: 결과 저장 (? cycles)
-9. `S_OUT`: DRAM에 결과 쓰기 (? cycles)
-
-#### Systolic Array 구조:
 ```
-       W0  W1  W2  W3  W4  W5  W6  W7
-       ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓
-X0 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X1 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X2 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X3 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X4 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X5 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X6 → [PE][PE][PE][PE][PE][PE][PE][PE]
-X7 → [PE][PE][PE][PE][PE][PE][PE][PE]
+sa_engine_ip_v1_0 (Top)
+│
+├─ S00_AXI Slave (AXI4-Lite)
+│  └─ sa_engine_ip_v1_0_S00_AXI
+│     ├─ Control Registers (0x00 ~ 0x10)
+│     └─ Status Registers (busy, done, error)
+│
+└─ sa_core_pipeline (Main Engine)
+   │
+   ├─ axi_dma_ctrl
+   │  ├─ Read address generation
+   │  └─ Write address generation
+   │
+   ├─ dma_read (M00_AXI Read Channel)
+   │  └─ AXI4-Full Master Read
+   │
+   ├─ dma_write (M00_AXI Write Channel)
+   │  └─ AXI4-Full Master Write
+   │
+   └─ sa_core
+      ├─ dpram_wrapper (Input Buffer)
+      ├─ dpram_wrapper (Output Buffer)
+      │
+      └─ sa_controller
+         └─ sa_unit (8x8 Systolic Array)
+            ├─ sa_PE_wrapper (Processing Elements Wrapper)
+            │ └─ 64 hPE (Processing Elements)
+            └─ sa_RF (Processing Elements Buffer Wrapper)
+              └─ 64 X_REG (Processing Elements Buffer)
+      
 ```
 
-각 PE(Processing Element)는:
-- **MAC (Multiply-Accumulate)**: `ACC = ACC + (A * B)`
-- **19-bit accumulator** (INT8 입력 → INT19 누적)
-- **Pipelining**: 데이터는 한 칸씩 이동
+### 2.2 주요 모듈 설명
 
-### 8. **하위 모듈들**
+| 모듈 | 파일 | 역할 |
+|------|------|------|
+| **Top Wrapper** | `sa_engine_ip_v1_0.v` | IP 최상위, AXI 인터페이스 연결 |
+| **AXI-Lite Slave** | `sa_engine_ip_v1_0_S00_AXI.v` | 레지스터 맵 구현 |
+| **Pipeline Core** | `sa_core_pipeline.sv` | DMA + Compute 통합 제어 |
+| **FSM + Buffer** | `sa_core.sv` | 내부 FSM, DPRAM 관리 |
+| **SA Controller** | `sa_controller.sv` | Systolic Array 데이터 로딩 |
+| **Systolic Array** | `sa_unit.sv` | 8x8 PE 배열 |
+| **DMA Read** | `dma_read.sv` | AXI4 Master Read 구현 |
+| **DMA Write** | `dma_write.sv` | AXI4 Master Write 구현 |
+| **DMA Control** | `axi_dma_ctrl.sv` | 주소 생성, 카운터 관리 |
 
-#### **FSM** (Systolic Array FSM Controller)
-- Load/MatMul 카운터 관리
-- Interrupt 신호 생성 (상태 전환 알림)
+### 2.3 레지스터 맵
 
-#### **controller** (Matrix Data Controller)
-- 8x8 행렬 A, B, C를 내부 메모리에 관리
-- Systolic Array와 데이터 교환
+| Offset | Name | Access | Description |
+|--------|------|--------|-------------|
+| 0x00 | CTRL/STATUS | R/W | bit[0]: Start, bit[1]: Done (R), bit[2]: Busy (R), bit[3]: Error (R) |
+| 0x04 | READ_BASE | W | DMA Read Base Address |
+| 0x08 | WRITE_BASE | W | DMA Write Base Address |
+| 0x0C | NUM_TRANS | W | DMA transfer size (words). 현재 파이프라인에서 미사용 |
+| 0x10 | MAX_BLK | W | 최대 블록 수. 현재 파이프라인에서 미사용 |
 
-#### **SystolicArray** (8x8 Array Wrapper)
-- Register File과 tile8x8 연결
-
-#### **tile8x8** (64 PE Tile)
-- 8x8 격자로 배열된 64개 PE
-- 행/열 방향 데이터 전파
-
-#### **RF** (Register File)
-- 16개의 X_REG로 구성
-- 자동 shifting 기능
-
-#### **X_REG** (Shifting Register)
-- 32-deep FIFO 형태
-- Write 모드: 데이터 저장
-- Read 모드: 매 클록 한 칸씩 이동
-
-#### **hPE** (Hardware Processing Element)
-- INT8 × INT8 → INT19 MAC 연산
-- 레지스터 기반 파이프라인
-
-#### **dpram_wrapper** (Dual-Port RAM)
-- 동시 읽기/쓰기 지원
-- 시뮬레이션/합성 분기 처리
+-> 현재는 0x00, 0x04, 0x08 만 사용 중중
 
 ---
 
-## 📝 Register Map (S00_AXI)
+## 3. 파일 구조
 
-### Base Address
-AXI4-Lite Slave Base Address (Vivado에서 자동 할당, 예: `0x43C0_0000`)
+### 3.1 최종 디렉토리 구조
 
-### Control Registers (Write)
+```
+sa_engine_ip_1.0/
+│
+├── hdl/                                    ← 실제 합성할 RTL (우리가 작업하는 main IP)
+│   ├── sa_engine_ip_v1_0.v                 (Top wrapper)
+│   ├── sa_engine_ip_v1_0_S00_AXI.v         (AXI-Lite Slave)
+│   ├── sa_engine_ip_v1_0_M00_AXI.v         (사용 안함, custom DMA 모듈들로 대체)
+│   ├── sa_core_pipeline.sv                 (Main engine)
+│   ├── sa_core.sv                          (FSM + DPRAM)
+│   ├── sa_controller.sv                    (Systolic Array 제어)
+│   ├── sa_unit.sv                          (8x8 PE Array)
+│   ├── sa_PE_wrapper.sv                    (PE + Register File wrapper)
+│   ├── sa_RF.sv                            (Register File, 입력 데이터 저장)
+│   ├── X_REG.sv                            (X direction 레지스터)
+│   ├── hPE.sv                              (Processing Element, MAC 연산)
+│   ├── dpram_wrapper.sv                    (Dual-port RAM wrapper)
+│   ├── axi_dma_ctrl.sv                     (DMA 제어 FSM)
+│   ├── dma_read.sv                         (AXI4 Master Read)
+│   └── dma_write.sv                        (AXI4 Master Write)
+│
+├── src/                                    ← 시뮬레이션 전용
+│   ├── tb/                                 ← Testbench 파일들
+│   │   ├── sa_matmul_tb.sv                 ← 메인 TB (Vivado가 제공하는 example_designs 코드에서 수정정)
+│   │   ├── tb_tasks.svh                    ← 메인 TB에서 사용하는 테스트 함수들들
+│   │   └── axi_vip_config.svh              ← VIP 설정
+│   │
+│   ├── data/                               ← 테스트 데이터 (UINT8/UINT32)
+│   │   ├── matrix_A_B.hex                  ← A(64B)+B(64B) 결합, 한 줄 2바이트(LO-HI) (현재 사용 중)
+│   │   ├── matrix_a.hex                    ← A만, 한 줄 2바이트(LO-HI)
+│   │   ├── matrix_b.hex                    ← B만, 한 줄 2바이트(LO-HI)
+│   │   ├── matrix_a.mem                    ← A만, 한 줄 1바이트(옵션)
+│   │   ├── matrix_b.mem                    ← B만, 한 줄 1바이트(옵션)
+│   │   └── golden_result.hex               ← 기대 결과 64개(INT32, 8헥사) (현재 사용 중)
+│   │
+│   ├── scripts/                            ← Python/TCL 스크립트 
+│   │   ├── generate_test_vectors.py        ← 테스트 벡터 생성 (UINT8/스왑 반영) (이건 사용!!)
+│   │   ├── create_bd_with_vip.tcl          ← AXI VIP 포함 BD 자동 생성 (사용X... 시뮬 환경 세팅할 때 사용함)
+│   │   └── setup_sim.tcl                   ← 시뮬 파일셋/옵션 세팅 (사용X... 시뮬 환경 세팅할 때 사용함)
+│   │
+│   └── legacy/                             ← 기존 파일들 (이전 AIX 대회에서 사용한 시뮬 파일들)
+│       ├── sa_engine_tb.v                  ← 예전 AXI3 TB
+│       ├── axi_slave_if_sync.v
+│       ├── axi_sram_if.v
+│       ├── sram.v
+│       ├── sram_ctrl.v
+│       └── sync_reg_fifo.v
+│
+├── sim_projects/                           ← Vivado xsim 프로젝트 보관
+│   └── sa_vip_test/                        ← AXI VIP 기반 시뮬 프로젝트
+│       ├── sa_vip_test.xpr                 ← Vivado 프로젝트 파일
+│       ├── sa_vip_test.sim/                ← xsim 실행 산출물
+│       └── sa_vip_test.runs/               ← 생성된 컴파일 캐시
+│
+├── example_designs/                        ← Vivado 자동 생성 (건들지 않음)
+│   └── bfm_design/                         ← 참고용으로만 사용
+│       ├── sa_engine_ip_v1_0_tb.sv         ← 원본 TB (복사 소스)
+│       ├── sa_engine_ip_v1_0_tb_include.svh
+│       ├── design.tcl
+│       └── bd/
+│           └── sa_engine_ip_v1_0_bfm_1.bd  ← Block Design
+│
+├── component.xml                           ← IP 메타데이터
+├── xgui/                                   ← IP GUI 정의
+└── PLAN.md                                 ← 이 문서
+```
 
-| Offset | Name | Bits | Description |
-|--------|------|------|-------------|
-| `0x00` | **CTRL_REG** | [31:0] | 제어 레지스터 |
-| | | [0] | **START**: 연산 시작 (Rising edge trigger) |
-| | | [31:1] | Reserved (미사용) |
-| `0x04` | **READ_BASE_ADDR** | [31:0] | **읽기 베이스 주소**: DRAM에서 입력 데이터 읽을 시작 주소<br/>- Matrix A, B가 연속된 메모리에 저장<br/>- 32-byte aligned 권장 |
-| `0x08` | **WRITE_BASE_ADDR** | [31:0] | **쓰기 베이스 주소**: DRAM에 결과 데이터 쓸 시작 주소<br/>- Matrix C 저장 위치<br/>- 32-byte aligned 권장 |
-| `0x0C` | **NUM_TRANS** | [31:0] | **DMA 전송 워드 수**: 한 번에 전송할 32-bit word 개수<br/>- 현재 고정값: `16` (8x8 행렬 = 16 words)<br/>- 향후 확장 가능 |
-| `0x10` | **MAX_BLK_IDX** | [31:0] | **최대 블록 인덱스**: 전송할 총 블록 수<br/>- 현재 고정값: `2` (Matrix A + B)<br/>- 향후 확장 가능 |
-| `0x14` | REG5 | [31:0] | Reserved (파이프라이닝, 캐시 파라미터용 예비) |
-| `0x18` | REG6 | [31:0] | Reserved |
-| `0x1C` | REG7 | [31:0] | Reserved |
-| `0x20` | REG8 | [31:0] | Reserved |
-| `0x24` | REG9 | [31:0] | Reserved |
-| `0x28` | REG10 | [31:0] | Reserved |
-| `0x2C` | REG11 | [31:0] | Reserved |
-| `0x30` | REG12 | [31:0] | Reserved |
-| `0x34` | REG13 | [31:0] | Reserved |
-| `0x38` | REG14 | [31:0] | Reserved |
+### 3.2 파일 역할 요약
 
-### Status Register (Read-Only)
+#### HDL (합성용)
+- `hdl/` 아래의 모든 파일은 합성 대상
+- 시뮬레이션 전용 코드는 `src/`에 위치
 
-| Offset | Name | Bits | Description |
-|--------|------|------|-------------|
-| `0x3C` | **STATUS_REG** | [31:0] | 상태 레지스터 (읽기 전용) |
-| | | [0] | **DONE**: 연산 완료 플래그<br/>- `0`: 진행 중 또는 대기<br/>- `1`: 연산 완료 |
-| | | [1] | **BUSY**: 연산 진행 중 플래그<br/>- `0`: IDLE<br/>- `1`: 연산 실행 중 |
-| | | [2] | **ERROR**: 에러 플래그<br/>- `0`: 정상<br/>- `1`: 에러 발생 (현재 미사용) |
-| | | [31:3] | Reserved |
+#### SRC (시뮬레이션)
+- **tb/**: Testbench SystemVerilog 파일
+- **data/**: 입력 데이터 및 Golden reference
+- **scripts/**: 자동화 스크립트
+- **legacy/**: 기존 파일 보관 (참고용)
+
+#### Example Designs
+- **Vivado IP Packager가 자동 생성**
+- Block Design + VIP 포함
+- **원본 유지, 복사해서 사용**
+
+#### Sim Projects
+- **Vivado 시뮬 프로젝트 스냅샷**: `sim_projects/sa_vip_test`에 xsim 설정과 wave 구성을 보관
+- **자동 생성 산출물**: `.sim/`, `.runs/` 등은 Vivado에서 다시 생성되므로 직접 편집하지 않음
+- **복구 용도**: GUI 설정이 꼬였을 때 이 프로젝트를 열어 baseline 환경을 복원
 
 ---
 
-## 🔄 동작 흐름
+## 4. Testbench 전략
 
-### 1. 초기화 단계 (PS - ARM에서 실행)
-
-```c
-// 1. 입력 데이터 준비 (DDR 메모리)
-uint32_t *input_matrix  = 0x10000000;  // Matrix A, B 저장 영역
-uint32_t *output_matrix = 0x11000000;  // Matrix C 저장 영역
-
-// 2. 레지스터 설정
-volatile uint32_t *axi_base = 0x43C00000;  // AXI-Lite base
-
-axi_base[0x04/4] = (uint32_t)input_matrix;   // READ_BASE_ADDR
-axi_base[0x08/4] = (uint32_t)output_matrix;  // WRITE_BASE_ADDR
-axi_base[0x0C/4] = 16;                        // NUM_TRANS (고정)
-axi_base[0x10/4] = 2;                         // MAX_BLK_IDX (고정)
-
-// 3. 연산 시작
-axi_base[0x00/4] = 0x00000001;  // START bit set
-```
-
-### 2. 하드웨어 동작 흐름
+### 4.1 시뮬레이션 환경 구조
 
 ```
-┌────────────────────────────────────────────────────────────┐
-│ 1. IDLE → DATA_LOAD (DMA Read 시작)                        │
-│    - axi_dma_ctrl에 start_rd_wr[1:0] = 2'b10 전송          │
-│    - dma_read가 DDR에서 32 words 읽기 (Matrix A, B)        │
-│    - DPRAM_IN에 저장 (32 cycles)                           │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 2. WRITE_A (64 cycles)                                     │
-│    - DPRAM_IN에서 Matrix A 읽기                            │
-│    - controller의 MAT_A0~A7에 쓰기                         │
-│    - 8x8 = 64 elements, 각 4 cycles                       │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 3. WRITE_B (64 cycles)                                     │
-│    - DPRAM_IN에서 Matrix B 읽기                            │
-│    - controller의 MAT_B0~B7에 쓰기 (Transpose)             │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 4. LOAD (9 cycles)                                         │
-│    - Register File(RF)에서 Systolic Array로 데이터 로드    │
-│    - X_REG가 자동으로 shifting                             │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 5. MATMUL (24 cycles)                                      │
-│    - 64개 PE가 병렬로 MAC 연산 수행                        │
-│    - 각 PE: ACC += A * B                                   │
-│    - 19-bit accumulator (INT8 × INT8 → INT19)             │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 6. STORE (64 cycles)                                       │
-│    - Systolic Array 결과(MAT_C0~C7)를 읽기                 │
-│    - INT19 → INT8 변환 (Scaling & Saturation)             │
-│    - DPRAM_OUT에 저장                                      │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 7. OUT (DMA Write)                                         │
-│    - axi_dma_ctrl에 start_rd_wr[1:0] = 2'b11 전송          │
-│    - dma_write가 DPRAM_OUT에서 16 words 읽기               │
-│    - DDR에 쓰기 (Matrix C)                                 │
-└──────────────────┬─────────────────────────────────────────┘
-                   │
-┌──────────────────▼─────────────────────────────────────────┐
-│ 8. DONE & Interrupt                                        │
-│    - status_reg[0] = 1 (DONE)                             │
-│    - PS로 인터럽트 전달 (옵션)                             │
+┌────────────────────────────────────────────────────────────────┐
+│                    sa_matmul_tb.sv                             │
+│  (Testbench - SystemVerilog 코드)                              │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
+│  초기화 & 제어 로직 (initial block)                             │
+│  1. Master VIP 메모리 초기화                                    │
+│  2. Slave VIP로 레지스터 제어                                   │
+│  3. Done 대기 & 결과 검증                                       │
+│                                                               │
+│            ┌                                                  │
+│            ↓                                                  │
+│  ┌─────────────────┐            ┌─────────────────┐           │
+│  │   Slave VIP     │            │   Master VIP    │           │
+│  │ (PS 제어 역할)   │            │  (DRAM 역할)     │           │
+│  │                 │            │                 │           │
+│  │ - AXI4-Lite     │            │ - AXI4-Full     │           │
+│  │ - Master로 동작  │            │ - Slave로 동작   │◄─┐         │
+│  │ - Register      │            │ - Memory Model  │  │        │
+│  │   Write/Read    │            │ - 연관 배열      │  │        │
+│  └────────┬────────┘            └─────────────────┘  │        │
+│           │                                          │         │
+│           │    ┌──────────────────────┐              │         │
+│           └───►│   DUT (Your IP)      │──────────────└        │
+│                │ sa_engine_ip_v1_0    │                       │
+│                │                      │                       │
+│                │ S00_AXI ◄─ Slave VIP │                       │
+│                │ M00_AXI ─► Master VIP│                       │
+│                └──────────────────────┘                       │
+│                                                               │
+│  ※ Slave VIP와 Master VIP는 직접 연결되지 않음                  │
+│     각각 DUT의 S00_AXI, M00_AXI에 연결됨                        │
+│                                                               │
+│  모니터링 & 검증                                                │
+│  - AXI transaction logger                                     │
+│  - Protocol violation checker (VIP 자동)                       │
+│  - Result comparison (golden vs. actual)                      │
+└───────────────────────────────────────────────────────────────┘
+```
+
+### 4.2 VIP (Verification IP) 설명
+
+#### Xilinx AXI VIP란?
+- **Xilinx 공식 검증 IP** (무료, Vivado 포함)
+- AXI 프로토콜 준수 여부 자동 체크
+- 메모리 모델 내장 (연관 배열 기반)
+
+#### VIP 동작 모드
+
+| VIP 이름 | 모드 | 연결 | TB 관점 | 역할 |
+|---------|------|------|---------|------|
+| **slave_0** | Master | S00_AXI | 제어 송신 | PS(ARM) 역할, 레지스터 read/write |
+| **master_0** | Slave | M00_AXI | 메모리 응답 | DDR DRAM 역할, read/write 요청 처리 |
+
+### 4.3 테스트 시나리오
+
+```systemverilog
+// 의사 코드 (실제 구현은 sa_matmul_tb.sv)
+
+initial begin
+  // 1. Reset
+  reset = 0;
+  #200ns reset = 1;
+  
+  // 2. Master VIP 메모리 초기화 (A+B 결합 파일, 2바이트/라인 LO-HI)
+  load_matrix_file("matrix_A_B.hex", 64'h0000_0000, mst_agent_0);
+  
+  // 3. Control Register 설정 (Slave VIP 사용)
+  write_register(0x04, 32'h0000_0000);   // READ_BASE
+  write_register(0x08, 32'h0000_0400);   // WRITE_BASE
+  
+  // 4. Start
+  write_register(0x00, 32'h0000_0001);   // START = 1
+  
+  // 5. Done 대기
+  do begin
+    read_register(0x00, status);
+    #100ns;
+  end while (status[1] == 0);  // Wait for DONE
+  
+  // 6. 결과 검증 (VIP 메모리 백도어 읽기 vs golden_result.hex)
+  verify_results("golden_result.hex", 64'h0000_0400, 64, mst_agent_0);
+  
+  // 7. 종료
+  if (pass) $display("✅ TEST PASSED");
+  else      $error("❌ TEST FAILED");
+  $finish;
+end
+```
+
+### 4.4 Golden Model
+
+테스트 벡터는 UINT8 기준, 하드웨어가 2바이트 쌍을 [lo,hi]로 읽은 뒤 내부에서 [hi,lo]로 재해석하는 규칙을 반영함. `generate_test_vectors.py` 요약:
+
+```python
+import numpy as np, os
+
+def swap_pairs_as_hw(x: np.ndarray) -> np.ndarray:
+    flat = x.flatten(); swapped = np.empty_like(flat)
+    swapped[0::2] = flat[1::2]; swapped[1::2] = flat[0::2]
+    return swapped.reshape(8,8)
+
+np.random.seed(42)
+A = np.random.randint(0, 256, (8,8), dtype=np.uint8)  # UINT8
+B = np.random.randint(0, 256, (8,8), dtype=np.uint8)  # UINT8
+A_hw, B_hw = swap_pairs_as_hw(A), swap_pairs_as_hw(B)
+C = A_hw.astype(np.uint32) @ B_hw.astype(np.uint32)   # UINT32 누적
+
+# A+B 결합(2B/라인, LO-HI), 분리 hex/mem, golden_result.hex 생성
+```
+
+Note:
+- 입력 데이터 파일은 on-wire 기준 2바이트/라인 LO-HI 형식(`*.hex`)을 사용하며, DUT는 내부에서 [hi,lo]로 재배치해 연산함.
+
+비고:
+- on-wire 파일은 2바이트/라인 LO-HI로 저장되며, DUT는 내부에서 [hi,lo]로 재배치해 연산.
+- 결과는 64개 INT32를 hex 형식으로 `golden_result.hex`에 기록.
+
+---
+
+## 5. 검증 항목
+
+### 5.1 Layer별 검증
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Level 1: AXI4-Lite (S00_AXI) 프로토콜                        │
+│  ✅ AWVALID/AWREADY 핸드셰이크                               │
+│  ✅ WVALID/WREADY 핸드셰이크                                 │
+│  ✅ BVALID/BREADY 응답                                      │
+│  ✅ ARVALID/ARREADY 핸드셰이크                               │
+│  ✅ RVALID/RREADY 데이터 전송                                │
+│  ✅ Register Write → 내부 신호 전파                          │
+│  ✅ Status Register Read 정확도                             │
+├────────────────────────────────────────────────────────────┤
+│ Level 2: AXI4-Full Read (M00_AXI → DRAM)                   │
+│  ✅ ARVALID/ARREADY 핸드셰이크                              │
+│  ✅ ARLEN = 15 (16 beats burst)                           │
+│  ✅ ARSIZE = 2 (4 bytes per beat)                         │
+│  ✅ ARBURST = INCR                                        │
+│  ✅ RDATA 수신 정확도                                       │
+│  ✅ RLAST 신호 (마지막 beat)                                │
+│  ✅ 내부 DPRAM에 데이터 저장 확인                             │
+├────────────────────────────────────────────────────────────┤
+│ Level 3: AXI4-Full Write (DRAM ← M00_AXI)                  │
+│  ✅ AWVALID/AWREADY 핸드셰이크                              │
+│  ✅ AWLEN = 15 (16 beats burst)                           │
+│  ✅ WVALID/WREADY 핸드셰이크                                │
+│  ✅ WDATA 전송 정확도                                       │
+│  ✅ WLAST 신호 (마지막 beat)                                │
+│  ✅ BVALID/BREADY 응답 수신                                 │
+│  ✅ VIP 메모리에 올바른 주소 저장                             │
+├────────────────────────────────────────────────────────────┤
+│ Level 4: Functional Correctness                            │
+│  ✅ FSM State Transition                                  │
+│     S_IDLE → S_DATA_LOAD → S_WRITE_A → S_WRITE_B           │
+│     → S_LOAD → S_MATMUL → S_STORE → S_OUT                  │
+│  ✅ Matrix A/B Loading to Controller                      │
+│  ✅ Systolic Array 계산 (PE MAC 동작)                      │
+│  ✅ Output C = A × B 정확도                                │
+│  ✅ Golden Model 비교 (모든 원소 일치)                       │
+│  ✅ Done 신호 타이밍                                        │
 └────────────────────────────────────────────────────────────┘
 ```
 
-### 3. 결과 확인 (PS - ARM)
+### 5.2 체크리스트
 
-```c
-// 상태 폴링
-while ((axi_base[0x3C/4] & 0x1) == 0) {
-    // DONE bit가 1이 될 때까지 대기
-}
+#### 프로토콜 검증 (VIP 자동)
+- [v] AXI4-Lite: No protocol violations
+- [v] AXI4-Full Read: No protocol violations (AxCACHE warnings observed)
+- [v] AXI4-Full Write: No protocol violations (AxCACHE warnings observed)
+- [ ] Burst alignment 체크
+- [ ] Response 체크 (RESP = OKAY)
 
-// 결과 읽기
-uint32_t *result = output_matrix;
-for (int i = 0; i < 16; i++) {
-    printf("C[%d] = %d\n", i, result[i]);
-}
-```
+Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR/FATAL observed in this run.
 
----
+#### 기능 검증 (Manual)
+- [v] 레지스터 read/write 정확도
+- [ ] DMA read 주소 정확도
+- [ ] DMA write 주소 정확도
+- [ ] Matrix multiplication 결과 정확도
+- [ ] 타이밍 (latency 측정)
 
-## ⏱️ 성능 분석
-
-### Latency (8x8 행렬 곱셈 1회)
-| 단계 | Cycles | 비고 |
-|------|--------|------|
-| DATA_LOAD | ? | DMA Read |
-| WRITE_A | ? | Matrix A 로딩 |
-| WRITE_B | ? | Matrix B 로딩 |
-| LOAD | ? | Systolic Array 로딩 |
-| MATMUL | ? | 병렬 MAC 연산 |
-| STORE | ? | 결과 저장 + Quantization |
-| OUT | ? | DMA Write |
-| **Total** | **? cycles** | @ ? MHz = ? μs |
-
-### Throughput
-- **MAC Operations**: 8×8×8 = 512 MACs
-- **Cycles**: ? cycles
-- **Efficiency**: ? / ? ≈ **? MACs/cycle**
-- **Peak Performance** (? MHz): ? MMAC/s
-
-### 최적화 포인트
-1. **DMA Burst 크기 증가**: 현재 16 words → 256 words (하드웨어 지원됨)
-2. **Double Buffering**: 연산 중 다음 데이터 프리로드
-3. **Array 크기 확장**: 8×8 → 16×16 (DSP 자원 허용 시)
-4. **Tiling**: 큰 행렬을 8×8 블록으로 나눠 반복 연산
-
-
-
-## 🧪 시뮬레이션 환경
-
-- `capstone_design_final.srcs` 아래 BFM 기반 프로젝트에서 `sa_engine_tb` 구동을 확인했으며, 세찬이가 구성한 테스트 벤치를 그대로 활용합니다.
-- 현재 시뮬레이션 탑 모듈은 `sa_core_pipeline` 하나이며, block design 탑인 `sa_engine_ip_v1_0`은 아직 통합 검증을 진행하지 않았습니다.
-- 향후 연구와 실험은 본 시뮬레이션 환경을 기준으로 진행하면 됩니다. HDL 수정 후에는 `vivado -mode batch -source sa_engine_ip_1.0/example_designs/bfm_design/design.tcl` 명령으로 프로젝트를 재생성하세요.
-- `sa_engine_top.sv`는 이전 AXI3 기반 BFM과의 호환을 위해 AXI4 포트를 AXI3 시그널링으로 감싸는 래퍼(wrapper) 역할을 합니다.
+#### Waveform 확인
+- [ ] `sa_core.c_state` FSM 확인인
+- [ ] `M_AXI_ARADDR`, `M_AXI_ARVALID`, `M_AXI_ARREADY`
+- [ ] `M_AXI_RDATA`, `M_AXI_RVALID`, `M_AXI_RLAST`
+- [ ] `M_AXI_AWADDR`, `M_AXI_WDATA`, `M_AXI_WLAST`
+- [ ] `dpram_in`, `dpram_out` 내부 메모리 상태
 
 ---
 
+## 6. 앞으로 해야 할 작업들
 
-## 🔬 검증 상태
+### 6.1 현재 문제점 개선
+- [ ] DMA Write가 64B만 쓰는 이슈 해결 (256B 전체 쓰기)
+  - `sa_engine_ip_1.0/hdl/sa_core_pipeline.sv`의 고정값 제거: `num_trans`/`max_req_blk_idx`를 AXI‑Lite 레지스터(`i_num_trans_param`, `i_max_blk_param`)에 연결
+  - `sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv` 쓰기 FSM의 블록 반복 조건(`(max_req_blk_idx>>1)`) 정합성 재검토 → 읽기와 대칭적으로 총 64워드가 쓰이도록 조정
+  - 검증: `M_AXI_AWLEN`/`M_AXI_WLAST`/`M_AXI_AWADDR` 파형으로 버스트 수/주소 증가 확인, 결과 64개 PASS 확인
+- [ ] AXI VIP 경고(AxCACHE narrow-support) 제거
+  - `dma_read.sv`/`dma_write.sv`의 `AR/ARCACHE`, `AW/AWCACHE`를 권장값(예: `4'b0011`)으로 설정하거나, VIP 체크 완화 API 사용
+  - 경고 Zero 기준이면 README 체크리스트 업데이트
+- [ ] 문서/체크리스트 동기화
+  - Output 메모리 레이아웃(현재 0x3F까지만 실쓰기) → 이슈 해결 후 `write_base_addr + 0x00 ~ 0xFF`로 갱신
+  - 5.2의 Burst alignment/RESP OKAY 항목은 파형/로그로 근거 확보 후 체크
 
-- ✅ **sa_core_pipeline 검증 완료**: `capstone_design_final.srcs` 시뮬레이션에서 `sa_engine_tb`를 기준으로 정상 동작 확인
-- ⚠️ **블록 디자인 탑 미검증**: `sa_engine_ip_v1_0` + PS 통합 흐름은 추가 시뮬레이션 및 HW bring-up 필요
-- 🔁 **재실행 가이드**: HDL 변경 시 BFM 디자인 TCL을 다시 실행해 환경을 최신 상태로 유지
-- ℹ️ **래퍼 구조**: `sa_engine_top.sv`가 AXI4 포트를 AXI3와 호환시키는 중간 계층을 제공
+### 6.2 sedong 브랜치 내용 반영
+- [ ] `sedong` 브랜치 변경점 리뷰/merge (충돌 해결 포함)
+- [ ] 시뮬 재생성(`sa_engine_ip_1.0/example_designs/bfm_design/design.tcl`) 및 BFM 회귀 통과
+- [ ] 관련 문서(레지스터/데이터 형식/성능 수치) 업데이트
 
----
+### 6.3 FPGA 보드 올려보기 (PYNQ‑Z2)
+- [ ] 하드웨어 디자인 재빌드/비트스트림 생성
+  - 명령: `vivado -mode batch -source sa_engine_ip_1.0/example_designs/debug_hw_design/design.tcl`
+- [ ] 보드 프로그래밍 및 AXI‑Lite 드라이버 테스트(레지스터 R/W, DONE 인터럽트 확인)
+- [ ] DDR 트래픽/성능 계측(주기/지연, 초당 전송량) 및 결과 검증
 
-## 🚀 연구 로드맵
+### 6.4 Multi‑Head Attention Layer 가속
+- [ ] GEMM 타일링/스케줄러 설계(쿼리/키/밸류 경로, 8×8 타일 매핑)
+- [ ] 소프트맥스/스케일 및 정규화 처리 전략 수립(정밀도/범위)
+- [ ] DMA 레이아웃/버스트 계획(연속 접근, 4KB 경계, 캐시 속성)
+- [ ] 기능/성능 검증 벤치 및 골든 생성 스크립트 확장
 
-### 1. DRAM 접근 최적화
-- **목표**: 메모리 대역폭 병목을 줄이고 DMA 전송 구조를 효율화
-- **해야 할 일**
-  - AXI DMA 전송 패턴 실험 (Burst 크기, 주소 정렬, 패딩 방식 적용)
-  - 메모리 전송 전·후 속도 및 지연 시간 측정
-  - 최적화 전후 throughput 등 성능 비교·분석
+**End of Document**
 
-### 2. BRAM 캐시 활용 + Tiling
-- **목표**: 내부 BRAM을 캐시와 버퍼로 활용해 DRAM 접근을 최소화
-- **해야 할 일**
-  - 입력 데이터 및 가중치를 BRAM에 미리 적재하는 구조 설계
-  - Weight stationary 데이터플로우 우선 적용 (가중치 재사용 극대화)
-  - 캐시 적용 전후 메모리 접근 횟수와 성능 변화 실험
-
-### 3. 연산-전송 파이프라이닝 + Scheduling
-- **목표**: 연산과 데이터 전송을 동시에 수행해 idle time 최소화
-- **해야 할 일**
-  - Double buffering 구조 설계 (연산 중 다음 데이터 전송 준비)
-  - DMA 제어 코드 수정 후 연산·전송 동기화 실험
-  - 파이프라이닝 적용 전후 idle cycle 비교
-
-### 4. Systolic Array 구조 및 데이터플로우 분석
-- **목표**: Array 크기 및 데이터 흐름 구조에 따른 성능·자원 효율 비교
-- **해야 할 일**
-  - Array 크기 변경 실험 (예: 8×8 → 16×16)
-  - DSP 자원 활용 방식 실험 (INT8 병렬 연산 최적화 등)
-  - 다양한 데이터플로우 구조 비교 (Weight stationary vs Output stationary)
-
----
-
-## 📘 공통 기술 노트
-
-- **PYNQ-Z2 보드 자원**: Zynq-7000 SoC 구조(ARM Cortex-A9 + FPGA), BRAM 약 630KB, DSP 220개
-- **AXI 인터페이스 & DMA**: AXI4, AXI-Lite, AXI-Stream 차이, DMA의 DDR↔FPGA 전송 원리, Burst 전송 개념
-- **Systolic Array 기본**: PE(MAC) 내부 동작, 데이터가 한 칸씩 이동하는 파이프라인 구조, 현행 아키텍처 이해
-- **데이터플로우 전략**: Weight/Output/Row/Column stationary 방식의 장단점
-- **성능 지표**: Latency, Throughput(FPS), Bandwidth(MB/s), Idle cycle, Utilization
-
----
-
-## 📧 Contact
-
-- **Project**: Capstone Design (졸업작품)
-- **Board**: PYNQ-Z2 (Zynq-7000)
-- **Last Updated**: 2025-10-17
-- **Email**: sudeangi0623@cau.ac.kr
-
----
-
-## 📄 License
-
-Academic Use Only (Capstone Design Project)
-
+Last Updated: 2025-11-04  
+Version: 1.0  
+Author: Jimin Hwang 
+Project: Chung-Ang University Capstone Design
