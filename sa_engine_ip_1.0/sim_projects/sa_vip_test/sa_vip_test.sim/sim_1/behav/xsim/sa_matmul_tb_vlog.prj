@@ -1,0 +1,38 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/ec67/hdl" --include "../../../../../../src/tb" --include "../../../../sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_slave_0_0/sim/sa_engine_ip_v1_0_bfm_1_slave_0_0_pkg.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_slave_0_0/sim/sa_engine_ip_v1_0_bfm_1_slave_0_0.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_master_0_0/sim/sa_engine_ip_v1_0_bfm_1_master_0_0_pkg.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_master_0_0/sim/sa_engine_ip_v1_0_bfm_1_master_0_0.sv" \
+
+verilog xil_defaultlib  --include "../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/ec67/hdl" --include "../../../../../../src/tb" --include "../../../../sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
+
+sv xil_defaultlib  --include "../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/ec67/hdl" --include "../../../../../../src/tb" --include "../../../../sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/X_REG.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/axi_dma_ctrl.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/dma_read.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/dma_write.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/dpram_wrapper.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/hPE.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_PE_wrapper.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_RF.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_controller.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_core.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_core_pipeline.sv" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_unit.sv" \
+
+verilog xil_defaultlib  --include "../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/ec67/hdl" --include "../../../../../../src/tb" --include "../../../../sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/305c/hdl/sa_engine_ip_v1_0.v" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0/sim/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.v" \
+"../../../../sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/sim/sa_engine_ip_v1_0_bfm_1.v" \
+"../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/hdl/sa_engine_ip_v1_0_bfm_1_wrapper.v" \
+
+sv xil_defaultlib  --include "../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/ec67/hdl" --include "../../../../../../src/tb" --include "../../../../sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1" --include "C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include" \
+"../../../../../../src/tb/sa_matmul_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

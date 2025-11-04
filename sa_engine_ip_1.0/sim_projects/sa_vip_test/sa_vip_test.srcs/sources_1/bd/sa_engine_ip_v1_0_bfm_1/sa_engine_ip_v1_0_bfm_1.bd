@@ -1,0 +1,221 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x63E481DEB5F3D12E",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1",
+      "name": "sa_engine_ip_v1_0_bfm_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "slave_0": "",
+      "master_0": "",
+      "sa_engine_ip_0": ""
+    },
+    "ports": {
+      "ACLK": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "ARESETN"
+          },
+          "CLK_DOMAIN": {
+            "value": "sa_engine_ip_v1_0_bfm_1_ACLK"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000"
+          }
+        }
+      },
+      "ARESETN": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      }
+    },
+    "components": {
+      "slave_0": {
+        "vlnv": "xilinx.com:ip:axi_vip:1.1",
+        "xci_name": "sa_engine_ip_v1_0_bfm_1_slave_0_0",
+        "xci_path": "ip\\sa_engine_ip_v1_0_bfm_1_slave_0_0\\sa_engine_ip_v1_0_bfm_1_slave_0_0.xci",
+        "inst_hier_path": "slave_0",
+        "parameters": {
+          "ADDR_WIDTH": {
+            "value": "32"
+          },
+          "DATA_WIDTH": {
+            "value": "32"
+          },
+          "HAS_BRESP": {
+            "value": "1"
+          },
+          "HAS_PROT": {
+            "value": "1"
+          },
+          "HAS_RRESP": {
+            "value": "1"
+          },
+          "HAS_WSTRB": {
+            "value": "1"
+          },
+          "INTERFACE_MODE": {
+            "value": "MASTER"
+          },
+          "PROTOCOL": {
+            "value": "AXI4LITE"
+          },
+          "READ_WRITE_MODE": {
+            "value": "READ_WRITE"
+          }
+        },
+        "interface_ports": {
+          "M_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "Master_AXI",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0xFFFFFFFF",
+              "width": "32"
+            }
+          }
+        },
+        "addressing": {
+          "address_spaces": {
+            "Master_AXI": {
+              "range": "4G",
+              "width": "32"
+            }
+          }
+        }
+      },
+      "master_0": {
+        "vlnv": "xilinx.com:ip:axi_vip:1.1",
+        "xci_name": "sa_engine_ip_v1_0_bfm_1_master_0_0",
+        "xci_path": "ip\\sa_engine_ip_v1_0_bfm_1_master_0_0\\sa_engine_ip_v1_0_bfm_1_master_0_0.xci",
+        "inst_hier_path": "master_0",
+        "parameters": {
+          "INTERFACE_MODE": {
+            "value": "SLAVE"
+          },
+          "PROTOCOL": {
+            "value": "AXI4"
+          }
+        }
+      },
+      "sa_engine_ip_0": {
+        "vlnv": "jimin.hwang:user:sa_engine_ip:1.0",
+        "xci_name": "sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0",
+        "xci_path": "ip\\sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0\\sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.xci",
+        "inst_hier_path": "sa_engine_ip_0",
+        "interface_ports": {
+          "M00_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "M00_AXI",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0xFFFFFFFF",
+              "width": "32"
+            }
+          }
+        },
+        "addressing": {
+          "address_spaces": {
+            "M00_AXI": {
+              "range": "4G",
+              "width": "32"
+            }
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "sa_engine_ip_0_M00_AXI": {
+        "interface_ports": [
+          "sa_engine_ip_0/M00_AXI",
+          "master_0/S_AXI"
+        ]
+      },
+      "slave_0_M_AXI": {
+        "interface_ports": [
+          "slave_0/M_AXI",
+          "sa_engine_ip_0/S00_AXI"
+        ]
+      }
+    },
+    "nets": {
+      "ACLK_1": {
+        "ports": [
+          "ACLK",
+          "slave_0/aclk",
+          "master_0/aclk",
+          "sa_engine_ip_0/s00_axi_aclk",
+          "sa_engine_ip_0/m00_axi_aclk"
+        ]
+      },
+      "ARESETN_1": {
+        "ports": [
+          "ARESETN",
+          "slave_0/aresetn",
+          "master_0/aresetn",
+          "sa_engine_ip_0/s00_axi_aresetn",
+          "sa_engine_ip_0/m00_axi_aresetn"
+        ]
+      }
+    },
+    "addressing": {
+      "/slave_0": {
+        "address_spaces": {
+          "Master_AXI": {
+            "segments": {
+              "SEG_sa_engine_ip_0_S00_AXI_reg": {
+                "address_block": "/sa_engine_ip_0/S00_AXI/S00_AXI_reg",
+                "offset": "0x44A00000",
+                "range": "64K",
+                "offset_base_param": "C_S00_AXI_BASEADDR",
+                "offset_high_param": "C_S00_AXI_HIGHADDR"
+              }
+            }
+          }
+        }
+      },
+      "/sa_engine_ip_0": {
+        "address_spaces": {
+          "M00_AXI": {
+            "segments": {
+              "SEG_master_0_Reg": {
+                "address_block": "/master_0/S_AXI/Reg",
+                "offset": "0x44A00000",
+                "range": "64K"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
