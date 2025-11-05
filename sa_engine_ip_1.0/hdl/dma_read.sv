@@ -70,7 +70,7 @@ module dma_read #(
 //------------------------------------------------------------------------------
     assign M_AXI_ARID = 3'd0;           // Read addr ID
     assign M_AXI_ARLOCK = 1'b0;         // Atomic access (AXI4: single bit, normal access)
-    assign M_AXI_ARCACHE = 4'd0;        // Cachable/bufferable infor
+    assign M_AXI_ARCACHE = 4'b0011;     // Bufferable & Cacheable (VIP narrow-cache check friendly)
     assign M_AXI_ARPROT = 3'd0;         // Protection info
     assign M_AXI_ARQOS = 4'b1111;       // Highest priority
     assign M_AXI_ARUSER = 'b0;          // User defined signal (parameterized width)

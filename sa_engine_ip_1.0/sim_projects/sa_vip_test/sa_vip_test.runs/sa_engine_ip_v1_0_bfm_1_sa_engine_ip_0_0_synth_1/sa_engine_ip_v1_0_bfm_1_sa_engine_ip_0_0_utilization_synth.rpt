@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date         : Tue Nov  4 12:09:38 2025
+| Date         : Wed Nov  5 16:51:02 2025
 | Host         : BOOK-Q06N8541RB running 64-bit major release  (build 9200)
 | Command      : report_utilization -file sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_utilization_synth.rpt -pb sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_utilization_synth.pb
 | Design       : sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0
@@ -31,16 +31,16 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 7717 |     0 |          0 |     53200 | 14.51 |
-|   LUT as Logic             | 7589 |     0 |          0 |     53200 | 14.27 |
+| Slice LUTs*                | 7711 |     0 |          0 |     53200 | 14.49 |
+|   LUT as Logic             | 7583 |     0 |          0 |     53200 | 14.25 |
 |   LUT as Memory            |  128 |     0 |          0 |     17400 |  0.74 |
 |     LUT as Distributed RAM |  128 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            | 5946 |     0 |          0 |    106400 |  5.59 |
-|   Register as Flip Flop    | 5946 |     0 |          0 |    106400 |  5.59 |
+| Slice Registers            | 5952 |     0 |          0 |    106400 |  5.59 |
+|   Register as Flip Flop    | 5952 |     0 |          0 |    106400 |  5.59 |
 |   Register as Latch        |    0 |     0 |          0 |    106400 |  0.00 |
-| F7 Muxes                   |  217 |     0 |          0 |     26600 |  0.82 |
-| F8 Muxes                   |  104 |     0 |          0 |     13300 |  0.78 |
+| F7 Muxes                   |  216 |     0 |          0 |     26600 |  0.81 |
+| F8 Muxes                   |  108 |     0 |          0 |     13300 |  0.81 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -58,7 +58,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 3     |          Yes |           - |          Set |
-| 323   |          Yes |           - |        Reset |
+| 329   |          Yes |           - |        Reset |
 | 1     |          Yes |         Set |            - |
 | 5619  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -152,16 +152,16 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     | 5619 |        Flop & Latch |
-| LUT6     | 3991 |                 LUT |
-| LUT2     | 2141 |                 LUT |
-| LUT4     | 1491 |                 LUT |
-| LUT3     | 1415 |                 LUT |
+| LUT6     | 3985 |                 LUT |
+| LUT2     | 2146 |                 LUT |
+| LUT4     | 1493 |                 LUT |
+| LUT3     | 1419 |                 LUT |
 | CARRY4   | 1003 |          CarryLogic |
-| LUT5     |  526 |                 LUT |
-| FDCE     |  323 |        Flop & Latch |
-| MUXF7    |  217 |               MuxFx |
+| LUT5     |  521 |                 LUT |
+| FDCE     |  329 |        Flop & Latch |
+| MUXF7    |  216 |               MuxFx |
 | RAMD32   |  160 |  Distributed Memory |
-| MUXF8    |  104 |               MuxFx |
+| MUXF8    |  108 |               MuxFx |
 | LUT1     |   71 |                 LUT |
 | RAMS32   |   32 |  Distributed Memory |
 | RAMB36E1 |    3 |        Block Memory |

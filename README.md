@@ -451,6 +451,6 @@ Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR
 **End of Document**
 
 Last Updated: 2025-11-04  
-Version: 1.0  
-Author: Jimin Hwang 
+Version: 1.0
+Author: Jimin Hwang  
 Project: Chung-Ang University Capstone Design

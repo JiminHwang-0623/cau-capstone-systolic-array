@@ -114,7 +114,7 @@ module dma_write #(
    // Note: M_AXI_WID removed - deprecated in AXI4
    assign M_AXI_AWBURST = 2'b01;  //Increase mode
    assign M_AXI_AWLOCK = 1'b0;    // AXI4: single bit, normal access
-   assign M_AXI_AWCACHE = 4'b0000;
+   assign M_AXI_AWCACHE = 4'b0011;  // Bufferable & Cacheable (VIP narrow-cache check friendly)
    assign M_AXI_AWPROT = 3'b000;
    assign M_AXI_AWQOS = 4'b1111;
    assign M_AXI_AWUSER = 'b0;     // Parameterized width
@@ -245,8 +245,8 @@ module dma_write #(
                ext_awlen = q_burst_size_wr;
                ext_awsize = SIZE_4B;      //data width is 32bit
             if(ext_awready) begin //valid data and axiwr is ready
-               indata_req_o = 1'b1;
-			   next_st_wr2axi = WR_SEQ;
+               // indata_req_o = 1'b1;
+				   next_st_wr2axi = WR_SEQ;
             end
          end
          WR_SEQ: begin
@@ -255,13 +255,15 @@ module dma_write #(
                ext_wdata = indata;
                ext_wstrb = {AXI_WIDTH_DS{1'b1}};  //no support for narrow transfer
 
+               indata_req_o = 1'b1;
+
                if(q_burst_size_wr == q_beat_cnt_wr) begin //last beat of burst
                   d_beat_cnt_wr = 'h0;
                   ext_wlast = 1'b1;
                   next_st_wr2axi = WR_WAIT;
                end
                else begin
-                  indata_req_o = 1'b1;
+                  // indata_req_o = 1'b1; (try to fix! - jimin)
                   d_beat_cnt_wr = q_beat_cnt_wr + 1'b1;
                end
             end

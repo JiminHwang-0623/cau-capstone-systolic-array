@@ -126,9 +126,11 @@ module sa_core_pipeline #(
   logic [AXI_WIDTH_AD-1:0]           write_addr;
   logic [C_M_AXI_DATA_WIDTH-1:0]     write_data;
 
-  // FIX ME
-  logic [BIT_TRANS_LOCAL-1:0] num_trans        = 16;           // BURST_LENGTH = 16
-  logic [15:0]                max_req_blk_idx  = 32/16;        // The number of blocks
+  // FIX ME (simulation defaults)
+  // Keep burst length at 16 beats (64B) and control block counts per direction.
+  logic [BIT_TRANS_LOCAL-1:0] num_trans             = 16;  // beats per burst (32-bit words)
+  logic [15:0]                max_req_blk_idx_rd    = 32/16; // Read: 2 blocks (A 64B + B 64B)
+  logic [15:0]                max_req_blk_idx_wr    = 64/16; // Write: 4 blocks (C 256B)
   
   //----------------------------------------------------------------
   // Control signals
@@ -200,7 +202,8 @@ module sa_core_pipeline #(
      ,.i_base_address_rd(dram_base_addr_rd   )
      ,.i_base_address_wr(dram_base_addr_wr   )
      ,.i_num_trans      (num_trans           )
-     ,.i_max_req_blk_idx(max_req_blk_idx     )
+     ,.i_max_req_blk_idx_rd(max_req_blk_idx_rd)
+     ,.i_max_req_blk_idx_wr(max_req_blk_idx_wr)
      ,.row_cnt          (dma_cnt             ) 
      // DMA Read
      ,.i_read_done      (read_done           )
@@ -280,7 +283,7 @@ module sa_core_pipeline #(
           .AXI_WIDTH_AWUSER(C_M_AXI_AWUSER_WIDTH),
           .AXI_WIDTH_WUSER(C_M_AXI_WUSER_WIDTH),
           .AXI_WIDTH_BUSER(C_M_AXI_BUSER_WIDTH)
-      )
+  )
   u_dma_write(
       // Write address channel
       .M_AXI_AWID		(M_AXI_AWID		),
@@ -337,7 +340,7 @@ module sa_core_pipeline #(
       // DMA handshake signals
       .rd_done        (read_done),
       .wr_pull        (indata_req_wr),
-      .wr_done        (write_done),
+      .wr_done        (ctrl_write_done),
 
       .start_rd_wr    (start_rd_wr),
       .dma_cnt        (dma_cnt),
@@ -345,5 +348,6 @@ module sa_core_pipeline #(
 
       .done           (done_core)
   );
+
 
 endmodule

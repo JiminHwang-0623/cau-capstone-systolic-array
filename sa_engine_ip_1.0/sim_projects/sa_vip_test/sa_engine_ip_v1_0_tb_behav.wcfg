@@ -17,15 +17,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="630.864 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,821.209 ns"></ZoomEndTime>
-      <Cursor1Time time="3,943.364 ns"></Cursor1Time>
+      <ZoomStartTime time="3,152.993 ns"></ZoomStartTime>
+      <ZoomEndTime time="4,304.494 ns"></ZoomEndTime>
+      <Cursor1Time time="3,890.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="104"></ValueColumnWidth>
+      <NameColumnWidth column_width="372"></NameColumnWidth>
+      <ValueColumnWidth column_width="140"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="156" />
+   <WVObjectSize size="504" />
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/S_AXI_ACLK" type="logic">
       <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
@@ -494,12 +494,6 @@
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/max_req_blk_idx" type="array">
-      <obj_property name="ElementShortName">max_req_blk_idx[15:0]</obj_property>
-      <obj_property name="ObjectShortName">max_req_blk_idx[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/C_M_AXI_ID_WIDTH" type="array">
       <obj_property name="ElementShortName">C_M_AXI_ID_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_M_AXI_ID_WIDTH[31:0]</obj_property>
@@ -581,257 +575,2354 @@
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/o_start" type="logic">
       <obj_property name="ElementShortName">o_start</obj_property>
       <obj_property name="ObjectShortName">o_start</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/o_read_base_addr" type="array">
       <obj_property name="ElementShortName">o_read_base_addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_read_base_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/o_write_base_addr" type="array">
       <obj_property name="ElementShortName">o_write_base_addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_write_base_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/o_num_trans_param" type="array">
       <obj_property name="ElementShortName">o_num_trans_param[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_num_trans_param[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/o_max_blk_param" type="array">
       <obj_property name="ElementShortName">o_max_blk_param[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_max_blk_param[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/i_done" type="logic">
       <obj_property name="ElementShortName">i_done</obj_property>
       <obj_property name="ObjectShortName">i_done</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/i_busy" type="logic">
       <obj_property name="ElementShortName">i_busy</obj_property>
       <obj_property name="ObjectShortName">i_busy</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/i_error" type="logic">
       <obj_property name="ElementShortName">i_error</obj_property>
       <obj_property name="ObjectShortName">i_error</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_ACLK" type="logic">
       <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_ARESETN" type="logic">
       <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_AWADDR" type="array">
       <obj_property name="ElementShortName">S_AXI_AWADDR[5:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_AWADDR[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_AWPROT" type="array">
       <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_AWVALID" type="logic">
       <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
       <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_AWREADY" type="logic">
       <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
       <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_WDATA" type="array">
       <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_WSTRB" type="array">
       <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_WVALID" type="logic">
       <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
       <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_WREADY" type="logic">
       <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
       <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_BRESP" type="array">
       <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_BVALID" type="logic">
       <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
       <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_BREADY" type="logic">
       <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
       <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_ARADDR" type="array">
       <obj_property name="ElementShortName">S_AXI_ARADDR[5:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ARADDR[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_ARPROT" type="array">
       <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_ARVALID" type="logic">
       <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_ARREADY" type="logic">
       <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_RDATA" type="array">
       <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_RRESP" type="array">
       <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
       <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_RVALID" type="logic">
       <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
       <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/S_AXI_RREADY" type="logic">
       <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
       <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_awaddr" type="array">
       <obj_property name="ElementShortName">axi_awaddr[5:0]</obj_property>
       <obj_property name="ObjectShortName">axi_awaddr[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_awready" type="logic">
       <obj_property name="ElementShortName">axi_awready</obj_property>
       <obj_property name="ObjectShortName">axi_awready</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_wready" type="logic">
       <obj_property name="ElementShortName">axi_wready</obj_property>
       <obj_property name="ObjectShortName">axi_wready</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_bresp" type="array">
       <obj_property name="ElementShortName">axi_bresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_bvalid" type="logic">
       <obj_property name="ElementShortName">axi_bvalid</obj_property>
       <obj_property name="ObjectShortName">axi_bvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_araddr" type="array">
       <obj_property name="ElementShortName">axi_araddr[5:0]</obj_property>
       <obj_property name="ObjectShortName">axi_araddr[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_arready" type="logic">
       <obj_property name="ElementShortName">axi_arready</obj_property>
       <obj_property name="ObjectShortName">axi_arready</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_rdata" type="array">
       <obj_property name="ElementShortName">axi_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_rresp" type="array">
       <obj_property name="ElementShortName">axi_rresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/axi_rvalid" type="logic">
       <obj_property name="ElementShortName">axi_rvalid</obj_property>
       <obj_property name="ObjectShortName">axi_rvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg0" type="array">
       <obj_property name="ElementShortName">slv_reg0[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg0[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg1" type="array">
       <obj_property name="ElementShortName">slv_reg1[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg1[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg2" type="array">
       <obj_property name="ElementShortName">slv_reg2[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg2[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg3" type="array">
       <obj_property name="ElementShortName">slv_reg3[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg3[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg4" type="array">
       <obj_property name="ElementShortName">slv_reg4[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg4[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg5" type="array">
       <obj_property name="ElementShortName">slv_reg5[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg5[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg6" type="array">
       <obj_property name="ElementShortName">slv_reg6[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg6[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg7" type="array">
       <obj_property name="ElementShortName">slv_reg7[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg7[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg8" type="array">
       <obj_property name="ElementShortName">slv_reg8[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg8[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg9" type="array">
       <obj_property name="ElementShortName">slv_reg9[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg9[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg10" type="array">
       <obj_property name="ElementShortName">slv_reg10[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg10[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg11" type="array">
       <obj_property name="ElementShortName">slv_reg11[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg11[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg12" type="array">
       <obj_property name="ElementShortName">slv_reg12[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg12[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg13" type="array">
       <obj_property name="ElementShortName">slv_reg13[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg13[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg14" type="array">
       <obj_property name="ElementShortName">slv_reg14[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg14[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg15" type="array">
       <obj_property name="ElementShortName">slv_reg15[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg15[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg_rden" type="logic">
       <obj_property name="ElementShortName">slv_reg_rden</obj_property>
       <obj_property name="ObjectShortName">slv_reg_rden</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/slv_reg_wren" type="logic">
       <obj_property name="ElementShortName">slv_reg_wren</obj_property>
       <obj_property name="ObjectShortName">slv_reg_wren</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/reg_data_out" type="array">
       <obj_property name="ElementShortName">reg_data_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_data_out[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/byte_index" type="array">
       <obj_property name="ElementShortName">byte_index[31:0]</obj_property>
       <obj_property name="ObjectShortName">byte_index[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/aw_en" type="logic">
       <obj_property name="ElementShortName">aw_en</obj_property>
       <obj_property name="ObjectShortName">aw_en</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/C_S_AXI_DATA_WIDTH" type="array">
       <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/C_S_AXI_ADDR_WIDTH" type="array">
       <obj_property name="ElementShortName">C_S_AXI_ADDR_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_S_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/ADDR_LSB" type="array">
       <obj_property name="ElementShortName">ADDR_LSB[31:0]</obj_property>
       <obj_property name="ObjectShortName">ADDR_LSB[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/sa_engine_ip_v1_0_S00_AXI_inst/OPT_MEM_ADDR_BITS" type="array">
       <obj_property name="ElementShortName">OPT_MEM_ADDR_BITS[31:0]</obj_property>
       <obj_property name="ObjectShortName">OPT_MEM_ADDR_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_start" type="array">
+      <obj_property name="ElementShortName">i_start[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_start[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_base_address_rd" type="array">
+      <obj_property name="ElementShortName">i_base_address_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_base_address_rd[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_base_address_wr" type="array">
+      <obj_property name="ElementShortName">i_base_address_wr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_base_address_wr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_num_trans" type="array">
+      <obj_property name="ElementShortName">i_num_trans[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_num_trans[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/row_cnt" type="array">
+      <obj_property name="ElementShortName">row_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">row_cnt[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_read_done" type="logic">
+      <obj_property name="ElementShortName">i_read_done</obj_property>
+      <obj_property name="ObjectShortName">i_read_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/o_ctrl_read" type="logic">
+      <obj_property name="ElementShortName">o_ctrl_read</obj_property>
+      <obj_property name="ObjectShortName">o_ctrl_read</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/o_read_addr" type="array">
+      <obj_property name="ElementShortName">o_read_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_read_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_write_done" type="logic">
+      <obj_property name="ElementShortName">i_write_done</obj_property>
+      <obj_property name="ObjectShortName">i_write_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/i_indata_req_wr" type="logic">
+      <obj_property name="ElementShortName">i_indata_req_wr</obj_property>
+      <obj_property name="ObjectShortName">i_indata_req_wr</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/o_ctrl_write" type="logic">
+      <obj_property name="ElementShortName">o_ctrl_write</obj_property>
+      <obj_property name="ObjectShortName">o_ctrl_write</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/o_write_addr" type="array">
+      <obj_property name="ElementShortName">o_write_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_write_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/o_write_data_cnt" type="array">
+      <obj_property name="ElementShortName">o_write_data_cnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_write_data_cnt[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/o_ctrl_write_done" type="logic">
+      <obj_property name="ElementShortName">o_ctrl_write_done</obj_property>
+      <obj_property name="ObjectShortName">o_ctrl_write_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/cstate_rd" type="array">
+      <obj_property name="ElementShortName">cstate_rd[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cstate_rd[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/nstate_rd" type="array">
+      <obj_property name="ElementShortName">nstate_rd[2:0]</obj_property>
+      <obj_property name="ObjectShortName">nstate_rd[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/cstate_wr" type="array">
+      <obj_property name="ElementShortName">cstate_wr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cstate_wr[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/nstate_wr" type="array">
+      <obj_property name="ElementShortName">nstate_wr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">nstate_wr[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_read" type="logic">
+      <obj_property name="ElementShortName">ctrl_read</obj_property>
+      <obj_property name="ObjectShortName">ctrl_read</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_read_wait" type="logic">
+      <obj_property name="ElementShortName">ctrl_read_wait</obj_property>
+      <obj_property name="ObjectShortName">ctrl_read_wait</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_read_sync" type="logic">
+      <obj_property name="ElementShortName">ctrl_read_sync</obj_property>
+      <obj_property name="ObjectShortName">ctrl_read_sync</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_read_done" type="logic">
+      <obj_property name="ElementShortName">ctrl_read_done</obj_property>
+      <obj_property name="ObjectShortName">ctrl_read_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/read_addr" type="array">
+      <obj_property name="ElementShortName">read_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/req_blk_idx_rd" type="array">
+      <obj_property name="ElementShortName">req_blk_idx_rd[15:0]</obj_property>
+      <obj_property name="ObjectShortName">req_blk_idx_rd[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_write" type="logic">
+      <obj_property name="ElementShortName">ctrl_write</obj_property>
+      <obj_property name="ObjectShortName">ctrl_write</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_write_wait" type="logic">
+      <obj_property name="ElementShortName">ctrl_write_wait</obj_property>
+      <obj_property name="ObjectShortName">ctrl_write_wait</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_write_sync" type="logic">
+      <obj_property name="ElementShortName">ctrl_write_sync</obj_property>
+      <obj_property name="ObjectShortName">ctrl_write_sync</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ctrl_write_done" type="logic">
+      <obj_property name="ElementShortName">ctrl_write_done</obj_property>
+      <obj_property name="ObjectShortName">ctrl_write_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/write_addr" type="array">
+      <obj_property name="ElementShortName">write_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/req_blk_idx_wr" type="array">
+      <obj_property name="ElementShortName">req_blk_idx_wr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">req_blk_idx_wr[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/write_data_cnt" type="array">
+      <obj_property name="ElementShortName">write_data_cnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">write_data_cnt[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/num_trans" type="array">
+      <obj_property name="ElementShortName">num_trans[7:0]</obj_property>
+      <obj_property name="ObjectShortName">num_trans[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/dram_base_addr_rd" type="array">
+      <obj_property name="ElementShortName">dram_base_addr_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dram_base_addr_rd[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/dram_base_addr_wr" type="array">
+      <obj_property name="ElementShortName">dram_base_addr_wr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dram_base_addr_wr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/read_done" type="logic">
+      <obj_property name="ElementShortName">read_done</obj_property>
+      <obj_property name="ObjectShortName">read_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/write_done" type="logic">
+      <obj_property name="ElementShortName">write_done</obj_property>
+      <obj_property name="ObjectShortName">write_done</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/indata_req_wr" type="logic">
+      <obj_property name="ElementShortName">indata_req_wr</obj_property>
+      <obj_property name="ObjectShortName">indata_req_wr</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/AXI_WIDTH_AD" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_AD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_AD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/BIT_TRANS" type="array">
+      <obj_property name="ElementShortName">BIT_TRANS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BIT_TRANS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ST_IDLE" type="array">
+      <obj_property name="ElementShortName">ST_IDLE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ST_IDLE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ST_DMA" type="array">
+      <obj_property name="ElementShortName">ST_DMA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ST_DMA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ST_DMA_WAIT" type="array">
+      <obj_property name="ElementShortName">ST_DMA_WAIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ST_DMA_WAIT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ST_DMA_SYNC" type="array">
+      <obj_property name="ElementShortName">ST_DMA_SYNC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ST_DMA_SYNC[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_ctrl/ST_DMA_DONE" type="array">
+      <obj_property name="ElementShortName">ST_DMA_DONE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ST_DMA_DONE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARID" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARID[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARLEN" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARSIZE" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARBURST" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARLOCK" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARLOCK</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARLOCK</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARCACHE" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARQOS" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARQOS[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_ARUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARUSER[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RLAST" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RLAST</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RLAST</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RID" type="array">
+      <obj_property name="ElementShortName">M_AXI_RID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RID[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_RUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RUSER[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/M_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/start_dma" type="logic">
+      <obj_property name="ElementShortName">start_dma</obj_property>
+      <obj_property name="ObjectShortName">start_dma</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/num_trans" type="array">
+      <obj_property name="ElementShortName">num_trans[7:0]</obj_property>
+      <obj_property name="ObjectShortName">num_trans[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/start_addr" type="array">
+      <obj_property name="ElementShortName">start_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">start_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/data_o" type="array">
+      <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/data_vld_o" type="logic">
+      <obj_property name="ElementShortName">data_vld_o</obj_property>
+      <obj_property name="ObjectShortName">data_vld_o</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/data_cnt_o" type="array">
+      <obj_property name="ElementShortName">data_cnt_o[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_cnt_o[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/done_o" type="logic">
+      <obj_property name="ElementShortName">done_o</obj_property>
+      <obj_property name="ObjectShortName">done_o</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_araddr" type="array">
+      <obj_property name="ElementShortName">ext_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_araddr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_arlen" type="array">
+      <obj_property name="ElementShortName">ext_arlen[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_arlen[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_arsize" type="array">
+      <obj_property name="ElementShortName">ext_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_arsize[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_arburst" type="array">
+      <obj_property name="ElementShortName">ext_arburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_arburst[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_arvalid" type="logic">
+      <obj_property name="ElementShortName">ext_arvalid</obj_property>
+      <obj_property name="ObjectShortName">ext_arvalid</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_arready" type="logic">
+      <obj_property name="ElementShortName">ext_arready</obj_property>
+      <obj_property name="ObjectShortName">ext_arready</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rdata" type="array">
+      <obj_property name="ElementShortName">ext_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rresp" type="array">
+      <obj_property name="ElementShortName">ext_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_rresp[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rlast" type="logic">
+      <obj_property name="ElementShortName">ext_rlast</obj_property>
+      <obj_property name="ObjectShortName">ext_rlast</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rvalid" type="logic">
+      <obj_property name="ElementShortName">ext_rvalid</obj_property>
+      <obj_property name="ObjectShortName">ext_rvalid</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rready" type="logic">
+      <obj_property name="ElementShortName">ext_rready</obj_property>
+      <obj_property name="ObjectShortName">ext_rready</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rlast_r" type="logic">
+      <obj_property name="ElementShortName">ext_rlast_r</obj_property>
+      <obj_property name="ObjectShortName">ext_rlast_r</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/ext_rresp_r" type="array">
+      <obj_property name="ElementShortName">ext_rresp_r[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_rresp_r[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/last_trans" type="logic">
+      <obj_property name="ElementShortName">last_trans</obj_property>
+      <obj_property name="ObjectShortName">last_trans</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/q_burst_size_rd" type="array">
+      <obj_property name="ElementShortName">q_burst_size_rd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">q_burst_size_rd[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/q_burst_size_rd_1" type="array">
+      <obj_property name="ElementShortName">q_burst_size_rd_1[8:0]</obj_property>
+      <obj_property name="ObjectShortName">q_burst_size_rd_1[8:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/q_ext_addr_rd" type="array">
+      <obj_property name="ElementShortName">q_ext_addr_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q_ext_addr_rd[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/st_rdaxi" type="array">
+      <obj_property name="ElementShortName">st_rdaxi[2:0]</obj_property>
+      <obj_property name="ObjectShortName">st_rdaxi[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/next_st_rdaxi" type="array">
+      <obj_property name="ElementShortName">next_st_rdaxi[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_st_rdaxi[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/num_trans_d" type="array">
+      <obj_property name="ElementShortName">num_trans_d[7:0]</obj_property>
+      <obj_property name="ObjectShortName">num_trans_d[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/data_cnt" type="array">
+      <obj_property name="ElementShortName">data_cnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_cnt[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/d_burst_cnt_rd" type="array">
+      <obj_property name="ElementShortName">d_burst_cnt_rd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_burst_cnt_rd[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/q_burst_cnt_rd" type="array">
+      <obj_property name="ElementShortName">q_burst_cnt_rd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">q_burst_cnt_rd[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/start_dma_d" type="logic">
+      <obj_property name="ElementShortName">start_dma_d</obj_property>
+      <obj_property name="ObjectShortName">start_dma_d</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/BITS_TRANS" type="array">
+      <obj_property name="ElementShortName">BITS_TRANS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BITS_TRANS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/OUT_BITS_TRANS" type="array">
+      <obj_property name="ElementShortName">OUT_BITS_TRANS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_BITS_TRANS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_USER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_USER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_USER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_ID" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_ID[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_AD" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_AD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_AD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_DA" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_DA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_DA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_DS" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_DS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_DS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_ARUSER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_ARUSER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_ARUSER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/AXI_WIDTH_RUSER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_RUSER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_RUSER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/FIXED_BURST_SIZE" type="array">
+      <obj_property name="ElementShortName">FIXED_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FIXED_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/LOG_BURST_SIZE" type="array">
+      <obj_property name="ElementShortName">LOG_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LOG_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/RD_IDLE" type="array">
+      <obj_property name="ElementShortName">RD_IDLE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD_IDLE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/RD_PRE" type="array">
+      <obj_property name="ElementShortName">RD_PRE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD_PRE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/RD_START" type="array">
+      <obj_property name="ElementShortName">RD_START[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD_START[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/RD_SEQ" type="array">
+      <obj_property name="ElementShortName">RD_SEQ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD_SEQ[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_read/RD_WAIT" type="array">
+      <obj_property name="ElementShortName">RD_WAIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD_WAIT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWID" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWID[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWLEN" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWSIZE" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWBURST" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWLOCK" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWLOCK</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWLOCK</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWCACHE" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWQOS" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWQOS[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_AWUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWUSER[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WLAST" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WLAST</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WLAST</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_WUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WUSER[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_BID" type="array">
+      <obj_property name="ElementShortName">M_AXI_BID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BID[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_BUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_BUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BUSER[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/done_o" type="logic">
+      <obj_property name="ElementShortName">done_o</obj_property>
+      <obj_property name="ObjectShortName">done_o</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/num_trans" type="array">
+      <obj_property name="ElementShortName">num_trans[7:0]</obj_property>
+      <obj_property name="ObjectShortName">num_trans[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/indata" type="array">
+      <obj_property name="ElementShortName">indata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">indata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/fail_check" type="logic">
+      <obj_property name="ElementShortName">fail_check</obj_property>
+      <obj_property name="ObjectShortName">fail_check</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/start_dma" type="logic">
+      <obj_property name="ElementShortName">start_dma</obj_property>
+      <obj_property name="ObjectShortName">start_dma</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/st_wr2axi" type="array">
+      <obj_property name="ElementShortName">st_wr2axi[2:0]</obj_property>
+      <obj_property name="ObjectShortName">st_wr2axi[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/next_st_wr2axi" type="array">
+      <obj_property name="ElementShortName">next_st_wr2axi[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_st_wr2axi[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/q_burst_cnt_wr" type="array">
+      <obj_property name="ElementShortName">q_burst_cnt_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">q_burst_cnt_wr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/q_burst_size_wr_1" type="array">
+      <obj_property name="ElementShortName">q_burst_size_wr_1[8:0]</obj_property>
+      <obj_property name="ObjectShortName">q_burst_size_wr_1[8:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/d_burst_cnt_wr" type="array">
+      <obj_property name="ElementShortName">d_burst_cnt_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_burst_cnt_wr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/start_addr" type="array">
+      <obj_property name="ElementShortName">start_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">start_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/q_ext_addr_wr" type="array">
+      <obj_property name="ElementShortName">q_ext_addr_wr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q_ext_addr_wr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_awaddr" type="array">
+      <obj_property name="ElementShortName">ext_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_awaddr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_awlen" type="array">
+      <obj_property name="ElementShortName">ext_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_awlen[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_awsize" type="array">
+      <obj_property name="ElementShortName">ext_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_awsize[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_awvalid" type="logic">
+      <obj_property name="ElementShortName">ext_awvalid</obj_property>
+      <obj_property name="ObjectShortName">ext_awvalid</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_awready" type="logic">
+      <obj_property name="ElementShortName">ext_awready</obj_property>
+      <obj_property name="ObjectShortName">ext_awready</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_wdata" type="array">
+      <obj_property name="ElementShortName">ext_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_wstrb" type="array">
+      <obj_property name="ElementShortName">ext_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_wstrb[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_wlast" type="logic">
+      <obj_property name="ElementShortName">ext_wlast</obj_property>
+      <obj_property name="ObjectShortName">ext_wlast</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/indata_req_o" type="logic">
+      <obj_property name="ElementShortName">indata_req_o</obj_property>
+      <obj_property name="ObjectShortName">indata_req_o</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_wvalid" type="logic">
+      <obj_property name="ElementShortName">ext_wvalid</obj_property>
+      <obj_property name="ObjectShortName">ext_wvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_wready" type="logic">
+      <obj_property name="ElementShortName">ext_wready</obj_property>
+      <obj_property name="ObjectShortName">ext_wready</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_bid" type="array">
+      <obj_property name="ElementShortName">ext_bid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_bid[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_bresp" type="array">
+      <obj_property name="ElementShortName">ext_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_bresp[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_bvalid" type="logic">
+      <obj_property name="ElementShortName">ext_bvalid</obj_property>
+      <obj_property name="ObjectShortName">ext_bvalid</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/ext_bready" type="logic">
+      <obj_property name="ElementShortName">ext_bready</obj_property>
+      <obj_property name="ObjectShortName">ext_bready</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/num_trans_d" type="array">
+      <obj_property name="ElementShortName">num_trans_d[7:0]</obj_property>
+      <obj_property name="ObjectShortName">num_trans_d[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/d_beat_cnt_wr" type="array">
+      <obj_property name="ElementShortName">d_beat_cnt_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_beat_cnt_wr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/q_beat_cnt_wr" type="array">
+      <obj_property name="ElementShortName">q_beat_cnt_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">q_beat_cnt_wr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/q_burst_size_wr" type="array">
+      <obj_property name="ElementShortName">q_burst_size_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">q_burst_size_wr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/BITS_TRANS" type="array">
+      <obj_property name="ElementShortName">BITS_TRANS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BITS_TRANS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/OUT_BITS_TRANS" type="array">
+      <obj_property name="ElementShortName">OUT_BITS_TRANS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_BITS_TRANS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_USER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_USER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_USER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_ID" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_ID[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_AD" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_AD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_AD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_DA" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_DA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_DA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_DS" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_DS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_DS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_AWUSER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_AWUSER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_AWUSER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_WUSER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_WUSER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_WUSER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/AXI_WIDTH_BUSER" type="array">
+      <obj_property name="ElementShortName">AXI_WIDTH_BUSER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_WIDTH_BUSER[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/FIXED_BURST_SIZE" type="array">
+      <obj_property name="ElementShortName">FIXED_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FIXED_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/DEFAULT_ID" type="array">
+      <obj_property name="ElementShortName">DEFAULT_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEFAULT_ID[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_1B" type="array">
+      <obj_property name="ElementShortName">SIZE_1B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_1B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_2B" type="array">
+      <obj_property name="ElementShortName">SIZE_2B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_2B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_4B" type="array">
+      <obj_property name="ElementShortName">SIZE_4B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_4B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_8B" type="array">
+      <obj_property name="ElementShortName">SIZE_8B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_8B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_16B" type="array">
+      <obj_property name="ElementShortName">SIZE_16B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_16B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_32B" type="array">
+      <obj_property name="ElementShortName">SIZE_32B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_32B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_64B" type="array">
+      <obj_property name="ElementShortName">SIZE_64B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_64B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/SIZE_128B" type="array">
+      <obj_property name="ElementShortName">SIZE_128B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SIZE_128B[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/RESP_OKAY" type="array">
+      <obj_property name="ElementShortName">RESP_OKAY[1:0]</obj_property>
+      <obj_property name="ObjectShortName">RESP_OKAY[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/RESP_EXOKAY" type="array">
+      <obj_property name="ElementShortName">RESP_EXOKAY[1:0]</obj_property>
+      <obj_property name="ObjectShortName">RESP_EXOKAY[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/RESP_SLVERR" type="array">
+      <obj_property name="ElementShortName">RESP_SLVERR[1:0]</obj_property>
+      <obj_property name="ObjectShortName">RESP_SLVERR[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/RESP_DECERR" type="array">
+      <obj_property name="ElementShortName">RESP_DECERR[1:0]</obj_property>
+      <obj_property name="ObjectShortName">RESP_DECERR[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/LOG_BURST_SIZE" type="array">
+      <obj_property name="ElementShortName">LOG_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LOG_BURST_SIZE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/WR_IDLE" type="array">
+      <obj_property name="ElementShortName">WR_IDLE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_IDLE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/WR_PRE" type="array">
+      <obj_property name="ElementShortName">WR_PRE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_PRE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/WR_START" type="array">
+      <obj_property name="ElementShortName">WR_START[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_START[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/WR_BUFF_WAIT" type="array">
+      <obj_property name="ElementShortName">WR_BUFF_WAIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_BUFF_WAIT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/WR_SEQ" type="array">
+      <obj_property name="ElementShortName">WR_SEQ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_SEQ[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/WR_WAIT" type="array">
+      <obj_property name="ElementShortName">WR_WAIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_WAIT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/read_data_vld" type="logic">
+      <obj_property name="ElementShortName">read_data_vld</obj_property>
+      <obj_property name="ObjectShortName">read_data_vld</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/DATA_IN" type="array">
+      <obj_property name="ElementShortName">DATA_IN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rd_done" type="logic">
+      <obj_property name="ElementShortName">rd_done</obj_property>
+      <obj_property name="ObjectShortName">rd_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/wr_pull" type="logic">
+      <obj_property name="ElementShortName">wr_pull</obj_property>
+      <obj_property name="ObjectShortName">wr_pull</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_addrb" type="array">
+      <obj_property name="ElementShortName">dpram_out_addrb[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_addrb[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dma_cnt" type="array">
+      <obj_property name="ElementShortName">dma_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dma_cnt[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_enb" type="logic">
+      <obj_property name="ElementShortName">dpram_out_enb</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_enb</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/buff_out" type="array">
+      <obj_property name="ElementShortName">buff_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">buff_out[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/DATA_OUT" type="array">
+      <obj_property name="ElementShortName">DATA_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/wr_done" type="logic">
+      <obj_property name="ElementShortName">wr_done</obj_property>
+      <obj_property name="ObjectShortName">wr_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/start_rd_wr" type="array">
+      <obj_property name="ElementShortName">start_rd_wr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">start_rd_wr[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/c_state" type="array">
+      <obj_property name="ElementShortName">c_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c_state[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/n_state" type="array">
+      <obj_property name="ElementShortName">n_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">n_state[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/IDX" type="array">
+      <obj_property name="ElementShortName">IDX[2:0]</obj_property>
+      <obj_property name="ObjectShortName">IDX[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/REG_SELECT" type="array">
+      <obj_property name="ElementShortName">REG_SELECT[3:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_SELECT[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/sa_input_data" type="array">
+      <obj_property name="ElementShortName">sa_input_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sa_input_data[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_A" type="array">
+      <obj_property name="ElementShortName">iter_cnt_A[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_A[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_B" type="array">
+      <obj_property name="ElementShortName">iter_cnt_B[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_B[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_S" type="array">
+      <obj_property name="ElementShortName">iter_cnt_S[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_S[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_A_d" type="array">
+      <obj_property name="ElementShortName">iter_cnt_A_d[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_A_d[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_B_d" type="array">
+      <obj_property name="ElementShortName">iter_cnt_B_d[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_B_d[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rowA" type="array">
+      <obj_property name="ElementShortName">rowA[6:0]</obj_property>
+      <obj_property name="ObjectShortName">rowA[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/colA" type="array">
+      <obj_property name="ElementShortName">colA[6:0]</obj_property>
+      <obj_property name="ObjectShortName">colA[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rowB" type="array">
+      <obj_property name="ElementShortName">rowB[6:0]</obj_property>
+      <obj_property name="ObjectShortName">rowB[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/colB" type="array">
+      <obj_property name="ElementShortName">colB[6:0]</obj_property>
+      <obj_property name="ObjectShortName">colB[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneA_raw" type="array">
+      <obj_property name="ElementShortName">laneA_raw[1:0]</obj_property>
+      <obj_property name="ObjectShortName">laneA_raw[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneB_raw" type="array">
+      <obj_property name="ElementShortName">laneB_raw[1:0]</obj_property>
+      <obj_property name="ObjectShortName">laneB_raw[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneA_eff" type="array">
+      <obj_property name="ElementShortName">laneA_eff[1:0]</obj_property>
+      <obj_property name="ObjectShortName">laneA_eff[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneB_eff" type="array">
+      <obj_property name="ElementShortName">laneB_eff[1:0]</obj_property>
+      <obj_property name="ObjectShortName">laneB_eff[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/write_en" type="logic">
+      <obj_property name="ElementShortName">write_en</obj_property>
+      <obj_property name="ObjectShortName">write_en</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/load_en" type="logic">
+      <obj_property name="ElementShortName">load_en</obj_property>
+      <obj_property name="ObjectShortName">load_en</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/matrix_base_addr" type="array">
+      <obj_property name="ElementShortName">matrix_base_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">matrix_base_addr[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/WRITE_STATE" type="logic">
+      <obj_property name="ElementShortName">WRITE_STATE</obj_property>
+      <obj_property name="ObjectShortName">WRITE_STATE</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt" type="array">
+      <obj_property name="ElementShortName">iter_cnt[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/B_load_done" type="logic">
+      <obj_property name="ElementShortName">B_load_done</obj_property>
+      <obj_property name="ObjectShortName">B_load_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/A_load_done" type="logic">
+      <obj_property name="ElementShortName">A_load_done</obj_property>
+      <obj_property name="ObjectShortName">A_load_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/matmul_done" type="logic">
+      <obj_property name="ElementShortName">matmul_done</obj_property>
+      <obj_property name="ObjectShortName">matmul_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_enb" type="logic">
+      <obj_property name="ElementShortName">dpram_in_enb</obj_property>
+      <obj_property name="ObjectShortName">dpram_in_enb</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_addra" type="array">
+      <obj_property name="ElementShortName">dpram_in_addra[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_in_addra[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_addrb" type="array">
+      <obj_property name="ElementShortName">dpram_in_addrb[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_in_addrb[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_dob" type="array">
+      <obj_property name="ElementShortName">dpram_in_dob[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_in_dob[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_word_idx" type="array">
+      <obj_property name="ElementShortName">dpram_word_idx[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_word_idx[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_addra" type="array">
+      <obj_property name="ElementShortName">dpram_out_addra[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_addra[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/output_data_buffer" type="array">
+      <obj_property name="ElementShortName">output_data_buffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data_buffer[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_dob" type="array">
+      <obj_property name="ElementShortName">dpram_out_dob[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_dob[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_wea" type="logic">
+      <obj_property name="ElementShortName">dpram_in_wea</obj_property>
+      <obj_property name="ObjectShortName">dpram_in_wea</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_wea" type="logic">
+      <obj_property name="ElementShortName">dpram_out_wea</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_wea</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/register_load_done" type="logic">
+      <obj_property name="ElementShortName">register_load_done</obj_property>
+      <obj_property name="ObjectShortName">register_load_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/en_output" type="logic">
+      <obj_property name="ElementShortName">en_output</obj_property>
+      <obj_property name="ObjectShortName">en_output</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/prod" type="array">
+      <obj_property name="ElementShortName">prod[63:0]</obj_property>
+      <obj_property name="ObjectShortName">prod[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/bias_pos" type="array">
+      <obj_property name="ElementShortName">bias_pos[63:0]</obj_property>
+      <obj_property name="ObjectShortName">bias_pos[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/bias_neg" type="array">
+      <obj_property name="ElementShortName">bias_neg[63:0]</obj_property>
+      <obj_property name="ObjectShortName">bias_neg[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/biased" type="array">
+      <obj_property name="ElementShortName">biased[63:0]</obj_property>
+      <obj_property name="ObjectShortName">biased[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/scaled64" type="array">
+      <obj_property name="ElementShortName">scaled64[63:0]</obj_property>
+      <obj_property name="ObjectShortName">scaled64[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/sa_out" type="array">
+      <obj_property name="ElementShortName">sa_out[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sa_out[18:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/OUTPUT_EN" type="logic">
+      <obj_property name="ElementShortName">OUTPUT_EN</obj_property>
+      <obj_property name="ObjectShortName">OUTPUT_EN</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/SIDE" type="array">
+      <obj_property name="ElementShortName">SIDE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SIDE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ELEM_BITS" type="array">
+      <obj_property name="ElementShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/BYTES_PER_WORD" type="array">
+      <obj_property name="ElementShortName">BYTES_PER_WORD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BYTES_PER_WORD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/LITTLE_ENDIAN" type="logic">
+      <obj_property name="ElementShortName">LITTLE_ENDIAN</obj_property>
+      <obj_property name="ObjectShortName">LITTLE_ENDIAN</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/BYTES_PER_ELEM" type="array">
+      <obj_property name="ElementShortName">BYTES_PER_ELEM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BYTES_PER_ELEM[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ELEMS_PER_MATRIX" type="array">
+      <obj_property name="ElementShortName">ELEMS_PER_MATRIX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEMS_PER_MATRIX[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ELEMS_PER_WORD" type="array">
+      <obj_property name="ElementShortName">ELEMS_PER_WORD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEMS_PER_WORD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/WORDS_PER_MATRIX" type="array">
+      <obj_property name="ElementShortName">WORDS_PER_MATRIX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WORDS_PER_MATRIX[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/A_BASE_WORD" type="array">
+      <obj_property name="ElementShortName">A_BASE_WORD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A_BASE_WORD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/B_BASE_WORD" type="array">
+      <obj_property name="ElementShortName">B_BASE_WORD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B_BASE_WORD[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/STORE_WORDS" type="array">
+      <obj_property name="ElementShortName">STORE_WORDS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STORE_WORDS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ITER_W" type="array">
+      <obj_property name="ElementShortName">ITER_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ITER_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/LANE_W" type="array">
+      <obj_property name="ElementShortName">LANE_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LANE_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/MAX_A" type="array">
+      <obj_property name="ElementShortName">MAX_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAX_A[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/MAX_B" type="array">
+      <obj_property name="ElementShortName">MAX_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAX_B[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/MAX_OUT" type="array">
+      <obj_property name="ElementShortName">MAX_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAX_OUT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/C" type="array">
+      <obj_property name="ElementShortName">C[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/D" type="array">
+      <obj_property name="ElementShortName">D[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/N" type="array">
+      <obj_property name="ElementShortName">N[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/B" type="array">
+      <obj_property name="ElementShortName">B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/EN" type="logic">
+      <obj_property name="ElementShortName">EN</obj_property>
+      <obj_property name="ObjectShortName">EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/WRITE" type="logic">
+      <obj_property name="ElementShortName">WRITE</obj_property>
+      <obj_property name="ObjectShortName">WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/IDX" type="array">
+      <obj_property name="ElementShortName">IDX[2:0]</obj_property>
+      <obj_property name="ObjectShortName">IDX[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/REG_SELECT" type="array">
+      <obj_property name="ElementShortName">REG_SELECT[3:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_SELECT[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/LOAD" type="logic">
+      <obj_property name="ElementShortName">LOAD</obj_property>
+      <obj_property name="ObjectShortName">LOAD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_IN" type="array">
+      <obj_property name="ElementShortName">DATA_IN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_OUTPUT_EN" type="logic">
+      <obj_property name="ElementShortName">DATA_OUTPUT_EN</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUTPUT_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_OUT" type="array">
+      <obj_property name="ElementShortName">DATA_OUT[18:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/B_load_done_o" type="logic">
+      <obj_property name="ElementShortName">B_load_done_o</obj_property>
+      <obj_property name="ObjectShortName">B_load_done_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/register_load_done_o" type="logic">
+      <obj_property name="ElementShortName">register_load_done_o</obj_property>
+      <obj_property name="ObjectShortName">register_load_done_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/A_load_done_o" type="logic">
+      <obj_property name="ElementShortName">A_load_done_o</obj_property>
+      <obj_property name="ObjectShortName">A_load_done_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/matmul_done_o" type="logic">
+      <obj_property name="ElementShortName">matmul_done_o</obj_property>
+      <obj_property name="ObjectShortName">matmul_done_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_0" type="array">
+      <obj_property name="ElementShortName">DATA_0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_1" type="array">
+      <obj_property name="ElementShortName">DATA_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_2" type="array">
+      <obj_property name="ElementShortName">DATA_2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_3" type="array">
+      <obj_property name="ElementShortName">DATA_3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_4" type="array">
+      <obj_property name="ElementShortName">DATA_4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_4[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_5" type="array">
+      <obj_property name="ElementShortName">DATA_5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_5[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_6" type="array">
+      <obj_property name="ElementShortName">DATA_6[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_6[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_7" type="array">
+      <obj_property name="ElementShortName">DATA_7[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_7[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_8" type="array">
+      <obj_property name="ElementShortName">DATA_8[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_8[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_9" type="array">
+      <obj_property name="ElementShortName">DATA_9[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_9[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_10" type="array">
+      <obj_property name="ElementShortName">DATA_10[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_10[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_11" type="array">
+      <obj_property name="ElementShortName">DATA_11[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_11[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_12" type="array">
+      <obj_property name="ElementShortName">DATA_12[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_12[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_13" type="array">
+      <obj_property name="ElementShortName">DATA_13[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_13[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_14" type="array">
+      <obj_property name="ElementShortName">DATA_14[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_14[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_15" type="array">
+      <obj_property name="ElementShortName">DATA_15[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_15[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_OUT_BUFFER" type="array">
+      <obj_property name="ElementShortName">DATA_OUT_BUFFER[18:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT_BUFFER[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A0" type="array">
+      <obj_property name="ElementShortName">MAT_A0[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A0[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A1" type="array">
+      <obj_property name="ElementShortName">MAT_A1[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A1[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A2" type="array">
+      <obj_property name="ElementShortName">MAT_A2[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A2[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A3" type="array">
+      <obj_property name="ElementShortName">MAT_A3[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A3[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A4" type="array">
+      <obj_property name="ElementShortName">MAT_A4[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A4[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A5" type="array">
+      <obj_property name="ElementShortName">MAT_A5[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A5[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A6" type="array">
+      <obj_property name="ElementShortName">MAT_A6[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A6[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A7" type="array">
+      <obj_property name="ElementShortName">MAT_A7[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_A7[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B0" type="array">
+      <obj_property name="ElementShortName">MAT_B0[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B0[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B1" type="array">
+      <obj_property name="ElementShortName">MAT_B1[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B1[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B2" type="array">
+      <obj_property name="ElementShortName">MAT_B2[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B2[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B3" type="array">
+      <obj_property name="ElementShortName">MAT_B3[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B3[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B4" type="array">
+      <obj_property name="ElementShortName">MAT_B4[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B4[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B5" type="array">
+      <obj_property name="ElementShortName">MAT_B5[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B5[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B6" type="array">
+      <obj_property name="ElementShortName">MAT_B6[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B6[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B7" type="array">
+      <obj_property name="ElementShortName">MAT_B7[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_B7[0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C0" type="array">
+      <obj_property name="ElementShortName">MAT_C0[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C1" type="array">
+      <obj_property name="ElementShortName">MAT_C1[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C2" type="array">
+      <obj_property name="ElementShortName">MAT_C2[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C3" type="array">
+      <obj_property name="ElementShortName">MAT_C3[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C4" type="array">
+      <obj_property name="ElementShortName">MAT_C4[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C5" type="array">
+      <obj_property name="ElementShortName">MAT_C5[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C6" type="array">
+      <obj_property name="ElementShortName">MAT_C6[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C7" type="array">
+      <obj_property name="ElementShortName">MAT_C7[0:7][18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[0:7][18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/IDX_COUNTER" type="array">
+      <obj_property name="ElementShortName">IDX_COUNTER[2:0]</obj_property>
+      <obj_property name="ObjectShortName">IDX_COUNTER[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/IDX_IN_BUFFER" type="array">
+      <obj_property name="ElementShortName">IDX_IN_BUFFER[2:0]</obj_property>
+      <obj_property name="ObjectShortName">IDX_IN_BUFFER[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_IN_BUFFER" type="array">
+      <obj_property name="ElementShortName">DATA_IN_BUFFER[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN_BUFFER[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/SA_EN" type="logic">
+      <obj_property name="ElementShortName">SA_EN</obj_property>
+      <obj_property name="ObjectShortName">SA_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/SA_WRITE" type="logic">
+      <obj_property name="ElementShortName">SA_WRITE</obj_property>
+      <obj_property name="ObjectShortName">SA_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/OUTPUT_EN" type="logic">
+      <obj_property name="ElementShortName">OUTPUT_EN</obj_property>
+      <obj_property name="ObjectShortName">OUTPUT_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/B_load_done_pulse" type="logic">
+      <obj_property name="ElementShortName">B_load_done_pulse</obj_property>
+      <obj_property name="ObjectShortName">B_load_done_pulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/A_load_done_pulse" type="logic">
+      <obj_property name="ElementShortName">A_load_done_pulse</obj_property>
+      <obj_property name="ObjectShortName">A_load_done_pulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/register_load_done_pulse" type="logic">
+      <obj_property name="ElementShortName">register_load_done_pulse</obj_property>
+      <obj_property name="ObjectShortName">register_load_done_pulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/matmul_done_pulse" type="logic">
+      <obj_property name="ElementShortName">matmul_done_pulse</obj_property>
+      <obj_property name="ObjectShortName">matmul_done_pulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/a_locked" type="logic">
+      <obj_property name="ElementShortName">a_locked</obj_property>
+      <obj_property name="ObjectShortName">a_locked</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/b_locked" type="logic">
+      <obj_property name="ElementShortName">b_locked</obj_property>
+      <obj_property name="ObjectShortName">b_locked</obj_property>
    </wvobject>
 </wave_config>
