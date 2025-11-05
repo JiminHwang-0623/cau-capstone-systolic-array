@@ -1,11 +1,11 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-208,-79",
+   "Default View_ScaleFactor":"1.11096",
+   "Default View_TopLeft":"-45,-50",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 4 -x 1320 -y 130 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 4 -x 1320 -y 120 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -lvl 4 -x 1320 -y 150 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -x 290 -y 100 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 3 -x 1130 -y 290 -defaultsOSRD
@@ -17,7 +17,7 @@ preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 1 560 30n
 preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 3 40 410 NJ 410 950
 preplace netloc axi_mem_intercon_M00_AXI 1 0 4 30 -20 580J 150 NJ 150 1280
 preplace netloc axi_mem_intercon_M01_AXI 1 0 4 40 -10 570J 160 930J 120 1290
-preplace netloc processing_system7_0_DDR 1 1 3 540J 170 940 130 N
+preplace netloc processing_system7_0_DDR 1 1 3 540J 170 940 130 1300
 preplace netloc processing_system7_0_FIXED_IO 1 1 3 530J 180 970 140 1300
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 520J 190 960
 preplace netloc ps7_0_axi_periph_M00_AXI 1 0 4 30 430 NJ 430 NJ 430 1280

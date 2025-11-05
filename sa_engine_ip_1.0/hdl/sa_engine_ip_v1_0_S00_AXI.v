@@ -139,10 +139,6 @@ module sa_engine_ip_v1_0_S00_AXI #
     integer byte_index;
     reg aw_en;
 
-    // <<<< START: ���� �������� �߰� >>>>
-    reg [C_S_AXI_DATA_WIDTH-1:0] status_reg;
-    // <<<< END: ���� �������� �߰� >>>>
-
     // <<<< START: Register Assignment >>>>
     // 1. Map control registers to output ports (Contest code compatible)
     assign o_start           = slv_reg0[0];  // Reg0[0] = start signal
@@ -152,16 +148,8 @@ module sa_engine_ip_v1_0_S00_AXI #
     assign o_num_trans_param = slv_reg3;     // Reg3 = DMA transfer word count
     assign o_max_blk_param   = slv_reg4;     // Reg4 = Max block index
 
-    // 2. Capture engine status to read-only status register
-    always @(posedge S_AXI_ACLK) begin
-        if (S_AXI_ARESETN == 1'b0) begin
-            status_reg <= 32'h0;
-        end else begin
-            status_reg[0] <= i_done;   // Bit[0] = done
-            status_reg[1] <= i_busy;   // Bit[1] = busy
-            status_reg[2] <= i_error;  // Bit[2] = error
-        end
-    end
+    // 2. Status bits populate slv_reg0[3:1] each cycle while bit[0] remains software-controlled START
+    //    (handled in the register write logic below)
     // <<<< END: Register Assignment >>>>
 
     // I/O Connections assignments
@@ -315,6 +303,11 @@ module sa_engine_ip_v1_0_S00_AXI #
                     end
                 endcase
             end
+
+            // Overlay read-only status bits while leaving START (bit[0]) software controlled
+            slv_reg0[1] <= i_done;
+            slv_reg0[2] <= i_busy;
+            slv_reg0[3] <= i_error;
         end
     end
 
@@ -413,7 +406,7 @@ module sa_engine_ip_v1_0_S00_AXI #
             4'hC : reg_data_out <= slv_reg12;
             4'hD : reg_data_out <= slv_reg13;
             4'hE : reg_data_out <= slv_reg14;
-            4'hF : reg_data_out <= status_reg;
+            4'hF : reg_data_out <= slv_reg15;
             default : reg_data_out <= 0;
         endcase
     end

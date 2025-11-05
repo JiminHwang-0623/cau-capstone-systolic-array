@@ -1,0 +1,165 @@
+Time resolution is 1 ps
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.slave_0.inst
+
+
+========================================
+  Matrix Multiplication Test Start
+========================================
+
+[Step 1] Loading test data to VIP memory...
+  File: matrix_A_B.hex
+  Base Address: 0x00000000
+[200000.0 ps] Loading file: matrix_A_B.hex
+[200000.0 ps] Loaded 128 bytes to VIP memory at 0x0
+
+[Step 2] Configuring IP registers...
+[285000.0 ps] Write Register: Addr=0x00000004, Data=0x00000000
+  READ_BASE  = 0x00000000 (Matrix A starts here)
+[375000.0 ps] Write Register: Addr=0x00000008, Data=0x00000400
+  WRITE_BASE = 0x00000400 (Result C goes here)
+
+[Step 3] Starting matrix multiplication...
+[465000.0 ps] Write Register: Addr=0x00000000, Data=0x00000001
+  START bit set
+[555000.0 ps] Write Register: Addr=0x00000000, Data=0x00000000
+  START bit cleared (pulse mode)
+  IP is now reading matrices, computing, and writing results...
+
+[Step 4] Waiting for DONE signal...
+[555000.0 ps] Waiting for DONE signal...
+[595000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[725000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[855000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[985000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1115000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1245000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1375000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1505000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1635000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1765000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1895000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2025000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2155000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2285000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2415000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2545000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2675000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2805000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2935000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3065000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3195000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3325000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3455000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3585000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3715000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3845000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3975000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4105000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4235000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4365000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4495000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4625000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4755000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4885000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5015000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5145000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5275000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5405000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5535000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000002
+[5535000.0 ps] DONE signal detected! (STATUS=0x00000002)
+  Computation completed!
+
+[Step 5] Verifying results against golden reference...
+  Golden file: golden_result.hex
+  Result address: 0x00000400
+  Number of elements: 64 (8x8 matrix)
+[5535000.0 ps] ========================================
+[5535000.0 ps] Starting Result Verification
+[5535000.0 ps] ========================================
+[5535000.0 ps] [PASS] Element[00]: Expected=0x00022099, Got=0x00022099
+[5535000.0 ps] [PASS] Element[01]: Expected=0x0001c505, Got=0x0001c505
+[5535000.0 ps] [PASS] Element[02]: Expected=0x00024e76, Got=0x00024e76
+[5535000.0 ps] [PASS] Element[03]: Expected=0x0002ccac, Got=0x0002ccac
+[5535000.0 ps] [PASS] Element[04]: Expected=0x000329ad, Got=0x000329ad
+[5535000.0 ps] [PASS] Element[05]: Expected=0x00029238, Got=0x00029238
+[5535000.0 ps] [PASS] Element[06]: Expected=0x00029b04, Got=0x00029b04
+[5535000.0 ps] [PASS] Element[07]: Expected=0x0001e722, Got=0x0001e722
+[5535000.0 ps] [PASS] Element[08]: Expected=0x00014fbc, Got=0x00014fbc
+[5535000.0 ps] [PASS] Element[09]: Expected=0x00018581, Got=0x00018581
+[5535000.0 ps] [PASS] Element[10]: Expected=0x000159bd, Got=0x000159bd
+[5535000.0 ps] [PASS] Element[11]: Expected=0x00018f80, Got=0x00018f80
+[5535000.0 ps] [PASS] Element[12]: Expected=0x000274d7, Got=0x000274d7
+[5535000.0 ps] [PASS] Element[13]: Expected=0x00019fc0, Got=0x00019fc0
+[5535000.0 ps] [PASS] Element[14]: Expected=0x0001e058, Got=0x0001e058
+[5535000.0 ps] [PASS] Element[15]: Expected=0x00013369, Got=0x00013369
+[5535000.0 ps] [PASS] Element[16]: Expected=0x000235c5, Got=0x000235c5
+[5535000.0 ps] [PASS] Element[17]: Expected=0x00027768, Got=0x00027768
+[5535000.0 ps] [PASS] Element[18]: Expected=0x00023ef3, Got=0x00023ef3
+[5535000.0 ps] [PASS] Element[19]: Expected=0x0002702f, Got=0x0002702f
+[5535000.0 ps] [PASS] Element[20]: Expected=0x0003a412, Got=0x0003a412
+[5535000.0 ps] [PASS] Element[21]: Expected=0x00027669, Got=0x00027669
+[5535000.0 ps] [PASS] Element[22]: Expected=0x0002a30e, Got=0x0002a30e
+[5535000.0 ps] [PASS] Element[23]: Expected=0x0001c3cb, Got=0x0001c3cb
+[5535000.0 ps] [PASS] Element[24]: Expected=0x00016734, Got=0x00016734
+[5535000.0 ps] [PASS] Element[25]: Expected=0x0001b808, Got=0x0001b808
+[5535000.0 ps] [PASS] Element[26]: Expected=0x0001977d, Got=0x0001977d
+[5535000.0 ps] [PASS] Element[27]: Expected=0x0002277a, Got=0x0002277a
+[5535000.0 ps] [PASS] Element[28]: Expected=0x0002a0fc, Got=0x0002a0fc
+[5535000.0 ps] [PASS] Element[29]: Expected=0x0001ed9d, Got=0x0001ed9d
+[5535000.0 ps] [PASS] Element[30]: Expected=0x000206d0, Got=0x000206d0
+[5535000.0 ps] [PASS] Element[31]: Expected=0x000170d5, Got=0x000170d5
+[5535000.0 ps] [PASS] Element[32]: Expected=0x000147eb, Got=0x000147eb
+[5535000.0 ps] [PASS] Element[33]: Expected=0x000125ca, Got=0x000125ca
+[5535000.0 ps] [PASS] Element[34]: Expected=0x0001f95d, Got=0x0001f95d
+[5535000.0 ps] [PASS] Element[35]: Expected=0x0001b5d8, Got=0x0001b5d8
+[5535000.0 ps] [PASS] Element[36]: Expected=0x00026ba4, Got=0x00026ba4
+[5535000.0 ps] [PASS] Element[37]: Expected=0x00019799, Got=0x00019799
+[5535000.0 ps] [PASS] Element[38]: Expected=0x0001ab76, Got=0x0001ab76
+[5535000.0 ps] [PASS] Element[39]: Expected=0x0001b30f, Got=0x0001b30f
+[5535000.0 ps] [PASS] Element[40]: Expected=0x00025f08, Got=0x00025f08
+[5535000.0 ps] [PASS] Element[41]: Expected=0x0001ca00, Got=0x0001ca00
+[5535000.0 ps] [PASS] Element[42]: Expected=0x0002bb66, Got=0x0002bb66
+[5535000.0 ps] [PASS] Element[43]: Expected=0x0001c47c, Got=0x0001c47c
+[5535000.0 ps] [PASS] Element[44]: Expected=0x0002ee1e, Got=0x0002ee1e
+[5535000.0 ps] [PASS] Element[45]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[46]: Expected=0x000299fa, Got=0x000299fa
+[5535000.0 ps] [PASS] Element[47]: Expected=0x0001f60e, Got=0x0001f60e
+[5535000.0 ps] [PASS] Element[48]: Expected=0x0001d43a, Got=0x0001d43a
+[5535000.0 ps] [PASS] Element[49]: Expected=0x00013a95, Got=0x00013a95
+[5535000.0 ps] [PASS] Element[50]: Expected=0x000202ba, Got=0x000202ba
+[5535000.0 ps] [PASS] Element[51]: Expected=0x0001f367, Got=0x0001f367
+[5535000.0 ps] [PASS] Element[52]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[53]: Expected=0x0001f837, Got=0x0001f837
+[5535000.0 ps] [PASS] Element[54]: Expected=0x000201f8, Got=0x000201f8
+[5535000.0 ps] [PASS] Element[55]: Expected=0x000188f4, Got=0x000188f4
+[5535000.0 ps] [PASS] Element[56]: Expected=0x000225ed, Got=0x000225ed
+[5535000.0 ps] [PASS] Element[57]: Expected=0x00022e19, Got=0x00022e19
+[5535000.0 ps] [PASS] Element[58]: Expected=0x00026769, Got=0x00026769
+[5535000.0 ps] [PASS] Element[59]: Expected=0x0002047a, Got=0x0002047a
+[5535000.0 ps] [PASS] Element[60]: Expected=0x0003a1c6, Got=0x0003a1c6
+[5535000.0 ps] [PASS] Element[61]: Expected=0x00023159, Got=0x00023159
+[5535000.0 ps] [PASS] Element[62]: Expected=0x00025c04, Got=0x00025c04
+[5535000.0 ps] [PASS] Element[63]: Expected=0x0001fb00, Got=0x0001fb00
+[5535000.0 ps] ========================================
+[5535000.0 ps] Verification Summary
+[5535000.0 ps] ========================================
+[5535000.0 ps] Total Elements: 64
+[5535000.0 ps] PASS: 64
+[5535000.0 ps] FAIL: 0
+[5535000.0 ps] ========================================
+[5535000.0 ps] [SUCCESS] ALL TESTS PASSED!
+
+========================================
+  Matrix Multiplication Test Complete
+========================================
+
+
+========================================
+  SIMULATION FINISHED
+========================================
+Executing Axi4 End Of Simulation checks
+Warning: AXI4_ERRS_RLAST_ALL_DONE_EOS: All outstanding read bursts must have completed a the end of the simulation.
+Time: 5635 ns  Iteration: 0  Process: /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/master_0/inst/IF/PC/Always3109_226  Scope: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2021.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 725
+Executing Axi4 End Of Simulation checks
+$finish called at time : 5635 ns : File "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/tb/sa_matmul_tb.sv" Line 160

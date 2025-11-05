@@ -1,0 +1,75 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:100]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:111]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:122]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:144]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:155]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:166]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:170]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:171]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:172]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:173]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:174]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:175]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:176]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_PE_wrapper.sv:177]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:55]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:61]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:64]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:67]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:70]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:73]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:82]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:85]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:88]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:91]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:94]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:97]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/6528/hdl/sa_RF.sv:100]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xilinx_vip.axi_vip_pkg
+Compiling package xilinx_vip.xil_common_vip_pkg
+Compiling package std.std
+Compiling package xil_defaultlib.$unit_sa_matmul_tb_sv
+Compiling package xil_defaultlib.sa_engine_ip_v1_0_bfm_1_slave_0_...
+Compiling package xil_defaultlib.sa_engine_ip_v1_0_bfm_1_master_0...
+Compiling module xilinx_vip.axi_vip_axi4pc(WDATA_WIDTH=32,RD...
+Compiling module xilinx_vip.cb
+Compiling module xilinx_vip.axi_vip_if(C_AXI_WID_WIDTH=1,C_A...
+Compiling module axi_vip_v1_1_11.axi_vip_v1_1_11_top(C_AXI_WID_WI...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_master_0...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_S00_AXI_defaul...
+Compiling module xil_defaultlib.axi_dma_ctrl(BIT_TRANS=8)
+Compiling module xil_defaultlib.dma_read(BITS_TRANS=8,OUT_BITS_T...
+Compiling module xil_defaultlib.dma_write(BITS_TRANS=8,OUT_BITS_...
+Compiling module xil_defaultlib.dpram_wrapper(DW=32,AW=11,DEPTH=...
+Compiling module xil_defaultlib.hPE
+Compiling module xil_defaultlib.sa_PE_wrapper
+Compiling module xil_defaultlib.X_REG
+Compiling module xil_defaultlib.sa_RF
+Compiling module xil_defaultlib.sa_unit
+Compiling module xil_defaultlib.sa_controller
+Compiling module xil_defaultlib.sa_core_default
+Compiling module xil_defaultlib.sa_core_pipeline(C_M_AXI_AWUSER_...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0(C_M00_AXI_AWUS...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_sa_engin...
+Compiling module xilinx_vip.axi_vip_axi4pc(WDATA_WIDTH=32,RD...
+Compiling module xilinx_vip.cb
+Compiling module xilinx_vip.axi_vip_if(C_AXI_PROTOCOL=2,C_AX...
+Compiling module axi_vip_v1_1_11.axi_vip_v1_1_11_top(C_AXI_PROTOC...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_slave_0_...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_wrapper
+Compiling module xil_defaultlib.sa_matmul_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot sa_matmul_tb_behav

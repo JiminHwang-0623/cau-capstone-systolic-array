@@ -23,7 +23,8 @@ input  logic [1:0]            i_start,
 input  logic [31:0]           i_base_address_rd,
 input  logic [31:0]           i_base_address_wr,
 input  logic [BIT_TRANS-1:0]  i_num_trans,
-input  logic [15:0]           i_max_req_blk_idx,
+ input  logic [15:0]           i_max_req_blk_idx_rd,
+ input  logic [15:0]           i_max_req_blk_idx_wr,
 
 input  logic [10:0]           row_cnt,
 // DMA Read
@@ -67,13 +68,23 @@ logic [AXI_WIDTH_AD-1:0] write_addr;
 logic [BIT_TRANS-1:0] write_data_cnt;
 logic [15:0] req_blk_idx_wr;
 
-logic [BIT_TRANS-1:0] num_trans      = i_num_trans;
-logic [15:0] max_req_blk_idx         = i_max_req_blk_idx;
-logic [31:0] dram_base_addr_rd       = i_base_address_rd;
-logic [31:0] dram_base_addr_wr       = i_base_address_wr;
-logic read_done                      = i_read_done;
-logic write_done                     = i_write_done;
-logic indata_req_wr                  = i_indata_req_wr;
+logic [BIT_TRANS-1:0] num_trans;
+logic [15:0] max_req_blk_idx_rd;
+logic [15:0] max_req_blk_idx_wr;
+logic [31:0] dram_base_addr_rd;
+logic [31:0] dram_base_addr_wr;
+logic read_done;
+logic write_done;
+logic indata_req_wr;
+
+assign num_trans = i_num_trans;
+assign max_req_blk_idx_rd = i_max_req_blk_idx_rd;
+assign max_req_blk_idx_wr = i_max_req_blk_idx_wr;
+assign dram_base_addr_rd = i_base_address_rd;
+assign dram_base_addr_wr = i_base_address_wr;
+assign read_done = i_read_done;
+assign write_done = i_write_done;
+assign indata_req_wr = i_indata_req_wr;
 
 assign o_write_data_cnt     = write_data_cnt;
 assign o_ctrl_write         = ctrl_write;
@@ -114,7 +125,7 @@ always_comb begin
         ST_DMA_WAIT: begin
             ctrl_read_wait = 1;
             if(read_done) begin 
-                if (req_blk_idx_rd == max_req_blk_idx - 1)
+                if (req_blk_idx_rd == max_req_blk_idx_rd - 1)
                     nstate_rd = ST_DMA_DONE;
                 else                 
                     nstate_rd = ST_DMA_SYNC;
@@ -138,7 +149,7 @@ always_ff @(posedge clk or negedge rstn) begin
     end
     else begin
         if(read_done) begin 
-           if(req_blk_idx_rd == max_req_blk_idx - 1)
+           if(req_blk_idx_rd == max_req_blk_idx_rd - 1)
                 req_blk_idx_rd <= 0;                // Reset the counter
             else 
                 req_blk_idx_rd <= req_blk_idx_rd + 1;   // Up-Counter    
@@ -181,7 +192,7 @@ always_comb begin
         ST_DMA_WAIT: begin
             ctrl_write_wait = 1;
             if(write_done) begin 
-                if (req_blk_idx_wr == (max_req_blk_idx>>1) - 1)
+                if (req_blk_idx_wr == (max_req_blk_idx_wr) - 1)
                     nstate_wr = ST_DMA_DONE;
                 else 
                     nstate_wr = ST_DMA_SYNC;
@@ -205,7 +216,7 @@ always_ff @(posedge clk or negedge rstn) begin
     end
     else begin
         if(write_done) begin 
-           if(req_blk_idx_wr == (max_req_blk_idx>>1) - 1)
+           if(req_blk_idx_wr == (max_req_blk_idx_wr) - 1)
                 req_blk_idx_wr <= 0;                // Reset the counter
             else 
                 req_blk_idx_wr <= req_blk_idx_wr + 1;   // Up-Counter    
@@ -218,16 +229,32 @@ always_ff @(posedge clk or negedge rstn) begin
         write_data_cnt <= 0;
     end
     else begin
-        if(ctrl_write)
+        if(write_done)
             write_data_cnt <= 0;
-        else if (indata_req_wr) begin 
+        else if (indata_req_wr) begin
             if(write_data_cnt == num_trans - 1)
                 write_data_cnt <= 0;
             else 
                 write_data_cnt <= write_data_cnt + 1;
-        end 
+        end
     end
 end
+
+// always_ff @(posedge clk or negedge rstn) begin
+//     if(~rstn) begin
+//         write_data_cnt <= 0;
+//     end
+//     else begin
+//         if(ctrl_write)
+//             write_data_cnt <= 0;
+//         else if (indata_req_wr) begin 
+//             if(write_data_cnt == num_trans - 1)
+//                 write_data_cnt <= 0;
+//             else 
+//                 write_data_cnt <= write_data_cnt + 1;
+//         end 
+//     end
+// end
 
 assign write_addr = dram_base_addr_wr + {req_blk_idx_wr, 6'b0} + {write_data_cnt, 2'b0}; 
 
