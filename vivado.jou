@@ -1,0 +1,90 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Nov  5 14:14:45 2025
+# Process ID: 3952
+# Current directory: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3668 C:\Users\se-dong Jang\종합설계2\cau-capstone-systolic-array\capstone_design_final.xpr
+# Log file: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/vivado.log
+# Journal file: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array\vivado.jou
+# Running On: DESKTOP-OJ3LTBR, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 16890 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+launch_simulation
+open_wave_config {C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
+source sa_engine_tb.tcl
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/prefetch_req}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/prefetch_done}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/compute_req}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/compute_done}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/read_addr}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/read_done}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/ctrl_read}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/read_data_cnt}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/max_req_blk_idx}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/current_state}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/next_state}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/prefetch_inflight}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/tile_current_index}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/num_tiles_total}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/has_next_tile}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/compute_started}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_prefetch_req}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_max_req_blk_idx}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/i_read_done}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/o_ctrl_read}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/o_read_addr}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/o_prefetch_done}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/cstate_rd}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/nstate_rd}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/read_addr}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/req_blk_idx_rd}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/rd_pending}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/rd_active}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/max_req_blk_idx}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/read_done}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/buf_idx}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/base_addr_current}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/base_addr_next}} 
+current_wave_config {sa_engine_tb_behav.wcfg}
+add_wave {{/sa_engine_tb/u_sa_engine_top/u_core/u_dma_ctrl/tile_current_idx}} 
+relaunch_sim
+save_wave_config {C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/waveform_data/sa_engine_tb_behav.wcfg}
+close_sim

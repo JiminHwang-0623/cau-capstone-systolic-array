@@ -1,456 +1,493 @@
-# 🎯 Systolic Array Matrix Multiplication IP 검증 계획
-
-> **Last Updated**: 2025-11-04  
-> **Target Board**: PYNQ-Z2 (Zynq-7000)  
-> **Protocol**: AXI4-Lite (Control) + AXI4-Full (Memory)
+# 🧩 Step 1 — Lightweight Handshake Integration  
+**(Prefetch Handshake + DMA Read Trigger Migration)**  
 
 ---
 
-## 📋 목차
+## 🎯 목적
+기존 시스템은 `sa_core` 모듈이 직접 `axi_dma_ctrl`에 **Read/Write 트리거(`start_rd_wr`)** 를 전달하여  
+데이터 전송을 순차적으로 수행하고 있었다.  
 
-1. [프로젝트 개요](#1-프로젝트-개요)
-2. [현재 설계 구조](#2-현재-설계-구조)
-3. [파일 구조](#3-파일-구조)
-4. [Testbench 전략](#4-testbench-전략)
-5. [검증 항목](#5-검증-항목)
-6. [앞으로 해야 할 작업들](#6-앞으로-해야-할-작업들)
+**Step 1** 의 목표는 이후 단계에서 “연산–전송 병렬화 (Pipelining)”를 구현하기 위한 사전작업으로,  
+연산 모듈과 DMA 제어부 간에 **경량 핸드셰이크 신호 (prefetch / compute)** 를 새로 추가하고,  
+DMA Read FSM의 **시작 트리거를 prefetch 요청 신호로 교체**하는 것이다.  
 
----
-
-## 1. 프로젝트 개요
-
-### 1.1 설계 목표
-- **8x8 Systolic Array 기반 Matrix Multiplication IP**
-- 연산은 **unsigned int8** 대상! (signed X)
-- **INT8 정밀도** (입력), **INT32 출력** (누적 결과)
-- **Custom DMA Controller** (AXI4-Full Master)
-- **AXI4-Lite Slave Interface** (레지스터 제어)
-
-### 1.2 핵심 기능
-```
-Input:  Matrix A (8x8 INT8), Matrix B (8x8 INT8)
-Output: Matrix C (8x8 INT32) = A × B
-
-Memory Layout:
-- Input:  DRAM[read_base_addr + 0x00 ~ 0x7F]  (128 bytes)
-- Output: DRAM[write_base_addr + 0x00 ~ 0xFF] (256 bytes) -> 현재는 0x3F까지만 써지고 있음
-```
-
-### 1.3 동작 흐름
-```
-1. PS (ARM) writes control registers via S00_AXI
-   ├─ 0x00: Start/Status
-   ├─ 0x04: Read Base Address
-   ├─ 0x08: Write Base Address
-   └─ 0x0C: Reserved
-
-2. DMA Read: DRAM → Internal DPRAM
-   - Burst length: 16 beats
-   - Transfer: Matrix A + B (128 bytes) -> 한 줄에 2byte, 64줄 (matrix_A_B.hex 사용 중)
-
-3. Systolic Array Computation
-   - FSM: S_IDLE → S_DATA_LOAD → S_WRITE_A → S_WRITE_B 
-         → S_LOAD → S_MATMUL → S_STORE → S_OUT
-
-4. DMA Write: Internal DPRAM → DRAM
-   - Burst length: 16 beats
-   - Transfer: Matrix C (256 bytes) -> 한 줄에 4byte (INT32라서) -> 64줄
-
-5. Interrupt/Done signal to PS
-```
+이 단계에서는 **기능 변화 없이** 기존 동작과 동일하게 동작하도록 배선만 구성하며,  
+추후 단계(스케줄러 FSM 및 오버랩 구현)를 위한 구조적 기반을 마련한다.
 
 ---
 
-## 2. 현재 설계 구조
+## ⚙️ 수정 내역
 
-### 2.1 계층 구조
+### 🔹 `sa_core_pipeline.sv`
+- **신규 내부 신호 추가**
+  - `prefetch_req` : DMA Read 요청 (pipeline → DMA)
+  - `prefetch_done` : DMA Read 완료 (DMA → pipeline)
+  - `compute_req` : 연산 시작 (pipeline → sa_core)
+  - `compute_done` : 연산 완료 (sa_core → pipeline)
+- **임시 매핑 (기능 동일 유지)**  
+  기존 신호를 그대로 재사용하여 동작 변화 없음:
+  ```verilog
+  assign compute_req   = ap_start;
+  assign compute_done  = done_core;
+  assign prefetch_req  = (start_rd_wr == 2'b10);
+  // prefetch_done은 컨트롤러에서 올라오는 완료 신호와 맵핑
+  // assign prefetch_done = read_done; // 또는 u_dma_ctrl.o_prefetch_done
 
-```
-sa_engine_ip_v1_0 (Top)
-│
-├─ S00_AXI Slave (AXI4-Lite)
-│  └─ sa_engine_ip_v1_0_S00_AXI
-│     ├─ Control Registers (0x00 ~ 0x10)
-│     └─ Status Registers (busy, done, error)
-│
-└─ sa_core_pipeline (Main Engine)
-   │
-   ├─ axi_dma_ctrl
-   │  ├─ Read address generation
-   │  └─ Write address generation
-   │
-   ├─ dma_read (M00_AXI Read Channel)
-   │  └─ AXI4-Full Master Read
-   │
-   ├─ dma_write (M00_AXI Write Channel)
-   │  └─ AXI4-Full Master Write
-   │
-   └─ sa_core
-      ├─ dpram_wrapper (Input Buffer)
-      ├─ dpram_wrapper (Output Buffer)
-      │
-      └─ sa_controller
-         └─ sa_unit (8x8 Systolic Array)
-            ├─ sa_PE_wrapper (Processing Elements Wrapper)
-            │ └─ 64 hPE (Processing Elements)
-            └─ sa_RF (Processing Elements Buffer Wrapper)
-              └─ 64 X_REG (Processing Elements Buffer)
-      
-```
-
-### 2.2 주요 모듈 설명
-
-| 모듈 | 파일 | 역할 |
-|------|------|------|
-| **Top Wrapper** | `sa_engine_ip_v1_0.v` | IP 최상위, AXI 인터페이스 연결 |
-| **AXI-Lite Slave** | `sa_engine_ip_v1_0_S00_AXI.v` | 레지스터 맵 구현 |
-| **Pipeline Core** | `sa_core_pipeline.sv` | DMA + Compute 통합 제어 |
-| **FSM + Buffer** | `sa_core.sv` | 내부 FSM, DPRAM 관리 |
-| **SA Controller** | `sa_controller.sv` | Systolic Array 데이터 로딩 |
-| **Systolic Array** | `sa_unit.sv` | 8x8 PE 배열 |
-| **DMA Read** | `dma_read.sv` | AXI4 Master Read 구현 |
-| **DMA Write** | `dma_write.sv` | AXI4 Master Write 구현 |
-| **DMA Control** | `axi_dma_ctrl.sv` | 주소 생성, 카운터 관리 |
-
-### 2.3 레지스터 맵
-
-| Offset | Name | Access | Description |
-|--------|------|--------|-------------|
-| 0x00 | CTRL/STATUS | R/W | bit[0]: Start, bit[1]: Done (R), bit[2]: Busy (R), bit[3]: Error (R) |
-| 0x04 | READ_BASE | W | DMA Read Base Address |
-| 0x08 | WRITE_BASE | W | DMA Write Base Address |
-| 0x0C | NUM_TRANS | W | DMA transfer size (words). 현재 파이프라인에서 미사용 |
-| 0x10 | MAX_BLK | W | 최대 블록 수. 현재 파이프라인에서 미사용 |
-
--> 현재는 0x00, 0x04, 0x08 만 사용 중중
+# 🧩 Step 2 — 주소 더블링(Address Double-Buffering) + buf_idx 토글
 
 ---
 
-## 3. 파일 구조
+## 🎯 목적
 
-### 3.1 최종 디렉토리 구조
-
-```
-sa_engine_ip_1.0/
-│
-├── hdl/                                    ← 실제 합성할 RTL (우리가 작업하는 main IP)
-│   ├── sa_engine_ip_v1_0.v                 (Top wrapper)
-│   ├── sa_engine_ip_v1_0_S00_AXI.v         (AXI-Lite Slave)
-│   ├── sa_engine_ip_v1_0_M00_AXI.v         (사용 안함, custom DMA 모듈들로 대체)
-│   ├── sa_core_pipeline.sv                 (Main engine)
-│   ├── sa_core.sv                          (FSM + DPRAM)
-│   ├── sa_controller.sv                    (Systolic Array 제어)
-│   ├── sa_unit.sv                          (8x8 PE Array)
-│   ├── sa_PE_wrapper.sv                    (PE + Register File wrapper)
-│   ├── sa_RF.sv                            (Register File, 입력 데이터 저장)
-│   ├── X_REG.sv                            (X direction 레지스터)
-│   ├── hPE.sv                              (Processing Element, MAC 연산)
-│   ├── dpram_wrapper.sv                    (Dual-port RAM wrapper)
-│   ├── axi_dma_ctrl.sv                     (DMA 제어 FSM)
-│   ├── dma_read.sv                         (AXI4 Master Read)
-│   └── dma_write.sv                        (AXI4 Master Write)
-│
-├── src/                                    ← 시뮬레이션 전용
-│   ├── tb/                                 ← Testbench 파일들
-│   │   ├── sa_matmul_tb.sv                 ← 메인 TB (Vivado가 제공하는 example_designs 코드에서 수정정)
-│   │   ├── tb_tasks.svh                    ← 메인 TB에서 사용하는 테스트 함수들들
-│   │   └── axi_vip_config.svh              ← VIP 설정
-│   │
-│   ├── data/                               ← 테스트 데이터 (UINT8/UINT32)
-│   │   ├── matrix_A_B.hex                  ← A(64B)+B(64B) 결합, 한 줄 2바이트(LO-HI) (현재 사용 중)
-│   │   ├── matrix_a.hex                    ← A만, 한 줄 2바이트(LO-HI)
-│   │   ├── matrix_b.hex                    ← B만, 한 줄 2바이트(LO-HI)
-│   │   ├── matrix_a.mem                    ← A만, 한 줄 1바이트(옵션)
-│   │   ├── matrix_b.mem                    ← B만, 한 줄 1바이트(옵션)
-│   │   └── golden_result.hex               ← 기대 결과 64개(INT32, 8헥사) (현재 사용 중)
-│   │
-│   ├── scripts/                            ← Python/TCL 스크립트 
-│   │   ├── generate_test_vectors.py        ← 테스트 벡터 생성 (UINT8/스왑 반영) (이건 사용!!)
-│   │   ├── create_bd_with_vip.tcl          ← AXI VIP 포함 BD 자동 생성 (사용X... 시뮬 환경 세팅할 때 사용함)
-│   │   └── setup_sim.tcl                   ← 시뮬 파일셋/옵션 세팅 (사용X... 시뮬 환경 세팅할 때 사용함)
-│   │
-│   └── legacy/                             ← 기존 파일들 (이전 AIX 대회에서 사용한 시뮬 파일들)
-│       ├── sa_engine_tb.v                  ← 예전 AXI3 TB
-│       ├── axi_slave_if_sync.v
-│       ├── axi_sram_if.v
-│       ├── sram.v
-│       ├── sram_ctrl.v
-│       └── sync_reg_fifo.v
-│
-├── sim_projects/                           ← Vivado xsim 프로젝트 보관
-│   └── sa_vip_test/                        ← AXI VIP 기반 시뮬 프로젝트
-│       ├── sa_vip_test.xpr                 ← Vivado 프로젝트 파일
-│       ├── sa_vip_test.sim/                ← xsim 실행 산출물
-│       └── sa_vip_test.runs/               ← 생성된 컴파일 캐시
-│
-├── example_designs/                        ← Vivado 자동 생성 (건들지 않음)
-│   └── bfm_design/                         ← 참고용으로만 사용
-│       ├── sa_engine_ip_v1_0_tb.sv         ← 원본 TB (복사 소스)
-│       ├── sa_engine_ip_v1_0_tb_include.svh
-│       ├── design.tcl
-│       └── bd/
-│           └── sa_engine_ip_v1_0_bfm_1.bd  ← Block Design
-│
-├── component.xml                           ← IP 메타데이터
-├── xgui/                                   ← IP GUI 정의
-└── PLAN.md                                 ← 이 문서
-```
-
-### 3.2 파일 역할 요약
-
-#### HDL (합성용)
-- `hdl/` 아래의 모든 파일은 합성 대상
-- 시뮬레이션 전용 코드는 `src/`에 위치
-
-#### SRC (시뮬레이션)
-- **tb/**: Testbench SystemVerilog 파일
-- **data/**: 입력 데이터 및 Golden reference
-- **scripts/**: 자동화 스크립트
-- **legacy/**: 기존 파일 보관 (참고용)
-
-#### Example Designs
-- **Vivado IP Packager가 자동 생성**
-- Block Design + VIP 포함
-- **원본 유지, 복사해서 사용**
-
-#### Sim Projects
-- **Vivado 시뮬 프로젝트 스냅샷**: `sim_projects/sa_vip_test`에 xsim 설정과 wave 구성을 보관
-- **자동 생성 산출물**: `.sim/`, `.runs/` 등은 Vivado에서 다시 생성되므로 직접 편집하지 않음
-- **복구 용도**: GUI 설정이 꼬였을 때 이 프로젝트를 열어 baseline 환경을 복원
+**Step 2**의 목표는 **DMA Read 경로에서 주소 더블버퍼 구조를 도입**하여  
+각 타일의 데이터 로드가 끝나자마자 다음 타일의 메모리 주소로 자동 전환되도록 만드는 것이다.  
+이때 추가적인 DMA 채널은 만들지 않으며, 기존 FSM을 유지한 채 **주소 관리만 확장**한다.
 
 ---
 
-## 4. Testbench 전략
+## ⚙️ 수정 내역
 
-### 4.1 시뮬레이션 환경 구조
+### 🔹 대상 파일
+`axi_dma_ctrl.sv` (DMA 제어부)
 
-```
-┌────────────────────────────────────────────────────────────────┐
-│                    sa_matmul_tb.sv                             │
-│  (Testbench - SystemVerilog 코드)                              │
-├───────────────────────────────────────────────────────────────┤
-│                                                               │
-│  초기화 & 제어 로직 (initial block)                             │
-│  1. Master VIP 메모리 초기화                                    │
-│  2. Slave VIP로 레지스터 제어                                   │
-│  3. Done 대기 & 결과 검증                                       │
-│                                                               │
-│            ┌                                                  │
-│            ↓                                                  │
-│  ┌─────────────────┐            ┌─────────────────┐           │
-│  │   Slave VIP     │            │   Master VIP    │           │
-│  │ (PS 제어 역할)   │            │  (DRAM 역할)     │           │
-│  │                 │            │                 │           │
-│  │ - AXI4-Lite     │            │ - AXI4-Full     │           │
-│  │ - Master로 동작  │            │ - Slave로 동작   │◄─┐         │
-│  │ - Register      │            │ - Memory Model  │  │        │
-│  │   Write/Read    │            │ - 연관 배열      │  │        │
-│  └────────┬────────┘            └─────────────────┘  │        │
-│           │                                          │         │
-│           │    ┌──────────────────────┐              │         │
-│           └───►│   DUT (Your IP)      │──────────────└        │
-│                │ sa_engine_ip_v1_0    │                       │
-│                │                      │                       │
-│                │ S00_AXI ◄─ Slave VIP │                       │
-│                │ M00_AXI ─► Master VIP│                       │
-│                └──────────────────────┘                       │
-│                                                               │
-│  ※ Slave VIP와 Master VIP는 직접 연결되지 않음                  │
-│     각각 DUT의 S00_AXI, M00_AXI에 연결됨                        │
-│                                                               │
-│  모니터링 & 검증                                                │
-│  - AXI transaction logger                                     │
-│  - Protocol violation checker (VIP 자동)                       │
-│  - Result comparison (golden vs. actual)                      │
-└───────────────────────────────────────────────────────────────┘
+---
+
+### 🔹 변경 개요
+
+| 구분 | 내용 |
+|------|------|
+| 신규 신호 | `base_addr_current`, `base_addr_next`, `tile_current_index`, `buf_idx`, `tile_stride_rd` |
+| 핵심 개념 | 타일 단위 주소 더블링 (한 타일 종료 시 `base_addr_current` ← `base_addr_next`) |
+| 영향 범위 | DMA Read 경로 (Write FSM은 변경 없음) |
+| 기존 FSM | 유지 (`ST_IDLE`, `ST_DMA`, `ST_DMA_WAIT`, `ST_DMA_SYNC`, `ST_DMA_DONE`) |
+
+---
+
+### 🔹 수정 상세
+
+#### ① 내부 신호 추가
+```verilog
+logic        buf_idx;                   // 0/1 토글
+logic [31:0] base_addr_current;         // 현재 타일 base 주소
+logic [31:0] base_addr_next;            // 다음 타일 base 주소(예측)
+logic [15:0] tile_current_index;        // 현재 타일 인덱스
+wire [31:0]  tile_stride_rd = {max_req_blk_idx, 6'b0}; // 블록 수 * 64B
 ```
 
-### 4.2 VIP (Verification IP) 설명
+#### ② 단일 always 블록에서 리셋/예측/롤오버 통합
+```verilog
+wire last_read_of_tile = (req_blk_idx_rd == max_req_blk_idx - 16'd1);
+wire tile_read_done    = (read_done && last_read_of_tile);
 
-#### Xilinx AXI VIP란?
-- **Xilinx 공식 검증 IP** (무료, Vivado 포함)
-- AXI 프로토콜 준수 여부 자동 체크
-- 메모리 모델 내장 (연관 배열 기반)
+always_ff @(posedge clk or negedge rstn) begin
+  if(~rstn) begin
+    buf_idx            <= 1'b0;
+    tile_current_index <= '0;
+    base_addr_current  <= dram_base_addr_rd;
+    base_addr_next     <= dram_base_addr_rd + tile_stride_rd;
+  end else begin
+    // 프리패치 들어올 때 다음 타일 base 예측
+    if (i_prefetch_req)
+      base_addr_next <= base_addr_current + tile_stride_rd;
 
-#### VIP 동작 모드
-
-| VIP 이름 | 모드 | 연결 | TB 관점 | 역할 |
-|---------|------|------|---------|------|
-| **slave_0** | Master | S00_AXI | 제어 송신 | PS(ARM) 역할, 레지스터 read/write |
-| **master_0** | Slave | M00_AXI | 메모리 응답 | DDR DRAM 역할, read/write 요청 처리 |
-
-### 4.3 테스트 시나리오
-
-```systemverilog
-// 의사 코드 (실제 구현은 sa_matmul_tb.sv)
-
-initial begin
-  // 1. Reset
-  reset = 0;
-  #200ns reset = 1;
-  
-  // 2. Master VIP 메모리 초기화 (A+B 결합 파일, 2바이트/라인 LO-HI)
-  load_matrix_file("matrix_A_B.hex", 64'h0000_0000, mst_agent_0);
-  
-  // 3. Control Register 설정 (Slave VIP 사용)
-  write_register(0x04, 32'h0000_0000);   // READ_BASE
-  write_register(0x08, 32'h0000_0400);   // WRITE_BASE
-  
-  // 4. Start
-  write_register(0x00, 32'h0000_0001);   // START = 1
-  
-  // 5. Done 대기
-  do begin
-    read_register(0x00, status);
-    #100ns;
-  end while (status[1] == 0);  // Wait for DONE
-  
-  // 6. 결과 검증 (VIP 메모리 백도어 읽기 vs golden_result.hex)
-  verify_results("golden_result.hex", 64'h0000_0400, 64, mst_agent_0);
-  
-  // 7. 종료
-  if (pass) $display("✅ TEST PASSED");
-  else      $error("❌ TEST FAILED");
-  $finish;
+    // 타일 경계에서 롤오버 및 buf_idx 토글
+    if (tile_read_done) begin
+      buf_idx            <= ~buf_idx;
+      base_addr_current  <= base_addr_next;
+      tile_current_index <= tile_current_index + 16'd1;
+    end
+  end
 end
 ```
 
-### 4.4 Golden Model
+#### ③ Read 주소 생성부 치환
 
-테스트 벡터는 UINT8 기준, 하드웨어가 2바이트 쌍을 [lo,hi]로 읽은 뒤 내부에서 [hi,lo]로 재해석하는 규칙을 반영함. `generate_test_vectors.py` 요약:
+Read 주소 생성부의 base 주소를 기존의 `dram_base_addr_rd` 대신  
+`base_addr_current`로 변경하여, 타일 경계 시 자동으로 새로운 base 주소에서  
+데이터를 읽어올 수 있도록 수정한다.
 
-```python
-import numpy as np, os
+```verilog
+// 기존 코드
+assign read_addr = dram_base_addr_rd + {req_blk_idx_rd, 6'b0};
 
-def swap_pairs_as_hw(x: np.ndarray) -> np.ndarray:
-    flat = x.flatten(); swapped = np.empty_like(flat)
-    swapped[0::2] = flat[1::2]; swapped[1::2] = flat[0::2]
-    return swapped.reshape(8,8)
-
-np.random.seed(42)
-A = np.random.randint(0, 256, (8,8), dtype=np.uint8)  # UINT8
-B = np.random.randint(0, 256, (8,8), dtype=np.uint8)  # UINT8
-A_hw, B_hw = swap_pairs_as_hw(A), swap_pairs_as_hw(B)
-C = A_hw.astype(np.uint32) @ B_hw.astype(np.uint32)   # UINT32 누적
-
-# A+B 결합(2B/라인, LO-HI), 분리 hex/mem, golden_result.hex 생성
+// 변경 코드 (Step 2 적용)
+assign read_addr = base_addr_current + {req_blk_idx_rd, 6'b0};
 ```
 
-Note:
-- 입력 데이터 파일은 on-wire 기준 2바이트/라인 LO-HI 형식(`*.hex`)을 사용하며, DUT는 내부에서 [hi,lo]로 재배치해 연산함.
+## 🧠 동작 개념 요약
 
-비고:
-- on-wire 파일은 2바이트/라인 LO-HI로 저장되며, DUT는 내부에서 [hi,lo]로 재배치해 연산.
-- 결과는 64개 INT32를 hex 형식으로 `golden_result.hex`에 기록.
+| 타이밍 | 동작 |
+|--------|------|
+| **Reset 후** | `base_addr_current` = 시작 주소, `base_addr_next` = base + stride |
+| **i_prefetch_req ↑** | 다음 타일 base를 예측 (`base_addr_next = base_addr_current + stride`) |
+| **타일 내부** | `req_blk_idx_rd`가 0 → `max_req_blk_idx-1`까지 증가하며 블록 단위 Read 수행 |
+| **타일 경계 (tile_read_done)** | `base_addr_current ← base_addr_next`, `buf_idx` 토글, `tile_current_index++` |
+| **이후 Read** | 새로운 base 주소에서 다시 시작 (`o_read_addr` base 변경) |
+
+📘 **요약 설명:**  
+- Step 2는 기존 DMA FSM을 변경하지 않고, **주소 계산 구조만 이중화(double buffering)** 했다.  
+- 한 타일의 Read가 끝나는 시점(`tile_read_done`)마다 자동으로 **다음 타일 base 주소로 전환**된다.  
+- `buf_idx`는 단순히 현재/다음 버퍼의 교대 여부를 표시하며, 이후 단계(버퍼링 최적화)에 사용된다.
+
+## ✅ 검증 포인트 (시뮬레이션 기준)
+
+| 항목 | 기대 결과 |
+|------|------------|
+| **① i_prefetch_req** | 프리패치 요청 시점마다 `base_addr_next`가 갱신 (`current + stride`) |
+| **② tile_read_done** | `req_blk_idx_rd == max_req_blk_idx-1` & `i_read_done` 시점에서 펄스 발생 |
+| **③ base_addr_current** | 타일 경계 직후 `base_addr_next` 값으로 롤오버 |
+| **④ buf_idx** | 타일 경계마다 0↔1 토글 |
+| **⑤ tile_current_index** | 타일 경계마다 +1 증가 |
+| **⑥ o_read_addr** | 새 base 주소(예: 0x00000000 → 0x00000080)에서 다시 시작 |
+| **⑦ o_prefetch_done** | `i_read_done` 싸이클과 동일하게 1클럭 펄스 발생 |
+
+🧩 **검증 조건:**  
+- 최소 2타일 이상의 시나리오에서 시뮬레이션 수행.  
+- 파형에 `base_addr_current`, `base_addr_next`, `buf_idx`, `tile_current_index`를 포함.  
+- 타일 경계 시점(`tile_read_done`)에서 위 조건들이 동시에 충족되면 **Step 2 완료**로 간주.
+
+## 🧩 현재 검증 상태
+
+✅ **Step 2 시뮬레이션 완료 (정상 동작)**  
+
+| 신호 | 관찰 결과 | 설명 |
+|------|------------|------|
+| `base_addr_current` | 타일 경계에서 `0x00 → 0x80` 롤오버 | stride(0x80)만큼 주소 전환 |
+| `base_addr_next` | 0x80으로 유지 (2타일 시나리오 기준) | 다음 타일 주소 예측 정상 |
+| `buf_idx` | 경계마다 0↔1 토글 | 버퍼 교대 플래그 정상 |
+| `tile_current_index` | 타일마다 +1 증가 | 타일 인덱스 정상 증가 |
+| `o_read_addr` | 새 base 주소에서 재시작 | 주소 더블버퍼링 동작 확인 |
+
+📘 **요약:**  
+- 2타일 기준으로 Step 2의 주소 전환 및 토글 동작이 정상 확인되었다.  
+- 다음 단계(Step 3)에서 다중 프리패치(`base_addr_next` = 0x100, 0x180 …) 로직이 추가될 예정이며,  
+  이를 통해 연산–전송 오버랩이 구현된다.
+
+
+# ⚙️ Step 3 — Lightweight Scheduler FSM (WARMUP → STEADY → DRAIN)
 
 ---
 
-## 5. 검증 항목
+## 🎯 목적
+이 단계의 목표는 **연산–데이터 전송의 오버랩(Overlap)** 을 구현하는 것입니다.  
+즉, 이전 타일을 **연산(Compute)** 하는 동안 다음 타일 데이터를 **프리패치(Prefetch)** 하여  
+**데이터 로드 지연(latency)** 을 숨기는 경량 스케줄러 FSM을 구축합니다.
 
-### 5.1 Layer별 검증
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ Level 1: AXI4-Lite (S00_AXI) 프로토콜                        │
-│  ✅ AWVALID/AWREADY 핸드셰이크                               │
-│  ✅ WVALID/WREADY 핸드셰이크                                 │
-│  ✅ BVALID/BREADY 응답                                      │
-│  ✅ ARVALID/ARREADY 핸드셰이크                               │
-│  ✅ RVALID/RREADY 데이터 전송                                │
-│  ✅ Register Write → 내부 신호 전파                          │
-│  ✅ Status Register Read 정확도                             │
-├────────────────────────────────────────────────────────────┤
-│ Level 2: AXI4-Full Read (M00_AXI → DRAM)                   │
-│  ✅ ARVALID/ARREADY 핸드셰이크                              │
-│  ✅ ARLEN = 15 (16 beats burst)                           │
-│  ✅ ARSIZE = 2 (4 bytes per beat)                         │
-│  ✅ ARBURST = INCR                                        │
-│  ✅ RDATA 수신 정확도                                       │
-│  ✅ RLAST 신호 (마지막 beat)                                │
-│  ✅ 내부 DPRAM에 데이터 저장 확인                             │
-├────────────────────────────────────────────────────────────┤
-│ Level 3: AXI4-Full Write (DRAM ← M00_AXI)                  │
-│  ✅ AWVALID/AWREADY 핸드셰이크                              │
-│  ✅ AWLEN = 15 (16 beats burst)                           │
-│  ✅ WVALID/WREADY 핸드셰이크                                │
-│  ✅ WDATA 전송 정확도                                       │
-│  ✅ WLAST 신호 (마지막 beat)                                │
-│  ✅ BVALID/BREADY 응답 수신                                 │
-│  ✅ VIP 메모리에 올바른 주소 저장                             │
-├────────────────────────────────────────────────────────────┤
-│ Level 4: Functional Correctness                            │
-│  ✅ FSM State Transition                                  │
-│     S_IDLE → S_DATA_LOAD → S_WRITE_A → S_WRITE_B           │
-│     → S_LOAD → S_MATMUL → S_STORE → S_OUT                  │
-│  ✅ Matrix A/B Loading to Controller                      │
-│  ✅ Systolic Array 계산 (PE MAC 동작)                      │
-│  ✅ Output C = A × B 정확도                                │
-│  ✅ Golden Model 비교 (모든 원소 일치)                       │
-│  ✅ Done 신호 타이밍                                        │
-└────────────────────────────────────────────────────────────┘
-```
-
-### 5.2 체크리스트
-
-#### 프로토콜 검증 (VIP 자동)
-- [v] AXI4-Lite: No protocol violations
-- [v] AXI4-Full Read: No protocol violations (AxCACHE warnings observed)
-- [v] AXI4-Full Write: No protocol violations (AxCACHE warnings observed)
-- [ ] Burst alignment 체크
-- [ ] Response 체크 (RESP = OKAY)
-
-Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR/FATAL observed in this run.
-
-#### 기능 검증 (Manual)
-- [v] 레지스터 read/write 정확도
-- [ ] DMA read 주소 정확도
-- [ ] DMA write 주소 정확도
-- [ ] Matrix multiplication 결과 정확도
-- [ ] 타이밍 (latency 측정)
-
-#### Waveform 확인
-- [ ] `sa_core.c_state` FSM 확인인
-- [ ] `M_AXI_ARADDR`, `M_AXI_ARVALID`, `M_AXI_ARREADY`
-- [ ] `M_AXI_RDATA`, `M_AXI_RVALID`, `M_AXI_RLAST`
-- [ ] `M_AXI_AWADDR`, `M_AXI_WDATA`, `M_AXI_WLAST`
-- [ ] `dpram_in`, `dpram_out` 내부 메모리 상태
+Step 1~2 단계에서 구축된 핸드셰이크(`prefetch_req`, `prefetch_done`, `compute_req`, `compute_done`)와  
+주소 더블버퍼링(`base_addr_current`, `base_addr_next`)을 기반으로 FSM을 추가합니다.
 
 ---
 
-## 6. 앞으로 해야 할 작업들
+## 🧠 동작 개념
+FSM은 3 단계로 구성됩니다:
 
-### 6.1 현재 문제점 개선
-- [ ] DMA Write가 64B만 쓰는 이슈 해결 (256B 전체 쓰기)
-  - `sa_engine_ip_1.0/hdl/sa_core_pipeline.sv`의 고정값 제거: `num_trans`/`max_req_blk_idx`를 AXI‑Lite 레지스터(`i_num_trans_param`, `i_max_blk_param`)에 연결
-  - `sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv` 쓰기 FSM의 블록 반복 조건(`(max_req_blk_idx>>1)`) 정합성 재검토 → 읽기와 대칭적으로 총 64워드가 쓰이도록 조정
-  - 검증: `M_AXI_AWLEN`/`M_AXI_WLAST`/`M_AXI_AWADDR` 파형으로 버스트 수/주소 증가 확인, 결과 64개 PASS 확인
-- [ ] AXI VIP 경고(AxCACHE narrow-support) 제거
-  - `dma_read.sv`/`dma_write.sv`의 `AR/ARCACHE`, `AW/AWCACHE`를 권장값(예: `4'b0011`)으로 설정하거나, VIP 체크 완화 API 사용
-  - 경고 Zero 기준이면 README 체크리스트 업데이트
-- [ ] 문서/체크리스트 동기화
-  - Output 메모리 레이아웃(현재 0x3F까지만 실쓰기) → 이슈 해결 후 `write_base_addr + 0x00 ~ 0xFF`로 갱신
-  - 5.2의 Burst alignment/RESP OKAY 항목은 파형/로그로 근거 확보 후 체크
+| 상태 | 역할 | 설명 |
+|------|------|------|
+| **SCH_WARMUP** | 초기 준비 | 첫 타일 데이터를 프리패치(`prefetch_req`)하고 준비 완료 후 `compute_req` 1회 발행 |
+| **SCH_STEADY** | 오버랩 구간 | 코어는 계속 연산 중이며, DMA는 이전 타일이 끝나는 즉시 다음 타일을 프리패치 |
+| **SCH_DRAIN** | 마지막 타일 마무리 | 마지막 타일의 연산만 남은 상태로 새로운 프리패치는 없음 |
 
-### 6.2 sedong 브랜치 내용 반영
-- [ ] `sedong` 브랜치 변경점 리뷰/merge (충돌 해결 포함)
-- [ ] 시뮬 재생성(`sa_engine_ip_1.0/example_designs/bfm_design/design.tcl`) 및 BFM 회귀 통과
-- [ ] 관련 문서(레지스터/데이터 형식/성능 수치) 업데이트
+FSM은 다음 규칙으로 동작합니다:
+- `prefetch_req` 발행 → DMA Read 시작(`i_prefetch_req`)  
+- DMA Read FSM 내부에서 모든 블록 전송이 끝나면 `o_prefetch_done` 1 펄스 발생  
+- `prefetch_done` 발생 후 `prefetch_inflight` 0 → 다음 타일 예약 (`prefetch_req`)  
+- `tile_current_index` 는 `prefetch_done` 시 +1 되어 타일 경계 추적  
+- 마지막 타일이면 `has_next_tile = 0` → 프리패치 중단, `SCH_DRAIN` 진입
 
-### 6.3 FPGA 보드 올려보기 (PYNQ‑Z2)
-- [ ] 하드웨어 디자인 재빌드/비트스트림 생성
-  - 명령: `vivado -mode batch -source sa_engine_ip_1.0/example_designs/debug_hw_design/design.tcl`
-- [ ] 보드 프로그래밍 및 AXI‑Lite 드라이버 테스트(레지스터 R/W, DONE 인터럽트 확인)
-- [ ] DDR 트래픽/성능 계측(주기/지연, 초당 전송량) 및 결과 검증
+---
 
-### 6.4 Multi‑Head Attention Layer 가속
-- [ ] GEMM 타일링/스케줄러 설계(쿼리/키/밸류 경로, 8×8 타일 매핑)
-- [ ] 소프트맥스/스케일 및 정규화 처리 전략 수립(정밀도/범위)
-- [ ] DMA 레이아웃/버스트 계획(연속 접근, 4KB 경계, 캐시 속성)
-- [ ] 기능/성능 검증 벤치 및 골든 생성 스크립트 확장
+## 🧩 주요 수정 내용
 
-**End of Document**
+### 1️⃣ FSM 정의 추가 (`sa_core_pipeline.sv`)
+```verilog
+typedef enum logic [1:0] {SCH_WARMUP, SCH_STEADY, SCH_DRAIN} sch_e;
+sch_e sstate, sstate_n;
 
-Last Updated: 2025-11-04  
-Version: 1.0  
-Author: Jimin Hwang 
-Project: Chung-Ang University Capstone Design
+logic prefetch_inflight;
+logic [15:0] tile_current_index_q;
+parameter int unsigned NUM_TILES_P = 8;
+wire [15:0] num_tiles_w = NUM_TILES_P;
+wire has_next_tile = (tile_current_index_q < (num_tiles_w - 16'd1));
+```
+
+## 2️⃣ 상태 / 토큰 갱신
+
+FSM의 현재 상태(`sstate`), 프리패치 토큰(`prefetch_inflight`),  
+그리고 타일 인덱스(`tile_current_index_q`)를 매 클럭마다 갱신합니다.
+
+- `prefetch_req` 발생 시 → inflight=1  
+- `prefetch_done` 발생 시 → inflight=0  
+- `prefetch_done` 발생 시 → 타일 인덱스 +1  
+- 리셋 시 모든 값 초기화
+
+```verilog
+always_ff @(posedge clk or negedge rst_n) begin
+  if (!rst_n) begin
+    sstate <= SCH_WARMUP;
+    prefetch_inflight <= 1'b0;
+    tile_current_index_q <= '0;
+  end else begin
+    sstate <= sstate_n;
+    if (prefetch_req)  prefetch_inflight <= 1'b1;
+    if (prefetch_done) prefetch_inflight <= 1'b0;
+    if (prefetch_done) tile_current_index_q <= tile_current_index_q + 16'd1;
+  end
+end
+```
+
+## 3️⃣ FSM 동작 논리
+
+FSM은 **3단계**로 동작합니다:  
+`SCH_WARMUP` → `SCH_STEADY` → `SCH_DRAIN`.
+
+- **WARMUP** : 첫 타일 준비 및 연산 시작 (`compute_req` 1회)  
+- **STEADY** : 프리패치–컴퓨트 오버랩 반복  
+- **DRAIN** : 마지막 타일, 추가 프리패치 없음
+
+```verilog
+always_comb begin
+  sstate_n = sstate;
+  prefetch_req = 1'b0;
+  compute_req  = 1'b0;
+
+  unique case (sstate)
+    // --- 초기 준비 ---
+    SCH_WARMUP: begin
+      if (has_next_tile && !prefetch_inflight)
+        prefetch_req = 1'b1;          // 첫 타일 프리패치
+      if (prefetch_done) begin
+        compute_req = 1'b1;           // 코어 전체 스타트(1회)
+        if (has_next_tile && !prefetch_inflight)
+          prefetch_req = 1'b1;        // 다음 타일 예약
+        sstate_n = (num_tiles_w == 16'd1) ? SCH_DRAIN : SCH_STEADY;
+      end
+    end
+
+    // --- 오버랩 구간 ---
+    SCH_STEADY: begin
+      if (has_next_tile && !prefetch_inflight)
+        prefetch_req = 1'b1;          // 다음 타일 프리패치
+      if (tile_current_index_q == (num_tiles_w - 16'd1))
+        sstate_n = SCH_DRAIN;
+    end
+
+    // --- 마지막 타일 ---
+    SCH_DRAIN: begin
+      // 프리패치 없음, compute만 지속
+    end
+  endcase
+end
+```
+
+## 4️⃣ DMA 제어 수정 (`axi_dma_ctrl.sv`)
+
+기존에는 `o_prefetch_done`이 단일 read 블록(`i_read_done`) 기준이었지만,  
+Step 3에서는 **타일 전체 완료 시점(ctrl_read_done)** 을 기준으로 수정해야 한다.
+
+```diff
+- assign o_prefetch_done = i_read_done;
++ assign o_prefetch_done = ctrl_read_done;   // 타일 전체 완료 펄스로 변경
+```
+
+---
+
+## 🧪 검증 포인트 (시뮬레이션)
+
+| 항목 | 기대 결과 |
+|------|-------------|
+| FSM 전이 | `SCH_WARMUP → SCH_STEADY → SCH_DRAIN` |
+| Prefetch 요청 | 타일 수(`NUM_TILES_P`) 만큼 반복 발행 |
+| `prefetch_inflight` | 1 → 0 → 1 → 0 패턴 반복 |
+| `tile_current_index_q` | 0 → 7 까지 타일 단위 증가 |
+| `base_addr_current` | `0x00 → 0x80 → 0x100 → ...` 타일마다 1회 증가 |
+| DMA Read FSM | 각 타일마다 0→2→0 사이클 반복 |
+| 마지막 타일 | `has_next_tile=0`, FSM=`SCH_DRAIN`, 프리패치 중단 확인 |
+
+🧩 **파형 예시 주요 신호**
+- `prefetch_req`, `prefetch_done`, `prefetch_inflight`
+- `i_prefetch_req`, `o_prefetch_done`
+- `o_ctrl_read`, `o_read_addr`, `base_addr_current`, `base_addr_next`
+- `tile_current_index_q`, `current_state`
+
+📘 **검증 성공 기준**
+> 타일 수만큼 `prefetch_req`와 `prefetch_done`이 교대로 발생하고,  
+> `base_addr_current`가 stride(0x80) 단위로 증가하며,  
+> 마지막 타일에서 FSM이 `SCH_DRAIN`으로 전이되면 Step 3 성공.
+
+## ✅ 결과 요약
+
+- FSM 스케줄러가 **연산–프리패치 오버랩 구조**로 정상 동작함을 확인.  
+- `prefetch_req` / `prefetch_done` / `compute_req` 의 타이밍이 정확히 일치.  
+- DMA Read 주소(`o_read_addr`)가 타일당 stride(0x80)씩 증가.  
+- `prefetch_inflight` 토큰과 `has_next_tile` 조건이 정상적으로 프리패치 중복을 방지.  
+- 마지막 타일에서 자동으로 `SCH_DRAIN`으로 전이되며 프리패치 중단.  
+
+📈 **결론:**  
+> Step 3에서 연산과 DMA 전송이 완전히 겹치는  
+> **Lightweight Pipeline Scheduler FSM** 이 구현되었다.  
+> 이후 Step 4(미리시작 큐) 및 Step 5(파이프라인 오케스트레이션) 개발의 기반이 마련됨.
+
+# 🧩 Step 4 — DMA Read 1-Entry Prefetch Queue (Pending Mechanism)
+
+---
+
+## 🎯 목적
+Step 3에서 DMA Read FSM은 정상적인 타일 단위 동작을 수행하지만,  
+프리패치(`prefetch_req`)가 FSM 활성 중(`rd_active = 1`)에 겹치는 **경계 공백 상황**이 생길 수 있다.
+
+Step 4의 목표는 DMA가 아직 바쁜 상태에서도 새로운 프리패치 요청을 놓치지 않도록,  
+**1-entry pending 큐 (`rd_pending`)** 를 두어 요청을 임시 저장하고 IDLE 또는 DONE 진입 직후 즉시 집행하도록 하는 것이다.
+
+> ✅ 즉, DMA Read의 타이밍 여유를 조금 줄여도 프리패치 누락이 발생하지 않도록 하는 안전장치 역할이다.
+
+---
+
+## ⚙️ 수정 내용 (`axi_dma_ctrl.sv`)
+
+| 항목 | 설명 |
+|------|------|
+| `rd_pending` 신호 추가 | 바쁠 때(`rd_active = 1`) 들어온 `i_prefetch_req` 1회 저장 |
+| `rd_active` 신호 추가 | FSM 이 IDLE이 아닐 때 1 (디버그 용도) |
+| FSM 전이 보강 | `ST_IDLE`: `(i_prefetch_req || rd_pending)` 이면 착수<br>`ST_DMA_DONE`: `rd_pending` 있으면 바로 재시작 |
+| 외부 I/F | 추가 포트 없음 (`i_prefetch_req`/`o_prefetch_done` 그대로 사용) |
+
+핵심 동작 요약:
+```verilog
+// pending queue logic
+if (i_prefetch_req && rd_active)
+  rd_pending <= 1'b1;
+if ((cstate_rd == ST_IDLE && i_prefetch_req) ||
+    (cstate_rd == ST_DMA_DONE && rd_pending))
+  rd_pending <= 1'b0;
+
+// FSM 전이
+ST_IDLE: if (i_prefetch_req || rd_pending) nstate_rd = ST_DMA;
+ST_DMA_DONE: nstate_rd = (rd_pending) ? ST_DMA : ST_IDLE;
+```
+
+## 🧠 동작 개념
+
+| 시점 | 동작 |
+|------|------|
+| DMA 활성 중 (`rd_active = 1`) | 새로운 `prefetch_req` 발생 시 `rd_pending = 1` 로 저장 |
+| DMA 완료 (`ST_DMA_DONE`) → IDLE 복귀 | `rd_pending = 1`이면 바로 다음 클럭에 재착수 (`ST_DMA`) |
+| IDLE 상태에서 요청 발생 | 기존과 동일하게 즉시 착수 (`ctrl_read = 1`) |
+| Reset 또는 Drain 진입 | `rd_pending <= 0` 으로 초기화 |
+
+📘 **요약**  
+> Step 4의 pending 큐는 DMA가 바쁠 때 들어온 요청을 1회 저장했다가,  
+> IDLE 또는 DONE으로 전환되자마자 즉시 집행함으로써 **요청 누락을 방지**하고  
+> DMA Read의 **경계 공백을 최소화**한다.
+
+## ✅ 시뮬레이션 관찰 포인트
+
+| 신호 | 기대 동작 |
+|------|------------|
+| `rd_pending` | 기본 상황에서는 0 유지 (스케줄러가 안전하게 타이밍 보장) |
+| `i_prefetch_req && rd_active` 발생 시 | `rd_pending = 1` → 다음 착수 시 0으로 소진 |
+| `ST_DMA_DONE → ST_DMA` 전이 | `rd_pending`이 있을 때 gap 없이 재착수 |
+| `o_ctrl_read` | 이전과 동일한 주소/버스트 시퀀스(0x80 stride) 유지 |
+| `o_prefetch_done` | 타일 단위 완료 펄스 그대로 유지 |
+
+🧩 **관찰 팁**  
+> 파형에서 `rd_pending`이 거의 0이라면 정상이며,  
+> DMA와 스케줄러가 완벽히 동기화된 상태임을 의미한다.
+
+## 🔎 현재 검증 상황
+
+- 스케줄러가 `prefetch_req`를 항상 DMA IDLE 타이밍에 내보내므로  
+  `rd_pending`은 활성화되지 않음.  
+- 이는 **정상 동작이며**, Step 4의 큐 가드가 실제로는 필요 없는 상태임을 의미한다.  
+- 즉, `rd_pending`은 **비상용 안전장치**로만 존재하며,  
+  향후 스케줄링이 더 촘촘하거나 비동기적일 때 효과가 나타난다.  
+
+📘 **요약**  
+> 현재 파형은 DMA와 스케줄러의 타이밍 정합이 완벽히 이루어진 상태이며,  
+> Step 4는 안정성을 강화하는 구조적 여유 확보 단계로 기능한다.
+
+## 📈 결과 요약
+
+- DMA Read FSM에 **1-entry pending 큐**가 추가되어,  
+  프리패치 요청이 DMA 활성 중일 때도 손실 없이 처리 가능.  
+- Step 4는 실질적인 성능 향상보다는 **경계 안정성 강화 및 요청 누락 방지** 목적.  
+- 시뮬레이션 결과, 기존 동작에 영향 없이 안정적으로 통합 완료됨.  
+- 향후 더 타이트한 파이프라이닝이나 AXI 트래픽 혼잡 상황에서도  
+  안정적 DMA Read 오버랩이 유지될 것으로 예상됨.  
+
+✅ **결론**  
+> Step 4 완료 — DMA Read 경계 공백 보호용 pending 메커니즘이 정상 추가되었으며,  
+> 기존 기능과 타이밍은 그대로 유지됨.
+
+# 🧩 Step 5 — Scheduler Orchestration Stabilization (스케줄러 동작 안정화)
+
+---
+
+## 🎯 목적
+
+Step 3 ~ 4 에서 구현된 Prefetch/Compute 오버랩 스케줄러를 실제 타일 전체 연산 흐름에서  
+**안정적으로 순환**하도록 다듬는 단계이다.  
+
+- **FSM 전이(WARMUP → STEADY → DRAIN)** 구조 확정  
+- **Compute 트리거 원샷 보장** (첫 타일에서 1회 만 발생)  
+- **마지막 타일에서 Prefetch 중단** → DRAIN으로 자연스럽게 수렴  
+- DMA/CORE 인터페이스는 그대로 유지, 성능 계측 카운터는 Step 7에서 통합 진행
+
+---
+
+## ⚙️ 주요 수정 파일 및 내용
+
+### 🔹 `sa_core_pipeline.sv`
+| 구분 | 수정 내용 |
+|------|-----------|
+| **1️⃣ FSM 정리** | `SCH_WARMUP → SCH_STEADY → SCH_DRAIN` 3-state 로 정리 및 전이 조건 명확화 |
+| **2️⃣ Compute 원샷 보장** | 첫 prefetch 완료 시(`prefetch_done`) 한 번만 `compute_req = 1` 펄스 발생 |
+| **3️⃣ Prefetch Guard 보강** | `has_next_tile && !prefetch_inflight` 조건으로 중복 요청 차단 |
+| **4️⃣ 마지막 타일 처리** | `tile_current_index == num_tiles_total − 1` 이면 Prefetch 정지, DRAIN 진입 |
+| **5️⃣ 초기화 및 리셋** | 모든 카운터, 플래그 (`prefetch_inflight`, `tile_current_index`) 리셋 로직 명확화 |
+
+---
+
+## 🧠 동작 개념 요약
+
+| 상태 | 주요 동작 | 전이 조건 |
+|------|-----------|-----------|
+| **WARMUP** | 첫 타일 Prefetch 시작 → Prefetch 완료 후 Compute 1회 트리거 | Prefetch 완료 시 → STEADY |
+| **STEADY** | Prefetch/Compute 오버랩 반복 (다음 타일 준비 중 현재 타일 연산) | 마지막 타일 완료 시 → DRAIN |
+| **DRAIN** | 남은 연산 마무리 후 종료 | Core `done_core` 신호 발생 |
+
+📘 요약 :  
+Step 5에서는 스케줄러가 **전체 타일 시퀀스를 완전한 루프**로 돌며 오버랩이 끊기지 않도록 조율했다.
+
+---
+
+## ✅ 시뮬레이션 검증 포인트
+
+| 신호 | 기대 패턴 | 설명 |
+|------|------------|------|
+| `compute_req` | 첫 타일 (WARMUP) 시 1펄스 후 비활성 | Compute 원샷 보장 |
+| `prefetch_req` | 각 타일 시작 시 1펄스 | Prefetch 타이밍 정상 |
+| `prefetch_inflight` | 타일 읽기 동안 1 → 완료 시 0 | DMA 활성 표시 |
+| `tile_current_index` | 0 → 1 → 2 → … → 최종 타일 도달 후 멈춤 | 타일 진행 정상 |
+| `current_state` | WARMUP → STEADY → DRAIN 순으로 전이 | FSM 상태 정상 |
+
+---
+
+## 🧩 현재 검증 상태
+
+- 타일 수 (`NUM_TILES_TOTAL`) = 6 환경에서 FSM이 **DRAIN 까지 정상 전이**  
+- 각 타일마다 Prefetch / Compute 오버랩 패턴 확인  
+- Prefetch 중복 요청 없고, Compute 트리거 1회 만 발생 확인  
+- DMA 주소 증분 (`o_read_addr` 0x40 stride, 타일 간 0x80 stride) 정상  
+- 전체 파이프라인 흐름 끊김 없음 → Step 5 완료 판정
+
+---
+
+## 📈 결과 요약
+
+- 스케줄러 FSM 및 Prefetch/Compute 오버랩 시퀀스 **안정화 완료**  
+- DMA Read FSM, Core Compute FSM 간의 타이밍 정합 완전 확립  
+- 구조적 변경 없이 타일 시퀀스 완전 동작 달성  
+- Step 7 (성능 리포트) 단계에서 이 구조 위에 활동 카운터를 통합 예정
+
+✅ **결론 :** Step 5에서는 기능 최종 형상을 확정 하고 안정화 까지 완료하였다.  
+이제 Step 6 ~ 7 에서 성능 측정 및 결과 리포트 산출을 진행할 수 있다.

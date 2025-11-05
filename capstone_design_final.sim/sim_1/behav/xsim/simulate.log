@@ -1,0 +1,31 @@
+Time resolution is 1 ps
+Initializing memory 'SimmemSync_rp0_wp0_cp1'..
+Loading memory 'SimmemSync_rp0_wp0_cp1' from file: matrix_A_B.hex
+WARNING: 0ns : none of the conditions were true for unique case from File:C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:234
+WARNING: 0ns : none of the conditions were true for unique case from File:C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:234
+
+Time: 2340 ns Started: 2340 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:251
+Error: dpram_in_addrb out of A range
+Time: 2340 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 253
+
+Time: 2350 ns Started: 2350 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:251
+Error: dpram_in_addrb out of A range
+Time: 2350 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 253
+
+Time: 2360 ns Started: 2360 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:251
+Error: dpram_in_addrb out of A range
+Time: 2360 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 253
+
+Time: 3010 ns Started: 3010 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
+Error: dpram_in_addrb out of B range
+Time: 3010 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
+
+Time: 3020 ns Started: 3020 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
+Error: dpram_in_addrb out of B range
+Time: 3020 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
+
+Time: 3030 ns Started: 3030 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
+Error: dpram_in_addrb out of B range
+Time: 3030 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
+network_done received!
+$finish called at time : 4540 ns : File "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 252

@@ -20,6 +20,7 @@ module axi_dma_ctrl #(
 input  logic                  clk, 
 input  logic                  rstn,
 input  logic [1:0]            i_start,
+input  logic                  i_prefetch_req,
 input  logic [31:0]           i_base_address_rd,
 input  logic [31:0]           i_base_address_wr,
 input  logic [BIT_TRANS-1:0]  i_num_trans,
@@ -36,7 +37,8 @@ input  logic                  i_indata_req_wr,
 output logic                  o_ctrl_write,
 output logic [31:0]           o_write_addr,
 output logic [BIT_TRANS-1:0]  o_write_data_cnt,
-output logic                  o_ctrl_write_done   
+output logic                  o_ctrl_write_done,
+output logic                  o_prefetch_done   
 );
 
 // Internal Signals
@@ -57,6 +59,9 @@ logic ctrl_read_sync;
 logic ctrl_read_done;
 logic [AXI_WIDTH_AD-1:0] read_addr;
 logic [15:0] req_blk_idx_rd;
+
+logic rd_pending;
+wire  rd_active = (cstate_rd != ST_IDLE);
 
 // dma write
 logic ctrl_write;
@@ -90,6 +95,49 @@ assign o_read_addr          = read_addr;
 assign o_write_addr         = write_addr;
 assign o_ctrl_write_done    = ctrl_write_done;
 
+assign o_prefetch_done      = ctrl_read_done;
+
+logic buf_idx;
+logic [31:0] base_addr_current;
+logic [31:0] base_addr_next;
+logic [15:0] tile_current_idx;
+
+wire [31:0] tile_stride_rd = {max_req_blk_idx, 6'b0};
+
+wire last_read_of_tile = (req_blk_idx_rd == max_req_blk_idx - 16'd1);
+wire tile_read_done = (read_done && last_read_of_tile);
+
+always_ff @(posedge clk or negedge rstn) begin
+    if(~rstn) begin
+        buf_idx            <= 1'b0;
+        tile_current_idx   <= 16'b0;
+        base_addr_current  <= dram_base_addr_rd;
+        base_addr_next     <= dram_base_addr_rd + tile_stride_rd;
+    end else begin
+        if (i_prefetch_req) begin
+            base_addr_next <= base_addr_current + tile_stride_rd;
+        end
+        
+        if (tile_read_done) begin
+            buf_idx           <= ~buf_idx;
+            base_addr_current <= base_addr_next;
+            tile_current_idx  <= tile_current_idx + 16'd1;
+        end
+    end
+end
+
+always_ff @(posedge clk or negedge rstn) begin
+    if (!rstn) begin
+        rd_pending <= 1'b0;
+    end else begin
+        if (i_prefetch_req && rd_active)
+            rd_pending <= 1'b1;
+            
+        if ((cstate_rd == ST_IDLE && i_prefetch_req) || (cstate_rd == ST_DMA_DONE && rd_pending))
+            rd_pending <= 1'b0;
+    end
+end
+
 //----------------------------------------------------------------
 // FSM for DMA Read
 //----------------------------------------------------------------
@@ -110,31 +158,31 @@ always_comb begin
     nstate_rd = cstate_rd;
     case(cstate_rd)
         ST_IDLE: begin
-            if(i_start == 2'b10) 
+            if(i_prefetch_req || rd_pending) 
                 nstate_rd = ST_DMA;
             else
                 nstate_rd = ST_IDLE;
         end
         ST_DMA: begin
+            ctrl_read = 1'b1;
             nstate_rd = ST_DMA_WAIT;
-            ctrl_read = 1;
         end
         ST_DMA_WAIT: begin
-            ctrl_read_wait = 1;
+            ctrl_read_wait = 1'b1;
             if(read_done) begin 
-                if (req_blk_idx_rd == max_req_blk_idx - 1)
+                if (req_blk_idx_rd == max_req_blk_idx - 16'b1)
                     nstate_rd = ST_DMA_DONE;
                 else                 
                     nstate_rd = ST_DMA_SYNC;
             end 
         end 
         ST_DMA_SYNC: begin 
-            ctrl_read_sync = 1;
+            ctrl_read_sync = 1'b1;
             nstate_rd = ST_DMA;         
         end 
         ST_DMA_DONE: begin
-            ctrl_read_done = 1;
-            nstate_rd = ST_IDLE;
+            ctrl_read_done = 1'b1;
+            nstate_rd = (rd_pending) ? ST_DMA : ST_IDLE;
         end
         default: nstate_rd = ST_IDLE;
     endcase 
@@ -154,8 +202,8 @@ always_ff @(posedge clk or negedge rstn) begin
     end
 end
 
-assign read_addr = dram_base_addr_rd + {req_blk_idx_rd, 6'b0};
-// + {row_cnt*80, 6'b0}; 
+assign read_addr = base_addr_current + {req_blk_idx_rd, 6'b0};
+// + {row_cnt*80, 6'b0};  
 
 //----------------------------------------------------------------
 // FSM for DMA Write
