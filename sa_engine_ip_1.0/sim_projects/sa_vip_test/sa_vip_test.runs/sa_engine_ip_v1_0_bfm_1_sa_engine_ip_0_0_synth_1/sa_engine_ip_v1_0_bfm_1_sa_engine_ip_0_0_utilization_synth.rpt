@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date         : Wed Nov  5 16:51:02 2025
+| Date         : Thu Nov  6 22:06:49 2025
 | Host         : BOOK-Q06N8541RB running 64-bit major release  (build 9200)
 | Command      : report_utilization -file sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_utilization_synth.rpt -pb sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_utilization_synth.pb
 | Design       : sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0
@@ -36,11 +36,11 @@ Table of Contents
 |   LUT as Memory            |  128 |     0 |          0 |     17400 |  0.74 |
 |     LUT as Distributed RAM |  128 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            | 5952 |     0 |          0 |    106400 |  5.59 |
-|   Register as Flip Flop    | 5952 |     0 |          0 |    106400 |  5.59 |
+| Slice Registers            | 5954 |     0 |          0 |    106400 |  5.60 |
+|   Register as Flip Flop    | 5954 |     0 |          0 |    106400 |  5.60 |
 |   Register as Latch        |    0 |     0 |          0 |    106400 |  0.00 |
-| F7 Muxes                   |  216 |     0 |          0 |     26600 |  0.81 |
-| F8 Muxes                   |  108 |     0 |          0 |     13300 |  0.81 |
+| F7 Muxes                   |  218 |     0 |          0 |     26600 |  0.82 |
+| F8 Muxes                   |  100 |     0 |          0 |     13300 |  0.75 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -58,7 +58,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 3     |          Yes |           - |          Set |
-| 329   |          Yes |           - |        Reset |
+| 331   |          Yes |           - |        Reset |
 | 1     |          Yes |         Set |            - |
 | 5619  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -153,15 +153,15 @@ Table of Contents
 +----------+------+---------------------+
 | FDRE     | 5619 |        Flop & Latch |
 | LUT6     | 3985 |                 LUT |
-| LUT2     | 2146 |                 LUT |
-| LUT4     | 1493 |                 LUT |
-| LUT3     | 1419 |                 LUT |
+| LUT2     | 2144 |                 LUT |
+| LUT4     | 1495 |                 LUT |
+| LUT3     | 1418 |                 LUT |
 | CARRY4   | 1003 |          CarryLogic |
-| LUT5     |  521 |                 LUT |
-| FDCE     |  329 |        Flop & Latch |
-| MUXF7    |  216 |               MuxFx |
+| LUT5     |  523 |                 LUT |
+| FDCE     |  331 |        Flop & Latch |
+| MUXF7    |  218 |               MuxFx |
 | RAMD32   |  160 |  Distributed Memory |
-| MUXF8    |  108 |               MuxFx |
+| MUXF8    |  100 |               MuxFx |
 | LUT1     |   71 |                 LUT |
 | RAMS32   |   32 |  Distributed Memory |
 | RAMB36E1 |    3 |        Block Memory |

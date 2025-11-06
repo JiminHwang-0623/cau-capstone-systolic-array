@@ -629,6 +629,96 @@ C) DSP 0% → DSP 쓰도록 하는 최소 변경 포인트
 
 ---
 
+## 7. sa_core 없는 파이프라인 전환 계획 (RTL/sim 리팩터)
+
+본 섹션은 기존 `sa_core` 내부 FSM에 의존하던 구조를 타일 단위 파이프라인(Loader/Compute/Store)로 분해하고, `rtl/`·`sim/` 재구성에 맞춘 개발 순서와 완료 기준을 정리합니다.
+
+### 7.1 요구 스펙 요약
+- 보드/클럭: PYNQ‑Z2, PL 100 MHz
+- 정밀도: INT8×INT8 → INT32 누적
+- 버스: AXI4‑Lite(제어), AXI4‑Full(읽기/쓰기)
+- 스케줄: 2‑레벨 타일링 + on‑chip A 상주(update_A) + B ping‑pong 스트리밍 + READ/COMPUTE/WRITE 오버랩
+
+### 7.2 인스턴스 트리(목표)
+```
+sa_engine_ip_v1_0
+└─ sa_core_pipeline (sa_core 제거 버전)
+   ├─ axi_dma_ctrl
+   │  ├─ axi_addr_gen (READ)
+   │  └─ axi_addr_gen (WRITE)
+   ├─ dma_read
+   ├─ dma_write
+   ├─ tile_orchestrator      // Block→Tile→K-loop FSM, 경계/마스크
+   ├─ tile_loader            // A 상주 + B ping-pong 버퍼 채움
+   │  ├─ dpram_wrapper : A_persist_buf
+   │  └─ bram_pingpong : B_buf0 / B_buf1
+   ├─ tile_compute           // 8×8 연산 및 K 축 누적 제어
+   │  └─ sa_controller → pe_array_8x8 (pe_int8_lut/dsp)
+   └─ tile_store             // C 타일 write-back
+      └─ dpram_wrapper : C_tile_buf
+```
+
+### 7.3 디렉토리/파일 구조(현행)
+```
+sa_engine_ip_1.0/
+├── rtl/
+│   ├── top/        : sa_engine_ip_v1_0.v
+│   ├── axi/        : axi_dma_ctrl.sv, dma_read.sv, dma_write.sv, axi_addr_gen.sv
+│   ├── core/       : sa_core_pipeline.sv, tile_{orchestrator,loader,compute,store}.sv (신규)
+│   ├── pe/         : pe_array_8x8.sv, pe_int8_{lut,dsp}.sv, sa_controller.sv, sa_PE_wrapper.sv, sa_RF.sv, X_REG.sv
+│   ├── mem/        : dpram_wrapper.sv, bram_pingpong.sv
+│   ├── pkg/        : sa_params_pkg.sv, axi_regs_pkg.sv
+│   └── include/    : sa_defs.svh, addr_map.svh
+└── sim/
+    ├── tb/         : sa_matmul_tb.sv, tb_tasks.svh, axi_vip_config.svh
+    ├── data/       : matrix_*.hex, *.mem, golden_result.hex
+    └── scripts/    : generate_test_vectors.py, create_bd_with_vip.tcl, setup_sim.tcl
+```
+
+### 7.4 데이터플로(의사코드)
+```
+if (update_A)  load A_block → A_persist_buf
+for col_blk in 0..M step BLOCK_M:
+  preload B_block into ping-pong
+  for i in 0..N step TILE_SIZE:
+    for j in col_blk..col_blk+BLOCK_M step TILE_SIZE:
+      clear C_tile
+      for k in 0..K step TILE_SIZE:
+        load A_tile (from A_persist_buf)
+        load B_tile (from ping-pong)
+        compute 8×8 tile (K-TILE accumulate, II=1)
+      store C_tile (burst write)
+```
+
+### 7.5 작업 순서(스텝별, 작은 단위)
+1) 패키지/헤더 확정: `sa_params_pkg.sv`, `axi_regs_pkg.sv`, `addr_map.svh`, `sa_defs.svh`에 파라미터·오프셋·매크로 정의  [완료]
+2) 스텁 포트 확정: `tile_*`, `axi_addr_gen`, `bram_pingpong`, `pe_*`의 입출력·핸드셰이크만 정의(기능 없이 컴파일 가능)  [완료]
+3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)
+4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`)
+5) 로더: `tile_loader.sv`에서 `axi_dma_ctrl`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성
+6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입
+7) 컴퓨트: `tile_compute.sv`에서 K‑loop 누적·파이프 딜레이 보정, 경계 zero‑pad/mask
+8) 스토어: `tile_store.sv`에서 C 타일 버퍼→`dma_write` 연속 버스트 아웃
+9) 오케스트레이터: `tile_orchestrator.sv` Block→Tile→K FSM, 초기 비‑오버랩→오버랩 확장
+10) 파이프라인 통합: `sa_core_pipeline.sv`에서 신규 `tile_*`와 DMA를 직접 배선(기존 경로는 파라미터로 보존)
+11) TB 보강: 신규 레지스터 시퀀스(update_A/N/K/M/stride)와 경계 케이스(13×13 등) 추가
+12) 합성/리포트: `USE_DSP=1`로 합성 후 DSP 사용률/타이밍 확인
+
+### 7.6 레지스터 맵(요약)
+- CONTROL(0x00): `start[0]`, `update_A[1]`, `irq_en[2]`
+- STATUS(0x04): `busy[0]`, `done[1]`, `error[2]`
+- `N(0x08)`, `K(0x0C)`, `M(0x10)`
+- `TILE_SIZE(0x14)`, `BLOCK_M(0x18)`
+- `base_A(0x1C)`, `base_B(0x20)`, `base_C(0x24)`
+- 옵션: `stride_A(0x28)`, `stride_B(0x2C)`, `stride_C(0x30)`, perf(`burst_cnt`, `stall_cycles`)
+
+### 7.7 완료 기준
+- 시뮬: 8×8·16×16 golden match, READ/COMPUTE/WRITE 오버랩 파형/버스트 로그 확인
+- 합성: 빌드 성공, `USE_DSP=1`에서 DSP 사용률 > 0%
+- 기능: `update_A=1`에서 A 재로드 없이 반복 호출 정상
+
+---
+
 **End of Document**
 
 Last Updated: 2025-11-05  
