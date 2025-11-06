@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.75",
-   "Default View_TopLeft":"-162,-109",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-610,-299",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -10,12 +10,12 @@ preplace port port-id_ARESETN -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
 preplace inst slave_0 -pg 1 -lvl 1 -x 130 -y 60 -defaultsOSRD
 preplace inst master_0 -pg 1 -lvl 3 -x 660 -y 110 -defaultsOSRD
 preplace inst sa_engine_ip_0 -pg 1 -lvl 2 -x 400 -y 110 -defaultsOSRD
-preplace netloc ACLK_1 1 0 3 20 130 240 0 550J
-preplace netloc ARESETN_1 1 0 3 30 140 230 220 550J
+preplace netloc ACLK_1 1 0 3 20 130 240 0 560J
+preplace netloc ARESETN_1 1 0 3 30 140 230 220 560J
 preplace netloc sa_engine_ip_0_M00_AXI 1 2 1 N 90
 preplace netloc slave_0_M_AXI 1 1 1 N 60
 levelinfo -pg 1 0 130 400 660 760
-pagesize -pg 1 -db -bbox -sgen -110 -10 760 240
+pagesize -pg 1 -db -bbox -sgen -120 -10 760 240
 "
 }
 0

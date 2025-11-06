@@ -393,43 +393,43 @@ Note:
 ### 5.2 체크리스트
 
 #### 프로토콜 검증 (VIP 자동)
-- [v] AXI4-Lite: No protocol violations
-- [v] AXI4-Full Read: No protocol violations (AxCACHE warnings observed)
-- [v] AXI4-Full Write: No protocol violations (AxCACHE warnings observed)
-- [ ] Burst alignment 체크
-- [ ] Response 체크 (RESP = OKAY)
+- [x] AXI4-Lite: No protocol violations
+- [x] AXI4-Full Read: No protocol violations (AxCACHE warnings observed)
+- [x] AXI4-Full Write: No protocol violations (AxCACHE warnings observed)
+- [x] Burst alignment 체크
+- [x] Response 체크 (RESP = OKAY)
 
 Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR/FATAL observed in this run.
 
 #### 기능 검증 (Manual)
-- [v] 레지스터 read/write 정확도
-- [ ] DMA read 주소 정확도
-- [ ] DMA write 주소 정확도
-- [ ] Matrix multiplication 결과 정확도
-- [ ] 타이밍 (latency 측정)
+- [x] 레지스터 read/write 정확도
+- [x] DMA read 주소 정확도
+- [x] DMA write 주소 정확도
+- [x] Matrix multiplication 결과 정확도
+- [x] 타이밍 (latency 측정)
 
 #### Waveform 확인
-- [ ] `sa_core.c_state` FSM 확인인
-- [ ] `M_AXI_ARADDR`, `M_AXI_ARVALID`, `M_AXI_ARREADY`
-- [ ] `M_AXI_RDATA`, `M_AXI_RVALID`, `M_AXI_RLAST`
-- [ ] `M_AXI_AWADDR`, `M_AXI_WDATA`, `M_AXI_WLAST`
-- [ ] `dpram_in`, `dpram_out` 내부 메모리 상태
+- [x] `sa_core.c_state` FSM 확인인
+- [x] `M_AXI_ARADDR`, `M_AXI_ARVALID`, `M_AXI_ARREADY`
+- [x] `M_AXI_RDATA`, `M_AXI_RVALID`, `M_AXI_RLAST`
+- [x] `M_AXI_AWADDR`, `M_AXI_WDATA`, `M_AXI_WLAST`
+- [x] `dpram_in`, `dpram_out` 내부 메모리 상태
 
 ---
 
 ## 6. 앞으로 해야 할 작업들
 
 ### 6.1 현재 문제점 개선
-- [ ] DMA Write가 64B만 쓰는 이슈 해결 (256B 전체 쓰기)
-  - `sa_engine_ip_1.0/hdl/sa_core_pipeline.sv`의 고정값 제거: `num_trans`/`max_req_blk_idx`를 AXI‑Lite 레지스터(`i_num_trans_param`, `i_max_blk_param`)에 연결
-  - `sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv` 쓰기 FSM의 블록 반복 조건(`(max_req_blk_idx>>1)`) 정합성 재검토 → 읽기와 대칭적으로 총 64워드가 쓰이도록 조정
-  - 검증: `M_AXI_AWLEN`/`M_AXI_WLAST`/`M_AXI_AWADDR` 파형으로 버스트 수/주소 증가 확인, 결과 64개 PASS 확인
-- [ ] AXI VIP 경고(AxCACHE narrow-support) 제거
-  - `dma_read.sv`/`dma_write.sv`의 `AR/ARCACHE`, `AW/AWCACHE`를 권장값(예: `4'b0011`)으로 설정하거나, VIP 체크 완화 API 사용
-  - 경고 Zero 기준이면 README 체크리스트 업데이트
-- [ ] 문서/체크리스트 동기화
-  - Output 메모리 레이아웃(현재 0x3F까지만 실쓰기) → 이슈 해결 후 `write_base_addr + 0x00 ~ 0xFF`로 갱신
-  - 5.2의 Burst alignment/RESP OKAY 항목은 파형/로그로 근거 확보 후 체크
+- [x] DMA Write가 64B만 쓰는 이슈 해결 (256B 전체 쓰기)
+  - [x] `sa_engine_ip_1.0/hdl/sa_core_pipeline.sv`의 고정값 제거: `num_trans`/`max_req_blk_idx`를 AXI‑Lite 레지스터(`i_num_trans_param`, `i_max_blk_param`)에 연결
+  - [x] `sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv` 쓰기 FSM의 블록 반복 조건(`(max_req_blk_idx>>1)`) 정합성 재검토 → 읽기와 대칭적으로 총 64워드가 쓰이도록 조정
+  - [x] 검증: `M_AXI_AWLEN`/`M_AXI_WLAST`/`M_AXI_AWADDR` 파형으로 버스트 수/주소 증가 확인, 결과 64개 PASS 확인
+- [x] AXI VIP 경고(AxCACHE narrow-support) 제거
+  - [x] `dma_read.sv`/`dma_write.sv`의 `AR/ARCACHE`, `AW/AWCACHE`를 권장값(예: `4'b0011`)으로 설정하거나, VIP 체크 완화 API 사용
+  - [x] 경고 Zero 기준이면 README 체크리스트 업데이트
+- [x] 문서/체크리스트 동기화
+  - [x] Output 메모리 레이아웃(현재 0x3F까지만 실쓰기) → 이슈 해결 후 `write_base_addr + 0x00 ~ 0xFF`로 갱신
+  - [x] 5.2의 Burst alignment/RESP OKAY 항목은 파형/로그로 근거 확보 후 체크
 
 ### 6.2 sedong 브랜치 내용 반영
 - [ ] `sedong` 브랜치 변경점 리뷰/merge (충돌 해결 포함)
@@ -448,9 +448,280 @@ Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR
 - [ ] DMA 레이아웃/버스트 계획(연속 접근, 4KB 경계, 캐시 속성)
 - [ ] 기능/성능 검증 벤치 및 골든 생성 스크립트 확장
 
+---
+
+## 7. 생각 중인 구조
+
+### 7-1. Maybe..?
+```
+sa_engine_ip_1.0/
+│
+├── rtl/                                 # (합성 대상 RTL 전체, 기존 hdl/를 대체/흡수)
+│   ├── top/
+│   │   └── sa_engine_ip_v1_0.v          (Top wrapper: AXI-Lite/IRQ/클럭/리셋 묶음)
+│   │
+│   ├── axi/                             # (버스·DMA 주변)
+│   │   ├── s00_axi_lite.v               (AXI-Lite Slave: 레지스터 맵)
+│   │   ├── axi_dma_ctrl.sv              (DMA 제어 FSM: 블록/타일 스케줄 신호 생성)
+│   │   ├── dma_read.sv                  (AXI4 Master Read: A/B 스트림 인)
+│   │   ├── dma_write.sv                 (AXI4 Master Write: C 스트림 아웃)
+│   │   └── axi_addr_gen.sv              (주소 생성기: N,K,M·stride·burst 길이 계산)
+│   │
+│   ├── core/                            # (타일 스케줄·계산 코어)
+│   │   ├── sa_core_pipeline.sv          (메인 엔진: tile orchestrator + DMA 파이프 조율)
+│   │   ├── tile_orchestrator.sv         (Block/TILE 루프 FSM, update_A/경계 타일 핸들)
+│   │   ├── tile_loader.sv               (A/B 타일 로드, ping-pong 버퍼 스위칭)
+│   │   ├── tile_compute.sv              (PE array 구동, K-loop 누적 타이밍 제어)
+│   │   └── tile_store.sv                (C 타일 write-back 및 완료 핸드셰이크)
+│   │
+│   ├── pe/                              # (시소릭 연산 유닛)
+│   │   ├── pe_array_8x8.sv              (8×8 PE 배열 토폴로지·경로/레지스터 정렬)
+│   │   ├── pe_int8_dsp.sv               (PE: INT8×INT8→INT32 MAC, DSP48E1 활용 버전)
+│   │   ├── pe_int8_lut.sv               (PE: LUT 기반 버전, 옵션/비교용)
+│   │   ├── sa_controller.sv             (SA 구동 신호 생성: shift/load/hold/clear)
+│   │   ├── sa_PE_wrapper.sv             (PE wrapper: 입력 정렬·경계 zero-pad)
+│   │   ├── sa_RF.sv                     (레지스터 파일: 행/열 피드용 입력 저장)
+│   │   └── X_REG.sv                     (X 방향 파이프 레지스터, 타이밍/데이터 정렬)
+│   │
+│   ├── mem/                             # (온칩 버퍼)
+│   │   ├── dpram_wrapper.sv             (듀얼포트 RAM 래퍼: A/B/C 타일 버퍼 공통화)
+│   │   └── bram_pingpong.sv             (A 고정/ B 블록 스트리밍용 ping-pong 버퍼)
+│   │
+│   ├── pkg/                             # (공용 정의)
+│   │   ├── sa_params_pkg.sv             (파라미터: TILE_SIZE, BLOCK_M, 폭/뎁스 등)
+│   │   └── axi_regs_pkg.sv              (레지스터 맵/비트필드/기본값 상수)
+│   │
+│   └── include/
+│       ├── sa_defs.svh                  (`define/어서션 매크로)
+│       └── addr_map.svh                 (AXI-Lite 오프셋, update_A/N,K,M 등)
+│
+├── sim/                                 # (시뮬 전용; 기존 src/ 하위 재정리)
+│   ├── tb/
+│   │   ├── sa_matmul_tb.sv              (메인 TB: AXI VIP, 시나리오 드라이브)
+│   │   ├── tb_tasks.svh                 (공용 태스크/체크/스코어보드)
+│   │   └── axi_vip_config.svh           (VIP 설정)
+│   ├── vectors/                         (테스트 벡터: hex/mem)
+│   │   ├── matrix_A_B.hex
+│   │   ├── matrix_a.hex / matrix_b.hex
+│   │   ├── matrix_a.mem / matrix_b.mem
+│   │   └── golden_result.hex
+│   └── agents/                          (선택: monitor/driver/scoreboard 분리 시)
+│
+├── scripts/
+│   ├── generate_test_vectors.py         (테스트 벡터 생성)
+│   ├── create_bd_with_vip.tcl           (TB BD 자동 생성)
+│   └── setup_sim.tcl                    (시뮬 세팅 도우미)
+│
+├── pynq/                                # (보드 통합/호스트)
+│   ├── overlay.tcl                      (IP 통합 TCL; Z2용 BD/클럭/HP포트 설정)
+│   ├── call_fpga.py                     (버퍼 할당/레지스터 셋/시작/검증 파이프)
+│   └── notebook.ipynb                   (데모 노트북: Q/K/V 한 사이클 호출 예)
+│
+├── constraints/
+│   └── pynq_z2.xdc                      (100 MHz 클럭/false-path/CDC 등 제약)
+│
+├── docs/
+│   ├── INTERFACE.md                     (포트/레지스터/시퀀스 다이어그램)
+│   ├── REGISTER_MAP.md                  (AXI-Lite 레지스터 상세표)
+│   ├── DATAFLOW.md                      (Block/TILE/K-loop 파이프 설계 문서)
+│   └── PLAN.md                          (로드맵/To-do)
+│
+├── example_designs/                     (Vivado 자동 생성, 그대로 유지)
+├── component.xml
+└── xgui/
+```  
+  
+### 7-2. 각 모듈 설명
+
+A) 기존 파일 -> 제안 구조(경로/이름) 매핑  
+
+* `sa_engine_ip_v1_0.v` → `rtl/top/sa_engine_ip_v1_0.v`
+  (Top wrapper 그대로, 위치만 이동)
+
+* `sa_engine_ip_v1_0_S00_AXI.v` → `rtl/axi/s00_axi_lite.v`
+  (AXI-Lite 슬레이브, 파일명만 짧고 명확하게)
+
+* `sa_engine_ip_v1_0_M00_AXI.v` → **제거(보류 폴더로 이동 가능)**
+  (현재 미사용. 필요시 `rtl/axi/`에 보관)
+
+* `sa_core_pipeline.sv` → `rtl/core/sa_core_pipeline.sv`
+  (메인 엔진 그대로, 이후 타일 FSM 분리 시 호출자 역할)
+
+* `axi_dma_ctrl.sv` → `rtl/axi/axi_dma_ctrl.sv`
+  (DMA 제어 FSM, 위치만 이동)
+
+* `dma_read.sv` → `rtl/axi/dma_read.sv`
+  (AXI4 Master Read, 위치만 이동)
+
+* `dma_write.sv` → `rtl/axi/dma_write.sv`
+  (AXI4 Master Write, 위치만 이동)
+
+* `sa_core.sv` → `rtl/core/sa_core.sv` (**사용 X, 변경 예정**)
+  (현재 FSM+DPRAM 혼재. 점진적으로 타일 컴퓨트/버퍼 관리 쪽으로 축소)
+
+* `dpram_wrapper.sv` → `rtl/mem/dpram_wrapper.sv`
+  (DPRAM 래퍼, 메모리 계층 폴더로 이동)
+
+* `sa_controller.sv` → `rtl/pe/sa_controller.sv`
+  (SA 구동 제어 신호, PE 계층으로 이동)
+
+* `sa_unit.sv` → `rtl/pe/pe_array_8x8.sv`
+  (8×8 배열 토폴로지, 이름을 역할 중심으로 변경)
+
+* `sa_PE_wrapper.sv` → `rtl/pe/sa_PE_wrapper.sv`
+  (PE 래퍼, 위치만 이동)
+
+* `sa_RF.sv` → `rtl/pe/sa_RF.sv`
+  (레지스터 파일, 위치만 이동)
+
+* `X_REG.sv` → `rtl/pe/X_REG.sv`
+  (X방향 파이프 레지스터, 위치만 이동)
+
+* `hPE.sv` → `rtl/pe/pe_int8_lut.sv` **(+ 추가: `rtl/pe/pe_int8_dsp.sv`)**
+  (현행 LUT 곱산 버전은 pe_int8_lut로 리네임, DSP 버전은 새 파일 추가)
+
+* `src/tb/*` → `sim/tb/*`
+  (TB, 태스크, VIP 설정을 sim 전용 디렉토리로 이동)
+
+* `src/data/*` → `sim/vectors/*`
+  (테스트 벡터 전용 폴더로 이동)
+
+* `scripts/*` → `scripts/*` (그대로)
+  (생성/세팅 스크립트는 유지)
+
+* `example_designs/*`, `component.xml`, `xgui/` → 그대로
+  (Vivado 자동 생성/메타데이터는 유지)
+
+---
+
+B) 새로 생기는 파일(추가) & 역할  
+
+* `rtl/axi/axi_addr_gen.sv` (AXI 주소 생성/stride, burst 길이 계산 유틸)
+* `rtl/core/tile_orchestrator.sv` (Block/TILE/K-loop 상위 FSM, update_A/경계 타일 처리)
+* `rtl/core/tile_loader.sv` (A 고정 + B 블록 ping-pong 로드 제어)
+* `rtl/core/tile_store.sv` (C 타일 write-back 및 완료 핸드셰이크)
+* `rtl/mem/bram_pingpong.sv` (2-bank ping-pong 버퍼 래퍼)
+* `rtl/pkg/sa_params_pkg.sv` (TILE_SIZE, BLOCK_M 등 전역 파라미터)
+* `rtl/pkg/axi_regs_pkg.sv` (레지스터 맵/비트필드 상수)
+* `rtl/include/sa_defs.svh` (공용 매크로/어설션)
+* `rtl/include/addr_map.svh` (AXI-Lite 오프셋·기본값)
+* `pynq/call_fpga.py`, `pynq/overlay.tcl` (호스트 호출/보드 BD 스크립트)
+* `constraints/pynq_z2.xdc` (클럭, false-path/CDC, 핀/HP포트 제약)
+* `docs/*` (인터페이스/데이터플로/레지스터 문서)
+
+---
+
+C) DSP 0% → DSP 쓰도록 하는 최소 변경 포인트  
+
+1. **DSP 버전 PE 추가**: `rtl/pe/pe_int8_dsp.sv` 작성 후 Top 파라미터 `USE_DSP`로 `pe_int8_lut`/`pe_int8_dsp` 선택.
+2. **연산 한 문장으로 합치기**:
+
+   ```verilog
+   (* use_dsp = "yes" *) always_ff @(posedge clk) begin
+     // 8b → 18/25b 확장으로 DSP 폭 맞추기
+     p <= $signed({{17{1'b0}}, a}) * $signed({{10{1'b0}}, b}) + c;
+   end
+   ```
+
+   * DSP48E1(25×18) 폭에 정렬, MREG/AREG/BREG/PREG 파이프라인 2~3단계.
+3. **누적도 DSP로**(선택): MACC 모드/캐스케이드로 누적까지 DSP 내부 처리 → LUT 가산 감소.
+4. **빌드 옵션**: Synthesis “Use DSP”=Yes/Auto, `report_dsp_utilization`로 사용량 확인.
+
+---
+
+## 7. sa_core 없는 파이프라인 전환 계획 (RTL/sim 리팩터)
+
+본 섹션은 기존 `sa_core` 내부 FSM에 의존하던 구조를 타일 단위 파이프라인(Loader/Compute/Store)로 분해하고, `rtl/`·`sim/` 재구성에 맞춘 개발 순서와 완료 기준을 정리합니다.
+
+### 7.1 요구 스펙 요약
+- 보드/클럭: PYNQ‑Z2, PL 100 MHz
+- 정밀도: INT8×INT8 → INT32 누적
+- 버스: AXI4‑Lite(제어), AXI4‑Full(읽기/쓰기)
+- 스케줄: 2‑레벨 타일링 + on‑chip A 상주(update_A) + B ping‑pong 스트리밍 + READ/COMPUTE/WRITE 오버랩
+
+### 7.2 인스턴스 트리(목표)
+```
+sa_engine_ip_v1_0
+└─ sa_core_pipeline (sa_core 제거 버전)
+   ├─ axi_dma_ctrl
+   │  ├─ axi_addr_gen (READ)
+   │  └─ axi_addr_gen (WRITE)
+   ├─ dma_read
+   ├─ dma_write
+   ├─ tile_orchestrator      // Block→Tile→K-loop FSM, 경계/마스크
+   ├─ tile_loader            // A 상주 + B ping-pong 버퍼 채움
+   │  ├─ dpram_wrapper : A_persist_buf
+   │  └─ bram_pingpong : B_buf0 / B_buf1
+   ├─ tile_compute           // 8×8 연산 및 K 축 누적 제어
+   │  └─ sa_controller → pe_array_8x8 (pe_int8_lut/dsp)
+   └─ tile_store             // C 타일 write-back
+      └─ dpram_wrapper : C_tile_buf
+```
+
+### 7.3 디렉토리/파일 구조(현행)
+```
+sa_engine_ip_1.0/
+├── rtl/
+│   ├── top/        : sa_engine_ip_v1_0.v
+│   ├── axi/        : axi_dma_ctrl.sv, dma_read.sv, dma_write.sv, axi_addr_gen.sv
+│   ├── core/       : sa_core_pipeline.sv, tile_{orchestrator,loader,compute,store}.sv (신규)
+│   ├── pe/         : pe_array_8x8.sv, pe_int8_{lut,dsp}.sv, sa_controller.sv, sa_PE_wrapper.sv, sa_RF.sv, X_REG.sv
+│   ├── mem/        : dpram_wrapper.sv, bram_pingpong.sv
+│   ├── pkg/        : sa_params_pkg.sv, axi_regs_pkg.sv
+│   └── include/    : sa_defs.svh, addr_map.svh
+└── sim/
+    ├── tb/         : sa_matmul_tb.sv, tb_tasks.svh, axi_vip_config.svh
+    ├── data/       : matrix_*.hex, *.mem, golden_result.hex
+    └── scripts/    : generate_test_vectors.py, create_bd_with_vip.tcl, setup_sim.tcl
+```
+
+### 7.4 데이터플로(의사코드)
+```
+if (update_A)  load A_block → A_persist_buf
+for col_blk in 0..M step BLOCK_M:
+  preload B_block into ping-pong
+  for i in 0..N step TILE_SIZE:
+    for j in col_blk..col_blk+BLOCK_M step TILE_SIZE:
+      clear C_tile
+      for k in 0..K step TILE_SIZE:
+        load A_tile (from A_persist_buf)
+        load B_tile (from ping-pong)
+        compute 8×8 tile (K-TILE accumulate, II=1)
+      store C_tile (burst write)
+```
+
+### 7.5 작업 순서(스텝별, 작은 단위)
+1) 패키지/헤더 확정: `sa_params_pkg.sv`, `axi_regs_pkg.sv`, `addr_map.svh`, `sa_defs.svh`에 파라미터·오프셋·매크로 정의  [완료]
+2) 스텁 포트 확정: `tile_*`, `axi_addr_gen`, `bram_pingpong`, `pe_*`의 입출력·핸드셰이크만 정의(기능 없이 컴파일 가능)  [완료]
+3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)
+4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`)
+5) 로더: `tile_loader.sv`에서 `axi_dma_ctrl`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성
+6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입
+7) 컴퓨트: `tile_compute.sv`에서 K‑loop 누적·파이프 딜레이 보정, 경계 zero‑pad/mask
+8) 스토어: `tile_store.sv`에서 C 타일 버퍼→`dma_write` 연속 버스트 아웃
+9) 오케스트레이터: `tile_orchestrator.sv` Block→Tile→K FSM, 초기 비‑오버랩→오버랩 확장
+10) 파이프라인 통합: `sa_core_pipeline.sv`에서 신규 `tile_*`와 DMA를 직접 배선(기존 경로는 파라미터로 보존)
+11) TB 보강: 신규 레지스터 시퀀스(update_A/N/K/M/stride)와 경계 케이스(13×13 등) 추가
+12) 합성/리포트: `USE_DSP=1`로 합성 후 DSP 사용률/타이밍 확인
+
+### 7.6 레지스터 맵(요약)
+- CONTROL(0x00): `start[0]`, `update_A[1]`, `irq_en[2]`
+- STATUS(0x04): `busy[0]`, `done[1]`, `error[2]`
+- `N(0x08)`, `K(0x0C)`, `M(0x10)`
+- `TILE_SIZE(0x14)`, `BLOCK_M(0x18)`
+- `base_A(0x1C)`, `base_B(0x20)`, `base_C(0x24)`
+- 옵션: `stride_A(0x28)`, `stride_B(0x2C)`, `stride_C(0x30)`, perf(`burst_cnt`, `stall_cycles`)
+
+### 7.7 완료 기준
+- 시뮬: 8×8·16×16 golden match, READ/COMPUTE/WRITE 오버랩 파형/버스트 로그 확인
+- 합성: 빌드 성공, `USE_DSP=1`에서 DSP 사용률 > 0%
+- 기능: `update_A=1`에서 A 재로드 없이 반복 호출 정상
+
+---
+
 **End of Document**
 
-Last Updated: 2025-11-04  
-Version: 1.0
+Last Updated: 2025-11-05  
+Version: 1.0  
 Author: Jimin Hwang  
 Project: Chung-Ang University Capstone Design
