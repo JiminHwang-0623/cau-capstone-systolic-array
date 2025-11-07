@@ -693,9 +693,9 @@ for col_blk in 0..M step BLOCK_M:
 ### 7.5 작업 순서(스텝별, 작은 단위)
 1) 패키지/헤더 확정: `sa_params_pkg.sv`, `axi_regs_pkg.sv`, `addr_map.svh`, `sa_defs.svh`에 파라미터·오프셋·매크로 정의  [완료]
 2) 스텁 포트 확정: `tile_*`, `axi_addr_gen`, `bram_pingpong`, `pe_*`의 입출력·핸드셰이크만 정의(기능 없이 컴파일 가능)  [완료]
-3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)
-4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`)
-5) 로더: `tile_loader.sv`에서 `axi_dma_ctrl`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성
+3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)  [완료]
+4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`)  [완료]
+5) 로더: `tile_loader.sv`에서 `axi_dma_ctrl`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성  [작업중]
 6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입
 7) 컴퓨트: `tile_compute.sv`에서 K‑loop 누적·파이프 딜레이 보정, 경계 zero‑pad/mask
 8) 스토어: `tile_store.sv`에서 C 타일 버퍼→`dma_write` 연속 버스트 아웃
@@ -717,11 +717,78 @@ for col_blk in 0..M step BLOCK_M:
 - 합성: 빌드 성공, `USE_DSP=1`에서 DSP 사용률 > 0%
 - 기능: `update_A=1`에서 A 재로드 없이 반복 호출 정상
 
+### 7.8 DistilBERT 기준 컨텍스트 & 요구사항
+- 보드/버스/정밀도
+  - PYNQ-Z2 (XC7Z020), PL 100 MHz
+  - AXI4-Lite(제어) + AXI4-Full(읽기/쓰기), 데이터폭 32b(=4 B/beat)
+  - INT8×INT8 → INT32 누적, TILE_SIZE T=8 (8×8 시소릭 고정)
+- 타깃 행렬곱(반드시 지원)
+  - DistilBERT FFN: A 64×768, B 768×3072, C 64×3072
+  - Sanity: (8×8)×(8×8), (16×16)×(16×16, 경계 없음), (13×13)×(13×13, 경계 타일)
+- 타일/데이터플로 불변 조건
+  - 2‑레벨: column‑block(BLOCK_M) → (i,j) tile(8×8) → K‑tile(8) 누적
+  - A full‑persist: j‑block 동안 on‑chip 상주(가능 시 A 전체 64×768≈49,152 B 상주)
+  - B ping‑pong: `B_buf0/1` 더블버퍼로 READ↔COMPUTE 오버랩
+  - C write‑back: 8×8 INT32 = 256 B = 16‑beat×4 연속 버스트
+  - AXI 정책(V1): INCR, ARSIZE/AWSIZE=2, ARLEN/AWLEN=15(16‑beat), base 4B 정렬
+- 타일 바이트(T=8, AXI32b)
+  - A_tile 64 B(=16‑beat×1), B_tile 64 B(=16‑beat×1), C_tile 256 B(=16‑beat×4)
+- DistilBERT 정확 카운트(N=64, K=768, M=3072, T=8)
+  - i‑tiles=8, k‑tiles=96, j‑tiles=384
+  - A full‑persist: 총 A‑reads = 8×96=768 bursts(각 64 B) → 49,152 B
+  - B i‑reuse: 총 B‑reads = 384×96=36,864 bursts(각 64 B) → 2,359,296 B
+  - C writes: 타일 8×384=3,072개 ×4 bursts = 12,288 bursts → 786,432 B
+  - 로그/카운터로 위 burst 개수·총 bytes 일치 검증 필수 (B 재사용 미구현 시 트래픽 8배 증가)
+- 어드레싱(row‑major, 바이트 stride)
+  - stride_A_row=K×1, stride_A_col=1; stride_B_row=M×1, stride_B_col=1; stride_C_row=M×4, stride_C_col=4
+  - A_tile_base = base_A + (i0*T)*stride_A_row + (k0*T)*stride_A_col
+  - B_tile_base = base_B + (k0*T)*stride_B_row + (j0*T)*stride_B_col
+  - C_tile_base = base_C + (i0*T)*stride_C_row + (j0*T)*stride_C_col
+- (i0,j0) 타일당 스케줄(요지)
+  - for k0 in 0..K‑1 step 8: A_tile(상주/필요 시 64B read), B_tile(64B read, i‑tiles 재사용), 누적 compute
+  - 완료 후 C_tile 256B를 16‑beat×4로 write‑back
+- 모듈/인터페이스(요약, sa_core 없음)
+  - tile_orchestrator: j‑block→i→j→k 순회, A full‑persist/B i‑reuse 강제
+  - tile_loader: A bulk/타일 로드, B 타일별 로드, ping‑pong 운용, addr_gen 구동
+  - tile_compute: 8×8 SA 구동, K‑loop 누적, 경계 마스크(13×13 등)
+  - tile_store: C_tile 4×16‑beat write
+  - axi_addr_gen: V1 고정 16‑beat 청커(4B align), 입력(base, bytes_total)→{addr,len=15} 시퀀스, V2 부분 버스트
+- 테스트 매트릭스(순차 실행)
+  - Case‑A (8×8)×(8×8): A/B 각 1×read, C 4×write → 총 6 bursts
+  - Case‑B (16×16)×(16×16): 타일4개×(A2+B2+C4) → 총 32 bursts
+  - Case‑C (13×13)×(13×13): V1 padding 시 Case‑B와 동일 패턴
+  - DistilBERT (64×768)×(768×3072): A 768, B 36,864, C 12,288 bursts
+- 제약
+  - `sa_core.sv` 신규 생성 금지. `sa_core_pipeline` 아래에 `tile_*` 직접 배선
+  - 8×8 PE는 기존 구현 유지, `pe_int8_dsp.sv`는 `USE_DSP` 파라미터로 선택
+
+### 7.9 BRAM Strategy (KB, 최종 확정: B 블록 더블버퍼 + C 더블버퍼)
+- 단위: KB = 1000 Bytes (SI). B=Byte, b=bit.
+- A/B/C 버퍼 크기(고정 파라미터)
+  - A persist(전체): 64×768 B = 49.152 KB
+  - C 타일 더블버퍼: 256 B ×2 = 0.512 KB
+- B 블록 상주(V2, 더블버퍼) — 열 블록 폭 = `BLOCK_M`
+  - B 블록(더블): 1.536×`BLOCK_M` KB  (K=768 → 768×BLOCK_M/1000×2)
+  - 총합(최종 채택): 49.152 + (1.536×`BLOCK_M`) + 0.512 = 49.664 + 1.536×`BLOCK_M` KB
+  - 보드 용량: 630 KB (문서 기준)
+  - 예) `BLOCK_M=256` → 총합 = 49.664 + 393.216 = 442.880 KB
+    • 여유 용량 = 630 − 442.880 ≈ 187.120 KB (≈30% 여유)
+- 비고
+  - B는 “블록 단위 ping‑pong(더블버퍼)”로 bank0/bank1에 교대로 상주.
+  - C는 “타일 단위 ping‑pong(더블버퍼)”로 연산/저장을 오버랩.
+  - A는 전역 상주(DPRAM)로 j‑block 전 구간에서 재사용.
+
+### 7.10 유닛 테스트(모듈 단위)
+- 주소 생성기: `sim/tb/unit/tb_axi_addr_gen.sv`  [PASS]
+  - S1: 64B 1버스트, S2: 256B 4버스트, S3: 백프레셔, S4: 0B
+- BRAM pingpong: `sim/tb/unit/tb_bram_pingpong.sv`  [PASS]
+  - B 블록 모드(외부 commit) 기본/오버랩, C 타일 모드(내부 카운팅)
+
 ---
 
 **End of Document**
 
-Last Updated: 2025-11-05  
-Version: 1.0  
+Last Updated: 2025-11-07  
+Version: 2.2  
 Author: Jimin Hwang  
 Project: Chung-Ang University Capstone Design

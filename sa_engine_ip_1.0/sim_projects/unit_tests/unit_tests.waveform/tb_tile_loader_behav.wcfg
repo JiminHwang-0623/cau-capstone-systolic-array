@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_tile_loader_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_tile_loader" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="296.611 ns"></ZoomEndTime>
+      <Cursor1Time time="107.807 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="101" />
+   <wvobject fp_name="/tb_tile_loader/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ld_req" type="logic">
+      <obj_property name="ElementShortName">ld_req</obj_property>
+      <obj_property name="ObjectShortName">ld_req</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/update_A" type="logic">
+      <obj_property name="ElementShortName">update_A</obj_property>
+      <obj_property name="ObjectShortName">update_A</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/N" type="array">
+      <obj_property name="ElementShortName">N[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/K" type="array">
+      <obj_property name="ElementShortName">K[31:0]</obj_property>
+      <obj_property name="ObjectShortName">K[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/M" type="array">
+      <obj_property name="ElementShortName">M[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/TILE_SIZE_CFG" type="array">
+      <obj_property name="ElementShortName">TILE_SIZE_CFG[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TILE_SIZE_CFG[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/BLOCK_M_CFG" type="array">
+      <obj_property name="ElementShortName">BLOCK_M_CFG[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BLOCK_M_CFG[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/j_block" type="array">
+      <obj_property name="ElementShortName">j_block[31:0]</obj_property>
+      <obj_property name="ObjectShortName">j_block[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/base_A" type="array">
+      <obj_property name="ElementShortName">base_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_A[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/base_B" type="array">
+      <obj_property name="ElementShortName">base_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_B[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/stride_A" type="array">
+      <obj_property name="ElementShortName">stride_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stride_A[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/stride_B" type="array">
+      <obj_property name="ElementShortName">stride_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stride_B[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_start" type="logic">
+      <obj_property name="ElementShortName">ag_start</obj_property>
+      <obj_property name="ObjectShortName">ag_start</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_base_addr" type="array">
+      <obj_property name="ElementShortName">ag_base_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_base_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_bytes_total" type="array">
+      <obj_property name="ElementShortName">ag_bytes_total[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_bytes_total[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_req_valid" type="logic">
+      <obj_property name="ElementShortName">ag_req_valid</obj_property>
+      <obj_property name="ObjectShortName">ag_req_valid</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_req_ready" type="logic">
+      <obj_property name="ElementShortName">ag_req_ready</obj_property>
+      <obj_property name="ObjectShortName">ag_req_ready</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_req_addr" type="array">
+      <obj_property name="ElementShortName">ag_req_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_req_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_req_len" type="array">
+      <obj_property name="ElementShortName">ag_req_len[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_req_len[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_req_last" type="logic">
+      <obj_property name="ElementShortName">ag_req_last</obj_property>
+      <obj_property name="ObjectShortName">ag_req_last</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ag_done" type="logic">
+      <obj_property name="ElementShortName">ag_done</obj_property>
+      <obj_property name="ObjectShortName">ag_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_start_dma" type="logic">
+      <obj_property name="ElementShortName">rd_start_dma</obj_property>
+      <obj_property name="ObjectShortName">rd_start_dma</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_start_addr" type="array">
+      <obj_property name="ElementShortName">rd_start_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_start_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_num_trans" type="array">
+      <obj_property name="ElementShortName">rd_num_trans[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_num_trans[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_done" type="logic">
+      <obj_property name="ElementShortName">rd_done</obj_property>
+      <obj_property name="ObjectShortName">rd_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_data" type="array">
+      <obj_property name="ElementShortName">rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_data[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_data_vld" type="logic">
+      <obj_property name="ElementShortName">rd_data_vld</obj_property>
+      <obj_property name="ObjectShortName">rd_data_vld</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/a_we" type="logic">
+      <obj_property name="ElementShortName">a_we</obj_property>
+      <obj_property name="ObjectShortName">a_we</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/a_addr" type="array">
+      <obj_property name="ElementShortName">a_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_addr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/a_wdata" type="array">
+      <obj_property name="ElementShortName">a_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_seg_words" type="array">
+      <obj_property name="ElementShortName">b_seg_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_seg_words[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_fill_req" type="logic">
+      <obj_property name="ElementShortName">b_fill_req</obj_property>
+      <obj_property name="ObjectShortName">b_fill_req</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_fill_busy" type="logic">
+      <obj_property name="ElementShortName">b_fill_busy</obj_property>
+      <obj_property name="ObjectShortName">b_fill_busy</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_fill_done" type="logic">
+      <obj_property name="ElementShortName">b_fill_done</obj_property>
+      <obj_property name="ObjectShortName">b_fill_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_fill_we" type="logic">
+      <obj_property name="ElementShortName">b_fill_we</obj_property>
+      <obj_property name="ObjectShortName">b_fill_we</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_fill_addr" type="array">
+      <obj_property name="ElementShortName">b_fill_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_fill_addr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_fill_wdata" type="array">
+      <obj_property name="ElementShortName">b_fill_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_fill_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ld_done" type="logic">
+      <obj_property name="ElementShortName">ld_done</obj_property>
+      <obj_property name="ObjectShortName">ld_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/a_words_written" type="array">
+      <obj_property name="ElementShortName">a_words_written[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_words_written[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/b_words_written" type="array">
+      <obj_property name="ElementShortName">b_words_written[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_words_written[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_cmds" type="array">
+      <obj_property name="ElementShortName">rd_cmds[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_cmds[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/rd_beats" type="array">
+      <obj_property name="ElementShortName">rd_beats[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_beats[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/blocks_done" type="array">
+      <obj_property name="ElementShortName">blocks_done[31:0]</obj_property>
+      <obj_property name="ObjectShortName">blocks_done[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/jb" type="array">
+      <obj_property name="ElementShortName">jb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jb[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/ADDR_W" type="array">
+      <obj_property name="ElementShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/DATA_W" type="array">
+      <obj_property name="ElementShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rd_start_dma" type="logic">
+      <obj_property name="ElementShortName">rd_start_dma</obj_property>
+      <obj_property name="ObjectShortName">rd_start_dma</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rd_data_vld" type="logic">
+      <obj_property name="ElementShortName">rd_data_vld</obj_property>
+      <obj_property name="ObjectShortName">rd_data_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rd_done" type="logic">
+      <obj_property name="ElementShortName">rd_done</obj_property>
+      <obj_property name="ObjectShortName">rd_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/a_word_cnt" type="array">
+      <obj_property name="ElementShortName">a_word_cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_word_cnt[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/a_total_words" type="array">
+      <obj_property name="ElementShortName">a_total_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_total_words[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_req_valid" type="logic">
+      <obj_property name="ElementShortName">ag_req_valid</obj_property>
+      <obj_property name="ObjectShortName">ag_req_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/cmd_inflight" type="logic">
+      <obj_property name="ElementShortName">cmd_inflight</obj_property>
+      <obj_property name="ObjectShortName">cmd_inflight</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ld_req" type="logic">
+      <obj_property name="ElementShortName">ld_req</obj_property>
+      <obj_property name="ObjectShortName">ld_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/update_A" type="logic">
+      <obj_property name="ElementShortName">update_A</obj_property>
+      <obj_property name="ObjectShortName">update_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/N" type="array">
+      <obj_property name="ElementShortName">N[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/K" type="array">
+      <obj_property name="ElementShortName">K[31:0]</obj_property>
+      <obj_property name="ObjectShortName">K[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/M" type="array">
+      <obj_property name="ElementShortName">M[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/TILE_SIZE_CFG" type="array">
+      <obj_property name="ElementShortName">TILE_SIZE_CFG[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TILE_SIZE_CFG[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/BLOCK_M_CFG" type="array">
+      <obj_property name="ElementShortName">BLOCK_M_CFG[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BLOCK_M_CFG[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/j_block" type="array">
+      <obj_property name="ElementShortName">j_block[31:0]</obj_property>
+      <obj_property name="ObjectShortName">j_block[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/base_A" type="array">
+      <obj_property name="ElementShortName">base_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/base_B" type="array">
+      <obj_property name="ElementShortName">base_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/stride_A" type="array">
+      <obj_property name="ElementShortName">stride_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stride_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/stride_B" type="array">
+      <obj_property name="ElementShortName">stride_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stride_B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_start" type="logic">
+      <obj_property name="ElementShortName">ag_start</obj_property>
+      <obj_property name="ObjectShortName">ag_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_base_addr" type="array">
+      <obj_property name="ElementShortName">ag_base_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_base_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_bytes_total" type="array">
+      <obj_property name="ElementShortName">ag_bytes_total[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_bytes_total[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_req_ready" type="logic">
+      <obj_property name="ElementShortName">ag_req_ready</obj_property>
+      <obj_property name="ObjectShortName">ag_req_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_req_addr" type="array">
+      <obj_property name="ElementShortName">ag_req_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_req_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_req_len" type="array">
+      <obj_property name="ElementShortName">ag_req_len[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ag_req_len[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_req_last" type="logic">
+      <obj_property name="ElementShortName">ag_req_last</obj_property>
+      <obj_property name="ObjectShortName">ag_req_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ag_done" type="logic">
+      <obj_property name="ElementShortName">ag_done</obj_property>
+      <obj_property name="ObjectShortName">ag_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rd_start_addr" type="array">
+      <obj_property name="ElementShortName">rd_start_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_start_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rd_num_trans" type="array">
+      <obj_property name="ElementShortName">rd_num_trans[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_num_trans[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/rd_data" type="array">
+      <obj_property name="ElementShortName">rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/a_we" type="logic">
+      <obj_property name="ElementShortName">a_we</obj_property>
+      <obj_property name="ObjectShortName">a_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/a_addr" type="array">
+      <obj_property name="ElementShortName">a_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/a_wdata" type="array">
+      <obj_property name="ElementShortName">a_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_seg_words" type="array">
+      <obj_property name="ElementShortName">b_seg_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_seg_words[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_fill_req" type="logic">
+      <obj_property name="ElementShortName">b_fill_req</obj_property>
+      <obj_property name="ObjectShortName">b_fill_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_fill_busy" type="logic">
+      <obj_property name="ElementShortName">b_fill_busy</obj_property>
+      <obj_property name="ObjectShortName">b_fill_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_fill_done" type="logic">
+      <obj_property name="ElementShortName">b_fill_done</obj_property>
+      <obj_property name="ObjectShortName">b_fill_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_fill_we" type="logic">
+      <obj_property name="ElementShortName">b_fill_we</obj_property>
+      <obj_property name="ObjectShortName">b_fill_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_fill_addr" type="array">
+      <obj_property name="ElementShortName">b_fill_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_fill_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/b_fill_wdata" type="array">
+      <obj_property name="ElementShortName">b_fill_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_fill_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ld_done" type="logic">
+      <obj_property name="ElementShortName">ld_done</obj_property>
+      <obj_property name="ObjectShortName">ld_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/a_loaded" type="logic">
+      <obj_property name="ElementShortName">a_loaded</obj_property>
+      <obj_property name="ObjectShortName">a_loaded</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/cur_block_m" type="array">
+      <obj_property name="ElementShortName">cur_block_m[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cur_block_m[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/words_per_row" type="array">
+      <obj_property name="ElementShortName">words_per_row[31:0]</obj_property>
+      <obj_property name="ObjectShortName">words_per_row[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/krow" type="array">
+      <obj_property name="ElementShortName">krow[31:0]</obj_property>
+      <obj_property name="ObjectShortName">krow[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/row_word_idx" type="array">
+      <obj_property name="ElementShortName">row_word_idx[31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_word_idx[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/ADDR_W" type="array">
+      <obj_property name="ElementShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/DATA_W" type="array">
+      <obj_property name="ElementShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/A_ADDR_W" type="array">
+      <obj_property name="ElementShortName">A_ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A_ADDR_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_tile_loader/u_loader/B_ADDR_W" type="array">
+      <obj_property name="ElementShortName">B_ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B_ADDR_W[31:0]</obj_property>
+   </wvobject>
+</wave_config>

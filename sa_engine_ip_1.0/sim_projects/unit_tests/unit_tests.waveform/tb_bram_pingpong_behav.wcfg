@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_bram_pingpong_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_bram_pingpong" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="319.675 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,443.676 ns"></ZoomEndTime>
+      <Cursor1Time time="673.675 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="96" />
+   <wvobject fp_name="/tb_bram_pingpong/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_seg_words" type="array">
+      <obj_property name="ElementShortName">b_seg_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_seg_words[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_fill_req" type="logic">
+      <obj_property name="ElementShortName">b_fill_req</obj_property>
+      <obj_property name="ObjectShortName">b_fill_req</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_fill_busy" type="logic">
+      <obj_property name="ElementShortName">b_fill_busy</obj_property>
+      <obj_property name="ObjectShortName">b_fill_busy</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_fill_we" type="logic">
+      <obj_property name="ElementShortName">b_fill_we</obj_property>
+      <obj_property name="ObjectShortName">b_fill_we</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_fill_addr" type="array">
+      <obj_property name="ElementShortName">b_fill_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">b_fill_addr[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_fill_wdata" type="array">
+      <obj_property name="ElementShortName">b_fill_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_fill_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_fill_done" type="logic">
+      <obj_property name="ElementShortName">b_fill_done</obj_property>
+      <obj_property name="ObjectShortName">b_fill_done</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_consume_req" type="logic">
+      <obj_property name="ElementShortName">b_consume_req</obj_property>
+      <obj_property name="ObjectShortName">b_consume_req</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_consume_busy" type="logic">
+      <obj_property name="ElementShortName">b_consume_busy</obj_property>
+      <obj_property name="ObjectShortName">b_consume_busy</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_rd_addr" type="array">
+      <obj_property name="ElementShortName">b_rd_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">b_rd_addr[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_rd_en" type="logic">
+      <obj_property name="ElementShortName">b_rd_en</obj_property>
+      <obj_property name="ObjectShortName">b_rd_en</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_rd_rdata" type="array">
+      <obj_property name="ElementShortName">b_rd_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_rd_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_cons_commit" type="logic">
+      <obj_property name="ElementShortName">b_cons_commit</obj_property>
+      <obj_property name="ObjectShortName">b_cons_commit</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_consume_done" type="logic">
+      <obj_property name="ElementShortName">b_consume_done</obj_property>
+      <obj_property name="ObjectShortName">b_consume_done</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/b_bank_sel" type="logic">
+      <obj_property name="ElementShortName">b_bank_sel</obj_property>
+      <obj_property name="ObjectShortName">b_bank_sel</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_seg_words" type="array">
+      <obj_property name="ElementShortName">c_seg_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_seg_words[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_fill_req" type="logic">
+      <obj_property name="ElementShortName">c_fill_req</obj_property>
+      <obj_property name="ObjectShortName">c_fill_req</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_fill_busy" type="logic">
+      <obj_property name="ElementShortName">c_fill_busy</obj_property>
+      <obj_property name="ObjectShortName">c_fill_busy</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_fill_we" type="logic">
+      <obj_property name="ElementShortName">c_fill_we</obj_property>
+      <obj_property name="ObjectShortName">c_fill_we</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_fill_addr" type="array">
+      <obj_property name="ElementShortName">c_fill_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">c_fill_addr[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_fill_wdata" type="array">
+      <obj_property name="ElementShortName">c_fill_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_fill_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_fill_done" type="logic">
+      <obj_property name="ElementShortName">c_fill_done</obj_property>
+      <obj_property name="ObjectShortName">c_fill_done</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_consume_req" type="logic">
+      <obj_property name="ElementShortName">c_consume_req</obj_property>
+      <obj_property name="ObjectShortName">c_consume_req</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_consume_busy" type="logic">
+      <obj_property name="ElementShortName">c_consume_busy</obj_property>
+      <obj_property name="ObjectShortName">c_consume_busy</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_rd_addr" type="array">
+      <obj_property name="ElementShortName">c_rd_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">c_rd_addr[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_rd_en" type="logic">
+      <obj_property name="ElementShortName">c_rd_en</obj_property>
+      <obj_property name="ObjectShortName">c_rd_en</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_rd_rdata" type="array">
+      <obj_property name="ElementShortName">c_rd_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_rd_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_cons_commit" type="logic">
+      <obj_property name="ElementShortName">c_cons_commit</obj_property>
+      <obj_property name="ObjectShortName">c_cons_commit</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_consume_done" type="logic">
+      <obj_property name="ElementShortName">c_consume_done</obj_property>
+      <obj_property name="ObjectShortName">c_consume_done</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/c_bank_sel" type="logic">
+      <obj_property name="ElementShortName">c_bank_sel</obj_property>
+      <obj_property name="ObjectShortName">c_bank_sel</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/DEPTH_SMALL" type="array">
+      <obj_property name="ElementShortName">DEPTH_SMALL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEPTH_SMALL[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/ADDR_W_S" type="array">
+      <obj_property name="ElementShortName">ADDR_W_S[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W_S[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/C_DEPTH" type="array">
+      <obj_property name="ElementShortName">C_DEPTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_DEPTH[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/C_AW" type="array">
+      <obj_property name="ElementShortName">C_AW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_AW[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/seg_words" type="array">
+      <obj_property name="ElementShortName">seg_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">seg_words[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_req" type="logic">
+      <obj_property name="ElementShortName">fill_req</obj_property>
+      <obj_property name="ObjectShortName">fill_req</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_busy" type="logic">
+      <obj_property name="ElementShortName">fill_busy</obj_property>
+      <obj_property name="ObjectShortName">fill_busy</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_we" type="logic">
+      <obj_property name="ElementShortName">fill_we</obj_property>
+      <obj_property name="ObjectShortName">fill_we</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_addr" type="array">
+      <obj_property name="ElementShortName">fill_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fill_addr[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_wdata" type="array">
+      <obj_property name="ElementShortName">fill_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fill_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/st0" type="array">
+      <obj_property name="ElementShortName">st0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">st0[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/rd_addr" type="array">
+      <obj_property name="ElementShortName">rd_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_addr[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/rd_rdata" type="array">
+      <obj_property name="ElementShortName">rd_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/st1" type="array">
+      <obj_property name="ElementShortName">st1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">st1[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_done" type="logic">
+      <obj_property name="ElementShortName">fill_done</obj_property>
+      <obj_property name="ObjectShortName">fill_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/consume_req" type="logic">
+      <obj_property name="ElementShortName">consume_req</obj_property>
+      <obj_property name="ObjectShortName">consume_req</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/consume_busy" type="logic">
+      <obj_property name="ElementShortName">consume_busy</obj_property>
+      <obj_property name="ObjectShortName">consume_busy</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/rd_en" type="logic">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/cons_commit" type="logic">
+      <obj_property name="ElementShortName">cons_commit</obj_property>
+      <obj_property name="ObjectShortName">cons_commit</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/consume_done" type="logic">
+      <obj_property name="ElementShortName">consume_done</obj_property>
+      <obj_property name="ObjectShortName">consume_done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/bank_sel" type="logic">
+      <obj_property name="ElementShortName">bank_sel</obj_property>
+      <obj_property name="ObjectShortName">bank_sel</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/mem0" type="array">
+      <obj_property name="ElementShortName">mem0[0:15][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem0[0:15][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/mem1" type="array">
+      <obj_property name="ElementShortName">mem1[0:15][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem1[0:15][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/filling" type="logic">
+      <obj_property name="ElementShortName">filling</obj_property>
+      <obj_property name="ObjectShortName">filling</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_bank" type="logic">
+      <obj_property name="ElementShortName">fill_bank</obj_property>
+      <obj_property name="ObjectShortName">fill_bank</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/fill_count" type="array">
+      <obj_property name="ElementShortName">fill_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fill_count[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/consuming" type="logic">
+      <obj_property name="ElementShortName">consuming</obj_property>
+      <obj_property name="ObjectShortName">consuming</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/cons_count" type="array">
+      <obj_property name="ElementShortName">cons_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cons_count[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/DATA_W" type="array">
+      <obj_property name="ElementShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/DEPTH" type="array">
+      <obj_property name="ElementShortName">DEPTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEPTH[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/ADDR_W" type="array">
+      <obj_property name="ElementShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_b/USE_CONS_COMMIT" type="logic">
+      <obj_property name="ElementShortName">USE_CONS_COMMIT</obj_property>
+      <obj_property name="ObjectShortName">USE_CONS_COMMIT</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/seg_words" type="array">
+      <obj_property name="ElementShortName">seg_words[31:0]</obj_property>
+      <obj_property name="ObjectShortName">seg_words[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_req" type="logic">
+      <obj_property name="ElementShortName">fill_req</obj_property>
+      <obj_property name="ObjectShortName">fill_req</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_busy" type="logic">
+      <obj_property name="ElementShortName">fill_busy</obj_property>
+      <obj_property name="ObjectShortName">fill_busy</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_we" type="logic">
+      <obj_property name="ElementShortName">fill_we</obj_property>
+      <obj_property name="ObjectShortName">fill_we</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_addr" type="array">
+      <obj_property name="ElementShortName">fill_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fill_addr[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_wdata" type="array">
+      <obj_property name="ElementShortName">fill_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fill_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_done" type="logic">
+      <obj_property name="ElementShortName">fill_done</obj_property>
+      <obj_property name="ObjectShortName">fill_done</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/consume_req" type="logic">
+      <obj_property name="ElementShortName">consume_req</obj_property>
+      <obj_property name="ObjectShortName">consume_req</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/consume_busy" type="logic">
+      <obj_property name="ElementShortName">consume_busy</obj_property>
+      <obj_property name="ObjectShortName">consume_busy</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/rd_addr" type="array">
+      <obj_property name="ElementShortName">rd_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_addr[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/rd_en" type="logic">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/rd_rdata" type="array">
+      <obj_property name="ElementShortName">rd_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/cons_commit" type="logic">
+      <obj_property name="ElementShortName">cons_commit</obj_property>
+      <obj_property name="ObjectShortName">cons_commit</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/consume_done" type="logic">
+      <obj_property name="ElementShortName">consume_done</obj_property>
+      <obj_property name="ObjectShortName">consume_done</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/bank_sel" type="logic">
+      <obj_property name="ElementShortName">bank_sel</obj_property>
+      <obj_property name="ObjectShortName">bank_sel</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/mem0" type="array">
+      <obj_property name="ElementShortName">mem0[0:63][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem0[0:63][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/mem1" type="array">
+      <obj_property name="ElementShortName">mem1[0:63][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem1[0:63][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/st0" type="array">
+      <obj_property name="ElementShortName">st0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">st0[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/st1" type="array">
+      <obj_property name="ElementShortName">st1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">st1[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/filling" type="logic">
+      <obj_property name="ElementShortName">filling</obj_property>
+      <obj_property name="ObjectShortName">filling</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_bank" type="logic">
+      <obj_property name="ElementShortName">fill_bank</obj_property>
+      <obj_property name="ObjectShortName">fill_bank</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/fill_count" type="array">
+      <obj_property name="ElementShortName">fill_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fill_count[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/consuming" type="logic">
+      <obj_property name="ElementShortName">consuming</obj_property>
+      <obj_property name="ObjectShortName">consuming</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/cons_count" type="array">
+      <obj_property name="ElementShortName">cons_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cons_count[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/DATA_W" type="array">
+      <obj_property name="ElementShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/DEPTH" type="array">
+      <obj_property name="ElementShortName">DEPTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEPTH[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/ADDR_W" type="array">
+      <obj_property name="ElementShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_pingpong/u_c/USE_CONS_COMMIT" type="logic">
+      <obj_property name="ElementShortName">USE_CONS_COMMIT</obj_property>
+      <obj_property name="ObjectShortName">USE_CONS_COMMIT</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+</wave_config>

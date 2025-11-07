@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_axi_addr_gen_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_axi_addr_gen" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="233.907 ns"></ZoomStartTime>
+      <ZoomEndTime time="255.008 ns"></ZoomEndTime>
+      <Cursor1Time time="192.607 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="34" />
+   <wvobject fp_name="/tb_axi_addr_gen/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/base_addr" type="array">
+      <obj_property name="ElementShortName">base_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/bytes_total" type="array">
+      <obj_property name="ElementShortName">bytes_total[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bytes_total[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/stride_bytes" type="array">
+      <obj_property name="ElementShortName">stride_bytes[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stride_bytes[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/req_valid" type="logic">
+      <obj_property name="ElementShortName">req_valid</obj_property>
+      <obj_property name="ObjectShortName">req_valid</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/req_ready" type="logic">
+      <obj_property name="ElementShortName">req_ready</obj_property>
+      <obj_property name="ObjectShortName">req_ready</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/req_addr" type="array">
+      <obj_property name="ElementShortName">req_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">req_addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/req_len" type="array">
+      <obj_property name="ElementShortName">req_len[7:0]</obj_property>
+      <obj_property name="ObjectShortName">req_len[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/req_last" type="logic">
+      <obj_property name="ElementShortName">req_last</obj_property>
+      <obj_property name="ObjectShortName">req_last</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/ADDR_W" type="array">
+      <obj_property name="ElementShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/base_addr" type="array">
+      <obj_property name="ElementShortName">base_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/bytes_total" type="array">
+      <obj_property name="ElementShortName">bytes_total[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bytes_total[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/stride_bytes" type="array">
+      <obj_property name="ElementShortName">stride_bytes[31:0]</obj_property>
+      <obj_property name="ObjectShortName">stride_bytes[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/req_valid" type="logic">
+      <obj_property name="ElementShortName">req_valid</obj_property>
+      <obj_property name="ObjectShortName">req_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/req_ready" type="logic">
+      <obj_property name="ElementShortName">req_ready</obj_property>
+      <obj_property name="ObjectShortName">req_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/req_addr" type="array">
+      <obj_property name="ElementShortName">req_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">req_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/req_len" type="array">
+      <obj_property name="ElementShortName">req_len[7:0]</obj_property>
+      <obj_property name="ObjectShortName">req_len[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/req_last" type="logic">
+      <obj_property name="ElementShortName">req_last</obj_property>
+      <obj_property name="ObjectShortName">req_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/state" type="array">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/ptr" type="array">
+      <obj_property name="ElementShortName">ptr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ptr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/rem_beats" type="array">
+      <obj_property name="ElementShortName">rem_beats[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rem_beats[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/cur_beats" type="array">
+      <obj_property name="ElementShortName">cur_beats[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cur_beats[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/fire" type="logic">
+      <obj_property name="ElementShortName">fire</obj_property>
+      <obj_property name="ObjectShortName">fire</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/ADDR_W" type="array">
+      <obj_property name="ElementShortName">ADDR_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/P_BYTES_PER_BEAT" type="array">
+      <obj_property name="ElementShortName">P_BYTES_PER_BEAT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">P_BYTES_PER_BEAT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/P_MAX_BURST" type="array">
+      <obj_property name="ElementShortName">P_MAX_BURST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">P_MAX_BURST[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_axi_addr_gen/dut/BEAT_BYTES" type="array">
+      <obj_property name="ElementShortName">BEAT_BYTES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BEAT_BYTES[31:0]</obj_property>
+   </wvobject>
+</wave_config>
