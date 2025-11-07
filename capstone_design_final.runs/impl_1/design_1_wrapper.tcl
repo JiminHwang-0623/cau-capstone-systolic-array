@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/sudea/capstone_design_final/capstone_design_final.runs/impl_1/design_1_wrapper.tcl"
+  variable script "C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -123,9 +123,9 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param chipscope.maxJobs 2
+  set_param chipscope.maxJobs 4
   open_checkpoint design_1_wrapper_routed.dcp
-  set_property webtalk.parent_dir C:/Users/sudea/capstone_design_final/capstone_design_final.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.cache/wt [current_project]
 set_property TOP design_1_wrapper [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

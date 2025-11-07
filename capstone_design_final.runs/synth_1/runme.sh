@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/sudea/capstone_design_final/capstone_design_final.runs/synth_1'
+HD_PWD='C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

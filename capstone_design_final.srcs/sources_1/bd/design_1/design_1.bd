@@ -23,8 +23,7 @@
         },
         "m01_couplers": {
           "auto_pc": ""
-        },
-        "s00_mmu": ""
+        }
       },
       "rst_ps7_0_100M": "",
       "ps7_0_axi_periph": {
@@ -2298,28 +2297,13 @@
                 ]
               }
             }
-          },
-          "s00_mmu": {
-            "vlnv": "xilinx.com:ip:axi_mmu:2.1",
-            "xci_name": "design_1_s00_mmu_0",
-            "xci_path": "ip\\design_1_s00_mmu_0\\design_1_s00_mmu_0.xci",
-            "inst_hier_path": "axi_mem_intercon/s00_mmu",
-            "interface_ports": {
-              "S_AXI": {
-                "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                "mode": "Slave",
-                "bridges": [
-                  "M_AXI"
-                ]
-              }
-            }
           }
         },
         "interface_nets": {
-          "S00_AXI_1": {
+          "axi_mem_intercon_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
-              "s00_mmu/S_AXI"
+              "s00_couplers/S_AXI"
             ]
           },
           "m00_couplers_to_axi_mem_intercon": {
@@ -2338,12 +2322,6 @@
             "interface_ports": [
               "s00_couplers/M_AXI",
               "xbar/S00_AXI"
-            ]
-          },
-          "s00_mmu_M_AXI": {
-            "interface_ports": [
-              "s00_mmu/M_AXI",
-              "s00_couplers/S_AXI"
             ]
           },
           "xbar_to_m00_couplers": {
@@ -2369,8 +2347,7 @@
               "m00_couplers/M_ACLK",
               "m01_couplers/M_ACLK",
               "m00_couplers/S_ACLK",
-              "m01_couplers/S_ACLK",
-              "s00_mmu/aclk"
+              "m01_couplers/S_ACLK"
             ]
           },
           "axi_mem_intercon_ARESETN_net": {
@@ -2382,8 +2359,7 @@
               "m00_couplers/M_ARESETN",
               "m01_couplers/M_ARESETN",
               "m00_couplers/S_ARESETN",
-              "m01_couplers/S_ARESETN",
-              "s00_mmu/aresetn"
+              "m01_couplers/S_ARESETN"
             ]
           }
         }
@@ -2608,9 +2584,9 @@
         }
       },
       "sa_engine_ip_0": {
-        "vlnv": "xilinx.com:user:sa_engine_ip:1.0",
-        "xci_name": "design_1_sa_engine_ip_0_0",
-        "xci_path": "ip\\design_1_sa_engine_ip_0_0\\design_1_sa_engine_ip_0_0.xci",
+        "vlnv": "jimin.hwang:user:sa_engine_ip:1.0",
+        "xci_name": "design_1_sa_engine_ip_0_1",
+        "xci_path": "ip\\design_1_sa_engine_ip_0_1\\design_1_sa_engine_ip_0_1.xci",
         "inst_hier_path": "sa_engine_ip_0",
         "interface_ports": {
           "M00_AXI": {
@@ -2693,8 +2669,8 @@
           "ps7_0_axi_periph/S00_ACLK",
           "ps7_0_axi_periph/M00_ACLK",
           "ps7_0_axi_periph/ACLK",
-          "sa_engine_ip_0/s00_axi_aclk",
-          "sa_engine_ip_0/m00_axi_aclk"
+          "sa_engine_ip_0/m00_axi_aclk",
+          "sa_engine_ip_0/s00_axi_aclk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -2713,8 +2689,8 @@
           "ps7_0_axi_periph/S00_ARESETN",
           "ps7_0_axi_periph/M00_ARESETN",
           "ps7_0_axi_periph/ARESETN",
-          "sa_engine_ip_0/s00_axi_aresetn",
-          "sa_engine_ip_0/m00_axi_aresetn"
+          "sa_engine_ip_0/m00_axi_aresetn",
+          "sa_engine_ip_0/s00_axi_aresetn"
         ]
       }
     },
@@ -2741,7 +2717,7 @@
               "SEG_processing_system7_0_GP0_DDR_LOWOCM": {
                 "address_block": "/processing_system7_0/S_AXI_GP0/GP0_DDR_LOWOCM",
                 "offset": "0x00000000",
-                "range": "512M"
+                "range": "256M"
               },
               "SEG_processing_system7_0_GP0_IOP": {
                 "address_block": "/processing_system7_0/S_AXI_GP0/GP0_IOP",
@@ -2757,6 +2733,11 @@
                 "address_block": "/processing_system7_0/S_AXI_GP0/GP0_QSPI_LINEAR",
                 "offset": "0xFC000000",
                 "range": "16M"
+              },
+              "SEG_processing_system7_0_HP0_DDR_LOWOCM": {
+                "address_block": "/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM",
+                "offset": "0x10000000",
+                "range": "256M"
               }
             }
           }
