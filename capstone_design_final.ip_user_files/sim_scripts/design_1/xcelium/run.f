@@ -62,25 +62,30 @@
   "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_0/sim/design_1_rst_ps7_0_100M_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_engine_ip_v1_0_S00_AXI.v" \
+  "../../../bd/design_1/ipshared/fd52/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/design_1/ipshared/0347/hdl/X_REG.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/axi_dma_ctrl.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/dma_read.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/dma_write.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/dpram_wrapper.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/hPE.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_PE_wrapper.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_RF.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_controller.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_core.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_core_pipeline.sv" \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_unit.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pe/X_REG.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pkg/sa_params_pkg.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/axi/axi_dma_ctrl.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/axi/dma_read.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/axi/dma_write.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/mem/dpram_wrapper.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pe/hPE.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pe/sa_controller.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/core/sa_core.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/core/sa_core_pipeline.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/pe/sa_unit.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/core/tile_compute.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/core/tile_loader.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/core/tile_orchestrator.sv" \
+  "../../../bd/design_1/ipshared/fd52/rtl/core/tile_store.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ipshared/0347/hdl/sa_engine_ip_v1_0.v" \
-  "../../../bd/design_1/ip/design_1_sa_engine_ip_0_0/sim/design_1_sa_engine_ip_0_0.v" \
+  "../../../bd/design_1/ipshared/fd52/rtl/top/sa_engine_ip_v1_0.v" \
+  "../../../bd/design_1/ip/design_1_sa_engine_ip_0_1/sim/design_1_sa_engine_ip_0_1.v" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_25 \
   "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/8fe4/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
@@ -99,12 +104,6 @@
   "../../../bd/design_1/ip/design_1_auto_ds_0/sim/design_1_auto_ds_0.v" \
   "../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
   "../../../bd/design_1/ip/design_1_auto_pc_1/sim/design_1_auto_pc_1.v" \
--endlib
--makelib xcelium_lib/axi_mmu_v2_1_23 \
-  "../../../../capstone_design_final.gen/sources_1/bd/design_1/ipshared/53bb/hdl/axi_mmu_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_s00_mmu_0/sim/design_1_s00_mmu_0.v" \
   "../../../bd/design_1/ip/design_1_auto_pc_2/sim/design_1_auto_pc_2.v" \
   "../../../bd/design_1/sim/design_1.v" \
 -endlib

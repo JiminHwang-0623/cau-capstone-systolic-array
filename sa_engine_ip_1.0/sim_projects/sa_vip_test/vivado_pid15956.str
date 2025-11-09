@@ -1,0 +1,354 @@
+/*
+
+Xilinx Vivado v2021.2 (64-bit) [Major: 2021, Minor: 2]
+SW Build: 3367213 on Tue Oct 19 02:48:09 MDT 2021
+IP Build: 3369179 on Thu Oct 21 08:25:16 MDT 2021
+
+Process ID (PID): 15956
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sun Nov 09 16:47:13 KST 2025
+Time zone: 	Korean Standard Time (Asia/Seoul)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 18
+
+Screen size: 1920x1200
+Screen resolution (DPI): 150
+Available screens: 2
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=18
+Scale size: 27
+
+Java version: 	11.0.11 64-bit
+Java home: 	C:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9
+Java executable: 	C:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	User
+User home directory: C:/Users/User
+User working directory: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test
+User country: 	KR
+User language: 	ko
+User locale: 	ko_KR
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2021.2
+RDI_DATADIR: C:/Xilinx/Vivado/2021.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2021.2/bin
+
+Vivado preferences file: C:/Users/User/AppData/Roaming/Xilinx/Vivado/2021.2/vivado.xml
+Vivado preferences directory: C:/Users/User/AppData/Roaming/Xilinx/Vivado/2021.2/
+Vivado layouts directory: C:/Users/User/AppData/Roaming/Xilinx/Vivado/2021.2/data/layouts
+PlanAhead jar file: 	C:/Xilinx/Vivado/2021.2/lib/classes/planAhead.jar
+Vivado log file: 	C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/vivado.log
+Vivado journal file: 	C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/vivado.jou
+Engine tmp dir: 	C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/.Xil/Vivado-15956-DESKTOP-EGRO0RF
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_HLS: C:/Xilinx/Vitis_HLS/2021.2
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2021.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2021.2
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2021.2
+
+
+GUI allocated memory:	256 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,264 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// WARNING: HEventQueue.dispatchEvent() is taking  1065 ms.
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\User\Desktop\git\cau-capstone\sa_engine_ip_1.0\sim_projects\sa_vip_test\sa_vip_test.xpr. Version: Vivado v2021.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,264 MB. GUI used memory: 60 MB. Current time: 11/9/25, 4:47:14 PM KST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 104 MB (+106563kb) [00:00:39]
+// [Engine Memory]: 1,264 MB (+1174112kb) [00:00:39]
+// WARNING: HEventQueue.dispatchEvent() is taking  7013 ms.
+// Tcl Message: open_project: Time (s): cpu = 00:00:50 ; elapsed = 00:00:24 . Memory (MB): peak = 1243.332 ; gain = 0.000 
+// Project name: sa_vip_test; location: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test; part: xc7z020clg400-1
+dismissDialog("Open Project"); // bA
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 112 MB (+3426kb) [00:01:04]
+// Elapsed time: 21 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // n
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: open_bd_design {C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd} 
+// Tcl Message: Reading block design file <C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd>... 
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_LOCK_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_OPEN_DIAGRAM
+// Tcl Message: Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - slave_0 Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - master_0 Adding component instance block -- jimin.hwang:user:sa_engine_ip:1.0 - sa_engine_ip_0 Successfully read diagram <sa_engine_ip_v1_0_bfm_1> from block design file <C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd> 
+// TclEventType: RSB_OPEN_DIAGRAM
+// WARNING: HEventQueue.dispatchEvent() is taking  3494 ms.
+// JavaFX intialization before: 1762674494595
+// Elapsed time: 15 seconds
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// Tcl Message: open_bd_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 1243.332 ; gain = 0.000 
+// [GUI Memory]: 129 MB (+11740kb) [00:01:23]
+// JavaFX initialization after: 1762674495930
+// 'bW' command handler elapsed time: 15 seconds
+// HMemoryUtils.trashcanNow. Engine heap size: 1,288 MB. GUI used memory: 79 MB. Current time: 11/9/25, 4:48:34 PM KST
+// [GUI Memory]: 151 MB (+16192kb) [00:13:11]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,362 MB. GUI used memory: 102 MB. Current time: 11/9/25, 5:00:05 PM KST
+// Elapsed time: 713 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Address Editor", 1); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Address Map", 2); // m
+// [Engine Memory]: 1,362 MB (+35959kb) [00:13:18]
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "System", 0); // m
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 1016, 438, 1858, 969, false, false, false, true, false); // hx - Popup Trigger
+selectMenu(PAResourceQtoS.SelectMenu_HIGHLIGHT, "Highlight"); // al
+selectMenu(PAResourceQtoS.SystemBuilderView_ORIENTATION, "Orientation"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER, "Edit in IP Packager"); // ao
+// Run Command: PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+selectButton("OptionPane.button", "OK"); // JButton
+// Tcl Message: ipx::edit_ip_in_project -upgrade true -name sa_engine_ip_v1_0_project -directory C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.tmp/sa_engine_ip_v1_0_project c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/component.xml 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'c:/users/user/desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.tmp/sa_engine_ip_v1_0_project' 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  2095 ms.
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 159 MB (+623kb) [00:13:38]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 168 MB (+1053kb) [00:13:39]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1446.641 ; gain = 0.000 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories 
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0'. INFO: [IP_Flow 19-795] Syncing license key meta-data 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// WARNING: HEventQueue.dispatchEvent() is taking  2271 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,392 MB. GUI used memory: 121 MB. Current time: 11/9/25, 5:00:36 PM KST
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+//  *** Exceptions that should be ignored by HSystem.debug () - swept under the rug. *** 
+/*
+java.lang.NullPointerException
+*/
+//  *** Exceptions that should be ignored by HSystem.debug () - swept under the rug. *** 
+/*
+java.lang.NullPointerException
+*/
+// Tcl Message: ipx::edit_ip_in_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1446.641 ; gain = 0.000 
+// 'i' command handler elapsed time: 23 seconds
+// Elapsed time: 19 seconds
+dismissDialog("Edit in IP Packager"); // bA
+// [Engine Memory]: 1,444 MB (+14932kb) [00:13:57]
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 180 MB (+3583kb) [00:14:01]
+// Elapsed time: 85 seconds
+closeMainWindow("sa_engine_ip_v1_0_project - [c:/users/user/desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.tmp/sa_engine_ip_v1_0_project/sa_engine_ip_v1_0_project.xpr] - Vivado 2021.2"); // bb
+// Run Command: PAResourceCommand.PACommandNames_CLOSE_PROJECT
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: PROJECT_CLOSE
+dismissDialog("Close Project"); // A
+// HMemoryUtils.trashcanNow. Engine heap size: 1,444 MB. GUI used memory: 122 MB. Current time: 11/9/25, 5:02:13 PM KST
+// Tcl Message: close_project 
+dismissDialog("Close Project"); // bA
+// Elapsed time: 21 seconds
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 1012, 379, 1858, 969, false, false, false, true, false); // hx - Popup Trigger
+selectMenu(PAResourceQtoS.SelectMenu_HIGHLIGHT, "Highlight"); // al
+// Elapsed time: 56 seconds
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 1011, 457, 1858, 969, false, false, false, true, false); // hx - Popup Trigger
+selectMenu(PAResourceQtoS.SelectMenu_HIGHLIGHT, "Highlight"); // al
+selectMenu(PAResourceQtoS.SystemBuilderView_ORIENTATION, "Orientation"); // al
+selectMenu(PAResourceQtoS.SystemBuilderView_PINNING, "Pinning"); // al
+selectMenu(PAResourceQtoS.SystemBuilderView_ORIENTATION, "Orientation"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER, "Edit in IP Packager"); // ao
+// Run Command: PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+selectButton("OptionPane.button", "OK"); // JButton
+// Tcl Message: ipx::edit_ip_in_project -upgrade true -name sa_engine_ip_v1_0_project -directory C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.tmp/sa_engine_ip_v1_0_project c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/component.xml 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'c:/users/user/desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.tmp/sa_engine_ip_v1_0_project' 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  3694 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1482.484 ; gain = 0.000 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories 
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0'. INFO: [IP_Flow 19-795] Syncing license key meta-data 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// WARNING: HEventQueue.dispatchEvent() is taking  1174 ms.
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::edit_ip_in_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1482.484 ; gain = 0.000 
+// 'i' command handler elapsed time: 28 seconds
+// Elapsed time: 26 seconds
+dismissDialog("Edit in IP Packager"); // bA
+// [GUI Memory]: 192 MB (+2425kb) [00:17:14]
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [Engine Memory]: 1,542 MB (+27384kb) [00:17:27]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,545 MB. GUI used memory: 136 MB. Current time: 11/9/25, 5:04:20 PM KST
+// Elapsed time: 38 seconds
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Customization GUI", 6); // aq
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Addressing and Memory", 5); // aq
+// Elapsed time: 79 seconds
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Review and Package", 7); // aq
+// Elapsed time: 18 seconds
+selectButton(PAResourceQtoS.SystemTab_REPORT_IP_STATUS, "Report IP Status"); // g
+// Run Command: PAResourceCommand.PACommandNames_REPORT_IP_STATUS
+// Tcl Command: 'report_ip_status -name ip_status '
+// Tcl Message: current_project sa_vip_test 
+// TclEventType: IP_SUMMARY_RESULTS
+// Tcl Message: report_ip_status -name ip_status  
+dismissDialog("Report IP Status"); // bA
+// Elapsed time: 13 seconds
+selectButton(PAResourceItoN.IPStatusSectionPanel_UPGRADE_SELECTED, "Upgrade Selected"); // a
+// Run Command: PAResourceCommand.PACommandNames_UPGRADE_IP
+// TclEventType: RSB_OPEN_DIAGRAM
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_DELETE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: upgrade_ip -vlnv jimin.hwang:user:sa_engine_ip:1.0 [get_ips  sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0] -log ip_upgrade.log 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_DELETE
+// Tcl Message: Upgrading 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd' 
+// TclEventType: FILE_SET_DELETE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: IP_UPGRADE_COMPLETE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0 (sa_engine_ip_v1.0 1.0) from revision 29 to revision 31 
+// Tcl Message: Wrote  : <C:\Users\User\Desktop\git\cau-capstone\sa_engine_ip_1.0\sim_projects\sa_vip_test\sa_vip_test.srcs\sources_1\bd\sa_engine_ip_v1_0_bfm_1\sa_engine_ip_v1_0_bfm_1.bd>  Wrote  : <C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ui/bd_c3711154.ui>  
+// Tcl Message: INFO: [Coretcl 2-1525] Wrote upgrade log to 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/ip_upgrade.log'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,545 MB. GUI used memory: 138 MB. Current time: 11/9/25, 5:07:08 PM KST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,545 MB. GUI used memory: 137 MB. Current time: 11/9/25, 5:07:38 PM KST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,545 MB. GUI used memory: 137 MB. Current time: 11/9/25, 5:08:08 PM KST
+// Elapsed time: 96 seconds
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aL
+selectTab((HResource) null, (HResource) null, "IP Status", 3); // aL
+// Elapsed time: 38 seconds
+selectButton("HStatusBar_ProgressStatusItem_Cancel", "Cancel"); // NullButton
+// Elapsed time: 13 seconds
+selectButton(PAResourceQtoS.StaleMoreAction_OUT_OF_DATE_DETAILS, "details"); // g
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+selectButton("OptionPane.button", "OK"); // JButton
+// HMemoryUtils.trashcanNow. Engine heap size: 1,545 MB. GUI used memory: 137 MB. Current time: 11/9/25, 5:09:38 PM KST
+// Elapsed time: 40 seconds
+selectButton(RDIResource.BaseReportTab_RERUN, "Rerun"); // g
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+selectButton("OptionPane.button", "OK"); // JButton
+// HMemoryUtils.trashcanNow. Engine heap size: 1,545 MB. GUI used memory: 138 MB. Current time: 11/9/25, 5:10:08 PM KST
+// Elapsed time: 12 seconds
+closeMainWindow("sa_vip_test - [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.xpr] - Vivado 2021.2"); // bb
+// HOptionPane Warning: 'A background task is running. Please wait until it completes to exit Vivado. If you choose to abort background task and exit immediately, you will lose all unsaved changes to project. (Background Task)'

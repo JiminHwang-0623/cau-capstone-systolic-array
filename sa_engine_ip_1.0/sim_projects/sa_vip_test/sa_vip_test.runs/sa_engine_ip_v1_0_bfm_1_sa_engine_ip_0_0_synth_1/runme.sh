@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1'
+HD_PWD='C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: jimin.hwang:user:sa_engine_ip:1.0
-// IP Revision: 29
+// IP Revision: 32
 
 (* X_CORE_INFO = "sa_engine_ip_v1_0,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0,sa_engine_ip_v1_0,{}" *)

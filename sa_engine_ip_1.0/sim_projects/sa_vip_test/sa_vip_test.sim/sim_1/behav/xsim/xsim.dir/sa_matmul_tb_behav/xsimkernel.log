@@ -1,7 +1,7 @@
-Running: xsim.dir/sa_matmul_tb_behav/xsimk.exe -simmode gui -wdb sa_matmul_tb_behav.wdb -simrunnum 0 -socket 59644
+Running: xsim.dir/sa_matmul_tb_behav/xsimk.exe -simmode gui -wdb sa_matmul_tb_behav.wdb -simrunnum 0 -socket 62154
 Design successfully loaded
-Design Loading Memory Usage: 13396 KB (Peak: 13396 KB)
-Design Loading CPU Usage: 62 ms
+Design Loading Memory Usage: 14100 KB (Peak: 14100 KB)
+Design Loading CPU Usage: 124 ms
 Simulation completed
-Simulation Memory Usage: 23248 KB (Peak: 23248 KB)
-Simulation CPU Usage: 343 ms
+Simulation Memory Usage: 24332 KB (Peak: 24332 KB)
+Simulation CPU Usage: 921 ms

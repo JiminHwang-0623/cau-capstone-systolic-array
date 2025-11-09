@@ -162,4 +162,4 @@ Executing Axi4 End Of Simulation checks
 Warning: AXI4_ERRS_RLAST_ALL_DONE_EOS: All outstanding read bursts must have completed a the end of the simulation.
 Time: 5635 ns  Iteration: 0  Process: /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/master_0/inst/IF/PC/Always3109_226  Scope: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2021.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 725
 Executing Axi4 End Of Simulation checks
-$finish called at time : 5635 ns : File "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/src/tb/sa_matmul_tb.sv" Line 160
+$finish called at time : 5635 ns : File "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim/tb/sa_matmul_tb.sv" Line 160

@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat Nov  8 22:33:50 2025
+# Process ID: 26580
+# Current directory: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3412 C:\Users\User\Desktop\git\cau-capstone\sa_engine_ip_1.0\sim_projects\sa_vip_test\sa_vip_test.xpr
+# Log file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/vivado.log
+# Journal file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test\vivado.jou
+# Running On: DESKTOP-EGRO0RF, OS: Windows, CPU Frequency: 2995 MHz, CPU Physical cores: 14, Host memory: 16898 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_engine_ip_v1_0_tb_behav.wcfg
+source sa_matmul_tb.tcl
+launch_runs impl_1 -jobs 9
+wait_on_run impl_1
+open_bd_design {C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd}
+relaunch_sim
+relaunch_sim
+close_sim

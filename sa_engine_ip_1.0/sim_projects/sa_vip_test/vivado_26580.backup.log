@@ -1,0 +1,1064 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat Nov  8 22:33:50 2025
+# Process ID: 26580
+# Current directory: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3412 C:\Users\User\Desktop\git\cau-capstone\sa_engine_ip_1.0\sim_projects\sa_vip_test\sa_vip_test.xpr
+# Log file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/vivado.log
+# Journal file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test\vivado.jou
+# Running On: DESKTOP-EGRO0RF, OS: Windows, CPU Frequency: 2995 MHz, CPU Physical cores: 14, Host memory: 16898 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu116/1.4/board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu116/1.5/board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.3/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu128/production/1.0/board.xml as part xcvu37p-fsvh2892-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.3/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.0/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.1 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.1/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.2/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/es/1.0/board.xml as part xczu58dr-fsvg1517-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.0/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.1 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.1/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.2/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/es/1.0/board.xml as part xczu59dr-ffvf1760-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/1.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [Project 1-313] Project file moved from 'C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [Project 1-1877] Auto incremental dir location 'C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/synth_1' of run 'synth_1' is not writable, setting it to default location 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/synth_1'.
+INFO: [Project 1-1877] Auto incremental dir location 'C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1' of run 'sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1' is not writable, setting it to default location 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1'.
+INFO: [Project 1-1877] Auto incremental dir location 'C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/impl_1' of run 'impl_1' is not writable, setting it to default location 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/impl_1'.
+INFO: [Project 1-1877] Auto incremental dir location 'C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_impl_1' of run 'sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_impl_1' is not writable, setting it to default location 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/utils_1/imports/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_impl_1'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0'.
+WARNING: [IP_Flow 19-3656] If you move the project, the path for repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0' may become invalid. A better location for the repository would be in a path adjacent to the project. (Current project location is 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test'.)
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'sa_engine_ip_v1_0_bfm_1.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0
+
+open_project: Time (s): cpu = 00:00:35 ; elapsed = 00:00:18 . Memory (MB): peak = 1246.578 ; gain = 0.000
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'sa_matmul_tb'
+WARNING: [Vivado 12-12986] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2021.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2021.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'sa_matmul_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim/matrix_A_B.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim/golden_result.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -L axi_vip_v1_1_11 -L xilinx_vip -i C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include -L axi_vip_v1_1_11 -L xilinx_vip -prj sa_matmul_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_slave_0_0/sim/sa_engine_ip_v1_0_bfm_1_slave_0_0_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_slave_0_0/sim/sa_engine_ip_v1_0_bfm_1_slave_0_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_bfm_1_slave_0_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_master_0_0/sim/sa_engine_ip_v1_0_bfm_1_master_0_0_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_master_0_0/sim/sa_engine_ip_v1_0_bfm_1_master_0_0.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_bfm_1_master_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_S00_AXI
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/X_REG.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module X_REG
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pkg/sa_params_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/axi/axi_dma_ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dma_ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/axi/dma_read.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dma_read
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/axi/dma_write.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dma_write
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/mem/dpram_wrapper.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dpram_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/hPE.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hPE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_PE_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_RF
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/core/sa_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/core/sa_core_pipeline.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_core_pipeline
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/core/tile_compute.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tile_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/core/tile_loader.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tile_loader
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/core/tile_orchestrator.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tile_orchestrator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/core/tile_store.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tile_store
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/top/sa_engine_ip_v1_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0/sim/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/sim/sa_engine_ip_v1_0_bfm_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_bfm_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/hdl/sa_engine_ip_v1_0_bfm_1_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_ip_v1_0_bfm_1_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim/tb/sa_matmul_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_matmul_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1246.578 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all"
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:100]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:111]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:122]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:144]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:155]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:166]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:170]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:171]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:172]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:173]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:174]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:175]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:176]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:177]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:55]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:61]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:64]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:67]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:70]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:73]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:82]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:85]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:88]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:91]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:94]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:97]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:100]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xilinx_vip.axi_vip_pkg
+Compiling package xilinx_vip.xil_common_vip_pkg
+Compiling package std.std
+Compiling package xil_defaultlib.$unit_sa_matmul_tb_sv
+Compiling package xil_defaultlib.sa_engine_ip_v1_0_bfm_1_slave_0_...
+Compiling package xil_defaultlib.sa_engine_ip_v1_0_bfm_1_master_0...
+Compiling module xilinx_vip.axi_vip_axi4pc(WDATA_WIDTH=32,RD...
+Compiling module xilinx_vip.cb
+Compiling module xilinx_vip.axi_vip_if(C_AXI_WID_WIDTH=1,C_A...
+Compiling module axi_vip_v1_1_11.axi_vip_v1_1_11_top(C_AXI_WID_WI...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_master_0...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_S00_AXI_defaul...
+Compiling module xil_defaultlib.axi_dma_ctrl(BIT_TRANS=8)
+Compiling module xil_defaultlib.dma_read(BITS_TRANS=8,OUT_BITS_T...
+Compiling module xil_defaultlib.dma_write(BITS_TRANS=8,OUT_BITS_...
+Compiling module xil_defaultlib.dpram_wrapper(DW=32,AW=11,DEPTH=...
+Compiling module xil_defaultlib.hPE
+Compiling module xil_defaultlib.sa_PE_wrapper
+Compiling module xil_defaultlib.X_REG
+Compiling module xil_defaultlib.sa_RF
+Compiling module xil_defaultlib.sa_unit
+Compiling module xil_defaultlib.sa_controller
+Compiling module xil_defaultlib.sa_core_default
+Compiling module xil_defaultlib.sa_core_pipeline(C_M_AXI_AWUSER_...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0(C_M00_AXI_AWUS...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_sa_engin...
+Compiling module xilinx_vip.axi_vip_axi4pc(WDATA_WIDTH=32,RD...
+Compiling module xilinx_vip.cb
+Compiling module xilinx_vip.axi_vip_if(C_AXI_PROTOCOL=2,C_AX...
+Compiling module axi_vip_v1_1_11.axi_vip_v1_1_11_top(C_AXI_PROTOC...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_slave_0_...
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1
+Compiling module xil_defaultlib.sa_engine_ip_v1_0_bfm_1_wrapper
+Compiling module xil_defaultlib.sa_matmul_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot sa_matmul_tb_behav
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:00:40 . Memory (MB): peak = 1246.578 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '40' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "sa_matmul_tb_behav -key {Behavioral:sim_1:Functional:sa_matmul_tb} -tclbatch {sa_matmul_tb.tcl} -protoinst "protoinst_files/sa_engine_ip_v1_0_bfm_1.protoinst" -view {C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_engine_ip_v1_0_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/sa_engine_ip_v1_0_bfm_1.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//master_0/S_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//sa_engine_ip_0/M00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//sa_engine_ip_0/S00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//slave_0/M_AXI
+Time resolution is 1 ps
+open_wave_config C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_engine_ip_v1_0_tb_behav.wcfg
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/clk was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rstn was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/start was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/read_data_vld was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/DATA_IN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rd_done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/wr_pull was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_addrb was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dma_cnt was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_enb was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/buff_out was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/DATA_OUT was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/wr_done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/start_rd_wr was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/c_state was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/n_state was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/IDX was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/REG_SELECT was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/sa_input_data was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_A was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_B was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_S was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_A_d was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt_B_d was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rowA was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/colA was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/rowB was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/colB was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneA_raw was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneB_raw was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneA_eff was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/laneB_eff was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/en was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/write_en was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/load_en was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/matrix_base_addr was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/WRITE_STATE was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/iter_cnt was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/B_load_done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/A_load_done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/matmul_done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_enb was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_addra was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_addrb was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_dob was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_word_idx was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_addra was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/output_data_buffer was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_dob was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_in_wea was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/dpram_out_wea was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/register_load_done was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/en_output was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/prod was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/bias_pos was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/bias_neg was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/biased was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/scaled64 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/sa_out was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/OUTPUT_EN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/SIDE was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ELEM_BITS was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/BYTES_PER_WORD was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/LITTLE_ENDIAN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/BYTES_PER_ELEM was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ELEMS_PER_MATRIX was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ELEMS_PER_WORD was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/WORDS_PER_MATRIX was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/A_BASE_WORD was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/B_BASE_WORD was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/STORE_WORDS was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/ITER_W was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/LANE_W was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/MAX_A was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/MAX_B was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/MAX_OUT was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/C was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/D was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/N was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/B was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/RST was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/CLK was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/EN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/WRITE was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/IDX was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/REG_SELECT was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/LOAD was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_IN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_OUTPUT_EN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_OUT was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/B_load_done_o was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/register_load_done_o was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/A_load_done_o was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/matmul_done_o was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_0 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_1 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_2 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_3 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_4 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_5 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_6 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_7 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_8 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_9 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_10 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_11 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_12 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_13 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_14 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_15 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_OUT_BUFFER was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A0 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A1 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A2 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A3 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A4 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A5 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A6 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_A7 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B0 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B1 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B2 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B3 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B4 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B5 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B6 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_B7 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C0 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C1 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C2 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C3 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C4 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C5 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C6 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/MAT_C7 was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/IDX_COUNTER was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/IDX_IN_BUFFER was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/DATA_IN_BUFFER was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/SA_EN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/SA_WRITE was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/OUTPUT_EN was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/B_load_done_pulse was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/A_load_done_pulse was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/register_load_done_pulse was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/matmul_done_pulse was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/a_locked was not found in the design.
+WARNING: Simulation object /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/sa_engine_ip_0/inst/u_core/u_sa_core/u_sa_controller/b_locked was not found in the design.
+source sa_matmul_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 10us
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.slave_0.inst
+
+
+========================================
+  Matrix Multiplication Test Start
+========================================
+
+[Step 1] Loading test data to VIP memory...
+  File: matrix_A_B.hex
+  Base Address: 0x00000000
+[200000.0 ps] Loading file: matrix_A_B.hex
+[200000.0 ps] Loaded 128 bytes to VIP memory at 0x0
+
+[Step 2] Configuring IP registers...
+[285000.0 ps] Write Register: Addr=0x00000004, Data=0x00000000
+  READ_BASE  = 0x00000000 (Matrix A starts here)
+[375000.0 ps] Write Register: Addr=0x00000008, Data=0x00000400
+  WRITE_BASE = 0x00000400 (Result C goes here)
+
+[Step 3] Starting matrix multiplication...
+[465000.0 ps] Write Register: Addr=0x00000000, Data=0x00000001
+  START bit set
+[555000.0 ps] Write Register: Addr=0x00000000, Data=0x00000000
+  START bit cleared (pulse mode)
+  IP is now reading matrices, computing, and writing results...
+
+[Step 4] Waiting for DONE signal...
+[555000.0 ps] Waiting for DONE signal...
+[595000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[725000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[855000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[985000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1115000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1245000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1375000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1505000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1635000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1765000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1895000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2025000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2155000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2285000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2415000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2545000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2675000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2805000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2935000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3065000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3195000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3325000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3455000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3585000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3715000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3845000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3975000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4105000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4235000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4365000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4495000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4625000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4755000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4885000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5015000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5145000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5275000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5405000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5535000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000002
+[5535000.0 ps] DONE signal detected! (STATUS=0x00000002)
+  Computation completed!
+
+[Step 5] Verifying results against golden reference...
+  Golden file: golden_result.hex
+  Result address: 0x00000400
+  Number of elements: 64 (8x8 matrix)
+[5535000.0 ps] ========================================
+[5535000.0 ps] Starting Result Verification
+[5535000.0 ps] ========================================
+[5535000.0 ps] [PASS] Element[00]: Expected=0x00022099, Got=0x00022099
+[5535000.0 ps] [PASS] Element[01]: Expected=0x0001c505, Got=0x0001c505
+[5535000.0 ps] [PASS] Element[02]: Expected=0x00024e76, Got=0x00024e76
+[5535000.0 ps] [PASS] Element[03]: Expected=0x0002ccac, Got=0x0002ccac
+[5535000.0 ps] [PASS] Element[04]: Expected=0x000329ad, Got=0x000329ad
+[5535000.0 ps] [PASS] Element[05]: Expected=0x00029238, Got=0x00029238
+[5535000.0 ps] [PASS] Element[06]: Expected=0x00029b04, Got=0x00029b04
+[5535000.0 ps] [PASS] Element[07]: Expected=0x0001e722, Got=0x0001e722
+[5535000.0 ps] [PASS] Element[08]: Expected=0x00014fbc, Got=0x00014fbc
+[5535000.0 ps] [PASS] Element[09]: Expected=0x00018581, Got=0x00018581
+[5535000.0 ps] [PASS] Element[10]: Expected=0x000159bd, Got=0x000159bd
+[5535000.0 ps] [PASS] Element[11]: Expected=0x00018f80, Got=0x00018f80
+[5535000.0 ps] [PASS] Element[12]: Expected=0x000274d7, Got=0x000274d7
+[5535000.0 ps] [PASS] Element[13]: Expected=0x00019fc0, Got=0x00019fc0
+[5535000.0 ps] [PASS] Element[14]: Expected=0x0001e058, Got=0x0001e058
+[5535000.0 ps] [PASS] Element[15]: Expected=0x00013369, Got=0x00013369
+[5535000.0 ps] [PASS] Element[16]: Expected=0x000235c5, Got=0x000235c5
+[5535000.0 ps] [PASS] Element[17]: Expected=0x00027768, Got=0x00027768
+[5535000.0 ps] [PASS] Element[18]: Expected=0x00023ef3, Got=0x00023ef3
+[5535000.0 ps] [PASS] Element[19]: Expected=0x0002702f, Got=0x0002702f
+[5535000.0 ps] [PASS] Element[20]: Expected=0x0003a412, Got=0x0003a412
+[5535000.0 ps] [PASS] Element[21]: Expected=0x00027669, Got=0x00027669
+[5535000.0 ps] [PASS] Element[22]: Expected=0x0002a30e, Got=0x0002a30e
+[5535000.0 ps] [PASS] Element[23]: Expected=0x0001c3cb, Got=0x0001c3cb
+[5535000.0 ps] [PASS] Element[24]: Expected=0x00016734, Got=0x00016734
+[5535000.0 ps] [PASS] Element[25]: Expected=0x0001b808, Got=0x0001b808
+[5535000.0 ps] [PASS] Element[26]: Expected=0x0001977d, Got=0x0001977d
+[5535000.0 ps] [PASS] Element[27]: Expected=0x0002277a, Got=0x0002277a
+[5535000.0 ps] [PASS] Element[28]: Expected=0x0002a0fc, Got=0x0002a0fc
+[5535000.0 ps] [PASS] Element[29]: Expected=0x0001ed9d, Got=0x0001ed9d
+[5535000.0 ps] [PASS] Element[30]: Expected=0x000206d0, Got=0x000206d0
+[5535000.0 ps] [PASS] Element[31]: Expected=0x000170d5, Got=0x000170d5
+[5535000.0 ps] [PASS] Element[32]: Expected=0x000147eb, Got=0x000147eb
+[5535000.0 ps] [PASS] Element[33]: Expected=0x000125ca, Got=0x000125ca
+[5535000.0 ps] [PASS] Element[34]: Expected=0x0001f95d, Got=0x0001f95d
+[5535000.0 ps] [PASS] Element[35]: Expected=0x0001b5d8, Got=0x0001b5d8
+[5535000.0 ps] [PASS] Element[36]: Expected=0x00026ba4, Got=0x00026ba4
+[5535000.0 ps] [PASS] Element[37]: Expected=0x00019799, Got=0x00019799
+[5535000.0 ps] [PASS] Element[38]: Expected=0x0001ab76, Got=0x0001ab76
+[5535000.0 ps] [PASS] Element[39]: Expected=0x0001b30f, Got=0x0001b30f
+[5535000.0 ps] [PASS] Element[40]: Expected=0x00025f08, Got=0x00025f08
+[5535000.0 ps] [PASS] Element[41]: Expected=0x0001ca00, Got=0x0001ca00
+[5535000.0 ps] [PASS] Element[42]: Expected=0x0002bb66, Got=0x0002bb66
+[5535000.0 ps] [PASS] Element[43]: Expected=0x0001c47c, Got=0x0001c47c
+[5535000.0 ps] [PASS] Element[44]: Expected=0x0002ee1e, Got=0x0002ee1e
+[5535000.0 ps] [PASS] Element[45]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[46]: Expected=0x000299fa, Got=0x000299fa
+[5535000.0 ps] [PASS] Element[47]: Expected=0x0001f60e, Got=0x0001f60e
+[5535000.0 ps] [PASS] Element[48]: Expected=0x0001d43a, Got=0x0001d43a
+[5535000.0 ps] [PASS] Element[49]: Expected=0x00013a95, Got=0x00013a95
+[5535000.0 ps] [PASS] Element[50]: Expected=0x000202ba, Got=0x000202ba
+[5535000.0 ps] [PASS] Element[51]: Expected=0x0001f367, Got=0x0001f367
+[5535000.0 ps] [PASS] Element[52]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[53]: Expected=0x0001f837, Got=0x0001f837
+[5535000.0 ps] [PASS] Element[54]: Expected=0x000201f8, Got=0x000201f8
+[5535000.0 ps] [PASS] Element[55]: Expected=0x000188f4, Got=0x000188f4
+[5535000.0 ps] [PASS] Element[56]: Expected=0x000225ed, Got=0x000225ed
+[5535000.0 ps] [PASS] Element[57]: Expected=0x00022e19, Got=0x00022e19
+[5535000.0 ps] [PASS] Element[58]: Expected=0x00026769, Got=0x00026769
+[5535000.0 ps] [PASS] Element[59]: Expected=0x0002047a, Got=0x0002047a
+[5535000.0 ps] [PASS] Element[60]: Expected=0x0003a1c6, Got=0x0003a1c6
+[5535000.0 ps] [PASS] Element[61]: Expected=0x00023159, Got=0x00023159
+[5535000.0 ps] [PASS] Element[62]: Expected=0x00025c04, Got=0x00025c04
+[5535000.0 ps] [PASS] Element[63]: Expected=0x0001fb00, Got=0x0001fb00
+[5535000.0 ps] ========================================
+[5535000.0 ps] Verification Summary
+[5535000.0 ps] ========================================
+[5535000.0 ps] Total Elements: 64
+[5535000.0 ps] PASS: 64
+[5535000.0 ps] FAIL: 0
+[5535000.0 ps] ========================================
+[5535000.0 ps] [SUCCESS] ALL TESTS PASSED!
+
+========================================
+  Matrix Multiplication Test Complete
+========================================
+
+
+========================================
+  SIMULATION FINISHED
+========================================
+Executing Axi4 End Of Simulation checks
+Warning: AXI4_ERRS_RLAST_ALL_DONE_EOS: All outstanding read bursts must have completed a the end of the simulation.
+Time: 5635 ns  Iteration: 0  Process: /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/master_0/inst/IF/PC/Always3109_226  Scope: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2021.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 725
+Executing Axi4 End Of Simulation checks
+$finish called at time : 5635 ns : File "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim/tb/sa_matmul_tb.sv" Line 160
+xsim: Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1246.578 ; gain = 0.000
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'sa_matmul_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10us
+launch_simulation: Time (s): cpu = 00:00:29 ; elapsed = 00:01:03 . Memory (MB): peak = 1246.578 ; gain = 0.000
+launch_runs impl_1 -jobs 9
+[Sat Nov  8 22:48:11 2025] Launched synth_1...
+Run output will be captured here: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/synth_1/runme.log
+[Sat Nov  8 22:48:11 2025] Launched impl_1...
+Run output will be captured here: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/impl_1/runme.log
+open_bd_design {C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd}
+Reading block design file <C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd>...
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - slave_0
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - master_0
+Adding component instance block -- jimin.hwang:user:sa_engine_ip:1.0 - sa_engine_ip_0
+Successfully read diagram <sa_engine_ip_v1_0_bfm_1> from block design file <C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.srcs/sources_1/bd/sa_engine_ip_v1_0_bfm_1/sa_engine_ip_v1_0_bfm_1.bd>
+open_bd_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1424.484 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'sa_matmul_tb'
+WARNING: [Vivado 12-12986] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2021.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2021.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'sa_matmul_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim/matrix_A_B.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim/golden_result.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -L axi_vip_v1_1_11 -L xilinx_vip -i C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include -L axi_vip_v1_1_11 -L xilinx_vip -prj sa_matmul_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'sa_matmul_tb'
+WARNING: [Vivado 12-12986] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all"
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:100]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:111]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:122]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:144]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:155]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:166]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:170]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:171]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:172]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:173]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:174]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:175]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:176]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:177]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:55]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:61]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:64]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:67]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:70]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:73]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:82]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:85]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:88]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:91]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:94]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:97]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:100]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1621.219 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1621.219 ; gain = 0.000
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/sa_engine_ip_v1_0_bfm_1.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//master_0/S_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//sa_engine_ip_0/M00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//sa_engine_ip_0/S00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//slave_0/M_AXI
+Time resolution is 1 ps
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.slave_0.inst
+
+
+========================================
+  Matrix Multiplication Test Start
+========================================
+
+[Step 1] Loading test data to VIP memory...
+  File: matrix_A_B.hex
+  Base Address: 0x00000000
+[200000.0 ps] Loading file: matrix_A_B.hex
+[200000.0 ps] Loaded 128 bytes to VIP memory at 0x0
+
+[Step 2] Configuring IP registers...
+[285000.0 ps] Write Register: Addr=0x00000004, Data=0x00000000
+  READ_BASE  = 0x00000000 (Matrix A starts here)
+[375000.0 ps] Write Register: Addr=0x00000008, Data=0x00000400
+  WRITE_BASE = 0x00000400 (Result C goes here)
+
+[Step 3] Starting matrix multiplication...
+[465000.0 ps] Write Register: Addr=0x00000000, Data=0x00000001
+  START bit set
+[555000.0 ps] Write Register: Addr=0x00000000, Data=0x00000000
+  START bit cleared (pulse mode)
+  IP is now reading matrices, computing, and writing results...
+
+[Step 4] Waiting for DONE signal...
+[555000.0 ps] Waiting for DONE signal...
+[595000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[725000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[855000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[985000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1115000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1245000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1375000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1505000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1635000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1765000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1895000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2025000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2155000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2285000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2415000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2545000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2675000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2805000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2935000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3065000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3195000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3325000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3455000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3585000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3715000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3845000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3975000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4105000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4235000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4365000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4495000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4625000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4755000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4885000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5015000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5145000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5275000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5405000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5535000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000002
+[5535000.0 ps] DONE signal detected! (STATUS=0x00000002)
+  Computation completed!
+
+[Step 5] Verifying results against golden reference...
+  Golden file: golden_result.hex
+  Result address: 0x00000400
+  Number of elements: 64 (8x8 matrix)
+[5535000.0 ps] ========================================
+[5535000.0 ps] Starting Result Verification
+[5535000.0 ps] ========================================
+[5535000.0 ps] [PASS] Element[00]: Expected=0x00022099, Got=0x00022099
+[5535000.0 ps] [PASS] Element[01]: Expected=0x0001c505, Got=0x0001c505
+[5535000.0 ps] [PASS] Element[02]: Expected=0x00024e76, Got=0x00024e76
+[5535000.0 ps] [PASS] Element[03]: Expected=0x0002ccac, Got=0x0002ccac
+[5535000.0 ps] [PASS] Element[04]: Expected=0x000329ad, Got=0x000329ad
+[5535000.0 ps] [PASS] Element[05]: Expected=0x00029238, Got=0x00029238
+[5535000.0 ps] [PASS] Element[06]: Expected=0x00029b04, Got=0x00029b04
+[5535000.0 ps] [PASS] Element[07]: Expected=0x0001e722, Got=0x0001e722
+[5535000.0 ps] [PASS] Element[08]: Expected=0x00014fbc, Got=0x00014fbc
+[5535000.0 ps] [PASS] Element[09]: Expected=0x00018581, Got=0x00018581
+[5535000.0 ps] [PASS] Element[10]: Expected=0x000159bd, Got=0x000159bd
+[5535000.0 ps] [PASS] Element[11]: Expected=0x00018f80, Got=0x00018f80
+[5535000.0 ps] [PASS] Element[12]: Expected=0x000274d7, Got=0x000274d7
+[5535000.0 ps] [PASS] Element[13]: Expected=0x00019fc0, Got=0x00019fc0
+[5535000.0 ps] [PASS] Element[14]: Expected=0x0001e058, Got=0x0001e058
+[5535000.0 ps] [PASS] Element[15]: Expected=0x00013369, Got=0x00013369
+[5535000.0 ps] [PASS] Element[16]: Expected=0x000235c5, Got=0x000235c5
+[5535000.0 ps] [PASS] Element[17]: Expected=0x00027768, Got=0x00027768
+[5535000.0 ps] [PASS] Element[18]: Expected=0x00023ef3, Got=0x00023ef3
+[5535000.0 ps] [PASS] Element[19]: Expected=0x0002702f, Got=0x0002702f
+[5535000.0 ps] [PASS] Element[20]: Expected=0x0003a412, Got=0x0003a412
+[5535000.0 ps] [PASS] Element[21]: Expected=0x00027669, Got=0x00027669
+[5535000.0 ps] [PASS] Element[22]: Expected=0x0002a30e, Got=0x0002a30e
+[5535000.0 ps] [PASS] Element[23]: Expected=0x0001c3cb, Got=0x0001c3cb
+[5535000.0 ps] [PASS] Element[24]: Expected=0x00016734, Got=0x00016734
+[5535000.0 ps] [PASS] Element[25]: Expected=0x0001b808, Got=0x0001b808
+[5535000.0 ps] [PASS] Element[26]: Expected=0x0001977d, Got=0x0001977d
+[5535000.0 ps] [PASS] Element[27]: Expected=0x0002277a, Got=0x0002277a
+[5535000.0 ps] [PASS] Element[28]: Expected=0x0002a0fc, Got=0x0002a0fc
+[5535000.0 ps] [PASS] Element[29]: Expected=0x0001ed9d, Got=0x0001ed9d
+[5535000.0 ps] [PASS] Element[30]: Expected=0x000206d0, Got=0x000206d0
+[5535000.0 ps] [PASS] Element[31]: Expected=0x000170d5, Got=0x000170d5
+[5535000.0 ps] [PASS] Element[32]: Expected=0x000147eb, Got=0x000147eb
+[5535000.0 ps] [PASS] Element[33]: Expected=0x000125ca, Got=0x000125ca
+[5535000.0 ps] [PASS] Element[34]: Expected=0x0001f95d, Got=0x0001f95d
+[5535000.0 ps] [PASS] Element[35]: Expected=0x0001b5d8, Got=0x0001b5d8
+[5535000.0 ps] [PASS] Element[36]: Expected=0x00026ba4, Got=0x00026ba4
+[5535000.0 ps] [PASS] Element[37]: Expected=0x00019799, Got=0x00019799
+[5535000.0 ps] [PASS] Element[38]: Expected=0x0001ab76, Got=0x0001ab76
+[5535000.0 ps] [PASS] Element[39]: Expected=0x0001b30f, Got=0x0001b30f
+[5535000.0 ps] [PASS] Element[40]: Expected=0x00025f08, Got=0x00025f08
+[5535000.0 ps] [PASS] Element[41]: Expected=0x0001ca00, Got=0x0001ca00
+[5535000.0 ps] [PASS] Element[42]: Expected=0x0002bb66, Got=0x0002bb66
+[5535000.0 ps] [PASS] Element[43]: Expected=0x0001c47c, Got=0x0001c47c
+[5535000.0 ps] [PASS] Element[44]: Expected=0x0002ee1e, Got=0x0002ee1e
+[5535000.0 ps] [PASS] Element[45]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[46]: Expected=0x000299fa, Got=0x000299fa
+[5535000.0 ps] [PASS] Element[47]: Expected=0x0001f60e, Got=0x0001f60e
+[5535000.0 ps] [PASS] Element[48]: Expected=0x0001d43a, Got=0x0001d43a
+[5535000.0 ps] [PASS] Element[49]: Expected=0x00013a95, Got=0x00013a95
+[5535000.0 ps] [PASS] Element[50]: Expected=0x000202ba, Got=0x000202ba
+[5535000.0 ps] [PASS] Element[51]: Expected=0x0001f367, Got=0x0001f367
+[5535000.0 ps] [PASS] Element[52]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[53]: Expected=0x0001f837, Got=0x0001f837
+[5535000.0 ps] [PASS] Element[54]: Expected=0x000201f8, Got=0x000201f8
+[5535000.0 ps] [PASS] Element[55]: Expected=0x000188f4, Got=0x000188f4
+[5535000.0 ps] [PASS] Element[56]: Expected=0x000225ed, Got=0x000225ed
+[5535000.0 ps] [PASS] Element[57]: Expected=0x00022e19, Got=0x00022e19
+[5535000.0 ps] [PASS] Element[58]: Expected=0x00026769, Got=0x00026769
+[5535000.0 ps] [PASS] Element[59]: Expected=0x0002047a, Got=0x0002047a
+[5535000.0 ps] [PASS] Element[60]: Expected=0x0003a1c6, Got=0x0003a1c6
+[5535000.0 ps] [PASS] Element[61]: Expected=0x00023159, Got=0x00023159
+[5535000.0 ps] [PASS] Element[62]: Expected=0x00025c04, Got=0x00025c04
+[5535000.0 ps] [PASS] Element[63]: Expected=0x0001fb00, Got=0x0001fb00
+[5535000.0 ps] ========================================
+[5535000.0 ps] Verification Summary
+[5535000.0 ps] ========================================
+[5535000.0 ps] Total Elements: 64
+[5535000.0 ps] PASS: 64
+[5535000.0 ps] FAIL: 0
+[5535000.0 ps] ========================================
+[5535000.0 ps] [SUCCESS] ALL TESTS PASSED!
+
+========================================
+  Matrix Multiplication Test Complete
+========================================
+
+
+========================================
+  SIMULATION FINISHED
+========================================
+Executing Axi4 End Of Simulation checks
+Warning: AXI4_ERRS_RLAST_ALL_DONE_EOS: All outstanding read bursts must have completed a the end of the simulation.
+Time: 5635 ns  Iteration: 0  Process: /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/master_0/inst/IF/PC/Always3109_226  Scope: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2021.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 725
+Executing Axi4 End Of Simulation checks
+$finish called at time : 5635 ns : File "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim/tb/sa_matmul_tb.sv" Line 160
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:13 . Memory (MB): peak = 1666.223 ; gain = 45.004
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'sa_matmul_tb'
+WARNING: [Vivado 12-12986] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -L axi_vip_v1_1_11 -L xilinx_vip -i C:/Xilinx/Vivado/2021.2/data/xilinx_vip/include -L axi_vip_v1_1_11 -L xilinx_vip -prj sa_matmul_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'sa_matmul_tb'
+WARNING: [Vivado 12-12986] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all"
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_11 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot sa_matmul_tb_behav xil_defaultlib.sa_matmul_tb xil_defaultlib.glbl -log elaborate.log -L axi_vip_v1_1_11 -L xilinx_vip -debug all 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:100]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:111]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:122]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:144]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:155]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:166]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:170]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:171]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:172]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:173]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:174]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:175]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'B_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:176]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 8 for port 'A_out' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_PE_wrapper.sv:177]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:55]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:61]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:64]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:67]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:70]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:73]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:82]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:85]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:88]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:91]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:94]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:97]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'IDX' [C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.ip_user_files/bd/sa_engine_ip_v1_0_bfm_1/ipshared/1d96/rtl/pe/sa_RF.sv:100]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1676.906 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1676.906 ; gain = 0.000
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/sa_engine_ip_v1_0_bfm_1.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//master_0/S_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//sa_engine_ip_0/M00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//sa_engine_ip_0/S00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i//slave_0/M_AXI
+Time resolution is 1 ps
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst
+XilinxAXIVIP: Found at Path: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.slave_0.inst
+
+
+========================================
+  Matrix Multiplication Test Start
+========================================
+
+[Step 1] Loading test data to VIP memory...
+  File: matrix_A_B.hex
+  Base Address: 0x00000000
+[200000.0 ps] Loading file: matrix_A_B.hex
+[200000.0 ps] Loaded 128 bytes to VIP memory at 0x0
+
+[Step 2] Configuring IP registers...
+[285000.0 ps] Write Register: Addr=0x00000004, Data=0x00000000
+  READ_BASE  = 0x00000000 (Matrix A starts here)
+[375000.0 ps] Write Register: Addr=0x00000008, Data=0x00000400
+  WRITE_BASE = 0x00000400 (Result C goes here)
+
+[Step 3] Starting matrix multiplication...
+[465000.0 ps] Write Register: Addr=0x00000000, Data=0x00000001
+  START bit set
+[555000.0 ps] Write Register: Addr=0x00000000, Data=0x00000000
+  START bit cleared (pulse mode)
+  IP is now reading matrices, computing, and writing results...
+
+[Step 4] Waiting for DONE signal...
+[555000.0 ps] Waiting for DONE signal...
+[595000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[725000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[855000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[985000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1115000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1245000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1375000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1505000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1635000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1765000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[1895000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2025000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2155000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2285000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2415000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2545000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2675000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2805000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[2935000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3065000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3195000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3325000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3455000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3585000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3715000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3845000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[3975000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4105000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4235000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4365000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4495000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4625000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4755000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[4885000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5015000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5145000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5275000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5405000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000004
+[5535000.0 ps] Read Register:  Addr=0x00000000, Data=0x00000002
+[5535000.0 ps] DONE signal detected! (STATUS=0x00000002)
+  Computation completed!
+
+[Step 5] Verifying results against golden reference...
+  Golden file: golden_result.hex
+  Result address: 0x00000400
+  Number of elements: 64 (8x8 matrix)
+[5535000.0 ps] ========================================
+[5535000.0 ps] Starting Result Verification
+[5535000.0 ps] ========================================
+[5535000.0 ps] [PASS] Element[00]: Expected=0x00022099, Got=0x00022099
+[5535000.0 ps] [PASS] Element[01]: Expected=0x0001c505, Got=0x0001c505
+[5535000.0 ps] [PASS] Element[02]: Expected=0x00024e76, Got=0x00024e76
+[5535000.0 ps] [PASS] Element[03]: Expected=0x0002ccac, Got=0x0002ccac
+[5535000.0 ps] [PASS] Element[04]: Expected=0x000329ad, Got=0x000329ad
+[5535000.0 ps] [PASS] Element[05]: Expected=0x00029238, Got=0x00029238
+[5535000.0 ps] [PASS] Element[06]: Expected=0x00029b04, Got=0x00029b04
+[5535000.0 ps] [PASS] Element[07]: Expected=0x0001e722, Got=0x0001e722
+[5535000.0 ps] [PASS] Element[08]: Expected=0x00014fbc, Got=0x00014fbc
+[5535000.0 ps] [PASS] Element[09]: Expected=0x00018581, Got=0x00018581
+[5535000.0 ps] [PASS] Element[10]: Expected=0x000159bd, Got=0x000159bd
+[5535000.0 ps] [PASS] Element[11]: Expected=0x00018f80, Got=0x00018f80
+[5535000.0 ps] [PASS] Element[12]: Expected=0x000274d7, Got=0x000274d7
+[5535000.0 ps] [PASS] Element[13]: Expected=0x00019fc0, Got=0x00019fc0
+[5535000.0 ps] [PASS] Element[14]: Expected=0x0001e058, Got=0x0001e058
+[5535000.0 ps] [PASS] Element[15]: Expected=0x00013369, Got=0x00013369
+[5535000.0 ps] [PASS] Element[16]: Expected=0x000235c5, Got=0x000235c5
+[5535000.0 ps] [PASS] Element[17]: Expected=0x00027768, Got=0x00027768
+[5535000.0 ps] [PASS] Element[18]: Expected=0x00023ef3, Got=0x00023ef3
+[5535000.0 ps] [PASS] Element[19]: Expected=0x0002702f, Got=0x0002702f
+[5535000.0 ps] [PASS] Element[20]: Expected=0x0003a412, Got=0x0003a412
+[5535000.0 ps] [PASS] Element[21]: Expected=0x00027669, Got=0x00027669
+[5535000.0 ps] [PASS] Element[22]: Expected=0x0002a30e, Got=0x0002a30e
+[5535000.0 ps] [PASS] Element[23]: Expected=0x0001c3cb, Got=0x0001c3cb
+[5535000.0 ps] [PASS] Element[24]: Expected=0x00016734, Got=0x00016734
+[5535000.0 ps] [PASS] Element[25]: Expected=0x0001b808, Got=0x0001b808
+[5535000.0 ps] [PASS] Element[26]: Expected=0x0001977d, Got=0x0001977d
+[5535000.0 ps] [PASS] Element[27]: Expected=0x0002277a, Got=0x0002277a
+[5535000.0 ps] [PASS] Element[28]: Expected=0x0002a0fc, Got=0x0002a0fc
+[5535000.0 ps] [PASS] Element[29]: Expected=0x0001ed9d, Got=0x0001ed9d
+[5535000.0 ps] [PASS] Element[30]: Expected=0x000206d0, Got=0x000206d0
+[5535000.0 ps] [PASS] Element[31]: Expected=0x000170d5, Got=0x000170d5
+[5535000.0 ps] [PASS] Element[32]: Expected=0x000147eb, Got=0x000147eb
+[5535000.0 ps] [PASS] Element[33]: Expected=0x000125ca, Got=0x000125ca
+[5535000.0 ps] [PASS] Element[34]: Expected=0x0001f95d, Got=0x0001f95d
+[5535000.0 ps] [PASS] Element[35]: Expected=0x0001b5d8, Got=0x0001b5d8
+[5535000.0 ps] [PASS] Element[36]: Expected=0x00026ba4, Got=0x00026ba4
+[5535000.0 ps] [PASS] Element[37]: Expected=0x00019799, Got=0x00019799
+[5535000.0 ps] [PASS] Element[38]: Expected=0x0001ab76, Got=0x0001ab76
+[5535000.0 ps] [PASS] Element[39]: Expected=0x0001b30f, Got=0x0001b30f
+[5535000.0 ps] [PASS] Element[40]: Expected=0x00025f08, Got=0x00025f08
+[5535000.0 ps] [PASS] Element[41]: Expected=0x0001ca00, Got=0x0001ca00
+[5535000.0 ps] [PASS] Element[42]: Expected=0x0002bb66, Got=0x0002bb66
+[5535000.0 ps] [PASS] Element[43]: Expected=0x0001c47c, Got=0x0001c47c
+[5535000.0 ps] [PASS] Element[44]: Expected=0x0002ee1e, Got=0x0002ee1e
+[5535000.0 ps] [PASS] Element[45]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[46]: Expected=0x000299fa, Got=0x000299fa
+[5535000.0 ps] [PASS] Element[47]: Expected=0x0001f60e, Got=0x0001f60e
+[5535000.0 ps] [PASS] Element[48]: Expected=0x0001d43a, Got=0x0001d43a
+[5535000.0 ps] [PASS] Element[49]: Expected=0x00013a95, Got=0x00013a95
+[5535000.0 ps] [PASS] Element[50]: Expected=0x000202ba, Got=0x000202ba
+[5535000.0 ps] [PASS] Element[51]: Expected=0x0001f367, Got=0x0001f367
+[5535000.0 ps] [PASS] Element[52]: Expected=0x0002500d, Got=0x0002500d
+[5535000.0 ps] [PASS] Element[53]: Expected=0x0001f837, Got=0x0001f837
+[5535000.0 ps] [PASS] Element[54]: Expected=0x000201f8, Got=0x000201f8
+[5535000.0 ps] [PASS] Element[55]: Expected=0x000188f4, Got=0x000188f4
+[5535000.0 ps] [PASS] Element[56]: Expected=0x000225ed, Got=0x000225ed
+[5535000.0 ps] [PASS] Element[57]: Expected=0x00022e19, Got=0x00022e19
+[5535000.0 ps] [PASS] Element[58]: Expected=0x00026769, Got=0x00026769
+[5535000.0 ps] [PASS] Element[59]: Expected=0x0002047a, Got=0x0002047a
+[5535000.0 ps] [PASS] Element[60]: Expected=0x0003a1c6, Got=0x0003a1c6
+[5535000.0 ps] [PASS] Element[61]: Expected=0x00023159, Got=0x00023159
+[5535000.0 ps] [PASS] Element[62]: Expected=0x00025c04, Got=0x00025c04
+[5535000.0 ps] [PASS] Element[63]: Expected=0x0001fb00, Got=0x0001fb00
+[5535000.0 ps] ========================================
+[5535000.0 ps] Verification Summary
+[5535000.0 ps] ========================================
+[5535000.0 ps] Total Elements: 64
+[5535000.0 ps] PASS: 64
+[5535000.0 ps] FAIL: 0
+[5535000.0 ps] ========================================
+[5535000.0 ps] [SUCCESS] ALL TESTS PASSED!
+
+========================================
+  Matrix Multiplication Test Complete
+========================================
+
+
+========================================
+  SIMULATION FINISHED
+========================================
+Executing Axi4 End Of Simulation checks
+Warning: AXI4_ERRS_RLAST_ALL_DONE_EOS: All outstanding read bursts must have completed a the end of the simulation.
+Time: 5635 ns  Iteration: 0  Process: /sa_matmul_tb/DUT/sa_engine_ip_v1_0_bfm_1_i/master_0/inst/IF/PC/Always3109_226  Scope: sa_matmul_tb.DUT.sa_engine_ip_v1_0_bfm_1_i.master_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2021.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 725
+Executing Axi4 End Of Simulation checks
+$finish called at time : 5635 ns : File "C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim/tb/sa_matmul_tb.sv" Line 160
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 1676.906 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 00:49:45 2025...

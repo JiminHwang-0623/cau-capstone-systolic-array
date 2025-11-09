@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="1,025"></ZoomEndTime>
+      <Cursor1Time time="0"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="122"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="81" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c_state[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in_wea" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in_wea</obj_property>
+      <obj_property name="ObjectShortName">dpram_in_wea</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addrb" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addrb[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_addrb[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_enb" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_enb</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_enb</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/sa_out" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/sa_out[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sa_out[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C0[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C0[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C1[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C1[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C2[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C2[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C3[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C3[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C4[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C4[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C5[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C5[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C6[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C6[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[0]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[0]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[0]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[1]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[1]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[1]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[2]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[2]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[2]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[3]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[3]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[3]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[4]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[4]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[4]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[5]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[5]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[5]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[6]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[6]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[6]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[7]__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/MAT_C7[7]__0[18:0]</obj_property>
+      <obj_property name="ObjectShortName">MAT_C7[7]__0[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dma_cnt" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dma_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dma_cnt[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea" type="logic">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_wea</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/indata_req_o" type="logic">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/indata_req_o</obj_property>
+      <obj_property name="ObjectShortName">indata_req_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/iter_cnt_S" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/iter_cnt_S[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_S[6:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/iter_cnt_S_q" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/iter_cnt_S_q[6:0]</obj_property>
+      <obj_property name="ObjectShortName">iter_cnt_S_q[6:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/n_state" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/n_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">n_state[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/buff_out" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/buff_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">buff_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/DATA_OUT" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/DATA_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dpram_out_addra[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/indata" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/indata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">indata[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">design_1_i/sa_engine_ip_0/inst/u_core/u_dma_write/M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+</wave_config>

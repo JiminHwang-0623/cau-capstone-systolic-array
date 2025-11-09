@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Thu Nov  6 22:05:33 2025
-# Process ID: 8252
-# Current directory: C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1
+# Start of session at: Sun Nov  9 21:01:55 2025
+# Process ID: 19260
+# Current directory: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1
 # Command line: vivado.exe -log sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.tcl
-# Log file: C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.vds
-# Journal file: C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1\vivado.jou
-# Running On: BOOK-Q06N8541RB, OS: Windows, CPU Frequency: 3302 MHz, CPU Physical cores: 8, Host memory: 33834 MB
+# Log file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.vds
+# Journal file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1\vivado.jou
+# Running On: DESKTOP-EGRO0RF, OS: Windows, CPU Frequency: 2995 MHz, CPU Physical cores: 14, Host memory: 16898 MB
 #-----------------------------------------------------------
 source sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.tcl -notrace

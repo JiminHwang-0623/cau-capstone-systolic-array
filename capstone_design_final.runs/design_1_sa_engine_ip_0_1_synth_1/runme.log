@@ -10,7 +10,6 @@
     ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 
 source design_1_sa_engine_ip_0_1.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1242.043 ; gain = 0.000
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
@@ -21,84 +20,88 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15836
-WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core_pipeline.sv:95]
-WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core_pipeline.sv:96]
+INFO: [Synth 8-7075] Helper process launched with PID 30828
+WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core_pipeline.sv:95]
+WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core_pipeline.sv:96]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1242.043 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1245.770 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_sa_engine_ip_0_1' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ip/design_1_sa_engine_ip_0_1/synth/design_1_sa_engine_ip_0_1.v:56]
-INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/top/sa_engine_ip_v1_0.v:4]
-INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0_S00_AXI' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:253]
-INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:393]
-INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0_S00_AXI' (1#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-6157] synthesizing module 'sa_core_pipeline' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core_pipeline.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'sa_core' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:13]
-INFO: [Synth 8-6157] synthesizing module 'dpram_wrapper' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/mem/dpram_wrapper.sv:17]
-INFO: [Synth 8-6155] done synthesizing module 'dpram_wrapper' (2#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/mem/dpram_wrapper.sv:17]
-INFO: [Synth 8-6157] synthesizing module 'sa_controller' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_controller.sv:11]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_controller.sv:177]
-INFO: [Synth 8-6157] synthesizing module 'sa_unit' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_unit.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'sa_PE_wrapper' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/hPE.sv:11]
-INFO: [Synth 8-6155] done synthesizing module 'hPE' (3#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/hPE.sv:11]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:100]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:111]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:122]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:133]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:144]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:155]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:166]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:170]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:171]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:172]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:173]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:174]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:175]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:176]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:177]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:177]
-INFO: [Synth 8-6155] done synthesizing module 'sa_PE_wrapper' (4#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_PE_wrapper.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'sa_RF' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:19]
-INFO: [Synth 8-6157] synthesizing module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/X_REG.sv:14]
-INFO: [Synth 8-6155] done synthesizing module 'X_REG' (5#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/X_REG.sv:14]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:55]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:58]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:61]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:64]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:67]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:70]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:73]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:82]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:85]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:88]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:91]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:94]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:97]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:100]
-INFO: [Synth 8-6155] done synthesizing module 'sa_RF' (6#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_RF.sv:19]
-INFO: [Synth 8-6155] done synthesizing module 'sa_unit' (7#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_unit.sv:12]
-INFO: [Synth 8-6155] done synthesizing module 'sa_controller' (8#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/pe/sa_controller.sv:11]
-WARNING: [Synth 8-6014] Unused sequential element output_data_buffer_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:337]
-WARNING: [Synth 8-3936] Found unconnected internal register 'rowA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:137]
-WARNING: [Synth 8-3936] Found unconnected internal register 'colA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:138]
-WARNING: [Synth 8-3936] Found unconnected internal register 'rowB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:143]
-WARNING: [Synth 8-3936] Found unconnected internal register 'colB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:144]
-WARNING: [Synth 8-7137] Register dpram_out_addra_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:219]
-WARNING: [Synth 8-7137] Register dpram_out_wea_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:220]
-INFO: [Synth 8-6155] done synthesizing module 'sa_core' (9#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core.sv:13]
-INFO: [Synth 8-6157] synthesizing module 'axi_dma_ctrl' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/axi_dma_ctrl.sv:16]
-INFO: [Synth 8-6155] done synthesizing module 'axi_dma_ctrl' (10#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/axi_dma_ctrl.sv:16]
-INFO: [Synth 8-6157] synthesizing module 'dma_read' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/dma_read.sv:14]
-INFO: [Synth 8-6155] done synthesizing module 'dma_read' (11#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/dma_read.sv:14]
-INFO: [Synth 8-6157] synthesizing module 'dma_write' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/dma_write.sv:14]
-INFO: [Synth 8-6155] done synthesizing module 'dma_write' (12#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/axi/dma_write.sv:14]
-WARNING: [Synth 8-6014] Unused sequential element reserved_register_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core_pipeline.sv:177]
-INFO: [Synth 8-6155] done synthesizing module 'sa_core_pipeline' (13#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/core/sa_core_pipeline.sv:12]
-WARNING: [Synth 8-3848] Net m00_axi_txn_done in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/top/sa_engine_ip_v1_0.v:60]
-WARNING: [Synth 8-3848] Net m00_axi_error in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/top/sa_engine_ip_v1_0.v:61]
-INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0' (14#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/6af6/rtl/top/sa_engine_ip_v1_0.v:4]
+INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/top/sa_engine_ip_v1_0.v:4]
+INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0_S00_AXI' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:253]
+INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:393]
+INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0_S00_AXI' (1#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sa_core_pipeline' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core_pipeline.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'sa_core' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'dpram_wrapper' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/mem/dpram_wrapper.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'dpram_wrapper' (2#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/mem/dpram_wrapper.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'sa_controller' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_controller.sv:11]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_controller.sv:177]
+INFO: [Synth 8-6157] synthesizing module 'sa_unit' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_unit.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'sa_PE_wrapper' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/hPE.sv:11]
+INFO: [Synth 8-6155] done synthesizing module 'hPE' (3#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/hPE.sv:11]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:100]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:111]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:122]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:133]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:144]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:155]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:166]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:170]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:171]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:172]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:173]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:174]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:175]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:176]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:177]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:177]
+INFO: [Synth 8-6155] done synthesizing module 'sa_PE_wrapper' (4#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_PE_wrapper.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'sa_RF' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:19]
+INFO: [Synth 8-6157] synthesizing module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/X_REG.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'X_REG' (5#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/X_REG.sv:14]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:55]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:58]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:61]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:64]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:67]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:70]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:73]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:82]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:85]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:88]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:91]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:94]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:97]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:100]
+INFO: [Synth 8-6155] done synthesizing module 'sa_RF' (6#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_RF.sv:19]
+INFO: [Synth 8-6155] done synthesizing module 'sa_unit' (7#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_unit.sv:12]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_sa_unit'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_controller.sv:243]
+INFO: [Synth 8-6155] done synthesizing module 'sa_controller' (8#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/pe/sa_controller.sv:11]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'dpram_out'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:216]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'dpram_in'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:201]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_sa_controller'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:538]
+WARNING: [Synth 8-6014] Unused sequential element output_data_buffer_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:337]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rowA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:137]
+WARNING: [Synth 8-3936] Found unconnected internal register 'colA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:138]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rowB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:143]
+WARNING: [Synth 8-3936] Found unconnected internal register 'colB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:144]
+WARNING: [Synth 8-7137] Register dpram_out_addra_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:219]
+WARNING: [Synth 8-7137] Register dpram_out_wea_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:220]
+INFO: [Synth 8-6155] done synthesizing module 'sa_core' (9#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'axi_dma_ctrl' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/axi_dma_ctrl.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'axi_dma_ctrl' (10#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/axi_dma_ctrl.sv:16]
+INFO: [Synth 8-6157] synthesizing module 'dma_read' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/dma_read.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'dma_read' (11#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/dma_read.sv:14]
+INFO: [Synth 8-6157] synthesizing module 'dma_write' [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/dma_write.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'dma_write' (12#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/axi/dma_write.sv:14]
+WARNING: [Synth 8-6014] Unused sequential element reserved_register_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core_pipeline.sv:177]
+INFO: [Synth 8-6155] done synthesizing module 'sa_core_pipeline' (13#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/core/sa_core_pipeline.sv:12]
+WARNING: [Synth 8-3848] Net m00_axi_txn_done in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/top/sa_engine_ip_v1_0.v:60]
+WARNING: [Synth 8-3848] Net m00_axi_error in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/top/sa_engine_ip_v1_0.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0' (14#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ipshared/fd52/rtl/top/sa_engine_ip_v1_0.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_sa_engine_ip_0_1' (15#1) [c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.gen/sources_1/bd/design_1/ip/design_1_sa_engine_ip_0_1/synth/design_1_sa_engine_ip_0_1.v:56]
 WARNING: [Synth 8-7129] Port M_AXI_BID[0] in module dma_write is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BUSER[0] in module dma_write is either unconnected or has no load
@@ -190,63 +193,49 @@ WARNING: [Synth 8-7129] Port m00_axi_txn_done in module sa_engine_ip_v1_0 is eit
 WARNING: [Synth 8-7129] Port m00_axi_error in module sa_engine_ip_v1_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m00_axi_init_axi_txn in module sa_engine_ip_v1_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1242.043 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1245.770 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1242.043 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1245.770 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1242.043 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1245.770 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.186 . Memory (MB): peak = 1242.043 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.132 . Memory (MB): peak = 1245.770 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1327.133 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1327.637 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.388 . Memory (MB): peak = 1331.621 ; gain = 4.488
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.291 . Memory (MB): peak = 1327.906 ; gain = 0.270
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1327.906 ; gain = 82.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1327.906 ; gain = 82.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1327.906 ; gain = 82.137
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'c_state_reg' in module 'sa_core'
 INFO: [Synth 8-802] inferred FSM for state register 'cstate_rd_reg' in module 'axi_dma_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cstate_wr_reg' in module 'axi_dma_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'st_rdaxi_reg' in module 'dma_read'
 INFO: [Synth 8-802] inferred FSM for state register 'st_wr2axi_reg' in module 'dma_write'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                  S_IDLE |                              000 |                             0000
-             S_DATA_LOAD |                              111 |                             0001
-               S_WRITE_A |                              110 |                             0010
-               S_WRITE_B |                              101 |                             0011
-                  S_LOAD |                              100 |                             0100
-                S_MATMUL |                              011 |                             0110
-                 S_STORE |                              010 |                             0111
-                   S_OUT |                              001 |                             1000
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'c_state_reg' using encoding 'sequential' in module 'sa_core'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -288,7 +277,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'st_rdaxi_reg' using encodi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'st_wr2axi_reg' using encoding 'one-hot' in module 'dma_write'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1327.906 ; gain = 82.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -310,7 +299,7 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 763   
 	                7 Bit    Registers := 6     
 	                6 Bit    Registers := 2     
-	                4 Bit    Registers := 65    
+	                4 Bit    Registers := 66    
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 4     
 	                1 Bit    Registers := 747   
@@ -322,30 +311,31 @@ Detailed RTL Component Info :
 	  16 Input   32 Bit        Muxes := 16    
 	   5 Input   32 Bit        Muxes := 3     
 	   2 Input   19 Bit        Muxes := 64    
-	   2 Input   11 Bit        Muxes := 5     
-	   8 Input   11 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 9     
+	   9 Input   11 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 518   
 	   4 Input    8 Bit        Muxes := 2     
-	   8 Input    8 Bit        Muxes := 1     
+	   9 Input    8 Bit        Muxes := 1     
 	   5 Input    8 Bit        Muxes := 5     
-	   2 Input    7 Bit        Muxes := 3     
-	   8 Input    7 Bit        Muxes := 6     
+	   2 Input    7 Bit        Muxes := 4     
+	   9 Input    7 Bit        Muxes := 6     
 	   4 Input    7 Bit        Muxes := 1     
 	   5 Input    5 Bit        Muxes := 3     
 	   2 Input    5 Bit        Muxes := 13    
-	   2 Input    4 Bit        Muxes := 64    
-	   8 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 72    
+	   9 Input    4 Bit        Muxes := 2     
 	   5 Input    4 Bit        Muxes := 1     
-	   8 Input    3 Bit        Muxes := 2     
+	   9 Input    3 Bit        Muxes := 1     
 	   5 Input    3 Bit        Muxes := 5     
 	   2 Input    3 Bit        Muxes := 9     
 	   3 Input    3 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 3     
-	   8 Input    2 Bit        Muxes := 1     
+	  10 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
 	   5 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 2057  
-	   8 Input    1 Bit        Muxes := 19    
+	   2 Input    1 Bit        Muxes := 2056  
+	   8 Input    1 Bit        Muxes := 1     
 	  16 Input    1 Bit        Muxes := 16    
+	   9 Input    1 Bit        Muxes := 16    
 	   5 Input    1 Bit        Muxes := 11    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -363,57 +353,78 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arid[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arsize[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arsize[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arburst[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arlock driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arcache[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arcache[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arcache[1] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arcache[0] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arprot[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arprot[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arprot[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arqos[3] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arqos[2] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arqos[1] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_arqos[0] driven by constant 1
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_aruser[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_sa_engine_ip_0_1 has port m00_axi_rready driven by constant 1
 WARNING: [Synth 8-7129] Port M_AXI_BID[0] in module dma_write is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BUSER[0] in module dma_write is either unconnected or has no load
-WARNING: [Synth 8-7129] Port M_AXI_RID[0] in module dma_read is either unconnected or has no load
-WARNING: [Synth 8-7129] Port M_AXI_RUSER[0] in module dma_read is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[10] in module axi_dma_ctrl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[9] in module axi_dma_ctrl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[8] in module axi_dma_ctrl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[7] in module axi_dma_ctrl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[6] in module axi_dma_ctrl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[5] in module axi_dma_ctrl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port row_cnt[4] in module axi_dma_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rd_done in module sa_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module sa_engine_ip_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module sa_engine_ip_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module sa_engine_ip_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module sa_engine_ip_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module sa_engine_ip_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module sa_engine_ip_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m00_axi_txn_done in module design_1_sa_engine_ip_0_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m00_axi_error in module design_1_sa_engine_ip_0_1 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-5784] Optimized 13 bits of RAM "g_legacy_core.u_sa_core/dpram_out/ram_reg" due to constant propagation. Old ram width 32 bits, new ram width 19 bits.
+WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[10]_C) is unused and will be removed from module sa_core.
+WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[9]_C) is unused and will be removed from module sa_core.
+WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[8]_C) is unused and will be removed from module sa_core.
+WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[7]_C) is unused and will be removed from module sa_core.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:11 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1327.906 ; gain = 82.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Preliminary Mapping Report (see note below)
-+--------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name   | RTL Object                                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+--------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|\inst/u_core  | g_legacy_core.u_sa_core/dpram_in/ram_reg  | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
-|\inst/u_core  | g_legacy_core.u_sa_core/dpram_out/ram_reg | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 1      | 
-+--------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
++---------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name    | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|dpram_wrapper: | ram_reg    | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|dpram_wrapper: | ram_reg    | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++---------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 
 Distributed RAM: Preliminary Mapping Report (see note below)
-+--------------+----------------------------------------------------+-----------+----------------------+-------------+
-|Module Name   | RTL Object                                         | Inference | Size (Depth x Width) | Primitives  | 
-+--------------+----------------------------------------------------+-----------+----------------------+-------------+
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-+--------------+----------------------------------------------------+-----------+----------------------+-------------+
++------------------------------------------------------+------------+-----------+----------------------+-------------+
+|Module Name                                           | RTL Object | Inference | Size (Depth x Width) | Primitives  | 
++------------------------------------------------------+------------+-----------+----------------------+-------------+
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
++------------------------------------------------------+------------+-----------+----------------------+-------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
@@ -423,48 +434,48 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:18 ; elapsed = 00:01:26 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1327.906 ; gain = 82.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:22 ; elapsed = 00:01:30 . Memory (MB): peak = 1331.621 ; gain = 89.578
+Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1329.891 ; gain = 84.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Final Mapping Report
-+--------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name   | RTL Object                                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+--------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|\inst/u_core  | g_legacy_core.u_sa_core/dpram_in/ram_reg  | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
-|\inst/u_core  | g_legacy_core.u_sa_core/dpram_out/ram_reg | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 1      | 
-+--------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
++---------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name    | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|dpram_wrapper: | ram_reg    | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|dpram_wrapper: | ram_reg    | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++---------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 
 Distributed RAM: Final Mapping Report
-+--------------+----------------------------------------------------+-----------+----------------------+-------------+
-|Module Name   | RTL Object                                         | Inference | Size (Depth x Width) | Primitives  | 
-+--------------+----------------------------------------------------+-----------+----------------------+-------------+
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_A7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-|\inst/u_core  | g_legacy_core.u_sa_core/u_sa_controller/MAT_B7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
-+--------------+----------------------------------------------------+-----------+----------------------+-------------+
++------------------------------------------------------+------------+-----------+----------------------+-------------+
+|Module Name                                           | RTL Object | Inference | Size (Depth x Width) | Primitives  | 
++------------------------------------------------------+------------+-----------+----------------------+-------------+
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_A7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B0_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B1_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B2_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B3_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B4_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B5_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B6_reg | Implied   | 8 x 8                | RAM32M x 2  | 
+|\inst/u_core/g_legacy_core.u_sa_core /u_sa_controller | MAT_B7_reg | Implied   | 8 x 8                | RAM32M x 2  | 
++------------------------------------------------------+------------+-----------+----------------------+-------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -474,8 +485,10 @@ Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:32 ; elapsed = 00:01:41 . Memory (MB): peak = 1473.199 ; gain = 231.156
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1459.609 ; gain = 213.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -493,37 +506,39 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1484.887 ; gain = 242.844
+Finished IO Insertion : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 1470.742 ; gain = 224.973
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1484.887 ; gain = 242.844
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 1470.742 ; gain = 224.973
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:44 ; elapsed = 00:01:54 . Memory (MB): peak = 1484.887 ; gain = 242.844
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1470.742 ; gain = 224.973
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:54 . Memory (MB): peak = 1484.887 ; gain = 242.844
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1470.742 ; gain = 224.973
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-5543] Port 'M_AXI_WVALID' in module 'dma_write' has MARK_DEBUG and also connected to other port(s) having MARK_DEBUG; consider putting MARK_DEBUG on one only
+CRITICAL WARNING: [Synth 8-5543] Port 'indata_req_o' in module 'dma_write' has MARK_DEBUG and also connected to other port(s) having MARK_DEBUG; consider putting MARK_DEBUG on one only
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:44 ; elapsed = 00:01:54 . Memory (MB): peak = 1484.910 ; gain = 242.867
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1470.773 ; gain = 225.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:44 ; elapsed = 00:01:54 . Memory (MB): peak = 1484.910 ; gain = 242.867
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1470.773 ; gain = 225.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -540,51 +555,52 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |CARRY4   |  1003|
-|2     |LUT1     |    71|
-|3     |LUT2     |  2144|
-|4     |LUT3     |  1418|
-|5     |LUT4     |  1495|
-|6     |LUT5     |   523|
-|7     |LUT6     |  3985|
-|8     |MUXF7    |   218|
-|9     |MUXF8    |   100|
+|2     |LUT1     |    74|
+|3     |LUT2     |  2169|
+|4     |LUT3     |  1426|
+|5     |LUT4     |  1496|
+|6     |LUT5     |   525|
+|7     |LUT6     |  4014|
+|8     |MUXF7    |   216|
+|9     |MUXF8    |   108|
 |10    |RAM32M   |    16|
 |11    |RAM32X1D |    32|
-|12    |RAMB18E1 |     1|
-|13    |RAMB36E1 |     3|
-|15    |FDCE     |   331|
-|16    |FDPE     |     3|
-|17    |FDRE     |  5619|
-|18    |FDSE     |     1|
+|12    |RAMB36E1 |     4|
+|13    |FDCE     |   334|
+|14    |FDCPE    |    12|
+|15    |FDPE     |    15|
+|16    |FDRE     |  5633|
+|17    |FDSE     |     1|
+|18    |LDC      |    12|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:45 ; elapsed = 00:01:55 . Memory (MB): peak = 1484.910 ; gain = 242.867
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 1470.773 ; gain = 225.004
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 90 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:32 ; elapsed = 00:01:50 . Memory (MB): peak = 1484.910 ; gain = 153.289
-Synthesis Optimization Complete : Time (s): cpu = 00:01:45 ; elapsed = 00:01:55 . Memory (MB): peak = 1484.910 ; gain = 242.867
+Synthesis finished with 0 errors, 2 critical warnings and 19 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 1470.773 ; gain = 142.867
+Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 1470.773 ; gain = 225.004
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.399 . Memory (MB): peak = 1484.910 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1373 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 1470.773 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1403 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1484.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1470.773 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 48 instances were transformed.
+  A total of 72 instances were transformed.
+  FDCPE => FDCPE (FDCE, FDPE, LDCE, LUT3, VCC): 12 instances
+  LDC => LDCE: 12 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 16 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 32 instances
 
-Synth Design complete, checksum: 8cd7eba6
+Synth Design complete, checksum: c030fec4
 INFO: [Common 17-83] Releasing license: Synthesis
-64 Infos, 143 Warnings, 0 Critical Warnings and 0 Errors encountered.
+85 Infos, 147 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:55 ; elapsed = 00:02:08 . Memory (MB): peak = 1484.910 ; gain = 242.867
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:03 . Memory (MB): peak = 1470.773 ; gain = 225.004
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/design_1_sa_engine_ip_0_1_synth_1/design_1_sa_engine_ip_0_1.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1484.910 ; gain = 0.000
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_sa_engine_ip_0_1, cache-ID = bc9e8f26e231cb16
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Coretcl 2-1174] Renamed 93 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/design_1_sa_engine_ip_0_1_synth_1/design_1_sa_engine_ip_0_1.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1484.910 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file design_1_sa_engine_ip_0_1_utilization_synth.rpt -pb design_1_sa_engine_ip_0_1_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Nov  8 00:58:59 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 21:12:19 2025...

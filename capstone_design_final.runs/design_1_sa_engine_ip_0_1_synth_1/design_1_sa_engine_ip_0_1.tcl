@@ -70,6 +70,11 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_sa_engine_ip_0_1_synth_1" START { ROLLUP_AUTO }
+set_param tcl.collectionResultDisplayLimit 0
+set_param chipscope.maxJobs 4
+set_param xicom.use_bs_reader 1
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
@@ -91,7 +96,7 @@ set_property ip_output_repo c:/Users/User/Desktop/git/cau-capstone/capstone_desi
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/User/Desktop/git/cau-capstone/capstone_design_final.srcs/sources_1/bd/design_1/ip/design_1_sa_engine_ip_0_1/design_1_sa_engine_ip_0_1.xci
+read_ip -quiet C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.srcs/sources_1/bd/design_1/ip/design_1_sa_engine_ip_0_1/design_1_sa_engine_ip_0_1.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
