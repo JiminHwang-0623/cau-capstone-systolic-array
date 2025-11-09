@@ -27,5 +27,6 @@ Time: 3020 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_
 Time: 3030 ns Started: 3030 ns Scope: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line:255
 Error: dpram_in_addrb out of B range
 Time: 3030 ns  Iteration: 2  Process: /sa_engine_tb/u_sa_engine_top/u_core/u_sa_core//sa_engine_tb/u_sa_engine_top/u_core/u_sa_core  Scope: sa_engine_tb.u_sa_engine_top.u_core.u_sa_core  File: C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv Line: 257
+[PERF/COMMON] total=358, compute=358, rd=312, wr=38, overlap=312, idle=320  (idle=89.39%  overlap=87.15%  compute=100.00%  dma=10.61%)
 network_done received!
 $finish called at time : 4540 ns : File "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/systolic_engine.srcs/sim_1/new/sa_engine_tb.v" Line 252

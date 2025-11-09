@@ -491,3 +491,63 @@ Step 5에서는 스케줄러가 **전체 타일 시퀀스를 완전한 루프**�
 
 ✅ **결론 :** Step 5에서는 기능 최종 형상을 확정 하고 안정화 까지 완료하였다.  
 이제 Step 6 ~ 7 에서 성능 측정 및 결과 리포트 산출을 진행할 수 있다.
+
+# ✅ Step 6 — 통합 동작 검증 (기능 완성 확인)
+
+## 🎯 목적
+- Step 1~5에서 도입한 **prefetch–compute 파이프라이닝**이 정상 순서로 회전하는지 검증.
+- FSM 전이(READ/WRITE, Scheduler), 주소 생성, 버퍼 인덱스, 보호신호(`rd_pending`)가 기대 동작을 만족하는지 확인.
+
+## 🧠 동작 개념
+- 타일마다: `prefetch_req` → (DMA Read) → **Compute** → (DMA Write) → 다음 타일 prefetch.
+- Read FSM은 **tile 경계**에서만 블록 인덱스 롤오버, `rd_pending`으로 중첩 발사 방지.
+- Scheduler는 **WARMUP → STEADY → DRAIN**으로 진행하며, STEADY 구간에서 prefetch/compute가 오버랩.
+
+## 🧪 체크리스트
+- `prefetch_req`: 타일 시작마다 1펄스, `o_ctrl_read`는 직후 1사이클.
+- `o_read_addr`: 64B stride(= `<<6`)로 단조 증가.
+- `current_state`: WARMUP → STEADY → DRAIN 정확히 전이.
+- `rd_pending`: 정상 시나리오에선 0(백프레셔 테스트 시에만 1 가능).
+- 마지막 타일에서만 DRAIN, 불필요한 prefetch/store 없음.
+
+## ✅ 결과 요약
+- FSM/스케줄러/주소/버퍼 인덱스 모두 정상이었음.
+- `rd_pending` 안전장치 동작 확인.  
+→ **Step 6 기능 검증 완료.**
+
+# 📊 Step 7 — 성능 측정 (Compute-Window 공통 블록)
+
+## 🎯 목표
+- **Baseline ↔ Optimized**를 **동일한 측정 범위**로 정량 비교.
+- 측정 범위는 “**첫 `start_rd_wr` 펄스 ~ `done_core` 상승**”으로 통일(두 버전 모두 공통 신호).
+
+## 🧩 적용한 성능 블록 (요약)
+- **측정 시작**: `start_rd_wr`가 2’b00→non-00로 바뀌는 첫 에지.
+- **측정 종료**: `done_core = 1`.
+- **측정 윈도우**: `work_active = 1` 인 동안만 카운팅.
+
+카운터 정의:
+- `cycle_total`: 측정 윈도우 길이(사이클)
+- `cycle_comp`: 윈도우 내 연산 시간(= `cycle_total`과 동일하게 설계)
+- `cycle_rd` / `cycle_wr`: DMA Read/Write 활성 시간
+- `cycle_ol`: **연산 중 Read 겹침 시간** (rd_busy만 겹침으로 정의)
+- 파생치
+  - `cycle_dma = cycle_rd + cycle_wr - cycle_ol`
+  - `cycle_idle = cycle_total - cycle_dma` *(윈도우 안에서 DMA가 차지하지 않는 시간)*
+
+출력(퍼센트):
+- `idle% = cycle_idle / cycle_total`
+- `overlap% = cycle_ol / cycle_total`
+- `compute% = cycle_comp / cycle_total` *(= 100%가 정상)*
+- `dma% = cycle_dma / cycle_total`
+
+> ⚙️ 이 블록은 **baseline/opt 둘 다 동일**하게 동작하며, **연산 창(Compute Window)** 안에서의 DMA 동작/겹침 정도를 공정하게 비교한다.
+
+## 🔎 왜 `total == compute` 인가?
+- 측정 윈도우 자체가 “**연산 중**” 구간(첫 `start_rd_wr` 이후 ~ `done_core`)으로 정의되어 있기 때문.  
+- 따라서 compute%는 **항상 100%**가 정상이며, DMA 관련 지표(`dma%`, `overlap%`)를 보고 **파이프라인 효율(겹침)**을 비교한다.
+
+## 📘 결론
+- 동일한 연산 창 기준에서 **overlap%↑, dma%↓**가 확실히 보이면, 파이프라이닝 최적화가 연산-전송 겹침을 크게 늘렸다는 근거가 된다.
+- 본 블록은 baseline/opt의 **동일 조건 비교**를 보장한다.  
+→ **Step 7 성능 검증 완료.**

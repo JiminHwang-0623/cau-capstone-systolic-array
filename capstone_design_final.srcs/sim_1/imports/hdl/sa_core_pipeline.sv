@@ -421,4 +421,75 @@ module sa_core_pipeline #(
       .done           (done_core)
   );
 
+ `ifndef SYNTHESIS
+ // 측정 범위 : 첫 start_rd_wr 펄스 ~ done_core 상승
+
+ logic work_started_q;
+ logic [1:0] start_rd_wr_d;
+
+ always_ff @(posedge M_AXI_ACLK or negedge M_AXI_ARESETN) begin
+    if (!M_AXI_ARESETN) begin
+      work_started_q <= 1'b0;
+      start_rd_wr_d  <= 2'b00;
+    end else begin
+      start_rd_wr_d  <= start_rd_wr;
+      if (!work_started_q && (start_rd_wr_d == 2'b00) && (start_rd_wr != 2'b00))
+        work_started_q <= 1'b1;
+      if (done_core)
+        work_started_q <= 1'b0;
+    end
+ end
+
+ wire work_active = work_started_q && !done_core;
+
+ logic rd_busy_q, wr_busy_q;
+ 
+ always_ff @(posedge M_AXI_ACLK or negedge M_AXI_ARESETN) begin
+    if (!M_AXI_ARESETN) rd_busy_q <= 1'b0;
+    else begin
+      if (ctrl_read) rd_busy_q <= 1'b1;
+      if (read_done) rd_busy_q <= 1'b0;
+    end
+ end
+
+ always_ff @(posedge M_AXI_ACLK or negedge M_AXI_ARESETN) begin
+    if (!M_AXI_ARESETN) wr_busy_q <= 1'b0;
+    else begin
+      if (ctrl_write) wr_busy_q <= 1'b1;
+      if (write_done) wr_busy_q <= 1'b0;
+    end
+ end
+
+ longint unsigned cycle_total, cycle_comp, cycle_rd, cycle_wr, cycle_ol;
+
+ always_ff @(posedge M_AXI_ACLK or negedge M_AXI_ARESETN) begin
+    if (!M_AXI_ARESETN) begin
+      cycle_total <= 0; cycle_comp <= 0; cycle_rd <= 0; cycle_wr <= 0; cycle_ol <= 0;
+    end else begin
+      if (work_active) begin
+        cycle_total <= cycle_total + 1;
+        cycle_comp  <= cycle_comp  + 1;
+        if (rd_busy_q) cycle_rd <= cycle_rd + 1;
+        if (wr_busy_q) cycle_wr <= cycle_wr + 1;
+        if (rd_busy_q) cycle_ol <= cycle_ol + 1;
+      end
+    end
+ end
+
+ always_ff @(posedge M_AXI_ACLK) begin
+    if (done_core) begin
+      longint unsigned cycle_dma  = (cycle_rd + cycle_wr >= cycle_ol) ? (cycle_rd + cycle_wr - cycle_ol) : 0;
+      longint unsigned cycle_idle = (cycle_total > cycle_dma) ? (cycle_total - cycle_dma) : 0;
+
+      real p_idle = (cycle_total==0)?0.0:(100.0 * cycle_idle / cycle_total);
+      real p_ol   = (cycle_total==0)?0.0:(100.0 * cycle_ol   / cycle_total);
+      real p_comp = (cycle_total==0)?0.0:(100.0 * cycle_comp / cycle_total);
+      real p_dma  = (cycle_total==0)?0.0:(100.0 * cycle_dma  / cycle_total);
+
+      $display("[PERF/OPTIMIZATION] total=%0d, compute=%0d, rd=%0d, wr=%0d, overlap=%0d, idle=%0d  (idle=%.2f%%  overlap=%.2f%%  compute=%.2f%%  dma=%.2f%%)",
+             cycle_total, cycle_comp, cycle_rd, cycle_wr, cycle_ol, cycle_idle, p_idle, p_ol, p_comp, p_dma);
+ end
+
+ `endif
+
 endmodule

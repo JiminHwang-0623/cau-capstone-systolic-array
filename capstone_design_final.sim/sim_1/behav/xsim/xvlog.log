@@ -1,0 +1,32 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/X_REG.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module X_REG
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/axi_dma_ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dma_ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/dma_read.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dma_read
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/dma_write.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dma_write
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/dpram_wrapper.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dpram_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/hPE.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hPE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_PE_wrapper.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_PE_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_RF.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_RF
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_core_pipeline
+WARNING: [VRFC 10-3824] variable 'cycle_dma' must explicitly be declared as automatic or static [C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:485]
+WARNING: [VRFC 10-3824] variable 'cycle_idle' must explicitly be declared as automatic or static [C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:486]
+WARNING: [VRFC 10-3824] variable 'p_idle' must explicitly be declared as automatic or static [C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:488]
+WARNING: [VRFC 10-3824] variable 'p_ol' must explicitly be declared as automatic or static [C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:489]
+WARNING: [VRFC 10-3824] variable 'p_comp' must explicitly be declared as automatic or static [C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:490]
+WARNING: [VRFC 10-3824] variable 'p_dma' must explicitly be declared as automatic or static [C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_core_pipeline.sv:491]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_engine_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_engine_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/se-dong Jang/종합설계2/cau-capstone-systolic-array/capstone_design_final.srcs/sim_1/imports/hdl/sa_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sa_unit
