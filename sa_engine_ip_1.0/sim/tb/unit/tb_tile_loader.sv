@@ -57,6 +57,11 @@ module tb_tile_loader;
   logic                 b_fill_we;
   logic [7:0]           b_fill_addr; // small DEPTH
   logic [DATA_W-1:0]    b_fill_wdata;
+  // Minimal consumer stub signals
+  logic                 consume_req;
+  logic                 consume_busy;
+  logic                 cons_commit;
+  logic                 consume_done;
 
   // Status
   logic                 ld_done;
@@ -116,7 +121,7 @@ module tb_tile_loader;
     .seg_words    (b_seg_words),
     .fill_req     (b_fill_req), .fill_busy(b_fill_busy),
     .fill_we      (b_fill_we),  .fill_addr(b_fill_addr), .fill_wdata(b_fill_wdata), .fill_done(b_fill_done),
-    .consume_req  (1'b0), .consume_busy(), .rd_addr('0), .rd_en(1'b0), .rd_rdata(), .cons_commit(1'b0), .consume_done(),
+    .consume_req  (consume_req), .consume_busy(consume_busy), .rd_addr('0), .rd_en(1'b0), .rd_rdata(), .cons_commit(cons_commit), .consume_done(consume_done),
     .bank_sel     ()
   );
 
@@ -142,7 +147,25 @@ module tb_tile_loader;
   task automatic reset_dut();
     rstn = 0; ld_req=0; update_A=0; N=0; K=0; M=0; TILE_SIZE_CFG=8; BLOCK_M_CFG=0; j_block=0;
     base_A=32'h0000_1000; base_B=32'h0002_0000; stride_A=0; stride_B=0;
+    consume_req=0; cons_commit=0;
     repeat(5) @(posedge clk); rstn=1; repeat(2) @(posedge clk);
+  endtask
+
+  // Drain helper: if a FULL bank exists, activate and then commit to free it
+  task automatic drain_one_bank();
+    int tmo;
+    begin
+      consume_req = 1'b1; @(posedge clk); consume_req = 1'b0;
+      // Wait until consuming becomes active (only if a FULL bank is present)
+      tmo = 50;
+      while (consume_busy==1'b0 && tmo>0) begin @(posedge clk); tmo--; end
+      if (consume_busy) begin
+        // Commit after one extra cycle
+        @(posedge clk);
+        cons_commit = 1'b1; @(posedge clk); cons_commit = 1'b0;
+        @(posedge clk);
+      end
+    end
   endtask
 
   // Testcases
@@ -152,15 +175,31 @@ module tb_tile_loader;
     // TC1: A bulk small (N=8,K=16)
     N=8; K=16; M=32; stride_A=K; stride_B=M; update_A=1; ld_req=1; @(posedge clk); ld_req=0;
     wait(ld_done==1); @(posedge clk);
-    $display("[TC1 A] words_written=%0d (exp=%0d) rd_cmds=%0d rd_beats=%0d", a_words_written, (N*K)/4, rd_cmds, rd_beats);
+    begin
+      int exp_beats  = (N*K)/4; // AXI32: 4B/beat
+      int exp_cmds   = (exp_beats + 16 - 1) / 16; // 16-beat bursts
+      $display("[TC1 A] words_written=%0d (exp=%0d) rd_cmds=%0d (exp=%0d) rd_beats=%0d (exp=%0d)",
+               a_words_written, exp_beats, rd_cmds, exp_cmds, rd_beats, exp_beats);
+    end
 
     // clear counters
     a_words_written=0; b_words_written=0; rd_cmds=0; rd_beats=0; blocks_done=0;
 
-    // TC2: B block small (K=16, BLOCK_M=16, j_block=0)
-    update_A=0; N=8; K=16; M=32; BLOCK_M_CFG=16; j_block=0; ld_req=1; @(posedge clk); ld_req=0;
+    // TC2: B block small (K=16, M=16, BLOCK_M=16, j_block=0)
+    //   Expect per-row reads: rd_cmds=K (=16), rd_beats=K*(M/4)=64, b_seg_words=64
+    update_A=0; N=8; K=16; M=16; BLOCK_M_CFG=16; j_block=0; stride_B=M; ld_req=1; @(posedge clk); ld_req=0;
     wait(ld_done==1); @(posedge clk);
-    $display("[TC2 B] seg_words=%0d words_written=%0d rows=%0d rd_cmds=%0d rd_beats=%0d", b_seg_words, b_words_written, K, rd_cmds, rd_beats);
+    begin
+      int cur_block_m = (M - j_block) < BLOCK_M_CFG ? (M - j_block) : BLOCK_M_CFG;
+      int words_per_row = cur_block_m / 4;
+      int bursts_per_row = (words_per_row + 16 - 1) / 16;
+      int exp_rows = K;
+      int exp_seg_words = K * words_per_row;
+      int exp_cmds = K * bursts_per_row;
+      int exp_beats = exp_seg_words;
+      $display("[TC2 B] seg_words=%0d (exp=%0d) words_written=%0d (exp=%0d) rows=%0d (exp=%0d) rd_cmds=%0d (exp=%0d) rd_beats=%0d (exp=%0d)",
+               b_seg_words, exp_seg_words, b_words_written, exp_seg_words, K, exp_rows, rd_cmds, exp_cmds, rd_beats, exp_beats);
+    end
 
     // clear counters
     a_words_written=0; b_words_written=0; rd_cmds=0; rd_beats=0; blocks_done=0;
@@ -168,7 +207,12 @@ module tb_tile_loader;
     // TC3: DistilBERT A bulk (N=64, K=768)
     update_A=1; N=64; K=768; M=3072; stride_A=K; ld_req=1; @(posedge clk); ld_req=0;
     wait(ld_done==1); @(posedge clk);
-    $display("[TC3 A Distil] bursts=%0d (exp=768) words=%0d (exp=12288)", rd_cmds, a_words_written);
+    begin
+      int exp_beats  = (N*K)/4; // 64*768/4 = 12288
+      int exp_cmds   = (exp_beats + 16 - 1) / 16; // = 768
+      $display("[TC3 A Distil] bursts=%0d (exp=%0d) words=%0d (exp=%0d) rd_beats=%0d (exp=%0d)",
+               rd_cmds, exp_cmds, a_words_written, exp_beats, rd_beats, exp_beats);
+    end
 
     // clear counters
     a_words_written=0; b_words_written=0; rd_cmds=0; rd_beats=0; blocks_done=0;
@@ -176,19 +220,41 @@ module tb_tile_loader;
     // TC4: DistilBERT B block (BLOCK_M=256, j_block=0)
     update_A=0; N=64; K=768; M=3072; stride_B=M; BLOCK_M_CFG=256; j_block=0; ld_req=1; @(posedge clk); ld_req=0;
     wait(ld_done==1); @(posedge clk);
-    $display("[TC4 B Distil block0] bursts=%0d (exp=3072) seg_words=%0d (exp=49152) words=%0d", rd_cmds, b_seg_words, b_words_written);
+    begin
+      int cur_block_m = (M - j_block) < BLOCK_M_CFG ? (M - j_block) : BLOCK_M_CFG; // 256
+      int words_per_row = cur_block_m / 4; // 64
+      int bursts_per_row = (words_per_row + 16 - 1) / 16; // 4
+      int exp_seg_words = K * words_per_row; // 768*64
+      int exp_cmds = K * bursts_per_row; // 768*4
+      int exp_beats = exp_seg_words;
+      $display("[TC4 B Distil block0] bursts=%0d (exp=%0d) seg_words=%0d (exp=%0d) words=%0d (exp=%0d) rd_beats=%0d (exp=%0d)",
+               rd_cmds, exp_cmds, b_seg_words, exp_seg_words, b_words_written, exp_seg_words, rd_beats, exp_beats);
+    end
     
     // clear counters
     a_words_written=0; b_words_written=0; rd_cmds=0; rd_beats=0; blocks_done=0;
 
     // TC5: DistilBERT B full sweep over j_block (12 blocks @ 256)
     update_A=0; N=64; K=768; M=3072; stride_B=M; BLOCK_M_CFG=256; 
+    // Ensure at least one EMPTY bank before starting sweep (in case prior tests left both FULL)
+    drain_one_bank();
+    drain_one_bank();
     for (jb=0; jb<3072; jb+=256) begin
       j_block = jb;
       ld_req  = 1; @(posedge clk); ld_req = 0;
       wait(ld_done==1); @(posedge clk);
-      $display("[TC5 B Distil sweep] block@%0d bursts=%0d (exp=3072) seg_words=%0d (exp=49152) words=%0d", 
-               jb, rd_cmds, b_seg_words, b_words_written);
+      // Free the just-filled bank to guarantee an EMPTY for the next block
+      drain_one_bank();
+      begin
+        int cur_block_m = (M - j_block) < BLOCK_M_CFG ? (M - j_block) : BLOCK_M_CFG; // 256 (or tail)
+        int words_per_row = cur_block_m / 4;
+        int bursts_per_row = (words_per_row + 16 - 1) / 16;
+        int exp_seg_words = K * words_per_row;
+        int exp_cmds = K * bursts_per_row;
+        int exp_beats = exp_seg_words;
+        $display("[TC5 B Distil sweep] block@%0d bursts=%0d (exp=%0d) seg_words=%0d (exp=%0d) words=%0d (exp=%0d) rd_beats=%0d (exp=%0d)",
+                 jb, rd_cmds, exp_cmds, b_seg_words, exp_seg_words, b_words_written, exp_seg_words, rd_beats, exp_beats);
+      end
       // reset per-block counters to see per-block numbers
       rd_cmds=0; b_words_written=0; rd_beats=0;
     end

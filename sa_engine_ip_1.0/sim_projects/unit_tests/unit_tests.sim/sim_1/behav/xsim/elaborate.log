@@ -1,19 +1,18 @@
 Vivado Simulator v2021.2
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_tile_loader_behav xil_defaultlib.tb_tile_loader xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_pe_array_8x8_lut_smoke_behav xil_defaultlib.tb_pe_array_8x8_lut_smoke xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-2861] module 'axi_addr_gen' does not have a parameter named CLOG2 [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim/tb/unit/tb_tile_loader.sv:85]
+WARNING: [VRFC 10-3823] variable 'ld_done_k4' might have multiple concurrent drivers [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv:332]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.tile_loader(A_ADDR_W=8,B_ADDR_W=...
-Compiling module xil_defaultlib.axi_addr_gen_default
-Compiling module xil_defaultlib.dma_read_stub
-Compiling module xil_defaultlib.dpram_wrapper(DW=32,DEPTH=256)
-Compiling module xil_defaultlib.bram_pingpong(DATA_W=32,DEPTH=25...
-Compiling module xil_defaultlib.tb_tile_loader
+Compiling module xil_defaultlib.pe_int8_dsp
+Compiling module xil_defaultlib.pe_array_8x8(USE_DSP=1'b1,K_CYCL...
+Compiling module xil_defaultlib.pe_array_8x8(USE_DSP=1'b1)
+Compiling module xil_defaultlib.pe_array_8x8(USE_DSP=1'b1,K_CYCL...
+Compiling module xil_defaultlib.tb_pe_array_8x8_lut_smoke
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_tile_loader_behav
+Built simulation snapshot tb_pe_array_8x8_lut_smoke_behav

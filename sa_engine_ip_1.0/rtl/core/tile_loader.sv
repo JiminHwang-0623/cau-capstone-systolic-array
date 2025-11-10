@@ -99,17 +99,16 @@ module tile_loader #(
   typedef enum logic [2:0] { S_IDLE, S_A_RUN, S_B_ROW_LAUNCH, S_B_ROW_RUN, S_B_WAIT_DONE } state_e;
   state_e state;
 
-  logic        a_loaded;
   logic [31:0] a_total_words, a_word_cnt;
 
   logic [31:0] cur_block_m, words_per_row;
   logic [31:0] krow, row_word_idx;
   logic        cmd_inflight;
+  logic        b_fill_done_seen;
 
   always_ff @(posedge clk or negedge rstn) begin
     if (!rstn) begin
       state         <= S_IDLE;
-      a_loaded      <= 1'b0;
       a_total_words <= 32'd0;
       a_word_cnt    <= 32'd0;
 
@@ -138,6 +137,8 @@ module tile_loader #(
       row_word_idx  <= 32'd0;
       cmd_inflight  <= 1'b0;
 
+      b_fill_done_seen <= 1'b0;
+
       ld_done       <= 1'b0;
     end else begin
       // defaults
@@ -149,12 +150,23 @@ module tile_loader #(
       b_fill_we     <= 1'b0;
       ld_done       <= 1'b0;
 
-      if (rd_start_dma) cmd_inflight <= 1'b1; else if (rd_done) cmd_inflight <= 1'b0;
+      // Immediately mark inflight when a burst is accepted to avoid
+      // back-to-back handshakes while the previous DMA burst is active.
+      if (rd_done) begin
+        cmd_inflight <= 1'b0;
+      end else if ( (state==S_A_RUN || state==S_B_ROW_RUN) && ag_req_valid && !cmd_inflight ) begin
+        cmd_inflight <= 1'b1;
+      end
+
+      // Latch B fill completion pulse so S_B_WAIT_DONE cannot miss it
+      if (b_fill_done) begin
+        b_fill_done_seen <= 1'b1;
+      end
 
       case (state)
         S_IDLE: begin
           if (ld_req) begin
-            if (update_A && !a_loaded) begin
+            if (update_A) begin
               a_total_words  <= (N*K) >> 2;
               a_word_cnt     <= 32'd0;
               a_addr         <= '0;
@@ -168,6 +180,7 @@ module tile_loader #(
               b_seg_words    <= (K * (((M - j_block) < BLOCK_M_CFG) ? (M - j_block) : BLOCK_M_CFG)) >> 2;
               krow           <= 32'd0;
               row_word_idx   <= 32'd0;
+              b_fill_done_seen <= 1'b0; // start a fresh B fill segment
               if (!b_fill_busy) b_fill_req <= 1'b1;
               state          <= S_B_ROW_LAUNCH;
             end
@@ -188,7 +201,6 @@ module tile_loader #(
             a_word_cnt <= a_word_cnt + 1'b1;
           end
           if (a_word_cnt == a_total_words) begin
-            a_loaded <= 1'b1;
             ld_done  <= 1'b1;
             state    <= S_IDLE;
           end
@@ -226,7 +238,7 @@ module tile_loader #(
         end
 
         S_B_WAIT_DONE: begin
-          if (b_fill_done) begin
+          if (b_fill_done_seen) begin
             ld_done <= 1'b1;
             state   <= S_IDLE;
           end

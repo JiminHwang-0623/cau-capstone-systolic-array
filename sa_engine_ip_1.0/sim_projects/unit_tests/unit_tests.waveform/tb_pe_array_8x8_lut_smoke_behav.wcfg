@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_pe_array_8x8_lut_smoke_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_pe_array_8x8_lut_smoke" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="272.630 ns"></ZoomStartTime>
+      <ZoomEndTime time="483.631 ns"></ZoomEndTime>
+      <Cursor1Time time="307.796 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="286"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="128" />
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/start_k4" type="logic">
+      <obj_property name="ElementShortName">start_k4</obj_property>
+      <obj_property name="ObjectShortName">start_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/done_k4" type="logic">
+      <obj_property name="ElementShortName">done_k4</obj_property>
+      <obj_property name="ObjectShortName">done_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/a_ld_start_k4" type="logic">
+      <obj_property name="ElementShortName">a_ld_start_k4</obj_property>
+      <obj_property name="ObjectShortName">a_ld_start_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/a_ld_valid_k4" type="logic">
+      <obj_property name="ElementShortName">a_ld_valid_k4</obj_property>
+      <obj_property name="ObjectShortName">a_ld_valid_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/a_ld_data_k4" type="array">
+      <obj_property name="ElementShortName">a_ld_data_k4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_ld_data_k4[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/b_ld_start_k4" type="logic">
+      <obj_property name="ElementShortName">b_ld_start_k4</obj_property>
+      <obj_property name="ObjectShortName">b_ld_start_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/b_ld_valid_k4" type="logic">
+      <obj_property name="ElementShortName">b_ld_valid_k4</obj_property>
+      <obj_property name="ObjectShortName">b_ld_valid_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/b_ld_data_k4" type="array">
+      <obj_property name="ElementShortName">b_ld_data_k4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_ld_data_k4[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/ld_done_k4" type="logic">
+      <obj_property name="ElementShortName">ld_done_k4</obj_property>
+      <obj_property name="ObjectShortName">ld_done_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/drain_req_k4" type="logic">
+      <obj_property name="ElementShortName">drain_req_k4</obj_property>
+      <obj_property name="ObjectShortName">drain_req_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/busy_k4" type="logic">
+      <obj_property name="ElementShortName">busy_k4</obj_property>
+      <obj_property name="ObjectShortName">busy_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/valid_k4" type="logic">
+      <obj_property name="ElementShortName">valid_k4</obj_property>
+      <obj_property name="ObjectShortName">valid_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/last_k4" type="logic">
+      <obj_property name="ElementShortName">last_k4</obj_property>
+      <obj_property name="ObjectShortName">last_k4</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/data_k4" type="array">
+      <obj_property name="ElementShortName">data_k4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_k4[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/start_k8" type="logic">
+      <obj_property name="ElementShortName">start_k8</obj_property>
+      <obj_property name="ObjectShortName">start_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/done_k8" type="logic">
+      <obj_property name="ElementShortName">done_k8</obj_property>
+      <obj_property name="ObjectShortName">done_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/a_ld_start_k8" type="logic">
+      <obj_property name="ElementShortName">a_ld_start_k8</obj_property>
+      <obj_property name="ObjectShortName">a_ld_start_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/a_ld_valid_k8" type="logic">
+      <obj_property name="ElementShortName">a_ld_valid_k8</obj_property>
+      <obj_property name="ObjectShortName">a_ld_valid_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/a_ld_data_k8" type="array">
+      <obj_property name="ElementShortName">a_ld_data_k8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_ld_data_k8[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/b_ld_start_k8" type="logic">
+      <obj_property name="ElementShortName">b_ld_start_k8</obj_property>
+      <obj_property name="ObjectShortName">b_ld_start_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/b_ld_valid_k8" type="logic">
+      <obj_property name="ElementShortName">b_ld_valid_k8</obj_property>
+      <obj_property name="ObjectShortName">b_ld_valid_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/b_ld_data_k8" type="array">
+      <obj_property name="ElementShortName">b_ld_data_k8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_ld_data_k8[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/ld_done_k8" type="logic">
+      <obj_property name="ElementShortName">ld_done_k8</obj_property>
+      <obj_property name="ObjectShortName">ld_done_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/drain_req_k8" type="logic">
+      <obj_property name="ElementShortName">drain_req_k8</obj_property>
+      <obj_property name="ObjectShortName">drain_req_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/busy_k8" type="logic">
+      <obj_property name="ElementShortName">busy_k8</obj_property>
+      <obj_property name="ObjectShortName">busy_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/valid_k8" type="logic">
+      <obj_property name="ElementShortName">valid_k8</obj_property>
+      <obj_property name="ObjectShortName">valid_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/last_k8" type="logic">
+      <obj_property name="ElementShortName">last_k8</obj_property>
+      <obj_property name="ObjectShortName">last_k8</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/data_k8" type="array">
+      <obj_property name="ElementShortName">data_k8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_k8[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/A4" type="array">
+      <obj_property name="ElementShortName">A4[0:7][0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">A4[0:7][0:3][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/B4" type="array">
+      <obj_property name="ElementShortName">B4[0:3][0:7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">B4[0:3][0:7][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/C4exp" type="array">
+      <obj_property name="ElementShortName">C4exp[0:7][0:7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">C4exp[0:7][0:7][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/A8" type="array">
+      <obj_property name="ElementShortName">A8[0:7][0:7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">A8[0:7][0:7][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/B8" type="array">
+      <obj_property name="ElementShortName">B8[0:7][0:7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">B8[0:7][0:7][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/C8exp" type="array">
+      <obj_property name="ElementShortName">C8exp[0:7][0:7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">C8exp[0:7][0:7][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/SIDE" type="array">
+      <obj_property name="ElementShortName">SIDE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SIDE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/ELEM_BITS" type="array">
+      <obj_property name="ElementShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/ACC_BITS" type="array">
+      <obj_property name="ElementShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/K4" type="array">
+      <obj_property name="ElementShortName">K4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">K4[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/K8" type="array">
+      <obj_property name="ElementShortName">K8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">K8[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_ld_start" type="logic">
+      <obj_property name="ElementShortName">a_ld_start</obj_property>
+      <obj_property name="ObjectShortName">a_ld_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_ld_valid" type="logic">
+      <obj_property name="ElementShortName">a_ld_valid</obj_property>
+      <obj_property name="ObjectShortName">a_ld_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_ld_data" type="array">
+      <obj_property name="ElementShortName">a_ld_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_ld_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_ld_start" type="logic">
+      <obj_property name="ElementShortName">b_ld_start</obj_property>
+      <obj_property name="ObjectShortName">b_ld_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_ld_valid" type="logic">
+      <obj_property name="ElementShortName">b_ld_valid</obj_property>
+      <obj_property name="ObjectShortName">b_ld_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_ld_data" type="array">
+      <obj_property name="ElementShortName">b_ld_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_ld_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/ld_done" type="logic">
+      <obj_property name="ElementShortName">ld_done</obj_property>
+      <obj_property name="ObjectShortName">ld_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c_drain_req" type="logic">
+      <obj_property name="ElementShortName">c_drain_req</obj_property>
+      <obj_property name="ObjectShortName">c_drain_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c_busy" type="logic">
+      <obj_property name="ElementShortName">c_busy</obj_property>
+      <obj_property name="ObjectShortName">c_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c_valid" type="logic">
+      <obj_property name="ElementShortName">c_valid</obj_property>
+      <obj_property name="ObjectShortName">c_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c_data" type="array">
+      <obj_property name="ElementShortName">c_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c_last" type="logic">
+      <obj_property name="ElementShortName">c_last</obj_property>
+      <obj_property name="ObjectShortName">c_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/run" type="logic">
+      <obj_property name="ElementShortName">run</obj_property>
+      <obj_property name="ObjectShortName">run</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/ctr" type="array">
+      <obj_property name="ElementShortName">ctr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ctr[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/dr_r" type="array">
+      <obj_property name="ElementShortName">dr_r[2:0]</obj_property>
+      <obj_property name="ObjectShortName">dr_r[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/dr_c" type="array">
+      <obj_property name="ElementShortName">dr_c[2:0]</obj_property>
+      <obj_property name="ObjectShortName">dr_c[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA" type="array">
+      <obj_property name="ElementShortName">localA[0:7][0:3][7:0]</obj_property>
+      <obj_property name="ObjectShortName">localA[0:7][0:3][7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[0]" type="array">
+         <obj_property name="ElementShortName">[0][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[1]" type="array">
+         <obj_property name="ElementShortName">[1][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[2]" type="array">
+         <obj_property name="ElementShortName">[2][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[3]" type="array">
+         <obj_property name="ElementShortName">[3][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[4]" type="array">
+         <obj_property name="ElementShortName">[4][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[5]" type="array">
+         <obj_property name="ElementShortName">[5][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[6]" type="array">
+         <obj_property name="ElementShortName">[6][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localA[7]" type="array">
+         <obj_property name="ElementShortName">[7][0:3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][0:3][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localB" type="array">
+      <obj_property name="ElementShortName">localB[0:3][0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">localB[0:3][0:7][7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localB[0]" type="array">
+         <obj_property name="ElementShortName">[0][0:7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][0:7][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localB[1]" type="array">
+         <obj_property name="ElementShortName">[1][0:7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][0:7][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localB[2]" type="array">
+         <obj_property name="ElementShortName">[2][0:7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][0:7][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/localB[3]" type="array">
+         <obj_property name="ElementShortName">[3][0:7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][0:7][7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_loaded" type="logic">
+      <obj_property name="ElementShortName">a_loaded</obj_property>
+      <obj_property name="ObjectShortName">a_loaded</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_loaded" type="logic">
+      <obj_property name="ElementShortName">b_loaded</obj_property>
+      <obj_property name="ObjectShortName">b_loaded</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_wr_idx" type="array">
+      <obj_property name="ElementShortName">a_wr_idx[15:0]</obj_property>
+      <obj_property name="ObjectShortName">a_wr_idx[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_wr_idx" type="array">
+      <obj_property name="ElementShortName">b_wr_idx[15:0]</obj_property>
+      <obj_property name="ObjectShortName">b_wr_idx[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_sig" type="array">
+      <obj_property name="ElementShortName">a_sig[0:7][0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_sig[0:7][0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_sig" type="array">
+      <obj_property name="ElementShortName">b_sig[0:7][0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_sig[0:7][0:7][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/a_v_sig" type="array">
+      <obj_property name="ElementShortName">a_v_sig[0:7][0:7]</obj_property>
+      <obj_property name="ObjectShortName">a_v_sig[0:7][0:7]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/b_v_sig" type="array">
+      <obj_property name="ElementShortName">b_v_sig[0:7][0:7]</obj_property>
+      <obj_property name="ObjectShortName">b_v_sig[0:7][0:7]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c_sig" type="array">
+      <obj_property name="ElementShortName">c_sig[0:7][0:7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_sig[0:7][0:7][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/r" type="array">
+      <obj_property name="ElementShortName">r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/c" type="array">
+      <obj_property name="ElementShortName">c[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/SIDE" type="array">
+      <obj_property name="ElementShortName">SIDE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SIDE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/ELEM_BITS" type="array">
+      <obj_property name="ElementShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEM_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/ACC_BITS" type="array">
+      <obj_property name="ElementShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/USE_DSP" type="logic">
+      <obj_property name="ElementShortName">USE_DSP</obj_property>
+      <obj_property name="ObjectShortName">USE_DSP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/K_CYCLES" type="array">
+      <obj_property name="ElementShortName">K_CYCLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">K_CYCLES[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/SA_LAT" type="array">
+      <obj_property name="ElementShortName">SA_LAT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SA_LAT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /clr" type="logic">
+      <obj_property name="ElementShortName">clr</obj_property>
+      <obj_property name="ObjectShortName">clr</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /shift_en" type="logic">
+      <obj_property name="ElementShortName">shift_en</obj_property>
+      <obj_property name="ObjectShortName">shift_en</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /a_in" type="array">
+      <obj_property name="ElementShortName">a_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /b_in" type="array">
+      <obj_property name="ElementShortName">b_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /prod_s" type="array">
+      <obj_property name="ElementShortName">prod_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">prod_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /c_out" type="array">
+      <obj_property name="ElementShortName">c_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_out[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /a_v_in" type="logic">
+      <obj_property name="ElementShortName">a_v_in</obj_property>
+      <obj_property name="ObjectShortName">a_v_in</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /b_v_in" type="logic">
+      <obj_property name="ElementShortName">b_v_in</obj_property>
+      <obj_property name="ObjectShortName">b_v_in</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /a_out" type="array">
+      <obj_property name="ElementShortName">a_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_out[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /b_out" type="array">
+      <obj_property name="ElementShortName">b_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_out[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /a_v_out" type="logic">
+      <obj_property name="ElementShortName">a_v_out</obj_property>
+      <obj_property name="ObjectShortName">a_v_out</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /b_v_out" type="logic">
+      <obj_property name="ElementShortName">b_v_out</obj_property>
+      <obj_property name="ObjectShortName">b_v_out</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /ELEM_BITS" type="array">
+      <obj_property name="ElementShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[0].LUT.u_pe /ACC_BITS" type="array">
+      <obj_property name="ElementShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /clr" type="logic">
+      <obj_property name="ElementShortName">clr</obj_property>
+      <obj_property name="ObjectShortName">clr</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /shift_en" type="logic">
+      <obj_property name="ElementShortName">shift_en</obj_property>
+      <obj_property name="ObjectShortName">shift_en</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /a_in" type="array">
+      <obj_property name="ElementShortName">a_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /b_in" type="array">
+      <obj_property name="ElementShortName">b_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /prod_s" type="array">
+      <obj_property name="ElementShortName">prod_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">prod_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /c_out" type="array">
+      <obj_property name="ElementShortName">c_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_out[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /a_v_in" type="logic">
+      <obj_property name="ElementShortName">a_v_in</obj_property>
+      <obj_property name="ObjectShortName">a_v_in</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /b_v_in" type="logic">
+      <obj_property name="ElementShortName">b_v_in</obj_property>
+      <obj_property name="ObjectShortName">b_v_in</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /a_out" type="array">
+      <obj_property name="ElementShortName">a_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_out[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /b_out" type="array">
+      <obj_property name="ElementShortName">b_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_out[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /a_v_out" type="logic">
+      <obj_property name="ElementShortName">a_v_out</obj_property>
+      <obj_property name="ObjectShortName">a_v_out</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /b_v_out" type="logic">
+      <obj_property name="ElementShortName">b_v_out</obj_property>
+      <obj_property name="ObjectShortName">b_v_out</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /ELEM_BITS" type="array">
+      <obj_property name="ElementShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[0].COL[1].LUT.u_pe /ACC_BITS" type="array">
+      <obj_property name="ElementShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /clr" type="logic">
+      <obj_property name="ElementShortName">clr</obj_property>
+      <obj_property name="ObjectShortName">clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /shift_en" type="logic">
+      <obj_property name="ElementShortName">shift_en</obj_property>
+      <obj_property name="ObjectShortName">shift_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /a_in" type="array">
+      <obj_property name="ElementShortName">a_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_in[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /b_in" type="array">
+      <obj_property name="ElementShortName">b_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_in[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /prod_s" type="array">
+      <obj_property name="ElementShortName">prod_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">prod_s[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /c_out" type="array">
+      <obj_property name="ElementShortName">c_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_out[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /a_v_in" type="logic">
+      <obj_property name="ElementShortName">a_v_in</obj_property>
+      <obj_property name="ObjectShortName">a_v_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /b_v_in" type="logic">
+      <obj_property name="ElementShortName">b_v_in</obj_property>
+      <obj_property name="ObjectShortName">b_v_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /a_out" type="array">
+      <obj_property name="ElementShortName">a_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a_out[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /b_out" type="array">
+      <obj_property name="ElementShortName">b_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_out[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /a_v_out" type="logic">
+      <obj_property name="ElementShortName">a_v_out</obj_property>
+      <obj_property name="ObjectShortName">a_v_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /b_v_out" type="logic">
+      <obj_property name="ElementShortName">b_v_out</obj_property>
+      <obj_property name="ObjectShortName">b_v_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /ELEM_BITS" type="array">
+      <obj_property name="ElementShortName">ELEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ELEM_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pe_array_8x8_lut_smoke/u_lut_k4/\ROW[7].COL[7].LUT.u_pe /ACC_BITS" type="array">
+      <obj_property name="ElementShortName">ACC_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_BITS[31:0]</obj_property>
+   </wvobject>
+</wave_config>

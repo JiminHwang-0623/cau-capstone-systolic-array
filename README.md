@@ -1,4 +1,4 @@
-# 🎯 Systolic Array Matrix Multiplication IP 검증 계획
+﻿# 🪛 Systolic Array Matrix Multiplication IP 검증 계획
 
 > **Last Updated**: 2025-11-04  
 > **Target Board**: PYNQ-Z2 (Zynq-7000)  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 목차
+## 📃 목차
 
 1. [프로젝트 개요](#1-프로젝트-개요)
 2. [현재 설계 구조](#2-현재-설계-구조)
@@ -242,17 +242,17 @@ sa_engine_ip_1.0/
 │  │ (PS 제어 역할)   │            │  (DRAM 역할)     │           │
 │  │                 │            │                 │           │
 │  │ - AXI4-Lite     │            │ - AXI4-Full     │           │
-│  │ - Master로 동작  │            │ - Slave로 동작   │◄─┐         │
+│  │ - Master로 동작  │            │ - Slave로 동작   │<─┐         │
 │  │ - Register      │            │ - Memory Model  │  │        │
 │  │   Write/Read    │            │ - 연관 배열      │  │        │
 │  └────────┬────────┘            └─────────────────┘  │        │
 │           │                                          │         │
 │           │    ┌──────────────────────┐              │         │
-│           └───►│   DUT (Your IP)      │──────────────└        │
+│           └───>│   DUT (Your IP)      │──────────────└        │
 │                │ sa_engine_ip_v1_0    │                       │
 │                │                      │                       │
-│                │ S00_AXI ◄─ Slave VIP │                       │
-│                │ M00_AXI ─► Master VIP│                       │
+│                │ S00_AXI <─ Slave VIP │                       │
+│                │ M00_AXI ─> Master VIP│                       │
 │                └──────────────────────┘                       │
 │                                                               │
 │  ※ Slave VIP와 Master VIP는 직접 연결되지 않음                  │
@@ -309,8 +309,8 @@ initial begin
   verify_results("golden_result.hex", 64'h0000_0400, 64, mst_agent_0);
   
   // 7. 종료
-  if (pass) $display("✅ TEST PASSED");
-  else      $error("❌ TEST FAILED");
+  if (pass) $display("TEST PASSED");
+  else      $error("TEST FAILED");
   $finish;
 end
 ```
@@ -352,41 +352,41 @@ Note:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ Level 1: AXI4-Lite (S00_AXI) 프로토콜                        │
-│  ✅ AWVALID/AWREADY 핸드셰이크                               │
-│  ✅ WVALID/WREADY 핸드셰이크                                 │
-│  ✅ BVALID/BREADY 응답                                      │
-│  ✅ ARVALID/ARREADY 핸드셰이크                               │
-│  ✅ RVALID/RREADY 데이터 전송                                │
-│  ✅ Register Write → 내부 신호 전파                          │
-│  ✅ Status Register Read 정확도                             │
+│   AWVALID/AWREADY 핸드셰이크                               │
+│   WVALID/WREADY 핸드셰이크                                 │
+│   BVALID/BREADY 응답                                      │
+│   ARVALID/ARREADY 핸드셰이크                               │
+│   RVALID/RREADY 데이터 전송                                │
+│   Register Write → 내부 신호 전파                          │
+│   Status Register Read 정확도                             │
 ├────────────────────────────────────────────────────────────┤
 │ Level 2: AXI4-Full Read (M00_AXI → DRAM)                   │
-│  ✅ ARVALID/ARREADY 핸드셰이크                              │
-│  ✅ ARLEN = 15 (16 beats burst)                           │
-│  ✅ ARSIZE = 2 (4 bytes per beat)                         │
-│  ✅ ARBURST = INCR                                        │
-│  ✅ RDATA 수신 정확도                                       │
-│  ✅ RLAST 신호 (마지막 beat)                                │
-│  ✅ 내부 DPRAM에 데이터 저장 확인                             │
+│   ARVALID/ARREADY 핸드셰이크                              │
+│   ARLEN = 15 (16 beats burst)                           │
+│   ARSIZE = 2 (4 bytes per beat)                         │
+│   ARBURST = INCR                                        │
+│   RDATA 수신 정확도                                       │
+│   RLAST 신호 (마지막 beat)                                │
+│   내부 DPRAM에 데이터 저장 확인                             │
 ├────────────────────────────────────────────────────────────┤
 │ Level 3: AXI4-Full Write (DRAM ← M00_AXI)                  │
-│  ✅ AWVALID/AWREADY 핸드셰이크                              │
-│  ✅ AWLEN = 15 (16 beats burst)                           │
-│  ✅ WVALID/WREADY 핸드셰이크                                │
-│  ✅ WDATA 전송 정확도                                       │
-│  ✅ WLAST 신호 (마지막 beat)                                │
-│  ✅ BVALID/BREADY 응답 수신                                 │
-│  ✅ VIP 메모리에 올바른 주소 저장                             │
+│   AWVALID/AWREADY 핸드셰이크                              │
+│   AWLEN = 15 (16 beats burst)                           │
+│   WVALID/WREADY 핸드셰이크                                │
+│   WDATA 전송 정확도                                       │
+│   WLAST 신호 (마지막 beat)                                │
+│   BVALID/BREADY 응답 수신                                 │
+│   VIP 메모리에 올바른 주소 저장                             │
 ├────────────────────────────────────────────────────────────┤
 │ Level 4: Functional Correctness                            │
-│  ✅ FSM State Transition                                  │
+│   FSM State Transition                                  │
 │     S_IDLE → S_DATA_LOAD → S_WRITE_A → S_WRITE_B           │
 │     → S_LOAD → S_MATMUL → S_STORE → S_OUT                  │
-│  ✅ Matrix A/B Loading to Controller                      │
-│  ✅ Systolic Array 계산 (PE MAC 동작)                      │
-│  ✅ Output C = A × B 정확도                                │
-│  ✅ Golden Model 비교 (모든 원소 일치)                       │
-│  ✅ Done 신호 타이밍                                        │
+│   Matrix A/B Loading to Controller                      │
+│   Systolic Array 계산 (PE MAC 동작)                      │
+│   Output C = A × B 정확도                                │
+│   Golden Model 비교 (모든 원소 일치)                       │
+│   Done 신호 타이밍                                        │
 └────────────────────────────────────────────────────────────┘
 ```
 
@@ -421,7 +421,7 @@ Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR
 
 ### 6.1 현재 문제점 개선
 - [x] DMA Write가 64B만 쓰는 이슈 해결 (256B 전체 쓰기)
-  - [x] `sa_engine_ip_1.0/hdl/sa_core_pipeline.sv`의 고정값 제거: `num_trans`/`max_req_blk_idx`를 AXI‑Lite 레지스터(`i_num_trans_param`, `i_max_blk_param`)에 연결
+  - [x] `sa_engine_ip_1.0/hdl/sa_core_pipeline.sv`의 고정값 제거: `num_trans`/`max_req_blk_idx`를 AXI-Lite 레지스터(`i_num_trans_param`, `i_max_blk_param`)에 연결
   - [x] `sa_engine_ip_1.0/hdl/axi_dma_ctrl.sv` 쓰기 FSM의 블록 반복 조건(`(max_req_blk_idx>>1)`) 정합성 재검토 → 읽기와 대칭적으로 총 64워드가 쓰이도록 조정
   - [x] 검증: `M_AXI_AWLEN`/`M_AXI_WLAST`/`M_AXI_AWADDR` 파형으로 버스트 수/주소 증가 확인, 결과 64개 PASS 확인
 - [x] AXI VIP 경고(AxCACHE narrow-support) 제거
@@ -436,13 +436,13 @@ Note: Xilinx AXI VIP reported AxCACHE narrow-support warnings on AR/AW; no ERROR
 - [ ] 시뮬 재생성(`sa_engine_ip_1.0/example_designs/bfm_design/design.tcl`) 및 BFM 회귀 통과
 - [ ] 관련 문서(레지스터/데이터 형식/성능 수치) 업데이트
 
-### 6.3 FPGA 보드 올려보기 (PYNQ‑Z2)
+### 6.3 FPGA 보드 올려보기 (PYNQ-Z2)
 - [ ] 하드웨어 디자인 재빌드/비트스트림 생성
   - 명령: `vivado -mode batch -source sa_engine_ip_1.0/example_designs/debug_hw_design/design.tcl`
-- [ ] 보드 프로그래밍 및 AXI‑Lite 드라이버 테스트(레지스터 R/W, DONE 인터럽트 확인)
+- [ ] 보드 프로그래밍 및 AXI-Lite 드라이버 테스트(레지스터 R/W, DONE 인터럽트 확인)
 - [ ] DDR 트래픽/성능 계측(주기/지연, 초당 전송량) 및 결과 검증
 
-### 6.4 Multi‑Head Attention Layer 가속
+### 6.4 Multi-Head Attention Layer 가속
 - [ ] GEMM 타일링/스케줄러 설계(쿼리/키/밸류 경로, 8×8 타일 매핑)
 - [ ] 소프트맥스/스케일 및 정규화 처리 전략 수립(정밀도/범위)
 - [ ] DMA 레이아웃/버스트 계획(연속 접근, 4KB 경계, 캐시 속성)
@@ -634,10 +634,10 @@ C) DSP 0% → DSP 쓰도록 하는 최소 변경 포인트
 본 섹션은 기존 `sa_core` 내부 FSM에 의존하던 구조를 타일 단위 파이프라인(Loader/Compute/Store)로 분해하고, `rtl/`·`sim/` 재구성에 맞춘 개발 순서와 완료 기준을 정리합니다.
 
 ### 7.1 요구 스펙 요약
-- 보드/클럭: PYNQ‑Z2, PL 100 MHz
+- 보드/클럭: PYNQ-Z2, PL 100 MHz
 - 정밀도: INT8×INT8 → INT32 누적
-- 버스: AXI4‑Lite(제어), AXI4‑Full(읽기/쓰기)
-- 스케줄: 2‑레벨 타일링 + on‑chip A 상주(update_A) + B ping‑pong 스트리밍 + READ/COMPUTE/WRITE 오버랩
+- 버스: AXI4-Lite(제어), AXI4-Full(읽기/쓰기)
+- 스케줄: 2-레벨 타일링 + on-chip A 상주(update_A) + B ping-pong 스트리밍 + READ/COMPUTE/WRITE 오버랩
 
 ### 7.2 인스턴스 트리(목표)
 ```
@@ -694,12 +694,12 @@ for col_blk in 0..M step BLOCK_M:
 1) 패키지/헤더 확정: `sa_params_pkg.sv`, `axi_regs_pkg.sv`, `addr_map.svh`, `sa_defs.svh`에 파라미터·오프셋·매크로 정의  [완료]
 2) 스텁 포트 확정: `tile_*`, `axi_addr_gen`, `bram_pingpong`, `pe_*`의 입출력·핸드셰이크만 정의(기능 없이 컴파일 가능)  [완료]
 3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)  [완료]
-4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`)  [완료]
-5) 로더: `tile_loader.sv`에서 `axi_dma_ctrl`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성  [작업중]
-6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입
-7) 컴퓨트: `tile_compute.sv`에서 K‑loop 누적·파이프 딜레이 보정, 경계 zero‑pad/mask
+4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`) -> B, C Matrix에 사용  [완료]
+5) 로더: `tile_loader.sv`에서 `axi_addr_gen`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성  [완료]
+6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입  [완료]
+7) 컴퓨트: `tile_compute.sv`에서 K-loop 누적·파이프 딜레이 보정, 경계 zero-pad/mask  [작업예정]
 8) 스토어: `tile_store.sv`에서 C 타일 버퍼→`dma_write` 연속 버스트 아웃
-9) 오케스트레이터: `tile_orchestrator.sv` Block→Tile→K FSM, 초기 비‑오버랩→오버랩 확장
+9) 오케스트레이터: `tile_orchestrator.sv` Block→Tile→K FSM, 초기→비오버랩→오버랩 확장
 10) 파이프라인 통합: `sa_core_pipeline.sv`에서 신규 `tile_*`와 DMA를 직접 배선(기존 경로는 파라미터로 보존)
 11) TB 보강: 신규 레지스터 시퀀스(update_A/N/K/M/stride)와 경계 케이스(13×13 등) 추가
 12) 합성/리포트: `USE_DSP=1`로 합성 후 DSP 사용률/타이밍 확인
@@ -717,46 +717,28 @@ for col_blk in 0..M step BLOCK_M:
 - 합성: 빌드 성공, `USE_DSP=1`에서 DSP 사용률 > 0%
 - 기능: `update_A=1`에서 A 재로드 없이 반복 호출 정상
 
-### 7.8 DistilBERT 기준 컨텍스트 & 요구사항
-- 보드/버스/정밀도
-  - PYNQ-Z2 (XC7Z020), PL 100 MHz
-  - AXI4-Lite(제어) + AXI4-Full(읽기/쓰기), 데이터폭 32b(=4 B/beat)
-  - INT8×INT8 → INT32 누적, TILE_SIZE T=8 (8×8 시소릭 고정)
-- 타깃 행렬곱(반드시 지원)
-  - DistilBERT FFN: A 64×768, B 768×3072, C 64×3072
-  - Sanity: (8×8)×(8×8), (16×16)×(16×16, 경계 없음), (13×13)×(13×13, 경계 타일)
-- 타일/데이터플로 불변 조건
-  - 2‑레벨: column‑block(BLOCK_M) → (i,j) tile(8×8) → K‑tile(8) 누적
-  - A full‑persist: j‑block 동안 on‑chip 상주(가능 시 A 전체 64×768≈49,152 B 상주)
-  - B ping‑pong: `B_buf0/1` 더블버퍼로 READ↔COMPUTE 오버랩
-  - C write‑back: 8×8 INT32 = 256 B = 16‑beat×4 연속 버스트
-  - AXI 정책(V1): INCR, ARSIZE/AWSIZE=2, ARLEN/AWLEN=15(16‑beat), base 4B 정렬
-- 타일 바이트(T=8, AXI32b)
-  - A_tile 64 B(=16‑beat×1), B_tile 64 B(=16‑beat×1), C_tile 256 B(=16‑beat×4)
-- DistilBERT 정확 카운트(N=64, K=768, M=3072, T=8)
-  - i‑tiles=8, k‑tiles=96, j‑tiles=384
-  - A full‑persist: 총 A‑reads = 8×96=768 bursts(각 64 B) → 49,152 B
-  - B i‑reuse: 총 B‑reads = 384×96=36,864 bursts(각 64 B) → 2,359,296 B
+  - A full-persist: 총 A reads = 8×96=768 bursts(각 64 B) → 49,152 B
+  - B i reuse: 총 B reads = 384×96=36,864 bursts(각 64 B) → 2,359,296 B
   - C writes: 타일 8×384=3,072개 ×4 bursts = 12,288 bursts → 786,432 B
   - 로그/카운터로 위 burst 개수·총 bytes 일치 검증 필수 (B 재사용 미구현 시 트래픽 8배 증가)
-- 어드레싱(row‑major, 바이트 stride)
+- 어드레싱(row-major, 바이트 stride)
   - stride_A_row=K×1, stride_A_col=1; stride_B_row=M×1, stride_B_col=1; stride_C_row=M×4, stride_C_col=4
   - A_tile_base = base_A + (i0*T)*stride_A_row + (k0*T)*stride_A_col
   - B_tile_base = base_B + (k0*T)*stride_B_row + (j0*T)*stride_B_col
   - C_tile_base = base_C + (i0*T)*stride_C_row + (j0*T)*stride_C_col
 - (i0,j0) 타일당 스케줄(요지)
-  - for k0 in 0..K‑1 step 8: A_tile(상주/필요 시 64B read), B_tile(64B read, i‑tiles 재사용), 누적 compute
-  - 완료 후 C_tile 256B를 16‑beat×4로 write‑back
+  - for k0 in 0..K1 step 8: A_tile(상주/필요 시 64B read), B_tile(64B read, i-tiles 재사용), 누적 compute
+  - 완료 후 C_tile 256B를 16-beat×4로 write-back
 - 모듈/인터페이스(요약, sa_core 없음)
-  - tile_orchestrator: j‑block→i→j→k 순회, A full‑persist/B i‑reuse 강제
-  - tile_loader: A bulk/타일 로드, B 타일별 로드, ping‑pong 운용, addr_gen 구동
-  - tile_compute: 8×8 SA 구동, K‑loop 누적, 경계 마스크(13×13 등)
-  - tile_store: C_tile 4×16‑beat write
-  - axi_addr_gen: V1 고정 16‑beat 청커(4B align), 입력(base, bytes_total)→{addr,len=15} 시퀀스, V2 부분 버스트
+  - tile_orchestrator: j-block→i→j→k 순회, A full-persist/B i-reuse 강제
+  - tile_loader: A bulk/타일 로드, B 타일별 로드, ping-pong 운용, addr_gen 구동
+  - tile_compute: 8×8 SA 구동, K-loop 누적, 경계 마스크(13×13 등)
+  - tile_store: C_tile 4×16-beat write
+  - axi_addr_gen: V1 고정 16-beat 청커(4B align), 입력(base, bytes_total)→{addr,len=15} 시퀀스, V2 부분 버스트
 - 테스트 매트릭스(순차 실행)
-  - Case‑A (8×8)×(8×8): A/B 각 1×read, C 4×write → 총 6 bursts
-  - Case‑B (16×16)×(16×16): 타일4개×(A2+B2+C4) → 총 32 bursts
-  - Case‑C (13×13)×(13×13): V1 padding 시 Case‑B와 동일 패턴
+  - Case-A (8×8)×(8×8): A/B 각 1×read, C 4×write → 총 6 bursts
+  - Case-B (16×16)×(16×16): 타일4개×(A2+B2+C4) → 총 32 bursts
+  - Case-C (13×13)×(13×13): V1 padding 시 Case-B와 동일 패턴
   - DistilBERT (64×768)×(768×3072): A 768, B 36,864, C 12,288 bursts
 - 제약
   - `sa_core.sv` 신규 생성 금지. `sa_core_pipeline` 아래에 `tile_*` 직접 배선
@@ -767,28 +749,43 @@ for col_blk in 0..M step BLOCK_M:
 - A/B/C 버퍼 크기(고정 파라미터)
   - A persist(전체): 64×768 B = 49.152 KB
   - C 타일 더블버퍼: 256 B ×2 = 0.512 KB
-- B 블록 상주(V2, 더블버퍼) — 열 블록 폭 = `BLOCK_M`
+- B 블록 (더블버퍼) 열 블록 폭 = `BLOCK_M`
   - B 블록(더블): 1.536×`BLOCK_M` KB  (K=768 → 768×BLOCK_M/1000×2)
   - 총합(최종 채택): 49.152 + (1.536×`BLOCK_M`) + 0.512 = 49.664 + 1.536×`BLOCK_M` KB
   - 보드 용량: 630 KB (문서 기준)
-  - 예) `BLOCK_M=256` → 총합 = 49.664 + 393.216 = 442.880 KB
-    • 여유 용량 = 630 − 442.880 ≈ 187.120 KB (≈30% 여유)
+  - 예) `BLOCK_M=256` → 총합 = 49.664 + 393.216 = 442.880 KB  
+    여유 용량 = 630 - 442.880 = 187.120 KB (약 30% 여유)
 - 비고
-  - B는 “블록 단위 ping‑pong(더블버퍼)”로 bank0/bank1에 교대로 상주.
-  - C는 “타일 단위 ping‑pong(더블버퍼)”로 연산/저장을 오버랩.
-  - A는 전역 상주(DPRAM)로 j‑block 전 구간에서 재사용.
+  - B는 “블록 단위 ping-pong(더블버퍼)”로 bank0/bank1에 교대로 상주.
+  - C는 “타일 단위 ping-pong(더블버퍼)”로 연산/저장을 오버랩.
+  - A는 전역 상주(DPRAM)로 j-block 전 구간에서 재사용.
 
 ### 7.10 유닛 테스트(모듈 단위)
+- signed INT8 DSP unit: `sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv`  [PASS]
+  - K=4, 8, 768 순서로 검증: `a_ld_start`/`b_ld_start` 동시 인가 → `ld_done` 대기 → `start` → `done` → `c_drain_req` → row-major 비교 → `c_last`.
+  - 상단 `TB_USE_DSP`=0/1로 LUT/DSP 경로를 토글, 동일 데이터/골든으로 동등성 확인.
+  - `sim/tb/unit/tb_pe_array_8x8.sv`: 로더 task를 `ref` 인자화하여 인스턴스별 독립 로딩 보장.  
+
 - 주소 생성기: `sim/tb/unit/tb_axi_addr_gen.sv`  [PASS]
-  - S1: 64B 1버스트, S2: 256B 4버스트, S3: 백프레셔, S4: 0B
+  - S1: 64B 1버스트, S2: 256B 4버스트, S3: 백프레셔, S4: 0B  
+
 - BRAM pingpong: `sim/tb/unit/tb_bram_pingpong.sv`  [PASS]
   - B 블록 모드(외부 commit) 기본/오버랩, C 타일 모드(내부 카운팅)
+
+ - Tile Loader: `sim/tb/unit/tb_tile_loader.sv`  [PASS]
+   - TC1 A bulk (N=8,K=16): words=32, bursts=2, beats=32
+   - TC2 B block (K=16,M=16,BLOCK_M=16): seg_words=64, bursts=16, beats=64
+   - TC3 A bulk (N=64,K=768): bursts=768, words=12288, beats=12288
+   - TC4 B block (K=768,M=3072,BLOCK_M=256,j_block=0): bursts=3072, seg_words=49152, words=49152, beats=49152
+   - TC5 B sweep (j_block=0..3072 step 256, 12 blocks): 각 블록 bursts=3072; blocks_done=12
+
+---
 
 ---
 
 **End of Document**
 
-Last Updated: 2025-11-07  
-Version: 2.2  
+Last Updated: 2025-11-10  
+Version: 2.3  
 Author: Jimin Hwang  
 Project: Chung-Ang University Capstone Design

@@ -1,0 +1,201 @@
+Time resolution is 1 ps
+-- DSP K=4 drain --
+[DSP K=4 r0 c0] exp=19 got=19 PASS
+[DSP K=4 r0 c1] exp=9 got=9 PASS
+[DSP K=4 r0 c2] exp=-1 got=-1 PASS
+[DSP K=4 r0 c3] exp=7 got=7 PASS
+[DSP K=4 r0 c4] exp=-3 got=-3 PASS
+[DSP K=4 r0 c5] exp=-13 got=-13 PASS
+[DSP K=4 r0 c6] exp=4 got=4 PASS
+[DSP K=4 r0 c7] exp=-6 got=-6 PASS
+[DSP K=4 r1 c0] exp=12 got=12 PASS
+[DSP K=4 r1 c1] exp=6 got=6 PASS
+[DSP K=4 r1 c2] exp=0 got=0 PASS
+[DSP K=4 r1 c3] exp=3 got=3 PASS
+[DSP K=4 r1 c4] exp=-3 got=-3 PASS
+[DSP K=4 r1 c5] exp=-9 got=-9 PASS
+[DSP K=4 r1 c6] exp=3 got=3 PASS
+[DSP K=4 r1 c7] exp=-3 got=-3 PASS
+[DSP K=4 r2 c0] exp=5 got=5 PASS
+[DSP K=4 r2 c1] exp=3 got=3 PASS
+[DSP K=4 r2 c2] exp=1 got=1 PASS
+[DSP K=4 r2 c3] exp=-1 got=-1 PASS
+[DSP K=4 r2 c4] exp=-3 got=-3 PASS
+[DSP K=4 r2 c5] exp=-5 got=-5 PASS
+[DSP K=4 r2 c6] exp=2 got=2 PASS
+[DSP K=4 r2 c7] exp=0 got=0 PASS
+[DSP K=4 r3 c0] exp=-2 got=-2 PASS
+[DSP K=4 r3 c1] exp=0 got=0 PASS
+[DSP K=4 r3 c2] exp=2 got=2 PASS
+[DSP K=4 r3 c3] exp=-5 got=-5 PASS
+[DSP K=4 r3 c4] exp=-3 got=-3 PASS
+[DSP K=4 r3 c5] exp=-1 got=-1 PASS
+[DSP K=4 r3 c6] exp=1 got=1 PASS
+[DSP K=4 r3 c7] exp=3 got=3 PASS
+[DSP K=4 r4 c0] exp=-9 got=-9 PASS
+[DSP K=4 r4 c1] exp=-3 got=-3 PASS
+[DSP K=4 r4 c2] exp=3 got=3 PASS
+[DSP K=4 r4 c3] exp=-9 got=-9 PASS
+[DSP K=4 r4 c4] exp=-3 got=-3 PASS
+[DSP K=4 r4 c5] exp=3 got=3 PASS
+[DSP K=4 r4 c6] exp=0 got=0 PASS
+[DSP K=4 r4 c7] exp=6 got=6 PASS
+[DSP K=4 r5 c0] exp=-16 got=-16 PASS
+[DSP K=4 r5 c1] exp=-6 got=-6 PASS
+[DSP K=4 r5 c2] exp=4 got=4 PASS
+[DSP K=4 r5 c3] exp=-13 got=-13 PASS
+[DSP K=4 r5 c4] exp=-3 got=-3 PASS
+[DSP K=4 r5 c5] exp=7 got=7 PASS
+[DSP K=4 r5 c6] exp=-1 got=-1 PASS
+[DSP K=4 r5 c7] exp=9 got=9 PASS
+[DSP K=4 r6 c0] exp=13 got=13 PASS
+[DSP K=4 r6 c1] exp=18 got=18 PASS
+[DSP K=4 r6 c2] exp=23 got=23 PASS
+[DSP K=4 r6 c3] exp=-8 got=-8 PASS
+[DSP K=4 r6 c4] exp=-3 got=-3 PASS
+[DSP K=4 r6 c5] exp=2 got=2 PASS
+[DSP K=4 r6 c6] exp=-20 got=-20 PASS
+[DSP K=4 r6 c7] exp=-15 got=-15 PASS
+[DSP K=4 r7 c0] exp=-12 got=-12 PASS
+[DSP K=4 r7 c1] exp=-12 got=-12 PASS
+[DSP K=4 r7 c2] exp=-12 got=-12 PASS
+[DSP K=4 r7 c3] exp=24 got=24 PASS
+[DSP K=4 r7 c4] exp=24 got=24 PASS
+[DSP K=4 r7 c5] exp=24 got=24 PASS
+[DSP K=4 r7 c6] exp=-12 got=-12 PASS
+[DSP K=4 r7 c7] exp=-12 got=-12 PASS
+DSP K=4 summary: errors=0 (exp=0)
+-- DSP K=8 drain --
+[DSP K=8 r0 c0] exp=10 got=10 PASS
+[DSP K=8 r0 c1] exp=6 got=6 PASS
+[DSP K=8 r0 c2] exp=2 got=2 PASS
+[DSP K=8 r0 c3] exp=7 got=7 PASS
+[DSP K=8 r0 c4] exp=3 got=3 PASS
+[DSP K=8 r0 c5] exp=-1 got=-1 PASS
+[DSP K=8 r0 c6] exp=-5 got=-5 PASS
+[DSP K=8 r0 c7] exp=-9 got=-9 PASS
+[DSP K=8 r1 c0] exp=-1 got=-1 PASS
+[DSP K=8 r1 c1] exp=3 got=3 PASS
+[DSP K=8 r1 c2] exp=7 got=7 PASS
+[DSP K=8 r1 c3] exp=2 got=2 PASS
+[DSP K=8 r1 c4] exp=6 got=6 PASS
+[DSP K=8 r1 c5] exp=10 got=10 PASS
+[DSP K=8 r1 c6] exp=-13 got=-13 PASS
+[DSP K=8 r1 c7] exp=-9 got=-9 PASS
+[DSP K=8 r2 c0] exp=-3 got=-3 PASS
+[DSP K=8 r2 c1] exp=0 got=0 PASS
+[DSP K=8 r2 c2] exp=3 got=3 PASS
+[DSP K=8 r2 c3] exp=-21 got=-21 PASS
+[DSP K=8 r2 c4] exp=-18 got=-18 PASS
+[DSP K=8 r2 c5] exp=-15 got=-15 PASS
+[DSP K=8 r2 c6] exp=15 got=15 PASS
+[DSP K=8 r2 c7] exp=18 got=18 PASS
+[DSP K=8 r3 c0] exp=22 got=22 PASS
+[DSP K=8 r3 c1] exp=24 got=24 PASS
+[DSP K=8 r3 c2] exp=26 got=26 PASS
+[DSP K=8 r3 c3] exp=-17 got=-17 PASS
+[DSP K=8 r3 c4] exp=-15 got=-15 PASS
+[DSP K=8 r3 c5] exp=-13 got=-13 PASS
+[DSP K=8 r3 c6] exp=-11 got=-11 PASS
+[DSP K=8 r3 c7] exp=-9 got=-9 PASS
+[DSP K=8 r4 c0] exp=-7 got=-7 PASS
+[DSP K=8 r4 c1] exp=-6 got=-6 PASS
+[DSP K=8 r4 c2] exp=-5 got=-5 PASS
+[DSP K=8 r4 c3] exp=14 got=14 PASS
+[DSP K=8 r4 c4] exp=15 got=15 PASS
+[DSP K=8 r4 c5] exp=16 got=16 PASS
+[DSP K=8 r4 c6] exp=-10 got=-10 PASS
+[DSP K=8 r4 c7] exp=-9 got=-9 PASS
+[DSP K=8 r5 c0] exp=-9 got=-9 PASS
+[DSP K=8 r5 c1] exp=-9 got=-9 PASS
+[DSP K=8 r5 c2] exp=-9 got=-9 PASS
+[DSP K=8 r5 c3] exp=-9 got=-9 PASS
+[DSP K=8 r5 c4] exp=-9 got=-9 PASS
+[DSP K=8 r5 c5] exp=-9 got=-9 PASS
+[DSP K=8 r5 c6] exp=18 got=18 PASS
+[DSP K=8 r5 c7] exp=18 got=18 PASS
+[DSP K=8 r6 c0] exp=16 got=16 PASS
+[DSP K=8 r6 c1] exp=15 got=15 PASS
+[DSP K=8 r6 c2] exp=14 got=14 PASS
+[DSP K=8 r6 c3] exp=-5 got=-5 PASS
+[DSP K=8 r6 c4] exp=-6 got=-6 PASS
+[DSP K=8 r6 c5] exp=-7 got=-7 PASS
+[DSP K=8 r6 c6] exp=-8 got=-8 PASS
+[DSP K=8 r6 c7] exp=-9 got=-9 PASS
+[DSP K=8 r7 c0] exp=-13 got=-13 PASS
+[DSP K=8 r7 c1] exp=-15 got=-15 PASS
+[DSP K=8 r7 c2] exp=-17 got=-17 PASS
+[DSP K=8 r7 c3] exp=26 got=26 PASS
+[DSP K=8 r7 c4] exp=24 got=24 PASS
+[DSP K=8 r7 c5] exp=22 got=22 PASS
+[DSP K=8 r7 c6] exp=-7 got=-7 PASS
+[DSP K=8 r7 c7] exp=-9 got=-9 PASS
+DSP K=8 summary: errors=0 (exp=0)
+-- DSP K=768 (TC3) drain --
+[DSP K=768 (TC3) r0 c0] exp=1545 got=1545 PASS
+[DSP K=768 (TC3) r0 c1] exp=1536 got=1536 PASS
+[DSP K=768 (TC3) r0 c2] exp=1527 got=1527 PASS
+[DSP K=768 (TC3) r0 c3] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r0 c4] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r0 c5] exp=-777 got=-777 PASS
+[DSP K=768 (TC3) r0 c6] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r0 c7] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r1 c0] exp=-753 got=-753 PASS
+[DSP K=768 (TC3) r1 c1] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r1 c2] exp=-765 got=-765 PASS
+[DSP K=768 (TC3) r1 c3] exp=1533 got=1533 PASS
+[DSP K=768 (TC3) r1 c4] exp=1527 got=1527 PASS
+[DSP K=768 (TC3) r1 c5] exp=1521 got=1521 PASS
+[DSP K=768 (TC3) r1 c6] exp=-762 got=-762 PASS
+[DSP K=768 (TC3) r1 c7] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r2 c0] exp=-756 got=-756 PASS
+[DSP K=768 (TC3) r2 c1] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r2 c2] exp=-762 got=-762 PASS
+[DSP K=768 (TC3) r2 c3] exp=-765 got=-765 PASS
+[DSP K=768 (TC3) r2 c4] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r2 c5] exp=-771 got=-771 PASS
+[DSP K=768 (TC3) r2 c6] exp=1530 got=1530 PASS
+[DSP K=768 (TC3) r2 c7] exp=1527 got=1527 PASS
+[DSP K=768 (TC3) r3 c0] exp=1536 got=1536 PASS
+[DSP K=768 (TC3) r3 c1] exp=1536 got=1536 PASS
+[DSP K=768 (TC3) r3 c2] exp=1536 got=1536 PASS
+[DSP K=768 (TC3) r3 c3] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r3 c4] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r3 c5] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r3 c6] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r3 c7] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r4 c0] exp=-762 got=-762 PASS
+[DSP K=768 (TC3) r4 c1] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r4 c2] exp=-756 got=-756 PASS
+[DSP K=768 (TC3) r4 c3] exp=1524 got=1524 PASS
+[DSP K=768 (TC3) r4 c4] exp=1527 got=1527 PASS
+[DSP K=768 (TC3) r4 c5] exp=1530 got=1530 PASS
+[DSP K=768 (TC3) r4 c6] exp=-771 got=-771 PASS
+[DSP K=768 (TC3) r4 c7] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r5 c0] exp=-765 got=-765 PASS
+[DSP K=768 (TC3) r5 c1] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r5 c2] exp=-753 got=-753 PASS
+[DSP K=768 (TC3) r5 c3] exp=-774 got=-774 PASS
+[DSP K=768 (TC3) r5 c4] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r5 c5] exp=-762 got=-762 PASS
+[DSP K=768 (TC3) r5 c6] exp=1521 got=1521 PASS
+[DSP K=768 (TC3) r5 c7] exp=1527 got=1527 PASS
+[DSP K=768 (TC3) r6 c0] exp=1527 got=1527 PASS
+[DSP K=768 (TC3) r6 c1] exp=1536 got=1536 PASS
+[DSP K=768 (TC3) r6 c2] exp=1545 got=1545 PASS
+[DSP K=768 (TC3) r6 c3] exp=-777 got=-777 PASS
+[DSP K=768 (TC3) r6 c4] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r6 c5] exp=-759 got=-759 PASS
+[DSP K=768 (TC3) r6 c6] exp=-777 got=-777 PASS
+[DSP K=768 (TC3) r6 c7] exp=-768 got=-768 PASS
+[DSP K=768 (TC3) r7 c0] exp=-789 got=-789 PASS
+[DSP K=768 (TC3) r7 c1] exp=-786 got=-786 PASS
+[DSP K=768 (TC3) r7 c2] exp=-783 got=-783 PASS
+[DSP K=768 (TC3) r7 c3] exp=1551 got=1551 PASS
+[DSP K=768 (TC3) r7 c4] exp=1554 got=1554 PASS
+[DSP K=768 (TC3) r7 c5] exp=1557 got=1557 PASS
+[DSP K=768 (TC3) r7 c6] exp=-771 got=-771 PASS
+[DSP K=768 (TC3) r7 c7] exp=-768 got=-768 PASS
+DSP K=768 (TC3) summary: errors=0 (exp=0)
+LUT-only smoke test completed.
+$finish called at time : 25975 ns : File "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv" Line 369
