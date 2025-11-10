@@ -642,20 +642,61 @@ C) DSP 0% → DSP 쓰도록 하는 최소 변경 포인트
 ### 7.2 인스턴스 트리(목표)
 ```
 sa_engine_ip_v1_0
-└─ sa_core_pipeline (sa_core 제거 버전)
-   ├─ axi_dma_ctrl
-   │  ├─ axi_addr_gen (READ)
-   │  └─ axi_addr_gen (WRITE)
-   ├─ dma_read
-   ├─ dma_write
-   ├─ tile_orchestrator      // Block→Tile→K-loop FSM, 경계/마스크
-   ├─ tile_loader            // A 상주 + B ping-pong 버퍼 채움
-   │  ├─ dpram_wrapper : A_persist_buf
-   │  └─ bram_pingpong : B_buf0 / B_buf1
-   ├─ tile_compute           // 8×8 연산 및 K 축 누적 제어
-   │  └─ sa_controller → pe_array_8x8 (pe_int8_lut/dsp)
-   └─ tile_store             // C 타일 write-back
-      └─ dpram_wrapper : C_tile_buf
+└─ sa_core_pipeline                                // top-level dataflow
+   ├─ axi_addr_gen (READ)                          // compute ARADDR/ARLEN per tile/burst
+   ├─ axi_addr_gen (WRITE)                         // compute AWADDR/AWLEN per tile/burst
+   ├─ dma_read                                     // AXI4-Full master read
+   ├─ dma_write                                    // AXI4-Full master write
+   ├─ tile_orchestrator                            // block/tile/K-loop FSM & handshakes
+   ├─ tile_loader                                  // A persist + B ping-pong load, zero-pad/mask
+   │  ├─ dpram_wrapper       // A_persist_buf (full-persist or window)
+   │  └─ bram_pingpong       // B_buf0 / B_buf1
+   ├─ tile_compute                                // 8x8 SA compute, K-loop accumulate
+   │  └─ pe_array_8x8 (pe_int8_lut/dsp, USE_DSP)  // diagonal skew injection, shift_en=run||start
+   └─ tile_store                                  // C tile staging + write-back
+      └─ bram_pingpong       // C_buf0 / C_buf1 (drain/AXI backpressure buffer)
+```
+
+간단 동작 흐름(타일 기준, 순서):
+```
+tile_orchestrator (schedule tile)
+  -> tile_loader (request A/B tiles, compute k_eff)
+  -> axi_addr_gen(READ) (calc bursts) -> dma_read (DRAM read) -> tile_loader (ingest)
+  -> [A: dpram_wrapper(A_persist_buf) | B: bram_pingpong(B_buf0/1) swap] (stage buffers)
+  -> tile_compute(start) (kick PE, acc_clr on first seg)
+  -> pe_array_8x8(run) -> tile_compute(done) (K-loop accumulate)
+  -> tile_store (collect C stream)
+  -> bram_pingpong(C_buf0/1) (stage C tile)
+  -> axi_addr_gen(WRITE) (calc bursts) -> dma_write (C write-back)
+Note: axi_dma_ctrl is not used; address generation is driven by axi_addr_gen and the tile_* modules.
+
+tile_orchestrator 입출력·역할(요약)
+- Inputs (from AXI‑Lite regs): `start`, `update_A`, `N`, `K`, `M`, `TILE_SIZE`, `BLOCK_M`, `base_A`, `base_B`, `base_C`
+- Inputs (from submodules): `ld_done`(loader), `pe_done`/`c_busy`/`c_last`(compute), `wr_done`(store)
+- Outputs: 로더 트리거(`load_req`, `i0/j0/k0`, `k_eff`, B ping‑pong bank), 컴퓨트 트리거(`start_pe`, `acc_clr`), 스토어 트리거(`drain_req`)
+- Role: Block(=j_block) → Tile(i0,j0) → K‑seg 루프를 스케줄링하고, A‑persist/B‑ping‑pong 정책으로 로더·컴퓨트·스토어를 연결
+
+tile_orchestrator 순서(의사코드)
+```
+on start:
+  latch regs (N,K,M,T,BLOCK_M,bases)
+  if update_A: preload A_block -> dpram_wrapper
+  for j_block in 0..M step BLOCK_M:
+    preload B_block into bram_pingpong (bank=0)
+    for i0 in 0..N step T:
+      for j0 in j_block..min(j_block+BLOCK_M-1, M-1) step T:
+        // K segmentation
+        first_seg = 1
+        for k0 in 0..K-1 step T:
+          k_eff = min(T, K - k0)
+          issue load_req(i0,j0,k0,k_eff)  // A from persist, B to ping‑pong(next bank)
+          wait ld_done
+          start_pe(acc_clr = first_seg)
+          wait pe_done
+          first_seg = 0
+        // drain once per tile
+        drain_req -> tile_store (C_buf bram_pingpong)
+        wait wr_done
 ```
 
 ### 7.3 디렉토리/파일 구조(현행)
@@ -663,7 +704,7 @@ sa_engine_ip_v1_0
 sa_engine_ip_1.0/
 ├── rtl/
 │   ├── top/        : sa_engine_ip_v1_0.v
-│   ├── axi/        : axi_dma_ctrl.sv, dma_read.sv, dma_write.sv, axi_addr_gen.sv
+│   ├── axi/        : dma_read.sv, dma_write.sv, axi_addr_gen.sv
 │   ├── core/       : sa_core_pipeline.sv, tile_{orchestrator,loader,compute,store}.sv (신규)
 │   ├── pe/         : pe_array_8x8.sv, pe_int8_{lut,dsp}.sv, sa_controller.sv, sa_PE_wrapper.sv, sa_RF.sv, X_REG.sv
 │   ├── mem/        : dpram_wrapper.sv, bram_pingpong.sv
