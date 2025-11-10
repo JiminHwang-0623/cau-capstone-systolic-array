@@ -48,7 +48,7 @@
 
 
 // IP VLNV: jimin.hwang:user:sa_engine_ip:1.0
-// IP Revision: 32
+// IP Revision: 36
 
 `timescale 1ns/1ps
 

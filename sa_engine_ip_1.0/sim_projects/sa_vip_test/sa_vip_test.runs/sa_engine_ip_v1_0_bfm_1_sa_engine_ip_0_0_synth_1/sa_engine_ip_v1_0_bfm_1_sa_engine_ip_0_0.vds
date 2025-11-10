@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sun Nov  9 21:01:55 2025
-# Process ID: 19260
+# Start of session at: Sun Nov  9 22:39:37 2025
+# Process ID: 26228
 # Current directory: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1
 # Command line: vivado.exe -log sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.tcl
 # Log file: C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.vds
@@ -24,88 +24,90 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 30788
-WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core_pipeline.sv:95]
-WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core_pipeline.sv:96]
+INFO: [Synth 8-7075] Helper process launched with PID 31900
+WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core_pipeline.sv:95]
+WARNING: [Synth 8-2507] parameter declaration becomes local in sa_core_pipeline with formal parameter declaration list [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core_pipeline.sv:96]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1242.820 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1247.910 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0/synth/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.v:56]
-INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/top/sa_engine_ip_v1_0.v:4]
-INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0_S00_AXI' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:253]
-INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:393]
-INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0_S00_AXI' (1#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-6157] synthesizing module 'sa_core_pipeline' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core_pipeline.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'sa_core' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:13]
-INFO: [Synth 8-6157] synthesizing module 'dpram_wrapper' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/mem/dpram_wrapper.sv:17]
-INFO: [Synth 8-6155] done synthesizing module 'dpram_wrapper' (2#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/mem/dpram_wrapper.sv:17]
-INFO: [Synth 8-6157] synthesizing module 'sa_controller' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_controller.sv:11]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_controller.sv:177]
-INFO: [Synth 8-6157] synthesizing module 'sa_unit' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_unit.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'sa_PE_wrapper' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/hPE.sv:11]
-INFO: [Synth 8-6155] done synthesizing module 'hPE' (3#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/hPE.sv:11]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:100]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:111]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:122]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:133]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:144]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:155]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:166]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:170]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:171]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:172]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:173]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:174]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:175]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:176]
-WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:177]
-WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:177]
-INFO: [Synth 8-6155] done synthesizing module 'sa_PE_wrapper' (4#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_PE_wrapper.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'sa_RF' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:19]
-INFO: [Synth 8-6157] synthesizing module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/X_REG.sv:14]
-INFO: [Synth 8-6155] done synthesizing module 'X_REG' (5#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/X_REG.sv:14]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:55]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:58]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:61]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:64]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:67]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:70]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:73]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:82]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:85]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:88]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:91]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:94]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:97]
-WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:100]
-INFO: [Synth 8-6155] done synthesizing module 'sa_RF' (6#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_RF.sv:19]
-INFO: [Synth 8-6155] done synthesizing module 'sa_unit' (7#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_unit.sv:12]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_sa_unit'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_controller.sv:243]
-INFO: [Synth 8-6155] done synthesizing module 'sa_controller' (8#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/pe/sa_controller.sv:11]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'dpram_out'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:216]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'dpram_in'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:201]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_sa_controller'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:538]
-WARNING: [Synth 8-6014] Unused sequential element output_data_buffer_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:337]
-WARNING: [Synth 8-3936] Found unconnected internal register 'rowA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:137]
-WARNING: [Synth 8-3936] Found unconnected internal register 'colA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:138]
-WARNING: [Synth 8-3936] Found unconnected internal register 'rowB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:143]
-WARNING: [Synth 8-3936] Found unconnected internal register 'colB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:144]
-WARNING: [Synth 8-7137] Register dpram_out_addra_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:219]
-WARNING: [Synth 8-7137] Register dpram_out_wea_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:220]
-INFO: [Synth 8-6155] done synthesizing module 'sa_core' (9#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core.sv:13]
-INFO: [Synth 8-6157] synthesizing module 'axi_dma_ctrl' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/axi_dma_ctrl.sv:16]
-INFO: [Synth 8-6155] done synthesizing module 'axi_dma_ctrl' (10#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/axi_dma_ctrl.sv:16]
-INFO: [Synth 8-6157] synthesizing module 'dma_read' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/dma_read.sv:14]
-INFO: [Synth 8-6155] done synthesizing module 'dma_read' (11#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/dma_read.sv:14]
-INFO: [Synth 8-6157] synthesizing module 'dma_write' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/dma_write.sv:14]
-INFO: [Synth 8-6155] done synthesizing module 'dma_write' (12#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/axi/dma_write.sv:14]
-WARNING: [Synth 8-6014] Unused sequential element reserved_register_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core_pipeline.sv:177]
-INFO: [Synth 8-6155] done synthesizing module 'sa_core_pipeline' (13#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/core/sa_core_pipeline.sv:12]
-WARNING: [Synth 8-3848] Net m00_axi_txn_done in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/top/sa_engine_ip_v1_0.v:60]
-WARNING: [Synth 8-3848] Net m00_axi_error in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/top/sa_engine_ip_v1_0.v:61]
-INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0' (14#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/7ffe/rtl/top/sa_engine_ip_v1_0.v:4]
+INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/top/sa_engine_ip_v1_0.v:4]
+INFO: [Synth 8-6157] synthesizing module 'sa_engine_ip_v1_0_S00_AXI' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:253]
+INFO: [Synth 8-226] default block is never used [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:393]
+INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0_S00_AXI' (1#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/sa_engine_ip_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sa_core_pipeline' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core_pipeline.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'sa_core' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'dpram_wrapper' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/mem/dpram_wrapper.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'dpram_wrapper' (2#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/mem/dpram_wrapper.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'sa_controller' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_controller.sv:11]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_controller.sv:177]
+INFO: [Synth 8-6157] synthesizing module 'sa_unit' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_unit.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'sa_PE_wrapper' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/hPE.sv:11]
+INFO: [Synth 8-6155] done synthesizing module 'hPE' (3#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/hPE.sv:11]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:100]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:111]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:122]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:133]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:144]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:155]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:166]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:170]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:171]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:172]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:173]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:174]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:175]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:176]
+WARNING: [Synth 8-689] width (19) of port connection 'A_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:177]
+WARNING: [Synth 8-689] width (19) of port connection 'B_out' does not match port width (8) of module 'hPE' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:177]
+INFO: [Synth 8-6155] done synthesizing module 'sa_PE_wrapper' (4#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_PE_wrapper.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'sa_RF' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:19]
+INFO: [Synth 8-6157] synthesizing module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/X_REG.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'X_REG' (5#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/X_REG.sv:14]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:55]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:58]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:61]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:64]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:67]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:70]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:73]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:82]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:85]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:88]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:91]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:94]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:97]
+WARNING: [Synth 8-689] width (32) of port connection 'IDX' does not match port width (5) of module 'X_REG' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:100]
+INFO: [Synth 8-6155] done synthesizing module 'sa_RF' (6#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_RF.sv:19]
+INFO: [Synth 8-6155] done synthesizing module 'sa_unit' (7#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_unit.sv:12]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_sa_unit'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_controller.sv:243]
+INFO: [Synth 8-6155] done synthesizing module 'sa_controller' (8#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/pe/sa_controller.sv:11]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'dpram_out'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:217]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'dpram_in'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:202]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_sa_controller'. This will prevent further optimization [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:572]
+WARNING: [Synth 8-6014] Unused sequential element output_data_buffer_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:344]
+WARNING: [Synth 8-6014] Unused sequential element output_en_q_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:351]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rowA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:137]
+WARNING: [Synth 8-3936] Found unconnected internal register 'colA_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:138]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rowB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:143]
+WARNING: [Synth 8-3936] Found unconnected internal register 'colB_reg' and it is trimmed from '7' to '3' bits. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:144]
+WARNING: [Synth 8-7137] Register dpram_out_wea_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:221]
+WARNING: [Synth 8-7137] Register store_done_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:358]
+WARNING: [Synth 8-7137] Register dpram_out_addra_reg in module sa_core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:220]
+INFO: [Synth 8-6155] done synthesizing module 'sa_core' (9#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'axi_dma_ctrl' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/axi_dma_ctrl.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'axi_dma_ctrl' (10#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/axi_dma_ctrl.sv:16]
+INFO: [Synth 8-6157] synthesizing module 'dma_read' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/dma_read.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'dma_read' (11#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/dma_read.sv:14]
+INFO: [Synth 8-6157] synthesizing module 'dma_write' [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/dma_write.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'dma_write' (12#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/axi/dma_write.sv:14]
+WARNING: [Synth 8-6014] Unused sequential element reserved_register_reg was removed.  [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core_pipeline.sv:177]
+INFO: [Synth 8-6155] done synthesizing module 'sa_core_pipeline' (13#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/core/sa_core_pipeline.sv:12]
+WARNING: [Synth 8-3848] Net m00_axi_txn_done in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/top/sa_engine_ip_v1_0.v:60]
+WARNING: [Synth 8-3848] Net m00_axi_error in module/entity sa_engine_ip_v1_0 does not have driver. [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/top/sa_engine_ip_v1_0.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0' (14#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ipshared/420f/rtl/top/sa_engine_ip_v1_0.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0' (15#1) [c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.gen/sources_1/bd/sa_engine_ip_v1_0_bfm_1/ip/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0/synth/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.v:56]
 WARNING: [Synth 8-7129] Port M_AXI_BID[0] in module dma_write is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BUSER[0] in module dma_write is either unconnected or has no load
@@ -197,44 +199,44 @@ WARNING: [Synth 8-7129] Port m00_axi_txn_done in module sa_engine_ip_v1_0 is eit
 WARNING: [Synth 8-7129] Port m00_axi_error in module sa_engine_ip_v1_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m00_axi_init_axi_txn in module sa_engine_ip_v1_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1242.820 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1247.910 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1242.820 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1247.910 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1242.820 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1247.910 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.155 . Memory (MB): peak = 1242.820 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.167 . Memory (MB): peak = 1247.910 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1328.324 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1310.625 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.302 . Memory (MB): peak = 1329.473 ; gain = 1.148
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.333 . Memory (MB): peak = 1315.270 ; gain = 4.645
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1315.270 ; gain = 67.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1315.270 ; gain = 67.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1315.270 ; gain = 67.359
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'cstate_rd_reg' in module 'axi_dma_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'cstate_wr_reg' in module 'axi_dma_ctrl'
@@ -281,7 +283,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'st_rdaxi_reg' using encodi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'st_wr2axi_reg' using encoding 'one-hot' in module 'dma_write'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1315.270 ; gain = 67.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -315,14 +317,14 @@ Detailed RTL Component Info :
 	  16 Input   32 Bit        Muxes := 16    
 	   5 Input   32 Bit        Muxes := 3     
 	   2 Input   19 Bit        Muxes := 64    
-	   2 Input   11 Bit        Muxes := 9     
+	   2 Input   11 Bit        Muxes := 10    
 	   9 Input   11 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 518   
 	   4 Input    8 Bit        Muxes := 2     
 	   9 Input    8 Bit        Muxes := 1     
 	   5 Input    8 Bit        Muxes := 5     
-	   2 Input    7 Bit        Muxes := 4     
-	   9 Input    7 Bit        Muxes := 6     
+	   9 Input    7 Bit        Muxes := 5     
+	   2 Input    7 Bit        Muxes := 2     
 	   4 Input    7 Bit        Muxes := 1     
 	   5 Input    5 Bit        Muxes := 3     
 	   2 Input    5 Bit        Muxes := 13    
@@ -339,7 +341,7 @@ Detailed RTL Component Info :
 	   2 Input    1 Bit        Muxes := 2056  
 	   8 Input    1 Bit        Muxes := 1     
 	  16 Input    1 Bit        Muxes := 16    
-	   9 Input    1 Bit        Muxes := 16    
+	   9 Input    1 Bit        Muxes := 18    
 	   5 Input    1 Bit        Muxes := 11    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -387,12 +389,8 @@ WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module sa_engine_ip_v1_0_S00_AXI
 WARNING: [Synth 8-7129] Port m00_axi_txn_done in module sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m00_axi_error in module sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[10]_C) is unused and will be removed from module sa_core.
-WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[9]_C) is unused and will be removed from module sa_core.
-WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[8]_C) is unused and will be removed from module sa_core.
-WARNING: [Synth 8-3332] Sequential element (dpram_out_addra_reg[7]_C) is unused and will be removed from module sa_core.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:01:00 . Memory (MB): peak = 1315.270 ; gain = 67.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -438,13 +436,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:53 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:05 . Memory (MB): peak = 1315.270 ; gain = 67.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:56 . Memory (MB): peak = 1329.473 ; gain = 86.652
+Finished Timing Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:07 . Memory (MB): peak = 1328.699 ; gain = 80.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -492,7 +490,7 @@ INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_
 INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:03 . Memory (MB): peak = 1458.789 ; gain = 215.969
+Finished Technology Mapping : Time (s): cpu = 00:01:05 ; elapsed = 00:01:10 . Memory (MB): peak = 1459.984 ; gain = 212.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -510,25 +508,25 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:01:11 . Memory (MB): peak = 1469.918 ; gain = 227.098
+Finished IO Insertion : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 1472.859 ; gain = 224.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:01:11 . Memory (MB): peak = 1469.918 ; gain = 227.098
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 1472.859 ; gain = 224.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 1469.918 ; gain = 227.098
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 1472.859 ; gain = 224.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 1469.918 ; gain = 227.098
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 1472.859 ; gain = 224.949
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-5543] Port 'M_AXI_WVALID' in module 'dma_write' has MARK_DEBUG and also connected to other port(s) having MARK_DEBUG; consider putting MARK_DEBUG on one only
 CRITICAL WARNING: [Synth 8-5543] Port 'indata_req_o' in module 'dma_write' has MARK_DEBUG and also connected to other port(s) having MARK_DEBUG; consider putting MARK_DEBUG on one only
@@ -536,13 +534,13 @@ CRITICAL WARNING: [Synth 8-5543] Port 'indata_req_o' in module 'dma_write' has M
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 1469.957 ; gain = 227.137
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 1472.902 ; gain = 224.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 1469.957 ; gain = 227.137
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:09 ; elapsed = 00:01:15 . Memory (MB): peak = 1472.902 ; gain = 224.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -560,51 +558,53 @@ Report Cell Usage:
 +------+---------+------+
 |1     |CARRY4   |  1003|
 |2     |LUT1     |    74|
-|3     |LUT2     |  2169|
-|4     |LUT3     |  1426|
-|5     |LUT4     |  1496|
-|6     |LUT5     |   525|
-|7     |LUT6     |  4014|
+|3     |LUT2     |  2159|
+|4     |LUT3     |  1440|
+|5     |LUT4     |  1495|
+|6     |LUT5     |   533|
+|7     |LUT6     |  4013|
 |8     |MUXF7    |   216|
 |9     |MUXF8    |   108|
 |10    |RAM32M   |    16|
 |11    |RAM32X1D |    32|
 |12    |RAMB36E1 |     4|
-|13    |FDCE     |   334|
-|14    |FDCPE    |    12|
-|15    |FDPE     |    15|
-|16    |FDRE     |  5633|
-|17    |FDSE     |     1|
-|18    |LDC      |    12|
+|13    |FDCE     |   337|
+|14    |FDCP     |     1|
+|15    |FDCPE    |    11|
+|16    |FDPE     |    15|
+|17    |FDRE     |  5634|
+|18    |FDSE     |     1|
+|19    |LDC      |    12|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 1469.957 ; gain = 227.137
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:09 ; elapsed = 00:01:15 . Memory (MB): peak = 1472.902 ; gain = 224.992
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 2 critical warnings and 19 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:01:09 . Memory (MB): peak = 1469.957 ; gain = 140.484
-Synthesis Optimization Complete : Time (s): cpu = 00:01:06 ; elapsed = 00:01:13 . Memory (MB): peak = 1469.957 ; gain = 227.137
+Synthesis finished with 0 errors, 2 critical warnings and 15 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:59 ; elapsed = 00:01:10 . Memory (MB): peak = 1472.902 ; gain = 157.633
+Synthesis Optimization Complete : Time (s): cpu = 00:01:10 ; elapsed = 00:01:15 . Memory (MB): peak = 1472.902 ; gain = 224.992
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.229 . Memory (MB): peak = 1469.957 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.155 . Memory (MB): peak = 1480.965 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1403 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1469.957 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1488.621 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 72 instances were transformed.
-  FDCPE => FDCPE (FDCE, FDPE, LDCE, LUT3, VCC): 12 instances
+  FDCP => FDCP (FDCE, FDPE, LDCE, LUT3, VCC): 1 instance 
+  FDCPE => FDCPE (FDCE, FDPE, LDCE, LUT3, VCC): 11 instances
   LDC => LDCE: 12 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 16 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 32 instances
 
-Synth Design complete, checksum: c40fa717
+Synth Design complete, checksum: 7a5867df
 INFO: [Common 17-83] Releasing license: Synthesis
-85 Infos, 149 Warnings, 2 Critical Warnings and 0 Errors encountered.
+85 Infos, 147 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:13 ; elapsed = 00:01:35 . Memory (MB): peak = 1469.957 ; gain = 227.137
+synth_design: Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 1488.621 ; gain = 240.711
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.dcp' has been generated.
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Coretcl 2-1174] Renamed 93 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0/sim_projects/sa_vip_test/sa_vip_test.runs/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_synth_1/sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_utilization_synth.rpt -pb sa_engine_ip_v1_0_bfm_1_sa_engine_ip_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 21:03:47 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 22:41:17 2025...

@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sun Nov  9 21:15:27 2025
-# Process ID: 28272
+# Start of session at: Sun Nov  9 22:50:09 2025
+# Process ID: 17460
 # Current directory: C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1
 # Command line: vivado.exe -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
 # Log file: C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper.vdi
@@ -15,9 +15,9 @@ Command: open_checkpoint C:/Users/User/Desktop/git/cau-capstone/capstone_design_
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1242.789 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1241.707 ; gain = 0.000
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.288 . Memory (MB): peak = 1242.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.260 . Memory (MB): peak = 1241.707 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1480 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2021.2
@@ -29,18 +29,19 @@ INFO: [Project 1-853] Binary constraint restore complete.
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.158 . Memory (MB): peak = 1445.402 ; gain = 0.000
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.157 . Memory (MB): peak = 1444.746 ; gain = 0.000
 Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.159 . Memory (MB): peak = 1445.402 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1445.402 ; gain = 0.000
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.158 . Memory (MB): peak = 1444.746 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1444.746 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 81 instances were transformed.
-  FDCPE => FDCPE (FDCE, FDPE, LDCE, LUT3, VCC): 12 instances
+  FDCP => FDCP (FDCE, FDPE, LDCE, LUT3, VCC): 1 instance 
+  FDCPE => FDCPE (FDCE, FDPE, LDCE, LUT3, VCC): 11 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 31 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 38 instances
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2021.2 (64-bit) build 3367213
-open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.402 ; gain = 202.613
+open_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1444.746 ; gain = 203.039
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/User/Desktop/git/cau-capstone/sa_engine_ip_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
@@ -54,13 +55,13 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1448.445 ; gain = 3.043
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.945 . Memory (MB): peak = 1448.613 ; gain = 3.867
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 1830f738a
+Ending Cache Timing Information Task | Checksum: 1bb53dcb4
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.463 . Memory (MB): peak = 1536.434 ; gain = 87.988
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.520 . Memory (MB): peak = 1536.621 ; gain = 88.008
 
 Starting Logic Optimization Task
 
@@ -70,57 +71,58 @@ INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_C
 INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_0 
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_0_CV.
 INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:xsdbm:3.0, cache-ID = cdbcc4e6e30dc33c.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.223 . Memory (MB): peak = 1987.230 ; gain = 0.000
-Phase 1 Generate And Synthesize Debug Cores | Checksum: 125c49a29
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.225 . Memory (MB): peak = 1984.168 ; gain = 0.000
+Phase 1 Generate And Synthesize Debug Cores | Checksum: 1870c3051
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:03:36 . Memory (MB): peak = 1987.230 ; gain = 158.516
+Time (s): cpu = 00:00:12 ; elapsed = 00:03:31 . Memory (MB): peak = 1984.168 ; gain = 155.418
 
 Phase 2 Retarget
 INFO: [Opt 31-1287] Pulled Inverter design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.USE_SPLIT.write_resp_inst/first_mi_word_i_2 into driver instance design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.USE_SPLIT.write_resp_inst/s_axi_bvalid_INST_0_i_1, which resulted in an inversion of 6 pins
+INFO: [Opt 31-1287] Pulled Inverter u_ila_0/inst/ila_core_inst/u_ila_regs/slaveRegDo_mux_0[15]_i_1 into driver instance u_ila_0/inst/ila_core_inst/u_ila_regs/slaveRegDo_mux_0[6]_i_5, which resulted in an inversion of 8 pins
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 2 Retarget | Checksum: 13cb07245
+Phase 2 Retarget | Checksum: 1affbd4da
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:03:38 . Memory (MB): peak = 1987.230 ; gain = 158.516
-INFO: [Opt 31-389] Phase Retarget created 20 cells and removed 84 cells
+Time (s): cpu = 00:00:14 ; elapsed = 00:03:32 . Memory (MB): peak = 1984.168 ; gain = 155.418
+INFO: [Opt 31-389] Phase Retarget created 20 cells and removed 85 cells
 INFO: [Opt 31-1021] In phase Retarget, 155 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Constant propagation
 INFO: [Opt 31-138] Pushed 16 inverter(s) to 35 load pin(s).
-Phase 3 Constant propagation | Checksum: bbdab622
+Phase 3 Constant propagation | Checksum: 133511bf7
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:03:39 . Memory (MB): peak = 1987.230 ; gain = 158.516
+Time (s): cpu = 00:00:15 ; elapsed = 00:03:33 . Memory (MB): peak = 1984.168 ; gain = 155.418
 INFO: [Opt 31-389] Phase Constant propagation created 522 cells and removed 1088 cells
-INFO: [Opt 31-1021] In phase Constant propagation, 139 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+INFO: [Opt 31-1021] In phase Constant propagation, 146 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 Sweep
-Phase 4 Sweep | Checksum: 152a97fe1
+Phase 4 Sweep | Checksum: 1b7b4121c
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:03:42 . Memory (MB): peak = 1987.230 ; gain = 158.516
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 487 cells
+Time (s): cpu = 00:00:18 ; elapsed = 00:03:36 . Memory (MB): peak = 1984.168 ; gain = 155.418
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 494 cells
 INFO: [Opt 31-1021] In phase Sweep, 3993 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 5 BUFG optimization
-Phase 5 BUFG optimization | Checksum: 152a97fe1
+Phase 5 BUFG optimization | Checksum: 1b7b4121c
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:03:42 . Memory (MB): peak = 1987.230 ; gain = 158.516
+Time (s): cpu = 00:00:18 ; elapsed = 00:03:37 . Memory (MB): peak = 1984.168 ; gain = 155.418
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 6 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 6 Shift Register Optimization | Checksum: 152a97fe1
+Phase 6 Shift Register Optimization | Checksum: 1b7b4121c
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:03:43 . Memory (MB): peak = 1987.230 ; gain = 158.516
+Time (s): cpu = 00:00:18 ; elapsed = 00:03:37 . Memory (MB): peak = 1984.168 ; gain = 155.418
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 7 Post Processing Netlist
 INFO: [Opt 31-1287] Pulled Inverter design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/first_step_q[4]_i_1__0 into driver instance design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/first_step_q[8]_i_2__0, which resulted in an inversion of 1 pins
 INFO: [Opt 31-1287] Pulled Inverter design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/first_step_q[4]_i_1 into driver instance design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/first_step_q[8]_i_2, which resulted in an inversion of 1 pins
-Phase 7 Post Processing Netlist | Checksum: f3b99be5
+Phase 7 Post Processing Netlist | Checksum: 156c40e08
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:03:43 . Memory (MB): peak = 1987.230 ; gain = 158.516
+Time (s): cpu = 00:00:19 ; elapsed = 00:03:37 . Memory (MB): peak = 1984.168 ; gain = 155.418
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 2 cells
-INFO: [Opt 31-1021] In phase Post Processing Netlist, 174 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 167 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
 =========================
 
@@ -128,22 +130,22 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |              20  |              84  |                                            155  |
-|  Constant propagation         |             522  |            1088  |                                            139  |
-|  Sweep                        |               0  |             487  |                                           3993  |
+|  Retarget                     |              20  |              85  |                                            155  |
+|  Constant propagation         |             522  |            1088  |                                            146  |
+|  Sweep                        |               0  |             494  |                                           3993  |
 |  BUFG optimization            |               0  |               0  |                                              0  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
-|  Post Processing Netlist      |               0  |               2  |                                            174  |
+|  Post Processing Netlist      |               0  |               2  |                                            167  |
 -------------------------------------------------------------------------------------------------------------------------
 
 
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 1987.230 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 10ebf6276
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 1984.168 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 120db8d41
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:03:44 . Memory (MB): peak = 1987.230 ; gain = 158.516
+Time (s): cpu = 00:00:19 ; elapsed = 00:03:38 . Memory (MB): peak = 1984.168 ; gain = 155.418
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -159,38 +161,36 @@ Starting PowerOpt Patch Enables Task
 INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 46 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
 Number of BRAM Ports augmented: 42 newly gated: 0 Total Ports: 92
-Ending PowerOpt Patch Enables Task | Checksum: 1593e0ff7
+Ending PowerOpt Patch Enables Task | Checksum: de5dfbc6
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.234 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 1593e0ff7
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.272 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Ending Power Optimization Task | Checksum: de5dfbc6
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 2321.539 ; gain = 334.309
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 2317.352 ; gain = 333.184
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 1593e0ff7
+Ending Final Cleanup Task | Checksum: de5dfbc6
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 185ae1f68
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: c9edcc57
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-55 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
+56 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:35 ; elapsed = 00:03:55 . Memory (MB): peak = 2321.539 ; gain = 876.137
-INFO: [Common 17-600] The following parameters have non-default value.
-tcl.collectionResultDisplayLimit
+opt_design: Time (s): cpu = 00:00:37 ; elapsed = 00:03:49 . Memory (MB): peak = 2317.352 ; gain = 872.605
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.074 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper_opt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 2321.539 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
 Command: report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
@@ -236,53 +236,53 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: cc205a9b
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 776f2b18
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 178571df8
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1a0ea3f58
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 1647c2fe7
+Phase 1.3 Build Placer Netlist Model | Checksum: 19a38f31e
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 1647c2fe7
+Phase 1.4 Constrain Clocks/Macros | Checksum: 19a38f31e
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 1647c2fe7
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 19a38f31e
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 20594fa66
+Phase 2.1 Floorplanning | Checksum: 260b4ca04
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 226d61a46
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 20cedccf2
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 17401b8a5
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 2699daeb4
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 2.4 Global Placement Core
 
 Phase 2.4.1 Physical Synthesis In Placer
-INFO: [Physopt 32-1035] Found 7 LUTNM shape to break, 923 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1035] Found 7 LUTNM shape to break, 922 LUT instances to create LUTNM shape
 INFO: [Physopt 32-1044] Break lutnm for timing: one critical 3, two critical 4, total 7, new lutff created 0
-INFO: [Physopt 32-1138] End 1 Pass. Optimized 405 nets or LUTs. Breaked 7 LUTs, combined 398 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 407 nets or LUTs. Breaked 7 LUTs, combined 400 existing LUTs and moved 0 existing LUT
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -298,7 +298,7 @@ INFO: [Physopt 32-846] No candidate cells for URAM register optimization found i
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -307,7 +307,7 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            7  |            398  |                   405  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |            7  |            400  |                   407  |           0  |           1  |  00:00:01  |
 |  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
@@ -316,64 +316,64 @@ Summary of Physical Synthesis Optimizations
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            7  |            398  |                   405  |           0  |           9  |  00:00:01  |
+|  Total                                            |            7  |            400  |                   407  |           0  |           9  |  00:00:01  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.4.1 Physical Synthesis In Placer | Checksum: 12085241f
+Phase 2.4.1 Physical Synthesis In Placer | Checksum: 16f5dbfc9
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:27 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 2.4 Global Placement Core | Checksum: 1166d32d5
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:31 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 2.4 Global Placement Core | Checksum: 1f4c61ee0
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:28 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 2 Global Placement | Checksum: 1166d32d5
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:32 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 1f4c61ee0
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:28 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:32 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 11aa90578
+Phase 3.1 Commit Multi Column Macros | Checksum: 191b9ae63
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:30 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:34 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 2a43b882a
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 24d095006
 
-Time (s): cpu = 00:00:49 ; elapsed = 00:00:33 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:38 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 26e0de656
+Phase 3.3 Area Swap Optimization | Checksum: 21b99abfb
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:34 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:38 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 2445a3f4a
+Phase 3.4 Pipeline Register Optimization | Checksum: 1fc725800
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:34 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:38 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 22701c0ea
+Phase 3.5 Fast Optimization | Checksum: 29ffe81c1
 
-Time (s): cpu = 00:00:54 ; elapsed = 00:00:37 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:42 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 1730c889d
+Phase 3.6 Small Shape Detail Placement | Checksum: 23eb36d08
 
-Time (s): cpu = 00:01:01 ; elapsed = 00:00:44 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:51 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 18f1cdb2e
+Phase 3.7 Re-assign LUT pins | Checksum: 2893b2a2e
 
-Time (s): cpu = 00:01:02 ; elapsed = 00:00:45 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:53 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 216b6cebc
+Phase 3.8 Pipeline Register Optimization | Checksum: 237fb3716
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:46 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 216b6cebc
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:54 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 237fb3716
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:46 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:54 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -381,7 +381,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: c2940570
+Post Placement Optimization Initialization | Checksum: 1c0ec8f8f
 
 Phase 4.1.1.1 BUFG Insertion
 
@@ -389,35 +389,35 @@ Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.359 | TNS=-119.520 |
-Phase 1 Physical Synthesis Initialization | Checksum: 12c1ade29
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.721 | TNS=-21.178 |
+Phase 1 Physical Synthesis Initialization | Checksum: 11900980e
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Place 46-33] Processed net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/u_sa_unit/u_sa_PE_wrapper/C77/SR[0], BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-33] Processed net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/u_sa_controller/SA_EN_reg_n_0, BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-56] BUFG insertion identified 2 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 2, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Ending Physical Synthesis Task | Checksum: 10f6e0121
+Ending Physical Synthesis Task | Checksum: 1ab158b52
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 4.1.1.1 BUFG Insertion | Checksum: c2940570
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1c0ec8f8f
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:53 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:28 ; elapsed = 00:01:04 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 4.1.1.2 Post Placement Timing Optimization
-INFO: [Place 30-746] Post Placement Timing Summary WNS=0.596. For the most accurate timing information please run report_timing.
-Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1d464838c
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.559. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1be076cd3
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:30 ; elapsed = 00:01:07 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 1d464838c
+Time (s): cpu = 00:01:30 ; elapsed = 00:01:07 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 1be076cd3
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:30 ; elapsed = 00:01:07 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1d464838c
+Phase 4.2 Post Placement Cleanup | Checksum: 1be076cd3
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:07 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
 
@@ -427,49 +427,49 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |           | Global Congestion | Short Congestion  |
 | Direction | Region Size       | Region Size       |
 |___________|___________________|___________________|
-|      North|                1x1|                2x2|
+|      North|                1x1|                1x1|
 |___________|___________________|___________________|
 |      South|                1x1|                2x2|
 |___________|___________________|___________________|
 |       East|                1x1|                1x1|
 |___________|___________________|___________________|
-|       West|                1x1|                1x1|
+|       West|                1x1|                2x2|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: 1d464838c
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1be076cd3
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 4.3 Placer Reporting | Checksum: 1d464838c
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:07 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 4.3 Placer Reporting | Checksum: 1be076cd3
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 2317.352 ; gain = 0.000
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:56 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 22642921d
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1cf20d686
 
-Time (s): cpu = 00:01:17 ; elapsed = 00:00:57 . Memory (MB): peak = 2321.539 ; gain = 0.000
-Ending Placer Task | Checksum: 1564de651
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2317.352 ; gain = 0.000
+Ending Placer Task | Checksum: 136efec2b
 
-Time (s): cpu = 00:01:17 ; elapsed = 00:00:57 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
 99 Infos, 121 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:01:19 ; elapsed = 00:00:58 . Memory (MB): peak = 2321.539 ; gain = 0.000
+place_design: Time (s): cpu = 00:01:34 ; elapsed = 00:01:10 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:09 ; elapsed = 00:00:03 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper_placed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 2321.539 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_io -file design_1_wrapper_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.065 . Memory (MB): peak = 2321.539 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.111 . Memory (MB): peak = 2321.539 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.138 . Memory (MB): peak = 2317.352 ; gain = 0.000
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -483,9 +483,9 @@ Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 2321.539 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 2317.352 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper_physopt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 2321.539 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:11 . Memory (MB): peak = 2317.352 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -499,149 +499,147 @@ Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: fe968780 ConstDB: 0 ShapeSum: 57b75ed1 RouteDB: 0
-Post Restoration Checksum: NetGraph: 16b29418 NumContArr: 43546323 Constraints: 0 Timing: 0
-Phase 1 Build RT Design | Checksum: 5a06f73b
+Checksum: PlaceDB: c7aa3125 ConstDB: 0 ShapeSum: 6f45bb06 RouteDB: 0
+Post Restoration Checksum: NetGraph: 3e8dbcd4 NumContArr: 2f1bbdad Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: 6da97a81
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:26 . Memory (MB): peak = 2361.055 ; gain = 39.516
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:18 . Memory (MB): peak = 2360.102 ; gain = 42.750
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 5a06f73b
+Phase 2.1 Create Timer | Checksum: 6da97a81
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 2361.055 ; gain = 39.516
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:18 . Memory (MB): peak = 2360.102 ; gain = 42.750
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 5a06f73b
+Phase 2.2 Fix Topology Constraints | Checksum: 6da97a81
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 2365.219 ; gain = 43.680
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:18 . Memory (MB): peak = 2364.645 ; gain = 47.293
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 5a06f73b
+Phase 2.3 Pre Route Cleanup | Checksum: 6da97a81
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 2365.219 ; gain = 43.680
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:19 . Memory (MB): peak = 2364.645 ; gain = 47.293
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 1e72b3249
+Phase 2.4 Update Timing | Checksum: 105593f43
 
-Time (s): cpu = 00:00:46 ; elapsed = 00:00:35 . Memory (MB): peak = 2412.926 ; gain = 91.387
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.759  | TNS=0.000  | WHS=-0.219 | THS=-535.117|
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:26 . Memory (MB): peak = 2409.680 ; gain = 92.328
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.826  | TNS=0.000  | WHS=-0.192 | THS=-535.299|
 
 
 Phase 2.5 Update Timing for Bus Skew
 
 Phase 2.5.1 Update Timing
-Phase 2.5.1 Update Timing | Checksum: 13ddd215e
+Phase 2.5.1 Update Timing | Checksum: 18ebb585b
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:41 . Memory (MB): peak = 2444.352 ; gain = 122.812
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.759  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 2443.680 ; gain = 126.328
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.826  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 2.5 Update Timing for Bus Skew | Checksum: 1e509eda9
+Phase 2.5 Update Timing for Bus Skew | Checksum: 133e60c73
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:41 . Memory (MB): peak = 2448.320 ; gain = 126.781
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 2447.703 ; gain = 130.352
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.000414207 %
-  Global Horizontal Routing Utilization  = 0.000422583 %
+  Global Vertical Routing Utilization    = 0.000983742 %
+  Global Horizontal Routing Utilization  = 0.00169033 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 31860
+  Number of Failed Nets               = 31861
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 31828
-  Number of Partially Routed Nets     = 32
-  Number of Node Overlaps             = 15
+  Number of Unrouted Nets             = 31826
+  Number of Partially Routed Nets     = 35
+  Number of Node Overlaps             = 26
 
-Phase 2 Router Initialization | Checksum: 1ca21941a
+Phase 2 Router Initialization | Checksum: e521130f
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:41 . Memory (MB): peak = 2448.320 ; gain = 126.781
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 2447.703 ; gain = 130.352
 
 Phase 3 Initial Routing
 
 Phase 3.1 Global Routing
-Phase 3.1 Global Routing | Checksum: 1ca21941a
+Phase 3.1 Global Routing | Checksum: e521130f
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:42 . Memory (MB): peak = 2448.320 ; gain = 126.781
-Phase 3 Initial Routing | Checksum: 1cf3a58f7
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 2447.703 ; gain = 130.352
+Phase 3 Initial Routing | Checksum: 11f0d57a3
 
-Time (s): cpu = 00:01:06 ; elapsed = 00:00:48 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:37 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 5663
- Number of Nodes with overlaps = 1603
- Number of Nodes with overlaps = 618
- Number of Nodes with overlaps = 141
+ Number of Nodes with overlaps = 5482
+ Number of Nodes with overlaps = 1501
+ Number of Nodes with overlaps = 424
+ Number of Nodes with overlaps = 117
  Number of Nodes with overlaps = 37
- Number of Nodes with overlaps = 11
- Number of Nodes with overlaps = 4
- Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 6
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.114  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.211  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: cd48d145
+Phase 4.1 Global Iteration 0 | Checksum: 20d4614c2
 
-Time (s): cpu = 00:01:43 ; elapsed = 00:01:19 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:03 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 6
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.114  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.211  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 123f731ee
+Phase 4.2 Global Iteration 1 | Checksum: 1420b8981
 
-Time (s): cpu = 00:01:44 ; elapsed = 00:01:20 . Memory (MB): peak = 2474.145 ; gain = 152.605
-Phase 4 Rip-up And Reroute | Checksum: 123f731ee
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:04 . Memory (MB): peak = 2472.910 ; gain = 155.559
+Phase 4 Rip-up And Reroute | Checksum: 1420b8981
 
-Time (s): cpu = 00:01:44 ; elapsed = 00:01:20 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:04 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 1e352e522
+Phase 5.1.1 Update Timing | Checksum: 16bf222a4
 
-Time (s): cpu = 00:01:46 ; elapsed = 00:01:22 . Memory (MB): peak = 2474.145 ; gain = 152.605
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.114  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:01:28 ; elapsed = 00:01:05 . Memory (MB): peak = 2472.910 ; gain = 155.559
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.211  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 5.1 Delay CleanUp | Checksum: 107dbfe99
+Phase 5.1 Delay CleanUp | Checksum: ecc66cdb
 
-Time (s): cpu = 00:01:47 ; elapsed = 00:01:22 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:28 ; elapsed = 00:01:06 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 107dbfe99
+Phase 5.2 Clock Skew Optimization | Checksum: ecc66cdb
 
-Time (s): cpu = 00:01:47 ; elapsed = 00:01:22 . Memory (MB): peak = 2474.145 ; gain = 152.605
-Phase 5 Delay and Skew Optimization | Checksum: 107dbfe99
+Time (s): cpu = 00:01:28 ; elapsed = 00:01:06 . Memory (MB): peak = 2472.910 ; gain = 155.559
+Phase 5 Delay and Skew Optimization | Checksum: ecc66cdb
 
-Time (s): cpu = 00:01:47 ; elapsed = 00:01:22 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:28 ; elapsed = 00:01:06 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 1694bb246
+Phase 6.1.1 Update Timing | Checksum: d47c09fc
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:01:24 . Memory (MB): peak = 2474.145 ; gain = 152.605
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.114  | TNS=0.000  | WHS=0.011  | THS=0.000  |
+Time (s): cpu = 00:01:30 ; elapsed = 00:01:07 . Memory (MB): peak = 2472.910 ; gain = 155.559
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.211  | TNS=0.000  | WHS=0.010  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 17c7f4b9c
+Phase 6.1 Hold Fix Iter | Checksum: 163515f38
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:01:24 . Memory (MB): peak = 2474.145 ; gain = 152.605
-Phase 6 Post Hold Fix | Checksum: 17c7f4b9c
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:07 . Memory (MB): peak = 2472.910 ; gain = 155.559
+Phase 6 Post Hold Fix | Checksum: 163515f38
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:01:24 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 7.83261 %
-  Global Horizontal Routing Utilization  = 10.2765 %
+  Global Vertical Routing Utilization    = 7.97893 %
+  Global Horizontal Routing Utilization  = 10.2454 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -651,60 +649,60 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 1650afc3c
+Phase 7 Route finalize | Checksum: 10dc9521d
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:01:24 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 1650afc3c
+Phase 8 Verifying routed nets | Checksum: 10dc9521d
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:01:24 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:08 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: a8fd9d91
+Phase 9 Depositing Routes | Checksum: 18594a812
 
-Time (s): cpu = 00:01:53 ; elapsed = 00:01:27 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:33 ; elapsed = 00:01:10 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.114  | TNS=0.000  | WHS=0.011  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.211  | TNS=0.000  | WHS=0.010  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: a8fd9d91
+Phase 10 Post Router Timing | Checksum: 18594a812
 
-Time (s): cpu = 00:01:55 ; elapsed = 00:01:29 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:11 . Memory (MB): peak = 2472.910 ; gain = 155.559
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:01:55 ; elapsed = 00:01:29 . Memory (MB): peak = 2474.145 ; gain = 152.605
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:11 . Memory (MB): peak = 2472.910 ; gain = 155.559
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
 125 Infos, 121 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:02:06 ; elapsed = 00:01:34 . Memory (MB): peak = 2474.145 ; gain = 152.605
+route_design: Time (s): cpu = 00:01:45 ; elapsed = 00:01:17 . Memory (MB): peak = 2472.910 ; gain = 155.559
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:15 ; elapsed = 00:00:05 . Memory (MB): peak = 2474.145 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:10 ; elapsed = 00:00:03 . Memory (MB): peak = 2472.910 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper_routed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 2474.145 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 2472.910 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 Command: report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper_drc_routed.rpt.
 report_drc completed successfully
-report_drc: Time (s): cpu = 00:00:23 ; elapsed = 00:00:12 . Memory (MB): peak = 2477.922 ; gain = 3.777
+report_drc: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 2473.840 ; gain = 0.930
 INFO: [runtcl-4] Executing : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 Command: report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 2 threads
 INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:19 ; elapsed = 00:00:12 . Memory (MB): peak = 2478.832 ; gain = 0.910
+report_methodology: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 2474.734 ; gain = 0.895
 INFO: [runtcl-4] Executing : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 Command: report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -713,7 +711,7 @@ Running Vector-less Activity Propagation...
 Finished Running Vector-less Activity Propagation
 137 Infos, 121 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
-report_power: Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 2508.000 ; gain = 29.168
+report_power: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 2506.152 ; gain = 31.418
 INFO: [runtcl-4] Executing : report_route_status -file design_1_wrapper_route_status.rpt -pb design_1_wrapper_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file design_1_wrapper_timing_summary_routed.rpt -pb design_1_wrapper_timing_summary_routed.pb -rpx design_1_wrapper_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
@@ -725,13 +723,13 @@ INFO: [runtcl-4] Executing : report_clock_utilization -file design_1_wrapper_clo
 INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file design_1_wrapper_bus_skew_routed.rpt -pb design_1_wrapper_bus_skew_routed.pb -rpx design_1_wrapper_bus_skew_routed.rpx
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
-INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 21:23:58 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 22:58:05 2025...
 #-----------------------------------------------------------
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sun Nov  9 21:24:19 2025
-# Process ID: 29768
+# Start of session at: Sun Nov  9 22:58:40 2025
+# Process ID: 27616
 # Current directory: C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1
 # Command line: vivado.exe -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
 # Log file: C:/Users/User/Desktop/git/cau-capstone/capstone_design_final.runs/impl_1/design_1_wrapper.vdi
@@ -743,11 +741,11 @@ Command: open_checkpoint design_1_wrapper_routed.dcp
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1242.672 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1244.516 ; gain = 0.000
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.423 . Memory (MB): peak = 1242.672 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 3362 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.465 . Memory (MB): peak = 1244.516 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3333 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2021.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Timing 38-478] Restoring timing data from binary archive.
@@ -757,20 +755,19 @@ INFO: [Project 1-853] Binary constraint restore complete.
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1685.137 ; gain = 29.102
-Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1685.137 ; gain = 29.102
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1685.137 ; gain = 0.000
+Read XDEF File: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1684.523 ; gain = 28.363
+Restored from archive | CPU: 3.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1684.523 ; gain = 28.363
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1684.523 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1055 instances were transformed.
+  A total of 1048 instances were transformed.
   CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 972 instances
-  FDCPE => FDCPE (FDCE, FDPE, LDCE, LUT3, VCC): 7 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 37 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 37 instances
   SRLC32E => SRL16E: 2 instances
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2021.2 (64-bit) build 3367213
-open_checkpoint: Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1685.848 ; gain = 443.176
+open_checkpoint: Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1685.516 ; gain = 441.000
 Command: write_bitstream -force design_1_wrapper.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -780,52 +777,52 @@ INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
 INFO: [DRC 23-27] Running DRC with 2 threads
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A3*A1)+(A3*(~A1)*(~A5))+((~A3))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A3))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A1)+((~A1)*(~A5)*A6)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A3)+((~A3)*(~A1)*A5)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A6)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A3' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A1)+((~A1)*(~A6)*A2)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A3*A1)+(A3*(~A1)*(~A5))+((~A3))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A6)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A6)*A1)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A5' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A4)+((~A4)*(~A6)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A5' of cell design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A1)+((~A1)*(~A6)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A6' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A4)+((~A4)*(~A5)*A2)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[0]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[0]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[0]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[1]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[1]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[2]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[2]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[3]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[3]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[4]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[4]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[4]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[5]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[5]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[6]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[6]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[7]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[7]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[8]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[8]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[8]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[9]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[9]_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[9]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea_i_2/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dma_cnt_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dma_cnt_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dma_cnt_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/c_state_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/ram_reg_0/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_in/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dma_cnt_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC RTSTAT-10] No routable loads: 135 net(s) have no routable loads. The problem bus(es) and/or net(s) are design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0]... and (the first 15 of 93 listed).
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A1' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A1' of cell design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A3)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A4))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A1)+((~A1)*(~A6)*A5)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A1)+((~A1)*(~A6)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A3' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A2*A1)+(A2*(~A1)*(~A5))+((~A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A3' of cell design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A4)+((~A4)*(~A6)*A2)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A2*A1)+(A2*(~A1)*(~A5))+((~A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A2)+((~A2)*(~A6)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A5' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A3)+((~A3)*(~A6)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A5' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A2)+((~A2)*(~A6)*A1)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A6' of cell design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A1)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[0]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[0]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[0]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10]_i_4_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10]_i_4/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[10]_i_4. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[1]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[1]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[1]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[2]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[2]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[2]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[3]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[3]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[3]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[4]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[4]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[4]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[5]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[5]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[5]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[6]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[6]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[6]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[7]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[7]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[7]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[8]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[8]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[8]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[9]_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[9]_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra[9]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea_i_3_n_0 is a gated clock net sourced by a combinational pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea_i_3/O, cell design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_wea_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[10] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[6]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[6]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[10] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[6]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[6]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[7]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[11] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[7]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[7]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[8]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[12] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[8]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[8]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[9]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[13] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[9]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[9]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[10]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[14] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[10]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[10]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[5] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[1]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[1]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[5] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[1]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[1]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[6] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[2]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[2]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[6] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[2]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[2]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[7] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[3]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[3]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[7] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[3]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[3]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[8] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[4]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[4]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[8] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[4]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[4]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[9] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[5]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[5]_C) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1 has an input control pin design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/ram_reg_1/ADDRARDADDR[9] (net: design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out/addra[5]) which is driven by a register (design_1_i/sa_engine_ip_0/inst/u_core/g_legacy_core.u_sa_core/dpram_out_addra_reg[5]_P) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC RTSTAT-10] No routable loads: 135 net(s) have no routable loads. The problem bus(es) and/or net(s) are design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.gen_axi3_conv.axi3_conv_inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m01_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/axi_mem_intercon/m00_couplers/auto_ds/inst/gen_downsizer.gen_cascaded_downsizer.first_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0]... and (the first 15 of 93 listed).
 INFO: [Vivado 12-3199] DRC finished with 0 Errors, 47 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
@@ -841,5 +838,5 @@ INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT dev
 INFO: [Common 17-83] Releasing license: Implementation
 22 Infos, 47 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:44 ; elapsed = 00:00:29 . Memory (MB): peak = 2322.621 ; gain = 636.773
-INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 21:25:15 2025...
+write_bitstream: Time (s): cpu = 00:00:37 ; elapsed = 00:00:26 . Memory (MB): peak = 2331.312 ; gain = 645.797
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 22:59:37 2025...
