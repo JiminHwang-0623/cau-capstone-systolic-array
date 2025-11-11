@@ -675,6 +675,7 @@ tile_orchestrator 입출력·역할(요약)
 - Inputs (from submodules): `ld_done`(loader), `pe_done`/`c_busy`/`c_last`(compute), `wr_done`(store)
 - Outputs: 로더 트리거(`load_req`, `i0/j0/k0`, `k_eff`, B ping‑pong bank), 컴퓨트 트리거(`start_pe`, `acc_clr`), 스토어 트리거(`drain_req`)
 - Role: Block(=j_block) → Tile(i0,j0) → K‑seg 루프를 스케줄링하고, A‑persist/B‑ping‑pong 정책으로 로더·컴퓨트·스토어를 연결
+```
 
 tile_orchestrator 순서(의사코드)
 ```
