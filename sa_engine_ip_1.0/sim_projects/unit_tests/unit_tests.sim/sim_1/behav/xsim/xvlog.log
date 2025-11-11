@@ -1,12 +1,14 @@
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe_array_8x8
-WARNING: [VRFC 10-3824] variable 'li' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:74]
-WARNING: [VRFC 10-3824] variable 'rli' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:76]
-WARNING: [VRFC 10-3824] variable 'li' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:97]
-WARNING: [VRFC 10-3824] variable 'kli' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:99]
+WARNING: [VRFC 10-3824] variable 'li' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:75]
+WARNING: [VRFC 10-3824] variable 'rli' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:77]
+WARNING: [VRFC 10-3824] variable 'li' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:98]
+WARNING: [VRFC 10-3824] variable 'kli' must explicitly be declared as automatic or static [C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_array_8x8.sv:100]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_int8_dsp.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe_int8_dsp
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/pe/pe_int8_lut.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe_int8_lut
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_pe_array_8x8_lut_smoke
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/rtl/core/tile_compute.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tile_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sudea/capstone_design_final/sa_engine_ip_1.0/sim/tb/unit/tb_tile_compute.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tile_compute

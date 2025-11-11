@@ -733,14 +733,14 @@ for col_blk in 0..M step BLOCK_M:
 ```
 
 ### 7.5 작업 순서(스텝별, 작은 단위)
-1) 패키지/헤더 확정: `sa_params_pkg.sv`, `axi_regs_pkg.sv`, `addr_map.svh`, `sa_defs.svh`에 파라미터·오프셋·매크로 정의  [완료]
-2) 스텁 포트 확정: `tile_*`, `axi_addr_gen`, `bram_pingpong`, `pe_*`의 입출력·핸드셰이크만 정의(기능 없이 컴파일 가능)  [완료]
-3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)  [완료]
-4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`) -> B, C Matrix에 사용  [완료]
-5) 로더: `tile_loader.sv`에서 `axi_addr_gen`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성  [완료]
-6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입  [완료]
-7) 컴퓨트: `tile_compute.sv`에서 K-loop 누적·파이프 딜레이 보정, 경계 zero-pad/mask  [작업예정]
-8) 스토어: `tile_store.sv`에서 C 타일 버퍼→`dma_write` 연속 버스트 아웃
+1) 패키지/헤더 확정: `sa_params_pkg.sv`, `axi_regs_pkg.sv`, `addr_map.svh`, `sa_defs.svh`에 파라미터·오프셋·매크로 정의  **[완료]**
+2) 스텁 포트 확정: `tile_*`, `axi_addr_gen`, `bram_pingpong`, `pe_*`의 입출력·핸드셰이크만 정의(기능 없이 컴파일 가능)  **[완료]**
+3) 주소 생성기: `axi_addr_gen.sv`에 base/stride/연속 버스트(`ARLEN/AWLEN`) 계산(4B 정렬·경계 고려)  **[완료]**
+4) 핑퐁 버퍼: `bram_pingpong.sv` 더블버퍼 구현(채움/소비 req/done, `bank_sel`) -> B, C Matrix에 사용  **[완료]**
+5) 로더: `tile_loader.sv`에서 `axi_addr_gen`/`dma_read` 연동, A 상주·B ping-pong 채움, 경계 마스크 생성  **[완료]**
+6) PE 선택: `pe_int8_{lut,dsp}.sv`와 `pe_array_8x8.sv` 구현, `USE_DSP` 파라미터 도입  **[완료]**
+7) 컴퓨트: `tile_compute.sv`에서 K-loop 누적·파이프 딜레이 보정, 경계 zero-pad/mask  **[완료]**
+8) 스토어: `tile_store.sv`에서 C 타일 버퍼→`dma_write` **[작업중]**
 9) 오케스트레이터: `tile_orchestrator.sv` Block→Tile→K FSM, 초기→비오버랩→오버랩 확장
 10) 파이프라인 통합: `sa_core_pipeline.sv`에서 신규 `tile_*`와 DMA를 직접 배선(기존 경로는 파라미터로 보존)
 11) TB 보강: 신규 레지스터 시퀀스(update_A/N/K/M/stride)와 경계 케이스(13×13 등) 추가
@@ -803,18 +803,24 @@ for col_blk in 0..M step BLOCK_M:
   - A는 전역 상주(DPRAM)로 j-block 전 구간에서 재사용.
 
 ### 7.10 유닛 테스트(모듈 단위)
-- signed INT8 DSP unit: `sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv`  [PASS]
+- tile_compute: `sim/tb/unit/tb_tile_compute.sv`  **[PASS]**
+  - TC1: A(8x16), B(16x8) -> C(8x8) **성공**
+  - TC2: A(5x13), B(13x7) -> C(5x7) **성공**
+  - TC3: A(64x768), B(768x256) -> C(64x256) **시간 관계상 생략**
+  - TC1과 TC2로 내부 기능 검증은 완료. TC3은 tb 수정 많이 해야 돼서 생략략
+
+- signed INT8 DSP unit: `sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv`  **[PASS]**
   - K=4, 8, 768 순서로 검증: `a_ld_start`/`b_ld_start` 동시 인가 → `ld_done` 대기 → `start` → `done` → `c_drain_req` → row-major 비교 → `c_last`.
   - 상단 `TB_USE_DSP`=0/1로 LUT/DSP 경로를 토글, 동일 데이터/골든으로 동등성 확인.
   - `sim/tb/unit/tb_pe_array_8x8.sv`: 로더 task를 `ref` 인자화하여 인스턴스별 독립 로딩 보장.  
 
-- 주소 생성기: `sim/tb/unit/tb_axi_addr_gen.sv`  [PASS]
+- 주소 생성기: `sim/tb/unit/tb_axi_addr_gen.sv`  **[PASS]**
   - S1: 64B 1버스트, S2: 256B 4버스트, S3: 백프레셔, S4: 0B  
 
-- BRAM pingpong: `sim/tb/unit/tb_bram_pingpong.sv`  [PASS]
+- BRAM pingpong: `sim/tb/unit/tb_bram_pingpong.sv`  **[PASS]**
   - B 블록 모드(외부 commit) 기본/오버랩, C 타일 모드(내부 카운팅)
 
- - Tile Loader: `sim/tb/unit/tb_tile_loader.sv`  [PASS]
+ - Tile Loader: `sim/tb/unit/tb_tile_loader.sv`  **[PASS]**
    - TC1 A bulk (N=8,K=16): words=32, bursts=2, beats=32
    - TC2 B block (K=16,M=16,BLOCK_M=16): seg_words=64, bursts=16, beats=64
    - TC3 A bulk (N=64,K=768): bursts=768, words=12288, beats=12288
@@ -823,7 +829,6 @@ for col_blk in 0..M step BLOCK_M:
 
 ---
 
----
 
 **End of Document**
 

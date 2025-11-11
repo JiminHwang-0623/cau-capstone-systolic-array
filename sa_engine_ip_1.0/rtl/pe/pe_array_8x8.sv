@@ -23,6 +23,7 @@ module pe_array_8x8 #(
   input  logic                           clk,
   input  logic                           rstn,
   input  logic                           start,
+  input  logic                           acc_clr,
   output logic                           done,
 
   input  logic                           a_ld_start,
@@ -109,7 +110,20 @@ module pe_array_8x8 #(
     end
   end
 
-  assign ld_done = a_loaded && b_loaded;
+  // ld_done: convert level (a_loaded && b_loaded) to a one-cycle pulse
+  logic ld_done_lvl_q;
+  logic ld_done_lvl;
+  assign ld_done_lvl = a_loaded && b_loaded;
+  always_ff @(posedge clk or negedge rstn) begin
+    if (!rstn) begin
+      ld_done_lvl_q <= 1'b0;
+    end else begin
+      // On new load sequence, clear edge history
+      if (a_ld_start || b_ld_start) ld_done_lvl_q <= 1'b0;
+      else                          ld_done_lvl_q <= ld_done_lvl;
+    end
+  end
+  assign ld_done = ld_done_lvl & ~ld_done_lvl_q;
 
   // Mesh interconnect (neighbor pass-through)
   logic signed [ELEM_BITS-1:0] a_sig [0:SIDE-1][0:SIDE-1];
@@ -188,7 +202,7 @@ module pe_array_8x8 #(
         end
       end
     end else begin
-      if (start && !run) begin
+      if (acc_clr) begin
         // clear accumulators at the beginning of a compute
         for (r=0; r<SIDE; r++) begin
           for (c=0; c<SIDE; c++) begin
@@ -231,7 +245,7 @@ module pe_array_8x8 #(
           pe_int8_dsp #(.ELEM_BITS(ELEM_BITS), .ACC_BITS(ACC_BITS)) u_pe (
             .clk     (clk),
             .rstn    (rstn),
-            .clr     (start && !run),
+            .clr     (acc_clr),
             .shift_en(shift_en),
             .a_in    (a_in_cell),
             .b_in    (b_in_cell),
@@ -247,7 +261,7 @@ module pe_array_8x8 #(
           pe_int8_lut #(.ELEM_BITS(ELEM_BITS), .ACC_BITS(ACC_BITS)) u_pe (
             .clk     (clk),
             .rstn    (rstn),
-            .clr     (start && !run),
+            .clr     (acc_clr),
             .shift_en(shift_en),
             .a_in    (a_in_cell),
             .b_in    (b_in_cell),

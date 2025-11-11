@@ -47,7 +47,7 @@ module tb_pe_array_8x8_lut_smoke;
   pe_array_8x8 #(
     .SIDE(SIDE), .ELEM_BITS(ELEM_BITS), .ACC_BITS(ACC_BITS), .USE_DSP(TB_USE_DSP), .K_CYCLES(K4)
   ) u_lut_k4 (
-    .clk(clk), .rstn(rstn), .start(start_k4), .done(done_k4),
+    .clk(clk), .rstn(rstn), .start(start_k4), .acc_clr(start_k4), .done(done_k4),
     .a_ld_start(a_ld_start_k4), .a_ld_valid(a_ld_valid_k4), .a_ld_data(a_ld_data_k4),
     .b_ld_start(b_ld_start_k4), .b_ld_valid(b_ld_valid_k4), .b_ld_data(b_ld_data_k4),
     .ld_done(ld_done_k4),
@@ -67,7 +67,7 @@ module tb_pe_array_8x8_lut_smoke;
   pe_array_8x8 #(
     .SIDE(SIDE), .ELEM_BITS(ELEM_BITS), .ACC_BITS(ACC_BITS), .USE_DSP(TB_USE_DSP), .K_CYCLES(K8)
   ) u_lut_k8 (
-    .clk(clk), .rstn(rstn), .start(start_k8), .done(done_k8),
+    .clk(clk), .rstn(rstn), .start(start_k8), .acc_clr(start_k8), .done(done_k8),
     .a_ld_start(a_ld_start_k8), .a_ld_valid(a_ld_valid_k8), .a_ld_data(a_ld_data_k8),
     .b_ld_start(b_ld_start_k8), .b_ld_valid(b_ld_valid_k8), .b_ld_data(b_ld_data_k8),
     .ld_done(ld_done_k8),
@@ -87,7 +87,7 @@ module tb_pe_array_8x8_lut_smoke;
   pe_array_8x8 #(
     .SIDE(SIDE), .ELEM_BITS(ELEM_BITS), .ACC_BITS(ACC_BITS), .USE_DSP(TB_USE_DSP), .K_CYCLES(K768)
   ) u_lut_k768 (
-    .clk(clk), .rstn(rstn), .start(start_k768), .done(done_k768),
+    .clk(clk), .rstn(rstn), .start(start_k768), .acc_clr(start_k768), .done(done_k768),
     .a_ld_start(a_ld_start_k768), .a_ld_valid(a_ld_valid_k768), .a_ld_data(a_ld_data_k768),
     .b_ld_start(b_ld_start_k768), .b_ld_valid(b_ld_valid_k768), .b_ld_data(b_ld_data_k768),
     .ld_done(ld_done_k768),

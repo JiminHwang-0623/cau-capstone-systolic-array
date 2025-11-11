@@ -3,7 +3,8 @@ sv xil_defaultlib  --include "../../../../../../rtl/include" \
 "../../../../../../rtl/pe/pe_array_8x8.sv" \
 "../../../../../../rtl/pe/pe_int8_dsp.sv" \
 "../../../../../../rtl/pe/pe_int8_lut.sv" \
-"../../../../../../sim/tb/unit/tb_pe_array_8x8_lut_smoke.sv" \
+"../../../../../../rtl/core/tile_compute.sv" \
+"../../../../../../sim/tb/unit/tb_tile_compute.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
